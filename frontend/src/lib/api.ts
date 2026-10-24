@@ -151,9 +151,10 @@ export const requestRescue = (
     "/projects/demo/sites/" + encodeURIComponent(siteId) + "/rescue",
     post(body, signal),
   );
+/** TODO: needs backend — pass only an identifier from the frozen bin contract. */
 export const getDayparts = (
   evaluationId: string,
-  bin: "weekday_lunch" | "weekend_evening",
+  bin: string,
   signal?: AbortSignal,
 ) =>
   apiRequest<unknown>(

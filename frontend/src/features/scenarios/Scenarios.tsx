@@ -93,6 +93,23 @@ export default function Scenarios() {
                       })
                     }
                   />
+                  <input
+                    type="range"
+                    aria-label="Demand multiplier slider"
+                    min={0}
+                    max={3}
+                    step="0.01"
+                    value={
+                      Number.isFinite(draft.assumptions.demand_multiplier)
+                        ? draft.assumptions.demand_multiplier
+                        : 1
+                    }
+                    onChange={(e) =>
+                      w.editAssumptions({
+                        demand_multiplier: Number(e.target.value),
+                      })
+                    }
+                  />
                   <small>1 keeps baseline demand; 1.2 means +20%.</small>
                 </label>
                 <label>
@@ -107,6 +124,23 @@ export default function Scenarios() {
                     onChange={(e) =>
                       w.editAssumptions({
                         rent_multiplier: number(e.target.value),
+                      })
+                    }
+                  />
+                  <input
+                    type="range"
+                    aria-label="Rent multiplier slider"
+                    min={0}
+                    max={3}
+                    step="0.01"
+                    value={
+                      Number.isFinite(draft.assumptions.rent_multiplier)
+                        ? draft.assumptions.rent_multiplier
+                        : 1
+                    }
+                    onChange={(e) =>
+                      w.editAssumptions({
+                        rent_multiplier: Number(e.target.value),
                       })
                     }
                   />

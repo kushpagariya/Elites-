@@ -1,7 +1,0 @@
-node_modules/
-.npm-cache/
-.next/
-out/
-*.tsbuildinfo
-.openai/source-workflow/
-*.zip

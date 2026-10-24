@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { useWorkspace } from "@/lib/workspace";
-import { money } from "@/lib/format";
+import { money, methodLabel } from "@/lib/format";
 import { ErrorNotice } from "./Feedback";
 const links = [
   ["/app", "Explore & Compare"],
@@ -100,6 +100,10 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
               </button>
             </div>
           </div>
+          <div className="method-notice">
+            <span>{methodLabel(w.evaluation?.data.method_mode)}</span>
+            <a href="#evidence-details">Evidence details</a>
+          </div>
           {w.loading && (
             <p role="status" className="loading-state">
               Loading the saved demo project and scenarios…
@@ -127,7 +131,7 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
             </p>
           )}
           {children}
-          <details className="identity-details">
+          <details className="identity-details" id="evidence-details">
             <summary>Evidence and computation identities</summary>
             <dl>
               <div>

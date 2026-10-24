@@ -17,7 +17,6 @@ import {
   evaluateScenario,
   optimisePortfolio,
   requestRescue,
-  getDayparts,
   getSavedReport,
 } from "./api";
 import type {
@@ -60,19 +59,22 @@ export function failure(error: unknown): Failure {
       ? "Connection unavailable"
       : e.status === 501
         ? "Computation not connected"
-        : e.status === 422
-          ? "Check your assumptions"
-          : e.status === 409
-            ? "Results need refreshing"
-            : e.status === 404
-              ? "Resource unavailable"
-              : "Request failed";
+        : e.status === 503
+          ? "Service unavailable"
+          : e.status === 422
+            ? "Check your assumptions"
+            : e.status === 409
+              ? "Results need refreshing"
+              : e.status === 404
+                ? "Resource unavailable"
+                : "Request failed";
   const details = e.details as
     | { error?: { details?: { field: string; reason: string }[] } }
     | undefined;
   return {
     title,
-    message: e.message,
+    message:
+      e.status === 503 ? e.message + " Please retry in a moment." : e.message,
     fields:
       details?.error?.details?.map((d) => d.field + ": " + d.reason) ?? [],
   };
@@ -179,7 +181,11 @@ function useWorkspaceState() {
       getInfrastructure(controller.signal),
     ]);
     if (controller.signal.aborted || !loadClock.current.accepts(token)) return;
-    if (p.status === "fulfilled") setProject(p.value);
+    if (p.status === "fulfilled") {
+      setProject(p.value);
+      const siteIds = new Set(p.value.data.sites.map((site) => site.site_id));
+      setSelection((old) => old.filter((id) => siteIds.has(id)).slice(0, 2));
+    }
     if (s.status === "fulfilled") {
       setScenarios(s.value.data);
       setScenarioId((old) => {
@@ -443,29 +449,16 @@ function useWorkspaceState() {
       },
     });
   };
-  const loadDayparts = async () => {
+  const loadDayparts = () => {
     if (!current || !evaluation) return;
-    const { token, controller } = begin("dayparts");
-    const results = await Promise.allSettled([
-      getDayparts(
-        evaluation.data.evaluation_id,
-        "weekday_lunch",
-        controller.signal,
-      ),
-      getDayparts(
-        evaluation.data.evaluation_id,
-        "weekend_evening",
-        controller.signal,
-      ),
-    ]);
-    if (!clock.current.accepts(token) || controller.signal.aborted) return;
-    const rejected = results.find((r) => r.status === "rejected");
-    if (rejected?.status === "rejected") setError(failure(rejected.reason));
-    else
-      setNotice(
-        "Opportunity responses received. Profiles, support and dates await the agreed DaypartDNA schema; no proxy values have been inferred.",
-      );
-    finish(token);
+    // TODO: needs backend to freeze time-bin identifiers and response fields.
+    setNotice("");
+    setError({
+      title: "DaypartDNA unavailable",
+      message:
+        "TODO: needs backend — agree time-bin identifiers and the profile response schema before opportunity profiles can load.",
+      fields: [],
+    });
   };
   const downloadReport = async () => {
     if (

@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import LocationMap from "./LocationMap";
+import CashflowComparison from "./CashflowComparison";
 import { useWorkspace } from "@/lib/workspace";
 import { money, percent, years } from "@/lib/format";
 import type { SiteAnalysis } from "@/lib/types";
@@ -26,6 +27,15 @@ export default function Explore() {
   const analyses = new Map(
     evaluation?.site_analyses.map((s) => [s.site_id, s]),
   );
+  const rankedIds = new Set(evaluation?.rankings ?? []);
+  const sites = project
+    ? [
+        ...(evaluation?.rankings ?? [])
+          .map((id) => project.sites.find((site) => site.site_id === id))
+          .filter((site) => site !== undefined),
+        ...project.sites.filter((site) => !rankedIds.has(site.site_id)),
+      ]
+    : [];
   const compared = w.selection
     .map((id) => project?.sites.find((s) => s.site_id === id))
     .filter((s) => s !== undefined);
@@ -83,19 +93,31 @@ export default function Explore() {
                       <th scope="col">Compare</th>
                       <th scope="col">Candidate site</th>
                       <th scope="col" className="numeric">
+                        Annual modelled sales (INR)
+                      </th>
+                      <th scope="col" className="numeric">
                         CAPEX (INR)
                       </th>
                       <th scope="col" className="numeric">
                         Base rent (INR/month)
                       </th>
                       <th scope="col" className="numeric">
+                        Lost branch contribution (INR/year)
+                      </th>
+                      <th scope="col" className="numeric">
                         Incremental NPV (INR)
+                      </th>
+                      <th scope="col" className="numeric">
+                        Horizon ROI
+                      </th>
+                      <th scope="col" className="numeric">
+                        Simple payback
                       </th>
                       <th scope="col">Diagnosis</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {project.sites.map((site) => {
+                    {sites.map((site) => {
                       const analysis = analyses.get(site.site_id);
                       return (
                         <tr
@@ -104,16 +126,16 @@ export default function Explore() {
                         >
                           <td>
                             <label className="compare-control">
-                            <input
-                              type="checkbox"
-                              aria-label={"Compare " + site.name}
-                              checked={w.selection.includes(site.site_id)}
-                              disabled={
-                                !w.selection.includes(site.site_id) &&
-                                w.selection.length === 2
-                              }
-                              onChange={() => w.toggleSite(site.site_id)}
-                            />
+                              <input
+                                type="checkbox"
+                                aria-label={"Compare " + site.name}
+                                checked={w.selection.includes(site.site_id)}
+                                disabled={
+                                  !w.selection.includes(site.site_id) &&
+                                  w.selection.length === 2
+                                }
+                                onChange={() => w.toggleSite(site.site_id)}
+                              />
                             </label>
                           </td>
                           <th scope="row">
@@ -122,15 +144,27 @@ export default function Explore() {
                               {site.site_id} · {site.store_size_sqm} m²
                             </small>
                           </th>
+                          <td className="numeric">
+                            {money(analysis?.annual_revenue_inr)}
+                          </td>
                           <td className="numeric">{money(site.capex_inr)}</td>
                           <td className="numeric">
                             {money(site.monthly_rent_inr)}
+                          </td>
+                          <td className="numeric">
+                            {money(analysis?.lost_existing_contribution_inr)}
                           </td>
                           <td className="numeric">
                             {money(analysis?.npv_inr)}
                             {analysis && !w.current && (
                               <small>Stale evaluation</small>
                             )}
+                          </td>
+                          <td className="numeric">
+                            {percent(analysis?.roi_fraction)}
+                          </td>
+                          <td className="numeric">
+                            {years(analysis?.payback_years)}
                           </td>
                           <td>
                             <Diagnosis analysis={analysis} />
@@ -249,6 +283,7 @@ export default function Explore() {
                       </tbody>
                     </table>
                   </div>
+                  <CashflowComparison sites={compared} analyses={analyses} />
                   <p className="helper">
                     Rent and CAPEX are ASSUMED project inputs. Scenario
                     overrides and multipliers are shown in Scenario &amp;
@@ -369,11 +404,12 @@ export default function Explore() {
             <div className="section-heading">
               <div>
                 <h2 id="dayparts-heading">DaypartDNA</h2>
-                <p>POI-derived opportunity, not measured footfall.</p>
+                <p>POI-derived opportunity proxy — not measured footfall.</p>
               </div>
               <button
                 className="secondary"
-                disabled={!w.current || w.busy}
+                disabled
+                title="TODO: needs backend — frozen bin identifiers and profile schema"
                 onClick={() => void w.loadDayparts()}
               >
                 {w.operation === "dayparts"
@@ -387,13 +423,34 @@ export default function Explore() {
                   <h3>{bin}</h3>
                   <p>Opportunity index: unavailable</p>
                   <p className="helper">
-                    POI contributors, support, shares and source dates await the
-                    backend profile response. Missing evidence is not zero
+                    Within-site share: unavailable. Supporting POI
+                    categories/counts, coverage, source dates and opening-hours
+                    assumptions are not supplied. Missing evidence is not zero
                     opportunity.
                   </p>
                 </div>
               ))}
             </div>
+            <details>
+              <summary>Six display periods · Asia/Kolkata</summary>
+              <ul>
+                {[
+                  "Weekday 06:00–11:00",
+                  "Weekday 11:00–15:00",
+                  "Weekday 15:00–20:00",
+                  "Weekday 20:00–06:00",
+                  "Weekend 06:00–18:00",
+                  "Weekend 18:00–06:00",
+                ].map((label) => (
+                  <li key={label}>{label}</li>
+                ))}
+              </ul>
+              <p className="helper">
+                TODO: needs backend — freeze bin identifiers and the shared
+                cross-site index, within-site share and support schema. Display
+                labels are never used as wire identifiers.
+              </p>
+            </details>
           </section>
           <details className="branch-details">
             <summary>
