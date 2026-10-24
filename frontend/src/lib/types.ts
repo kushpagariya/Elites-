@@ -39,6 +39,7 @@ export interface ResponseMeta {
   contract_version: "1";
   fixture_id: "demo-1";
   scenario_id?: string;
+  evaluation_id?: string;
 }
 
 export interface ApiEnvelope<T> {
@@ -47,7 +48,11 @@ export interface ApiEnvelope<T> {
 }
 
 export type DemoProject = Project & { project_id: "demo"; source_status: "SYNTHETIC" };
-export type HealthResponse = ApiEnvelope<{ status: "ok"; implementation_status: "scaffold" }>;
+export type HealthResponse = ApiEnvelope<{
+  status: "ok";
+  implementation_status: "scaffold" | "integration";
+  analytics_readiness?: string;
+}>;
 export type DemoProjectResponse = ApiEnvelope<DemoProject>;
 
 export interface ApiErrorResponse {
@@ -154,7 +159,29 @@ export interface RescueRequest {
   upper_bound?: number | null;
 }
 
+export interface RescueResult {
+  rescue_id: string;
+  evaluation_id: string;
+  site_id: string;
+  lever: "rent" | "sales";
+  lower_bound: number;
+  upper_bound: number;
+  status: Exclude<RescueStatus, "NOT_REQUESTED">;
+  threshold: number | null;
+  verification_npv_inr: number | null;
+  reasons: string[];
+}
+
+export interface RankingData {
+  evaluation_id: string;
+  rankings: string[];
+  diagnoses: Record<string, FailFastDiagnosis>;
+}
+
 export type ScenarioResponse = ApiEnvelope<Scenario>;
 export type ScenarioListResponse = ApiEnvelope<Scenario[]>;
 export type EvaluationResponse = ApiEnvelope<EvaluationData>;
 export type PortfolioResponse = ApiEnvelope<PortfolioResult>;
+export type RescueResponse = ApiEnvelope<RescueResult>;
+export type SiteAnalysisResponse = ApiEnvelope<SiteAnalysis>;
+export type RankingResponse = ApiEnvelope<RankingData>;

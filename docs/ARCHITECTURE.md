@@ -1,6 +1,6 @@
 # StoreScout architecture
 
-One local operator, one Navi Mumbai grocery demonstration, 10 candidates/four fictional branches. The complete PRD remains authoritative. This scaffold provides connections and interfaces; the team implements the numerical pipeline.
+One local operator, one Navi Mumbai grocery demonstration, 10 candidates/four fictional branches. The complete PRD remains authoritative. Backend integration provides orchestration, atomic persistence and saved-result endpoints; the numerical pipeline and connected UI still require teammate delivery.
 
 ```mermaid
 flowchart TD
@@ -53,6 +53,6 @@ The public `EvaluationData` intentionally excludes internal attraction matrices.
 
 ## Failure and safety behaviour
 
-`501 NOT_IMPLEMENTED` currently marks unconnected analytics. Backend replaces it only when real outputs validate. Later use 422 for invalid inputs, 404 for unknown/cross-project objects, 409 for stale versions and 503 for unavailable computation. Client cancels obsolete requests and checks evaluation/scenario IDs before displaying responses. There is one atomic evaluation pointer, never independent financial/map/portfolio updates.
+Unconnected analytics now return `503 ENGINE_UNAVAILABLE`. Backend only saves validated computed output. Errors distinguish 422 invalid input, 404 unknown/cross-project objects, 409 stale versions/idempotency conflicts, 502 invalid analytical output and 503 unavailable computation. Client cancels obsolete requests and checks evaluation/scenario IDs before displaying responses. There is one atomic evaluation/context save, never independent financial/map/portfolio updates.
 
 H4 is a connected prototype; it must demonstrate truthful data/method labels, not claim all AC01-32 passed. Remaining PRD behaviours are tracked in STATUS. No user data or credentials are sent to external services by this scaffold.

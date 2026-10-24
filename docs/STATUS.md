@@ -1,31 +1,58 @@
-# Setup status
+# Backend integration status
 
-## Available in this setup
+Branch: backend-integration. Starting scaffold: 569f4f52f459ed09129c04a17ac97485601d7bb7.
 
-- Next.js/TypeScript connectivity page and shared typed API client.
-- FastAPI health, synthetic project and hypothetical infrastructure reads.
-- Immutable scenario create/list using SQLite; baseline unchanged; connections close after each transaction.
-- Canonical Pydantic schemas, generated OpenAPI and matching frontend planned types.
-- Synthetic seed: 10 sites, four branches, 100 cells, 60 POIs, one event and assumed time weights.
-- Real pure-Python NPV/ROI/payback helper; all other analytical modules have explicit unimplemented seams.
-- Three owner prompts, architecture, contract, folder ownership and H1/H2/H3/H4 integration gates.
+## Implemented
 
-## Checks actually run
+- API index, health, project and hypothetical infrastructure/source snapshot reads.
+- Immutable scenario create/list/read, ISO date validation and ordered rescue bounds.
+- Evaluation service loading frozen sources, actual model/card hashes and domain source identity.
+- Strict complete-result validation, candidate coverage/ranking/source checks.
+- Atomic SQLite public result + private frozen context + cache/idempotency saves.
+- Deduplication, conflicting idempotency keys and concurrent publication handling.
+- Saved evaluation/site/ranking/portfolio/rescue reads.
+- Portfolio orchestration with saved scenario budget; independent CAPEX/count/eligibility/risk checks.
+- Rescue orchestration and persisted proposals; applying a proposal still requires a new scenario.
+- Escaped printable HTML/JSON report preserving saved identities, assumptions and provenance.
+- Bounded analytical worker slots, timeout handling and no late result publication.
+- Typed frontend transport helpers and updated shared types/OpenAPI.
+- Complete implementation/integration order in BACKEND_INTEGRATION_WORKFLOW.md.
 
-- Python 3.12; Node.js 24.22.1.
-- Four finance unit checks passed: known NPV, sales/NPV reversal, zero CAPEX/no recovery and invalid values.
-- Four API contract checks passed: health/fixture, persistent immutable scenario, explicit 501 analytics and invalid/unknown input.
-- Frontend TypeScript check passed; Next.js 16.4.3 production build passed.
-- Generated `contracts/openapi.json`. Python resolved dependency lock and pnpm lock are included.
+## Checks actually completed
 
-The initial SQLite cleanup test exposed an unclosed connection; repository context management was fixed and all API checks rerun successfully. No model training, model accuracy, numerical network/portfolio result, UI journey acceptance or latency target has been established by these scaffold checks.
+- 19 API/repository contract tests passed, including rollback, concurrent cache publication, idempotency conflict, stale model/engine, invalid analytical output, budget/risk checks, rescue proposal immutability, report escaping/mismatched run and timeout behavior.
+- Four finance oracle unit tests passed.
+- Frontend route type generation and TypeScript no-emit check passed.
+- Next.js 16.4.3 default production build passed from this checkout.
+- OpenAPI regenerated; git diff whitespace check passed.
+- Live HTTP smoke check: API index/health/project/source reads 200; exactly ten candidates/four branches; model 503 MODEL_UNAVAILABLE; evaluation 503 ENGINE_UNAVAILABLE. OpenAPI has 18 paths.
+- Local backend started on 127.0.0.1:8000 with backend source reload enabled.
 
-## Remaining work and first assignments
+Contract tests explicitly inject TEST-ONLY engines and an invalid-as-a-model test artifact. They establish transport/persistence behavior, not trained inference, network correctness, portfolio optimality, forecast accuracy or complete PRD acceptance.
 
-1. Logic: real fitted synthetic model -> bounded allocation -> complete finance/site output. Backend: connect evaluation service and atomically save it. Frontend: table/selection and actual API result. Due H1 from team kickoff.
-2. Logic/backend: FailFast/rent rescue + recomputed scenario. Frontend: comparison/rescue. Due H2.
-3. One infrastructure open/delay bridge, DaypartDNA profile and exact subset portfolio plus saved report. Due H3; integrate and verify by H4.
+The first production-build attempt reused dependencies through an external junction, which Turbopack rejected. Replaced that temporary link with a normal locked install; the default production build then passed. No product configuration workaround was committed.
 
-Until implemented, evaluate, rescue, portfolio, model and feature/daypart/ranking routes return 501; analysis/report reads are also integration work. The current page is a development diagnostic, not the completed product UI.
+## Current teammate heads inspected
 
-Next exact action: three owners read their prompts, start from this main commit, run README setup, then agree the minimal shared schema additions in the first 15 minutes. Backend owns further integration. No P1/P2 work starts before the H4 path is connected.
+- origin/frontend: e56dd84621ba63885f7506a3d399c7e6d1e0543b, Landing Page.
+- origin/ML: 569f4f52f459ed09129c04a17ac97485601d7bb7, original scaffold.
+- origin/backend and origin/main: original scaffold.
+
+There were no newer teammate commits at the last fetch. The existing frontend marketing app is still nested under frontend/Elites/storescout and /app is a placeholder. Its illustrative local calculations have not been promoted into analytical results. Do not merge generated .next-dev output or declare this landing page a connected workspace.
+
+## Remaining integration dependencies
+
+1. ML: implement domain.pipeline.run_evaluation and supply actual fitted bundle/model card. Include JSON _context for frozen network persistence. Existing domain functions are still stubs; backend execution honestly returns 503.
+2. ML: implement full-network run_portfolio and proposed run_rescue seam against saved context. Numerical invariants remain ML-owned.
+3. Backend + ML + frontend: freeze additive sensitivity, detailed evidence, DaypartDNA and infrastructure result DTOs. Current daypart endpoint intentionally returns 503; raw source weights are not computed opportunity.
+4. Frontend: consolidate one application root; connect workspace to typed helpers; verify annual INR/decimal horizon ROI, six time bins, 24-month delay and evaluation identity.
+5. Integration: merge compatible new branch commits, run relevant checks and then the real end-to-end investment journey. Preserve the last verified state if a merge fails.
+6. Complete-PRD follow-up: coordinated margin/OPEX/competition controls, project creation/import validation and remaining AC01-32. These are not claimed complete by the H4 infrastructure increment.
+
+A recurring check for new frontend/ML/backend commits is configured every ten minutes. It should stay quiet for unchanged heads, preserve uncommitted work, integrate only verified updates onto backend-integration, and notify on meaningful integration outcomes or blockers. It cannot guarantee a complete analytical prototype before the required teammate code arrives.
+
+## Immediate integration agreement
+
+Read CONTRACT.md and BACKEND_INTEGRATION_WORKFLOW.md before changing the seam. Backend adds all public identities; domain supplies computed values only. Do not reconstruct full-network state from public rounded site cards. Do not silently mix changed engine/model implementations with a saved evaluation. Reports always read saved results.
+
+No main promotion, full UI journey rehearsal, actual model inference, model benchmark, infrastructure activation calculation, DaypartDNA numerical check or full-network optimality proof has been completed in this increment.

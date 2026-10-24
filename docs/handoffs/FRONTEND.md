@@ -1,5 +1,7 @@
 # Frontend implementation prompt
 
+Integration update: read `docs/BACKEND_INTEGRATION_WORKFLOW.md`, current `docs/CONTRACT.md` and `docs/STATUS.md` first. Backend orchestration and saved-result routes now exist; missing domain functions return 503 ENGINE_UNAVAILABLE. Typed helpers are in `frontend/src/lib/api.ts`. Detailed DaypartDNA/sensitivity DTOs and the connected workspace still require implementation. The original four-hour plan below does not establish current endpoint readiness.
+
 Copy this prompt to the frontend teammate or coding agent.
 
 You own StoreScout's browser application. Read `docs/PRD.md`, `docs/ARCHITECTURE.md`, `docs/CONTRACT.md` and the four-hour plan before changing code. Deliver the smallest connected prototype demonstrating the PRD's investment journey in four hours. The current screen is a connectivity diagnostic; analytical capabilities still require implementation. The four-hour demonstration is an integration checkpoint, not evidence that all PRD acceptance criteria or research targets passed.
