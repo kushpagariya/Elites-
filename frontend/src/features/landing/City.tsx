@@ -2,6 +2,7 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Component, useEffect, useMemo, useRef, type ReactNode } from 'react';
 import * as THREE from 'three';
+import type { MotionValue } from 'motion/react';
 
 class SceneBoundary extends Component<{ children: ReactNode; onFailure: () => void }, { failed: boolean }> {
   state = { failed: false };
@@ -115,4 +116,59 @@ export default function City({ paused, onFailure }: { paused: boolean; onFailure
     <directionalLight position={[5, 5, -4]} intensity={1.2} color="#d4e7e3" />
     <Street paused={paused} />
   </Canvas></SceneBoundary>;
+}
+
+function FilmCamera({ progress, onReady, onFailure }: { progress: MotionValue<number>; onReady: () => void; onFailure: () => void }) {
+  const { camera, size, invalidate, gl } = useThree();
+  const ready = useRef(false);
+  const position = useMemo(() => new THREE.Vector3(), []);
+  const target = useMemo(() => new THREE.Vector3(), []);
+  const route = useMemo(() => new THREE.CatmullRomCurve3([
+    new THREE.Vector3(12, 4.8, 14), new THREE.Vector3(5, 4.3, 13),
+    new THREE.Vector3(-4, 6.2, 13), new THREE.Vector3(8, 9, 15),
+  ]), []);
+  const focus = useMemo(() => new THREE.CatmullRomCurve3([
+    new THREE.Vector3(-2, 1.8, .7), new THREE.Vector3(0, 1.8, .7),
+    new THREE.Vector3(1.5, 1.7, .8), new THREE.Vector3(0, 1.5, .8),
+  ]), []);
+  useEffect(() => progress.on('change', () => invalidate()), [progress, invalidate]);
+  useEffect(() => {
+    const lost = () => onFailure();
+    gl.domElement.addEventListener('webglcontextlost', lost);
+    return () => gl.domElement.removeEventListener('webglcontextlost', lost);
+  }, [gl, onFailure]);
+  useFrame(() => {
+    const p = Math.max(0, Math.min(1, progress.get()));
+    const cam = camera as THREE.OrthographicCamera;
+    route.getPoint(p, position);
+    focus.getPoint(p, target);
+    cam.position.copy(position);
+    cam.lookAt(target);
+    const fit = Math.min(size.width / 13.2, size.height / 9.4);
+    cam.zoom = fit * THREE.MathUtils.lerp(1.5, .92, THREE.MathUtils.smoothstep(p, 0, 1));
+    cam.updateProjectionMatrix();
+    if (!ready.current) { ready.current = true; onReady(); }
+  });
+  return null;
+}
+
+/** The same conceptual street, filmed along a camera path. No geographic claims. */
+export function CinematicCity({ paused, progress, onFailure, onReady }: {
+  paused: boolean; progress: MotionValue<number>; onFailure: () => void; onReady: () => void;
+}) {
+  return <SceneBoundary onFailure={onFailure}>
+    <Canvas shadows orthographic camera={{ position: [12, 4.8, 14], zoom: 70, near: .1, far: 100 }}
+      dpr={[1, 1.25]} frameloop={paused ? 'demand' : 'always'}
+      gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}>
+      <color attach="background" args={['#e8ddc8']}/>
+      <fog attach="fog" args={['#e8ddc8', 18, 65]}/>
+      <ambientLight intensity={1.4}/>
+      <directionalLight castShadow position={[-4, 10, 8]} intensity={2.5} color="#ffe4b7"
+        shadow-mapSize={[1024, 1024]} shadow-camera-left={-12} shadow-camera-right={12}
+        shadow-camera-top={12} shadow-camera-bottom={-12} shadow-normalBias={.04}/>
+      <directionalLight position={[5, 5, -4]} intensity={1.2} color="#d4e7e3"/>
+      <Street paused={paused}/>
+      <FilmCamera progress={progress} onReady={onReady} onFailure={onFailure}/>
+    </Canvas>
+  </SceneBoundary>;
 }

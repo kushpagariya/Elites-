@@ -17,7 +17,7 @@ export function ExpansionField({ children, paused }: { children: ReactNode; paus
   const { scrollYProgress } = useScroll({ target: stage, offset: ['start start', 'end start'] });
 
   const passTransform = useTransform<number, string>([x, y, scrollYProgress], ([px, py, progress]) =>
-    `perspective(1100px) translate3d(${px * 10}px,${py * 7 + progress * 32}px,0) rotateX(${-py * 3 - progress * 4}deg) rotateY(${px * 4}deg) rotateZ(${-progress * 3}deg) scale(${1 - progress * .04})`,
+    `perspective(1100px) translate3d(${px * 10 - progress * 22}px,${py * 7 + progress * 42}px,0) rotateX(${-py * 3 - progress * 8}deg) rotateY(${px * 4 - progress * 18}deg) rotateZ(${-progress * 8}deg) scale(${1 + progress * .14})`,
   );
   const fieldTransform = useTransform<number, string>([x, y, scrollYProgress], ([px, py, progress]) =>
     `translate3d(${-px * 18}px,${-py * 12 - progress * 24}px,0) rotate(${-progress * 8}deg) scale(${1 + progress * .08})`,

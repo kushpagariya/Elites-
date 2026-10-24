@@ -9,6 +9,7 @@ import RetailScene, { Reveal } from './RetailScene';
 import DaypartMap from './DaypartMap';
 import FailFastCards from './FailFastCards';
 import FinancialPlanner from './FinancialPlanner';
+import RetailFilm from './RetailFilm';
 import { ExpansionField, useLandingChoreography } from './LandingMotion';
 const navItems=[{label:'Overview',href:'#hero'},{label:'How it works',href:'#how-it-works'},{label:'Neighbourhoods',href:'#daypart-dna'},{label:'Planning',href:'#financial-planning'}];
 function Arrow({ down=false }:{down?:boolean}) {
@@ -39,10 +40,11 @@ export default function Landing() {
   <PillNav logo={<BrandMark/>} logoAlt="StoreScout" items={navItems} activeHref="#hero" itemStyle="pill" hoverEffect="fill" indicator="dot"/>
   <main id="landing-content">
    <section id="hero" className="hero-section"><div className="hero-grid">
-    <div className="hero-copy"><h1 className="hero-title"><span className="hero-line"><span>Your next store.</span></span><em className="hero-line"><span>A clearer plan.</span></em></h1><p className="hero-lede">Find the right place. Understand the investment.</p><p className="hero-body">Explore neighbourhoods, test the economics and build an expansion plan that fits your budget.</p><div className="hero-actions"><Link className="button" href="/app/">Explore StoreScout <Arrow/></Link><a className="button-secondary" href="#how-it-works">See how it works <Arrow down/></a></div><p className="demo-disclosure">Interactive Navi Mumbai demo · synthetic data</p></div>
+    <div className="hero-copy"><h1 className="hero-title"><span className="hero-line"><span>Your next store.</span></span><em className="hero-line"><span>A clearer plan.</span></em></h1><p className="hero-lede">Find the right place. Understand the investment.</p><p className="hero-body">Explore neighbourhoods, test the economics and build an expansion plan that fits your budget.</p><div className="hero-actions"><Link className="button" href="/app/">Explore StoreScout <Arrow/></Link><a className="button-secondary" href="#retail-film">Watch the story <Arrow down/></a></div><p className="demo-disclosure">Interactive Navi Mumbai demo · synthetic data</p></div>
     <div className="hero-3d-wrapper" aria-hidden="true"><ExpansionField paused={still||!visible||!ready}><HeroLanyard still={!ready||flat||!!reduced} paused={paused||!visible}/></ExpansionField></div>
    </div></section>
    <div className="retail-strip"><span>Understand the place</span><span>Test the economics</span><span>Plan the network</span></div>
+   <RetailFilm paused={still||!ready}/>
    <section id="how-it-works" className="section-wrapper tint-bg">
     <div className="section-heading-row"><div><h2>From place to plan.</h2><p className="section-intro-text">Three connected steps. One considered investment.</p></div><a className="text-link" href="#daypart-dna">Read the neighbourhood <Arrow down/></a></div>
     <div className="journey-layout"><Reveal paused={still}><RetailScene paused={still}/></Reveal><ol className="journey-steps"><li><span>1</span><div><h3>Explore the location</h3><p>See candidate sites, nearby destinations and your existing stores together.</p></div></li><li><span>2</span><div><h3>Test the conditions</h3><p>Change rent, demand or infrastructure timing. See what the plan depends on.</p></div></li><li><span>3</span><div><h3>Choose your expansion</h3><p>Compare network value and select a portfolio within your budget.</p></div></li></ol></div>
