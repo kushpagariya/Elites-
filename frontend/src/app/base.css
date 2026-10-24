@@ -1,0 +1,9 @@
+:root { color-scheme: light; --paper: #f7f7f4; --ink: #18181b; --muted: #62616a; --purple: #7244e5; --purple-hover: #6031cf; --tint: #e9e1f8; --surface: #eeede9; --white: #ffffff; --border: #dfded8; }
+* { box-sizing: border-box; }
+html { scroll-padding-top: 100px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Manrope Variable', sans-serif; }
+::selection { background: var(--purple); color: var(--white); }
+:focus-visible { outline: 3px solid var(--purple); outline-offset: 4px; }
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; padding: 12px 20px; background: var(--paper); color: var(--ink); transform: translateY(-150%); }
+.skip-link:focus { transform: translateY(0); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

@@ -46,15 +46,25 @@ export interface ApiEnvelope<T> {
   meta: ResponseMeta;
 }
 
-export type DemoProject = Project & { project_id: "demo"; source_status: "SYNTHETIC" };
-export type HealthResponse = ApiEnvelope<{ status: "ok"; implementation_status: "scaffold" }>;
+export type DemoProject = Project & {
+  project_id: "demo";
+  source_status: "SYNTHETIC";
+};
+export type HealthResponse = ApiEnvelope<{
+  status: "ok";
+  implementation_status: "scaffold";
+}>;
 export type DemoProjectResponse = ApiEnvelope<DemoProject>;
 
 export interface ApiErrorResponse {
-  error: { code: string; message: string; details: { field: string; reason: string }[] };
+  error: {
+    code: string;
+    message: string;
+    details: { field: string; reason: string }[];
+  };
 }
 
-/** Planned analytical shapes mirror backend/app/schemas.py; 501 is still expected. */
+/** Canonical analytical shapes mirror backend/app/schemas.py; endpoint availability is separate. */
 export interface SiteOverride {
   monthly_rent_inr?: number | null;
   sales_multiplier?: number | null;
@@ -74,7 +84,7 @@ export interface ScenarioCreate {
   base_scenario_id?: string;
   name: string;
   budget_inr?: number | null;
-  assumptions: Partial<Assumptions>;
+  assumptions: Assumptions;
 }
 
 export interface Scenario {
@@ -92,7 +102,11 @@ export interface EvaluateRequest {
 }
 
 export type Diagnosis = "VIABLE" | "AT_RISK" | "REJECTED" | "REVIEW_REQUIRED";
-export type RescueStatus = "NOT_REQUESTED" | "SOLVED" | "NOT_RECOVERABLE_WITHIN_BOUNDS" | "NON_MONOTONIC";
+export type RescueStatus =
+  | "NOT_REQUESTED"
+  | "SOLVED"
+  | "NOT_RECOVERABLE_WITHIN_BOUNDS"
+  | "NON_MONOTONIC";
 
 export interface FailFastDiagnosis {
   status: Diagnosis;
@@ -120,7 +134,10 @@ export interface EvaluationData {
   evaluation_id: string;
   project_id: string;
   scenario_id: string;
-  method_mode: "model_simulated" | "model_real_evaluated" | "scenario_assumptions";
+  method_mode:
+    | "model_simulated"
+    | "model_real_evaluated"
+    | "scenario_assumptions";
   site_analyses: SiteAnalysis[];
   rankings: string[];
   created_at_utc: string;
@@ -133,7 +150,10 @@ export interface PortfolioRequest {
   acknowledged_risk_site_ids?: string[];
 }
 
-export type PortfolioStatus = "FULL_NETWORK_EXACT" | "FEASIBLE_PARTIAL" | "UNKNOWN";
+export type PortfolioStatus =
+  | "FULL_NETWORK_EXACT"
+  | "FEASIBLE_PARTIAL"
+  | "UNKNOWN";
 
 export interface PortfolioResult {
   portfolio_run_id: string;
@@ -158,3 +178,15 @@ export type ScenarioResponse = ApiEnvelope<Scenario>;
 export type ScenarioListResponse = ApiEnvelope<Scenario[]>;
 export type EvaluationResponse = ApiEnvelope<EvaluationData>;
 export type PortfolioResponse = ApiEnvelope<PortfolioResult>;
+
+/** Existing infrastructure response inspected from the live endpoint. */
+export interface InfrastructureEvent {
+  infra_project_id: string;
+  name: string;
+  status: string;
+  hypothetical_demo: boolean;
+  source_status: Provenance;
+  source_id: string;
+  expected_open_date: string | null;
+  assumed_demo_open_date: string | null;
+}
