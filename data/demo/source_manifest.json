@@ -1,0 +1,17 @@
+{
+  "fixture_id": "demo-1",
+  "feature_snapshot_id": "features-demo-1",
+  "all_business_and_geographic_records": "SYNTHETIC",
+  "source_ids": [
+    "synthetic-cells",
+    "synthetic-pois",
+    "hypothetical-infrastructure",
+    "assumed-financials"
+  ],
+  "limitations": [
+    "No measured sales or footfall",
+    "Synthetic points located in a demonstration bounding region",
+    "No official infrastructure announcement is asserted",
+    "No model artifact exists in this scaffold"
+  ]
+}

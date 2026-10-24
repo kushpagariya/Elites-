@@ -1,0 +1,542 @@
+[
+  {
+    "poi_id": "poi-000",
+    "category": "office",
+    "latitude": 19.005,
+    "longitude": 73.0,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-001",
+    "category": "shopping",
+    "latitude": 19.005,
+    "longitude": 73.015,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-002",
+    "category": "leisure",
+    "latitude": 19.005,
+    "longitude": 73.03,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-003",
+    "category": "school",
+    "latitude": 19.005,
+    "longitude": 73.045,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-004",
+    "category": "hospital",
+    "latitude": 19.005,
+    "longitude": 73.06,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-005",
+    "category": "transit",
+    "latitude": 19.005,
+    "longitude": 73.075,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-006",
+    "category": "office",
+    "latitude": 19.005,
+    "longitude": 73.09,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-007",
+    "category": "shopping",
+    "latitude": 19.005,
+    "longitude": 73.105,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-008",
+    "category": "leisure",
+    "latitude": 19.005,
+    "longitude": 73.12,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-009",
+    "category": "school",
+    "latitude": 19.005,
+    "longitude": 73.135,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-010",
+    "category": "hospital",
+    "latitude": 19.029,
+    "longitude": 73.0,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-011",
+    "category": "transit",
+    "latitude": 19.029,
+    "longitude": 73.015,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-012",
+    "category": "office",
+    "latitude": 19.029,
+    "longitude": 73.03,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-013",
+    "category": "shopping",
+    "latitude": 19.029,
+    "longitude": 73.045,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-014",
+    "category": "leisure",
+    "latitude": 19.029,
+    "longitude": 73.06,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-015",
+    "category": "school",
+    "latitude": 19.029,
+    "longitude": 73.075,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-016",
+    "category": "hospital",
+    "latitude": 19.029,
+    "longitude": 73.09,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-017",
+    "category": "transit",
+    "latitude": 19.029,
+    "longitude": 73.105,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-018",
+    "category": "office",
+    "latitude": 19.029,
+    "longitude": 73.12,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-019",
+    "category": "shopping",
+    "latitude": 19.029,
+    "longitude": 73.135,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-020",
+    "category": "leisure",
+    "latitude": 19.052999999999997,
+    "longitude": 73.0,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-021",
+    "category": "school",
+    "latitude": 19.052999999999997,
+    "longitude": 73.015,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-022",
+    "category": "hospital",
+    "latitude": 19.052999999999997,
+    "longitude": 73.03,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-023",
+    "category": "transit",
+    "latitude": 19.052999999999997,
+    "longitude": 73.045,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-024",
+    "category": "office",
+    "latitude": 19.052999999999997,
+    "longitude": 73.06,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-025",
+    "category": "shopping",
+    "latitude": 19.052999999999997,
+    "longitude": 73.075,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-026",
+    "category": "leisure",
+    "latitude": 19.052999999999997,
+    "longitude": 73.09,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-027",
+    "category": "school",
+    "latitude": 19.052999999999997,
+    "longitude": 73.105,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-028",
+    "category": "hospital",
+    "latitude": 19.052999999999997,
+    "longitude": 73.12,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-029",
+    "category": "transit",
+    "latitude": 19.052999999999997,
+    "longitude": 73.135,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-030",
+    "category": "office",
+    "latitude": 19.076999999999998,
+    "longitude": 73.0,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-031",
+    "category": "shopping",
+    "latitude": 19.076999999999998,
+    "longitude": 73.015,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-032",
+    "category": "leisure",
+    "latitude": 19.076999999999998,
+    "longitude": 73.03,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-033",
+    "category": "school",
+    "latitude": 19.076999999999998,
+    "longitude": 73.045,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-034",
+    "category": "hospital",
+    "latitude": 19.076999999999998,
+    "longitude": 73.06,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-035",
+    "category": "transit",
+    "latitude": 19.076999999999998,
+    "longitude": 73.075,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-036",
+    "category": "office",
+    "latitude": 19.076999999999998,
+    "longitude": 73.09,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-037",
+    "category": "shopping",
+    "latitude": 19.076999999999998,
+    "longitude": 73.105,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-038",
+    "category": "leisure",
+    "latitude": 19.076999999999998,
+    "longitude": 73.12,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-039",
+    "category": "school",
+    "latitude": 19.076999999999998,
+    "longitude": 73.135,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-040",
+    "category": "hospital",
+    "latitude": 19.101,
+    "longitude": 73.0,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-041",
+    "category": "transit",
+    "latitude": 19.101,
+    "longitude": 73.015,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-042",
+    "category": "office",
+    "latitude": 19.101,
+    "longitude": 73.03,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-043",
+    "category": "shopping",
+    "latitude": 19.101,
+    "longitude": 73.045,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-044",
+    "category": "leisure",
+    "latitude": 19.101,
+    "longitude": 73.06,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-045",
+    "category": "school",
+    "latitude": 19.101,
+    "longitude": 73.075,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-046",
+    "category": "hospital",
+    "latitude": 19.101,
+    "longitude": 73.09,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-047",
+    "category": "transit",
+    "latitude": 19.101,
+    "longitude": 73.105,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-048",
+    "category": "office",
+    "latitude": 19.101,
+    "longitude": 73.12,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-049",
+    "category": "shopping",
+    "latitude": 19.101,
+    "longitude": 73.135,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-050",
+    "category": "leisure",
+    "latitude": 19.125,
+    "longitude": 73.0,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-051",
+    "category": "school",
+    "latitude": 19.125,
+    "longitude": 73.015,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-052",
+    "category": "hospital",
+    "latitude": 19.125,
+    "longitude": 73.03,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-053",
+    "category": "transit",
+    "latitude": 19.125,
+    "longitude": 73.045,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-054",
+    "category": "office",
+    "latitude": 19.125,
+    "longitude": 73.06,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-055",
+    "category": "shopping",
+    "latitude": 19.125,
+    "longitude": 73.075,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-056",
+    "category": "leisure",
+    "latitude": 19.125,
+    "longitude": 73.09,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-057",
+    "category": "school",
+    "latitude": 19.125,
+    "longitude": 73.105,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-058",
+    "category": "hospital",
+    "latitude": 19.125,
+    "longitude": 73.12,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  },
+  {
+    "poi_id": "poi-059",
+    "category": "transit",
+    "latitude": 19.125,
+    "longitude": 73.135,
+    "opening_hours": null,
+    "source_id": "synthetic-pois",
+    "source_status": "SYNTHETIC"
+  }
+]

@@ -1,0 +1,1 @@
+{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"source_status": "SYNTHETIC", "name": "Demonstration region"}, "geometry": {"type": "Polygon", "coordinates": [[[72.98, 18.98], [73.16, 18.98], [73.16, 19.13], [72.98, 19.13], [72.98, 18.98]]]}}]}

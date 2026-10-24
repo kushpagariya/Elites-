@@ -1,0 +1,159 @@
+{
+  "project_id": "demo",
+  "city": "Navi Mumbai",
+  "category": "grocery",
+  "budget_inr": 20000000,
+  "discount_rate_fraction": 0.12,
+  "projection_years": 5,
+  "sites": [
+    {
+      "site_id": "site-01",
+      "name": "Candidate A",
+      "latitude": 19.015,
+      "longitude": 73.005,
+      "store_size_sqm": 400,
+      "capex_inr": 6000000,
+      "monthly_rent_inr": 400000,
+      "annual_opex_inr": 1800000,
+      "gross_margin_fraction": 0.3
+    },
+    {
+      "site_id": "site-02",
+      "name": "Candidate B",
+      "latitude": 19.019000000000002,
+      "longitude": 73.029,
+      "store_size_sqm": 435,
+      "capex_inr": 6250000,
+      "monthly_rent_inr": 130000,
+      "annual_opex_inr": 1800000,
+      "gross_margin_fraction": 0.3
+    },
+    {
+      "site_id": "site-03",
+      "name": "Candidate C",
+      "latitude": 19.015,
+      "longitude": 73.053,
+      "store_size_sqm": 470,
+      "capex_inr": 6500000,
+      "monthly_rent_inr": 140000,
+      "annual_opex_inr": 1800000,
+      "gross_margin_fraction": 0.3
+    },
+    {
+      "site_id": "site-04",
+      "name": "Candidate D",
+      "latitude": 19.019000000000002,
+      "longitude": 73.077,
+      "store_size_sqm": 505,
+      "capex_inr": 6750000,
+      "monthly_rent_inr": 150000,
+      "annual_opex_inr": 1800000,
+      "gross_margin_fraction": 0.3
+    },
+    {
+      "site_id": "site-05",
+      "name": "Candidate E",
+      "latitude": 19.015,
+      "longitude": 73.101,
+      "store_size_sqm": 540,
+      "capex_inr": 7000000,
+      "monthly_rent_inr": 160000,
+      "annual_opex_inr": 1800000,
+      "gross_margin_fraction": 0.3
+    },
+    {
+      "site_id": "site-06",
+      "name": "Candidate F",
+      "latitude": 19.064000000000004,
+      "longitude": 73.005,
+      "store_size_sqm": 575,
+      "capex_inr": 7250000,
+      "monthly_rent_inr": 170000,
+      "annual_opex_inr": 1800000,
+      "gross_margin_fraction": 0.3
+    },
+    {
+      "site_id": "site-07",
+      "name": "Candidate G",
+      "latitude": 19.060000000000002,
+      "longitude": 73.029,
+      "store_size_sqm": 610,
+      "capex_inr": 7500000,
+      "monthly_rent_inr": 180000,
+      "annual_opex_inr": 1800000,
+      "gross_margin_fraction": 0.3
+    },
+    {
+      "site_id": "site-08",
+      "name": "Candidate H",
+      "latitude": 19.064000000000004,
+      "longitude": 73.053,
+      "store_size_sqm": 645,
+      "capex_inr": 7750000,
+      "monthly_rent_inr": 190000,
+      "annual_opex_inr": 1800000,
+      "gross_margin_fraction": 0.3
+    },
+    {
+      "site_id": "site-09",
+      "name": "Candidate I",
+      "latitude": 19.060000000000002,
+      "longitude": 73.077,
+      "store_size_sqm": 680,
+      "capex_inr": 8000000,
+      "monthly_rent_inr": 200000,
+      "annual_opex_inr": 1800000,
+      "gross_margin_fraction": 0.3
+    },
+    {
+      "site_id": "site-10",
+      "name": "Candidate J",
+      "latitude": 19.064000000000004,
+      "longitude": 73.101,
+      "store_size_sqm": 715,
+      "capex_inr": 8250000,
+      "monthly_rent_inr": 210000,
+      "annual_opex_inr": 1800000,
+      "gross_margin_fraction": 0.3
+    }
+  ],
+  "stores": [
+    {
+      "store_id": "store-01",
+      "name": "Fictional branch 1",
+      "latitude": 19.025,
+      "longitude": 73.01,
+      "store_size_sqm": 500,
+      "theta": 0.2,
+      "variable_contribution_margin": 0.24
+    },
+    {
+      "store_id": "store-02",
+      "name": "Fictional branch 2",
+      "latitude": 19.025,
+      "longitude": 73.08,
+      "store_size_sqm": 500,
+      "theta": 0.30000000000000004,
+      "variable_contribution_margin": 0.24
+    },
+    {
+      "store_id": "store-03",
+      "name": "Fictional branch 3",
+      "latitude": 19.064999999999998,
+      "longitude": 73.01,
+      "store_size_sqm": 500,
+      "theta": 0.4,
+      "variable_contribution_margin": 0.24
+    },
+    {
+      "store_id": "store-04",
+      "name": "Fictional branch 4",
+      "latitude": 19.064999999999998,
+      "longitude": 73.08,
+      "store_size_sqm": 500,
+      "theta": 0.5,
+      "variable_contribution_margin": 0.24
+    }
+  ],
+  "source_status": "SYNTHETIC"
+}

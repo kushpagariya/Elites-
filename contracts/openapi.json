@@ -1,0 +1,1269 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "StoreScout API",
+    "version": "1"
+  },
+  "paths": {
+    "/api/v1/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{project_id}": {
+      "get": {
+        "summary": "Read Project",
+        "operationId": "read_project_api_v1_projects__project_id__get",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_Project_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{project_id}/scenarios": {
+      "get": {
+        "summary": "Read Scenarios",
+        "operationId": "read_scenarios_api_v1_projects__project_id__scenarios_get",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_list_Scenario__"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Scenario",
+        "operationId": "create_scenario_api_v1_projects__project_id__scenarios_post",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScenarioCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_Scenario_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{project_id}/infrastructure": {
+      "get": {
+        "summary": "Infrastructure",
+        "operationId": "infrastructure_api_v1_projects__project_id__infrastructure_get",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{project_id}/evaluate": {
+      "post": {
+        "summary": "Evaluate",
+        "operationId": "evaluate_api_v1_projects__project_id__evaluate_post",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvaluateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_EvaluationData_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{project_id}/portfolios": {
+      "post": {
+        "summary": "Portfolios",
+        "operationId": "portfolios_api_v1_projects__project_id__portfolios_post",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PortfolioRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_PortfolioResult_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{project_id}/sites/{site_id}/rescue": {
+      "post": {
+        "summary": "Rescue",
+        "operationId": "rescue_api_v1_projects__project_id__sites__site_id__rescue_post",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project Id"
+            }
+          },
+          {
+            "name": "site_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Site Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RescueRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{project_id}/{resource}": {
+      "get": {
+        "summary": "Planned Query",
+        "operationId": "planned_query_api_v1_projects__project_id___resource__get",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project Id"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Resource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Assumptions": {
+        "properties": {
+          "demand_multiplier": {
+            "type": "number",
+            "maximum": 3.0,
+            "minimum": 0.0,
+            "title": "Demand Multiplier",
+            "default": 1
+          },
+          "rent_multiplier": {
+            "type": "number",
+            "maximum": 3.0,
+            "minimum": 0.0,
+            "title": "Rent Multiplier",
+            "default": 1
+          },
+          "site_overrides": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SiteOverride"
+            },
+            "type": "object",
+            "title": "Site Overrides"
+          },
+          "infrastructure_state": {
+            "type": "string",
+            "enum": [
+              "current",
+              "opens",
+              "delayed"
+            ],
+            "title": "Infrastructure State",
+            "default": "current"
+          },
+          "infrastructure_effect_fraction": {
+            "type": "number",
+            "maximum": 2.0,
+            "minimum": -1.0,
+            "title": "Infrastructure Effect Fraction",
+            "default": 0
+          },
+          "opening_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Opening Date"
+          },
+          "delay_months": {
+            "type": "integer",
+            "maximum": 120.0,
+            "minimum": 0.0,
+            "title": "Delay Months",
+            "default": 24
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Assumptions"
+      },
+      "Envelope_EvaluationData_": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EvaluationData"
+          },
+          "meta": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[EvaluationData]"
+      },
+      "Envelope_PortfolioResult_": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/PortfolioResult"
+          },
+          "meta": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[PortfolioResult]"
+      },
+      "Envelope_Project_": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Project"
+          },
+          "meta": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[Project]"
+      },
+      "Envelope_Scenario_": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Scenario"
+          },
+          "meta": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[Scenario]"
+      },
+      "Envelope_list_Scenario__": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/Scenario"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "meta": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[list[Scenario]]"
+      },
+      "EvaluateRequest": {
+        "properties": {
+          "scenario_id": {
+            "type": "string",
+            "title": "Scenario Id",
+            "default": "baseline"
+          },
+          "feature_snapshot_id": {
+            "type": "string",
+            "title": "Feature Snapshot Id",
+            "default": "features-demo-1"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "EvaluateRequest"
+      },
+      "EvaluationData": {
+        "properties": {
+          "evaluation_id": {
+            "type": "string",
+            "title": "Evaluation Id"
+          },
+          "project_id": {
+            "type": "string",
+            "title": "Project Id"
+          },
+          "scenario_id": {
+            "type": "string",
+            "title": "Scenario Id"
+          },
+          "method_mode": {
+            "type": "string",
+            "enum": [
+              "model_simulated",
+              "model_real_evaluated",
+              "scenario_assumptions"
+            ],
+            "title": "Method Mode"
+          },
+          "site_analyses": {
+            "items": {
+              "$ref": "#/components/schemas/SiteAnalysis"
+            },
+            "type": "array",
+            "title": "Site Analyses"
+          },
+          "rankings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Rankings"
+          },
+          "created_at_utc": {
+            "type": "string",
+            "title": "Created At Utc"
+          },
+          "model_artifact_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Artifact Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "evaluation_id",
+          "project_id",
+          "scenario_id",
+          "method_mode",
+          "site_analyses",
+          "rankings",
+          "created_at_utc"
+        ],
+        "title": "EvaluationData"
+      },
+      "FailFastDiagnosis": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "VIABLE",
+              "AT_RISK",
+              "REJECTED",
+              "REVIEW_REQUIRED"
+            ],
+            "title": "Status"
+          },
+          "failed_rule_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Failed Rule Ids"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Reasons"
+          },
+          "max_viable_monthly_rent_inr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Viable Monthly Rent Inr"
+          },
+          "required_sales_multiplier": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Required Sales Multiplier"
+          },
+          "rescue_status": {
+            "type": "string",
+            "enum": [
+              "NOT_REQUESTED",
+              "SOLVED",
+              "NOT_RECOVERABLE_WITHIN_BOUNDS",
+              "NON_MONOTONIC"
+            ],
+            "title": "Rescue Status",
+            "default": "NOT_REQUESTED"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "FailFastDiagnosis"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "PortfolioRequest": {
+        "properties": {
+          "evaluation_id": {
+            "type": "string",
+            "title": "Evaluation Id"
+          },
+          "max_stores": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 0.0,
+            "title": "Max Stores",
+            "default": 2
+          },
+          "acknowledged_risk_site_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Acknowledged Risk Site Ids"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "evaluation_id"
+        ],
+        "title": "PortfolioRequest"
+      },
+      "PortfolioResult": {
+        "properties": {
+          "portfolio_run_id": {
+            "type": "string",
+            "title": "Portfolio Run Id"
+          },
+          "evaluation_id": {
+            "type": "string",
+            "title": "Evaluation Id"
+          },
+          "selected_site_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Selected Site Ids"
+          },
+          "budget_used_inr": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Budget Used Inr"
+          },
+          "budget_unused_inr": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Budget Unused Inr"
+          },
+          "full_network_npv_inr": {
+            "type": "number",
+            "title": "Full Network Npv Inr"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "FULL_NETWORK_EXACT",
+              "FEASIBLE_PARTIAL",
+              "UNKNOWN"
+            ],
+            "title": "Status"
+          },
+          "evaluated_subsets": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Evaluated Subsets"
+          },
+          "total_subsets": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Total Subsets"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "portfolio_run_id",
+          "evaluation_id",
+          "selected_site_ids",
+          "budget_used_inr",
+          "budget_unused_inr",
+          "full_network_npv_inr",
+          "status",
+          "evaluated_subsets",
+          "total_subsets"
+        ],
+        "title": "PortfolioResult"
+      },
+      "Project": {
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "title": "Project Id"
+          },
+          "city": {
+            "type": "string",
+            "title": "City"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category"
+          },
+          "budget_inr": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Budget Inr"
+          },
+          "discount_rate_fraction": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Discount Rate Fraction"
+          },
+          "projection_years": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "title": "Projection Years"
+          },
+          "sites": {
+            "items": {
+              "$ref": "#/components/schemas/Site"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Sites"
+          },
+          "stores": {
+            "items": {
+              "$ref": "#/components/schemas/Store"
+            },
+            "type": "array",
+            "maxItems": 4,
+            "title": "Stores"
+          },
+          "source_status": {
+            "type": "string",
+            "enum": [
+              "SYNTHETIC",
+              "REAL",
+              "ASSUMED"
+            ],
+            "title": "Source Status"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "project_id",
+          "city",
+          "category",
+          "budget_inr",
+          "discount_rate_fraction",
+          "projection_years",
+          "sites",
+          "stores",
+          "source_status"
+        ],
+        "title": "Project"
+      },
+      "RescueRequest": {
+        "properties": {
+          "evaluation_id": {
+            "type": "string",
+            "title": "Evaluation Id"
+          },
+          "lever": {
+            "type": "string",
+            "enum": [
+              "rent",
+              "sales"
+            ],
+            "title": "Lever",
+            "default": "rent"
+          },
+          "lower_bound": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lower Bound"
+          },
+          "upper_bound": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Upper Bound"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "evaluation_id"
+        ],
+        "title": "RescueRequest"
+      },
+      "Scenario": {
+        "properties": {
+          "scenario_id": {
+            "type": "string",
+            "title": "Scenario Id"
+          },
+          "project_id": {
+            "type": "string",
+            "title": "Project Id"
+          },
+          "base_scenario_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Base Scenario Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "budget_inr": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Budget Inr"
+          },
+          "assumptions": {
+            "$ref": "#/components/schemas/Assumptions"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "scenario_id",
+          "project_id",
+          "name",
+          "budget_inr",
+          "assumptions"
+        ],
+        "title": "Scenario"
+      },
+      "ScenarioCreate": {
+        "properties": {
+          "base_scenario_id": {
+            "type": "string",
+            "title": "Base Scenario Id",
+            "default": "baseline"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "budget_inr": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Budget Inr"
+          },
+          "assumptions": {
+            "$ref": "#/components/schemas/Assumptions"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "assumptions"
+        ],
+        "title": "ScenarioCreate"
+      },
+      "Site": {
+        "properties": {
+          "site_id": {
+            "type": "string",
+            "title": "Site Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "latitude": {
+            "type": "number",
+            "maximum": 90.0,
+            "minimum": -90.0,
+            "title": "Latitude"
+          },
+          "longitude": {
+            "type": "number",
+            "maximum": 180.0,
+            "minimum": -180.0,
+            "title": "Longitude"
+          },
+          "store_size_sqm": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Store Size Sqm"
+          },
+          "capex_inr": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Capex Inr"
+          },
+          "monthly_rent_inr": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Monthly Rent Inr"
+          },
+          "annual_opex_inr": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Annual Opex Inr"
+          },
+          "gross_margin_fraction": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Gross Margin Fraction"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "site_id",
+          "name",
+          "latitude",
+          "longitude",
+          "store_size_sqm",
+          "capex_inr",
+          "monthly_rent_inr",
+          "annual_opex_inr",
+          "gross_margin_fraction"
+        ],
+        "title": "Site"
+      },
+      "SiteAnalysis": {
+        "properties": {
+          "site_id": {
+            "type": "string",
+            "title": "Site Id"
+          },
+          "annual_revenue_inr": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Annual Revenue Inr"
+          },
+          "lost_existing_contribution_inr": {
+            "type": "number",
+            "title": "Lost Existing Contribution Inr"
+          },
+          "annual_cashflows_inr": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Annual Cashflows Inr"
+          },
+          "npv_inr": {
+            "type": "number",
+            "title": "Npv Inr"
+          },
+          "roi_fraction": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Roi Fraction"
+          },
+          "payback_years": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Payback Years"
+          },
+          "failfast": {
+            "$ref": "#/components/schemas/FailFastDiagnosis"
+          },
+          "drivers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Drivers"
+          },
+          "source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Source Ids"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "site_id",
+          "annual_revenue_inr",
+          "lost_existing_contribution_inr",
+          "annual_cashflows_inr",
+          "npv_inr",
+          "failfast",
+          "drivers",
+          "source_ids"
+        ],
+        "title": "SiteAnalysis"
+      },
+      "SiteOverride": {
+        "properties": {
+          "monthly_rent_inr": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Monthly Rent Inr"
+          },
+          "sales_multiplier": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 3.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sales Multiplier"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "SiteOverride"
+      },
+      "Store": {
+        "properties": {
+          "store_id": {
+            "type": "string",
+            "title": "Store Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "latitude": {
+            "type": "number",
+            "maximum": 90.0,
+            "minimum": -90.0,
+            "title": "Latitude"
+          },
+          "longitude": {
+            "type": "number",
+            "maximum": 180.0,
+            "minimum": -180.0,
+            "title": "Longitude"
+          },
+          "store_size_sqm": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Store Size Sqm"
+          },
+          "theta": {
+            "type": "number",
+            "title": "Theta"
+          },
+          "variable_contribution_margin": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Variable Contribution Margin"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "store_id",
+          "name",
+          "latitude",
+          "longitude",
+          "store_size_sqm",
+          "theta",
+          "variable_contribution_margin"
+        ],
+        "title": "Store"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

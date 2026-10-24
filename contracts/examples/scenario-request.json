@@ -1,0 +1,1 @@
+{"base_scenario_id":"baseline","name":"Rent negotiation","assumptions":{"demand_multiplier":1,"rent_multiplier":1,"site_overrides":{"site-01":{"monthly_rent_inr":150000}},"infrastructure_state":"current","infrastructure_effect_fraction":0,"opening_date":null,"delay_months":24}}

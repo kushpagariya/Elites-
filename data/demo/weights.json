@@ -1,0 +1,65 @@
+{
+  "weight_version": "weights-demo-1",
+  "time_bins": [
+    "weekday_morning",
+    "weekday_lunch",
+    "weekday_evening",
+    "weekday_night",
+    "weekend_day",
+    "weekend_evening"
+  ],
+  "category_weights": {
+    "office": {
+      "weekday_morning": 3,
+      "weekday_lunch": 4,
+      "weekday_evening": 2,
+      "weekday_night": 0.2,
+      "weekend_day": 0.5,
+      "weekend_evening": 0.3
+    },
+    "shopping": {
+      "weekday_morning": 1,
+      "weekday_lunch": 2,
+      "weekday_evening": 4,
+      "weekday_night": 0.3,
+      "weekend_day": 4,
+      "weekend_evening": 4
+    },
+    "leisure": {
+      "weekday_morning": 0.3,
+      "weekday_lunch": 1,
+      "weekday_evening": 3,
+      "weekday_night": 1,
+      "weekend_day": 3,
+      "weekend_evening": 4
+    },
+    "school": {
+      "weekday_morning": 4,
+      "weekday_lunch": 2,
+      "weekday_evening": 1,
+      "weekday_night": 0.1,
+      "weekend_day": 0.2,
+      "weekend_evening": 0.1
+    },
+    "hospital": {
+      "weekday_morning": 2,
+      "weekday_lunch": 2,
+      "weekday_evening": 2,
+      "weekday_night": 1,
+      "weekend_day": 2,
+      "weekend_evening": 1
+    },
+    "transit": {
+      "weekday_morning": 4,
+      "weekday_lunch": 2,
+      "weekday_evening": 4,
+      "weekday_night": 1,
+      "weekend_day": 2,
+      "weekend_evening": 2
+    }
+  },
+  "decay_scale_m": 750,
+  "catchment_radius_m": 1500,
+  "source_status": "ASSUMED",
+  "note": "Illustrative engineering weights, not measured visitation. Logic owner applies bin duration/day frequency explicitly."
+}

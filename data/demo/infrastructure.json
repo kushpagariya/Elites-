@@ -1,0 +1,21 @@
+[
+  {
+    "infra_project_id": "hypothetical-station",
+    "name": "Hypothetical demonstration connector",
+    "type": "metro_station",
+    "status": "proposed",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        73.06,
+        19.065
+      ]
+    },
+    "hypothetical_demo": true,
+    "source_url": null,
+    "source_id": "hypothetical-infrastructure",
+    "expected_open_date": null,
+    "assumed_demo_open_date": "2028-04-01",
+    "source_status": "SYNTHETIC"
+  }
+]
