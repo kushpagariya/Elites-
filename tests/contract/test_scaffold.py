@@ -1,4 +1,4 @@
-"""Check real scaffold boundaries; analytics are intentionally unavailable."""
+"""Check real fixture boundaries; the analytical engine remains unavailable."""
 import os
 import tempfile
 import unittest
@@ -37,10 +37,10 @@ class ScaffoldContractTests(unittest.TestCase):
         self.assertEqual(values[0]["assumptions"]["rent_multiplier"], 1)
         self.assertEqual(values[1]["assumptions"]["rent_multiplier"], 0.8)
 
-    def test_unimplemented_is_not_fake_success(self):
+    def test_unavailable_is_not_fake_success(self):
         response = self.client.post("/api/v1/projects/demo/evaluate", json={"scenario_id": "baseline"})
-        self.assertEqual(response.status_code, 501)
-        self.assertEqual(response.json()["error"]["code"], "NOT_IMPLEMENTED")
+        self.assertEqual(response.status_code, 503)
+        self.assertEqual(response.json()["error"]["code"], "ENGINE_UNAVAILABLE")
 
     def test_unknown_project_and_invalid_input(self):
         self.assertEqual(self.client.get("/api/v1/projects/another").status_code, 404)

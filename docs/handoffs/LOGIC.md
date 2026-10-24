@@ -1,5 +1,7 @@
 # Prompt for the logic and ML person
 
+Integration update: read `docs/BACKEND_INTEGRATION_WORKFLOW.md` and current `docs/CONTRACT.md` before implementing pipeline outputs. Backend persists optional private `_context` as `prepared_network`, checks actual model bundle identity, and provides portfolio/rescue orchestration. Return JSON-compatible computed fields without backend-owned identities. The proposed `run_rescue` seam and model_card.json format are documented there; backend supplies no numerical implementation.
+
 Build StoreScout's deterministic decision engine from `docs/PRD.md`,
 `docs/CONTRACT.md` and `docs/FOUR_HOUR_PLAN.md`. Deliver a working vertical
 prototype by H4, then finish every F01-F08/AC01-32 requirement within the full

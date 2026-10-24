@@ -4,11 +4,13 @@ Retail expansion planning: compare network economics, diagnose weak sites and al
 
 ## Start here
 
-This commit creates the shared team scaffold. **Available:** startup screen, health API, synthetic 10-site/four-branch project, immutable SQLite scenario saves, hypothetical infrastructure record and a tested financial helper. **Awaiting implementation:** model training/inference, spatial features, network allocation, integrated evaluations, rescue, ranking, portfolios and reports. Analytics routes return HTTP 501 rather than invented results.
+The `backend-integration` branch adds evaluation/portfolio/rescue orchestration, atomic SQLite result/context saves, idempotency, saved-result reads, source/model hashes and printable reports. **Still required:** actual ML/domain implementations and the connected frontend workspace. Analytical execution returns HTTP 503 until these dependencies are delivered. Contract tests inject test engines; they do not establish model accuracy or a completed analytical prototype.
 
 1. Read [architecture](docs/ARCHITECTURE.md), [contract](docs/CONTRACT.md), and [four-hour plan](docs/FOUR_HOUR_PLAN.md).
 2. Give each owner their prompt: [frontend](docs/handoffs/FRONTEND.md), [logic](docs/handoffs/LOGIC.md), [backend](docs/handoffs/BACKEND.md).
 3. Backend owner is also the integration owner. First real merged slice is due at H1; a full connected prototype is due at H4.
+
+Follow the [backend integration workflow](docs/BACKEND_INTEGRATION_WORKFLOW.md). Frontend continues on `frontend`; ML on `ML`. Tested combined changes belong on `backend-integration` before promotion to main.
 
 ## Run locally
 
@@ -31,7 +33,7 @@ corepack pnpm dev
 
 If Corepack is unavailable, use an installed pnpm; `npm install`/`npm run dev` also works, but keep only one lockfile after the team chooses its package manager. On macOS/Linux activate `.venv/bin/activate` and use `python` rather than the Windows executable path.
 
-Open `http://127.0.0.1:3000`; API docs: `http://127.0.0.1:8000/docs`. SQLite defaults to `.runtime/storescout.sqlite3`; no external database is required. `FRONTEND_ORIGIN` and `STORESCOUT_DB_PATH` are optional server environment variables; the backend does not automatically load `.env`.
+Open `http://127.0.0.1:3000`; API docs: `http://127.0.0.1:8000/docs`. SQLite defaults to `.runtime/storescout.sqlite3`; no external database is required. Optional server variables: `FRONTEND_ORIGIN`, `STORESCOUT_DB_PATH`, `STORESCOUT_MODEL_DIR`, `STORESCOUT_COMPUTE_TIMEOUT_SECONDS` (default 15, maximum 120). The backend does not automatically load `.env`. Model bundles require `model_card.json` and its artifact within `ml/artifacts/` or the configured directory; see the workflow for fields.
 
 ## Check
 
