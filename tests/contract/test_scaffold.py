@@ -11,6 +11,17 @@ from backend.app.main import app
 
 
 class ScaffoldContractTests(unittest.TestCase):
+    def test_local_frontend_cors_and_report_header_exposure(self):
+        headers={"Origin":"http://127.0.0.1:3001", "Access-Control-Request-Method":"POST", "Access-Control-Request-Headers":"Content-Type, Idempotency-Key"}
+        response=self.client.options("/api/v1/projects/demo/evaluate",headers=headers)
+        self.assertEqual(response.status_code,200)
+        self.assertEqual(response.headers["access-control-allow-origin"],headers["Origin"])
+        response=self.client.get("/api/v1/health",headers={"Origin":headers["Origin"]})
+        self.assertIn("Content-Disposition",response.headers["access-control-expose-headers"])
+        response=self.client.options("/api/v1/projects/demo/evaluate",headers={**headers,"Origin":"https://unapproved.example"})
+        self.assertEqual(response.status_code,400)
+        self.assertNotIn("access-control-allow-origin",response.headers)
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.previous = os.environ.get("STORESCOUT_DB_PATH")

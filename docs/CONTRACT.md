@@ -6,6 +6,8 @@ Backend owns schema changes. Canonical types: backend/app/schemas.py; generated 
 
 Base URL: http://127.0.0.1:8000/api/v1. Success is {data, meta: {contract_version: "1", fixture_id: "demo-1", ...}}. Errors are {error: {code, message, details: [{field, reason}]}}. OpenAPI includes this error shape.
 
+Local browser origins: localhost and 127.0.0.1 on ports 3000 and 3001, plus the single configured FRONTEND_ORIGIN. The API exposes Content-Disposition for report consumers. No wildcard origin or arbitrary-port pattern is enabled.
+
 Money is INR; revenue and other OPEX are annual; rent monthly; CAPEX upfront; rates/ROI decimal fractions; area square metres; coordinates WGS84. Nonfinite values are invalid. Unknown is null, never zero. Source labels are SYNTHETIC, ASSUMED, REAL.
 
 Seed identities: project demo, scenario baseline, feature snapshot features-demo-1, fixture demo-1, weights weights-demo-1. Backend allocates other IDs. Candidate cap ten; existing branch cap four. Fixture valuation date is pinned to 2026-10-24 in frozen inputs.

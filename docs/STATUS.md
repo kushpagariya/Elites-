@@ -4,10 +4,14 @@ Working branch: frontend-backend-integration.
 
 Integrated sources:
 - Backend: cedbce2 (also present on main through merge 8db534b).
-- Frontend: d694ef2, including the consolidated workspace and assumption-based analytical engine.
+- Frontend: 4d04832, including the new map-first workspace, expandable feature navigation and retail landing redesign. Prior integration baseline: 4e5345f.
 - ML branch remains at the original scaffold; no trained ML artifact is activated.
 
 ## Connected prototype
+
+Latest frontend increment: preserved the incoming design and shared evaluation state. The online OpenFreeMap street basemap, selection details, Daypart period controls, percent-based scenario inputs, before/after view and investment-plan presentation connect to the existing transactional backend. Local CORS permits the explicit localhost/127.0.0.1 origins on ports 3000 and 3001; arbitrary external origins are rejected. Report header exposure remains enabled. No numerical engine or ML mode was changed by this increment.
+
+Browser checks on the built refreshed app: selected an existing assumed growth scenario, ran analysis, compared two sites, opened a map location, inspected backend-supplied POI/daypart and financial data, and saved/evaluated a rent edit through the new percentage controls. Verified the resulting before/after values, calculated its investment plan, downloaded its saved report and reopened its preview. The redesigned landing page rendered without captured console errors. Online map streets and attribution rendered. An online basemap is a network dependency; synthetic business locations remain clearly labelled and a table/shortlist is still available if the map fails.
 
 - Landing page and single frontend application root preserved.
 - /app: ten Navi Mumbai grocery candidates, four fictional branches, saved evaluation, two-site financial comparison, sensitivity, branch impacts, map evidence and six-bin DaypartDNA.
@@ -28,8 +32,8 @@ Fixed a rescue boundary case: a viable upper rent bound is not a break-even thre
 ## Checks completed on this integration
 
 - Python unit/numerical checks: 12 passed, zero skipped.
-- Python API/repository checks: 22 passed.
-- Frontend node tests: 23 passed.
+- Python API/repository checks: 23 passed, including allowed local-origin preflight, report-header exposure and rejection of an unapproved origin.
+- Frontend node tests: 28 passed, including new presentation, geographic geometry and expandable-navigation checks.
 - Frontend type generation and TypeScript no-emit: passed.
 - Production build: passed; routes /, /app, /app/scenarios and /app/portfolio generated.
 - OpenAPI regenerated.
@@ -38,7 +42,7 @@ Fixed a rescue boundary case: a viable upper rent bound is not a break-even thre
 - Browser navigation preserved active context across the three workspace routes. Reload/return preserved the selected saved scenario.
 - SYNTHETIC/ASSUMED labels and scenario_assumptions mode stayed visible.
 
-The first production-build attempt was blocked by Windows sandbox EPERM when creating generated Next.js output. Reran the same build outside that sandbox; it passed without a product configuration workaround.
+For this frontend refresh, typecheck and production build both passed. The previous integration's initial sandbox EPERM and successful retry are historical; no product configuration workaround was introduced.
 
 Test doubles remain isolated in tests. Numerical fixtures establish synthetic invariants, not empirical forecast quality. The positive portfolio demonstration uses explicitly changed assumed demand and costs; it is not an observed investment outcome.
 
@@ -59,7 +63,7 @@ In another terminal:
 Open http://127.0.0.1:3000/app.
 API docs: http://127.0.0.1:8000/docs.
 Optional local backend reload: add --reload --reload-dir backend.
-The current local session also runs the built frontend on port 3000.
+The current local session runs the refreshed built frontend on port 3001: http://127.0.0.1:3001/app. The standard pnpm dev command still defaults to port 3000.
 
 For verification only, run an isolated backend with STORESCOUT_DB_PATH pointing to a separate local SQLite file and port 8001, then in frontend:
 

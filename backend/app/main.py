@@ -17,7 +17,18 @@ from .services import analytics, catalogue, reports, sources
 from .services.errors import ServiceError
 
 app = FastAPI(title="StoreScout API", version="1", responses={status: {"model": ErrorEnvelope} for status in (404, 409, 422, 500, 502, 503)})
-app.add_middleware(CORSMiddleware, allow_origins=list(dict.fromkeys([os.getenv("FRONTEND_ORIGIN", "http://localhost:3000"), "http://127.0.0.1:3000"])), allow_methods=["GET", "POST"], allow_headers=["Content-Type", "Idempotency-Key"], expose_headers=["Content-Disposition"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=list(dict.fromkeys([
+        os.getenv("FRONTEND_ORIGIN", "http://localhost:3000"),
+        "http://127.0.0.1:3000",
+        "http://localhost:3001",
+        "http://127.0.0.1:3001",
+    ])),
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type", "Idempotency-Key"],
+    expose_headers=["Content-Disposition"],
+)
 Token = Annotated[str | None, Header(alias="Idempotency-Key", min_length=1, max_length=128)]
 
 

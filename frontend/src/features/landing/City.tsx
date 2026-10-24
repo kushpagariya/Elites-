@@ -1,47 +1,118 @@
 'use client';
-import {Canvas,useFrame,useThree} from '@react-three/fiber';
-import {Line,Edges} from '@react-three/drei';
-import {Component,useEffect,useMemo,useRef,useState,type MutableRefObject,type ReactNode} from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Component, useEffect, useMemo, useRef, type ReactNode } from 'react';
 import * as THREE from 'three';
-import type {Line2} from 'three-stdlib';
-import {colors,motionTokens} from './motion';
-import type {SceneState} from './Landing';
-const candidates=[[-2,1],[1,0],[3,-2],[-3,-3],[0,4],[4,2]];
-const branches=[[-4,1],[1,-3],[3,3],[-1,-4]];
-const dummy=new THREE.Object3D(); const tempColor=new THREE.Color();
-class SceneBoundary extends Component<{children:ReactNode;onFailure:()=>void},{failed:boolean}>{state={failed:false};static getDerivedStateFromError(){return {failed:true}}componentDidCatch(){this.props.onFailure()}render(){return this.state.failed?null:this.props.children}}
-function Landscape({state,mobile}:{state:MutableRefObject<SceneState>;mobile:boolean}){
- const hexes=useRef<THREE.InstancedMesh>(null!);const buildings=useRef<THREE.InstancedMesh>(null!);const sites=useRef<THREE.InstancedMesh>(null!);const stores=useRef<THREE.InstancedMesh>(null!);const world=useRef<THREE.Group>(null!); const threshold=useRef<THREE.Mesh>(null!);const vault=useRef<THREE.Group>(null!);const arcs=useRef<THREE.Group>(null!);const route=useRef<THREE.Group>(null!); const broken=useRef<THREE.Group>(null!);
- const routeLine=useRef<Line2>(null!); const {camera,gl,invalidate,size}=useThree();const smooth=useRef({chapter:0,daypart:0,reveal:0,progress:0,fail:0,portfolio:0}); const pointer=useRef({x:0,y:0});const frameTime=useRef(0);
- const cells=useMemo(()=>{const out:{x:number;z:number;q:number;r:number;base:number}[]=[];const n=mobile?6:8;for(let q=-n;q<=n;q++)for(let r=-n;r<=n;r++){if(Math.abs(q+r)>n||q*q+r*r+q*r>n*n)continue;out.push({x:q*.78,z:(r+q*.5)*.9,q,r,base:.08+(Math.sin(q*2.1+r*1.7)+1)*.11})}return out},[mobile]);
- const structures=useMemo(()=>cells.filter(c=>(Math.abs(c.q*13+c.r*7)%5===0)&&Math.abs(c.q)+Math.abs(c.r)>2).map(c=>({...c,h:.4+(Math.abs(Math.sin(c.q*21+c.r*17))**3)*1.7})),[cells]);
- const heights=useMemo(()=>new Float32Array(cells.length),[cells]);
- useEffect(()=>{const move=(e:PointerEvent)=>{if(e.pointerType==='mouse'&&matchMedia('(pointer: fine)').matches){pointer.current.x=(e.clientX/innerWidth-.5)*.045;pointer.current.y=(e.clientY/innerHeight-.5)*.02;invalidate()}};window.addEventListener('pointermove',move);const lost=(e:Event)=>{e.preventDefault()};gl.domElement.addEventListener('webglcontextlost',lost);return()=>{window.removeEventListener('pointermove',move);gl.domElement.removeEventListener('webglcontextlost',lost)}},[gl,invalidate]);
- const routePoints=useMemo(()=>Array.from({length:65},(_,i)=>{const t=i/64;return new THREE.Vector3(-6+t*12,.65,Math.sin(t*Math.PI*1.7)*2-1)}),[]);
- const arcPoints=useMemo(()=>branches.map(([q,r])=>{const start=new THREE.Vector3(q*.78,1.1,(r+q*.5)*.9),end=new THREE.Vector3(.78,1, .45);const middle=start.clone().lerp(end,.5);middle.y=3.4;return new THREE.QuadraticBezierCurve3(start,middle,end).getPoints(40)}),[]);
- useFrame((_,dt)=>{
-  const s=state.current; if(document.hidden || s.paused)return;const d=Math.min(dt,.05);frameTime.current+=d;const t=frameTime.current; const a=1-Math.exp(-motionTokens.damping*d);const sm=smooth.current;sm.chapter=THREE.MathUtils.lerp(sm.chapter,s.chapter,a);sm.daypart=THREE.MathUtils.lerp(sm.daypart,s.daypart,a);sm.reveal=THREE.MathUtils.lerp(sm.reveal,1,a*.65);sm.progress=THREE.MathUtils.lerp(sm.progress,s.progress,a);sm.fail=THREE.MathUtils.lerp(sm.fail,s.chapter===4&&!s.rescued?1:0,a);sm.portfolio=THREE.MathUtils.lerp(sm.portfolio,s.chapter===5?1:0,a);
-  cells.forEach((c,i)=>{const wave=s.chapter===2?(.5+.5*Math.sin(c.q*.6+c.r*.7+sm.daypart*1.6))*.75:0;const metro=s.chapter===3?Math.exp(-Math.abs(c.z-(Math.sin((c.x+6)/12*Math.PI*1.7)*2-1)))* ((s.delayed?.55:.9)*THREE.MathUtils.clamp((sm.progress-(s.delayed?.4:.05))*3,0,1)):0; const reveal=THREE.MathUtils.clamp(sm.reveal*2.5-(c.x+c.z+10)/22,0,1);const target=(c.base+wave+metro)*reveal;heights[i]=THREE.MathUtils.lerp(heights[i],target,a);const h=Math.max(.025,heights[i]);dummy.position.set(c.x,h/2-.35,c.z);dummy.scale.set(.97,h,.97);dummy.rotation.set(0,0,0);dummy.updateMatrix();hexes.current.setMatrixAt(i,dummy.matrix);const isTint=(Math.sin(c.q*.7+c.r*.8+sm.daypart*.5)>.5&&Math.abs(c.x)<4);tempColor.set(isTint?(s.chapter===2?colors.lavender:'#e8e0f5'):colors.white);hexes.current.setColorAt(i,tempColor)});hexes.current.instanceMatrix.needsUpdate=true;if(hexes.current.instanceColor)hexes.current.instanceColor.needsUpdate=true;
-  structures.forEach((b,i)=>{const h=b.h*sm.reveal*(s.chapter===5?.4:1);dummy.position.set(b.x,h/2-.1,b.z);dummy.scale.set(.34,Math.max(.01,h),.36);dummy.rotation.set(0,0,0);dummy.updateMatrix();buildings.current.setMatrixAt(i,dummy.matrix)});buildings.current.instanceMatrix.needsUpdate=true;
-  candidates.forEach(([q,r],i)=>{const reveal=THREE.MathUtils.clamp((t-i*.14)*1.4,0,1);const baseH=i===1?2.9:1.7+(i%3)*.45;const pulse=s.chapter===1?Math.max(0,1-Math.abs(sm.progress*8-i-1))*0.2:0;let h=baseH*(1+pulse)*(1-sm.fail*(i===1?.85:.1));if(s.chapter===2)h*=.7+Math.sin(sm.daypart*1.3+i)*.2;const selected=i<3;const px=THREE.MathUtils.lerp(q*.78,(i%3-1)*1.2,sm.portfolio);const pz=THREE.MathUtils.lerp((r+q*.5)*.9,Math.floor(i/3)*1.4,sm.portfolio);h=THREE.MathUtils.lerp(h,selected?1.1:.08,sm.portfolio);dummy.position.set(px,h*reveal/2+.12+(s.chapter===5&&selected?Math.max(0,1-sm.progress*5+i*.2)*2:0),pz);dummy.scale.set(.6,Math.max(.01,h*reveal),.6);dummy.rotation.set(0,0,sm.fail*(i===1?.05:0));dummy.updateMatrix();sites.current.setMatrixAt(i,dummy.matrix);sites.current.setColorAt(i,tempColor.set(selected||s.chapter!==5?colors.purple:colors.lavender))});sites.current.instanceMatrix.needsUpdate=true;if(sites.current.instanceColor)sites.current.instanceColor.needsUpdate=true;
-  branches.forEach(([q,r],i)=>{const h=(1.1+i*.2)*sm.reveal;dummy.position.set(q*.78,h/2+.1,(r+q*.5)*.9);dummy.scale.set(.6,h,.6);dummy.rotation.set(0,0,0);dummy.updateMatrix();stores.current.setMatrixAt(i,dummy.matrix)});stores.current.instanceMatrix.needsUpdate=true;
-  const top=s.chapter===7;const ang=(s.chapter===0?Math.sin(t*.1)*.075:sm.chapter*.035)+(s.chapter===0?pointer.current.x:0);const radius=top?2:s.chapter===5?8:11;camera.position.lerp(new THREE.Vector3(Math.cos(.65+ang)*radius,top?19:s.chapter===5?17:s.chapter===1?9:12,Math.sin(.65+ang)*radius),a*.4);camera.lookAt(0,.4,0);const cam=camera as THREE.OrthographicCamera;const zoom=mobile?Math.min(size.width/19,size.height/14):49;cam.zoom=THREE.MathUtils.lerp(cam.zoom,zoom*(top?.9:1),a);cam.updateProjectionMatrix();world.current.rotation.y=THREE.MathUtils.lerp(world.current.rotation.y,s.chapter===0?pointer.current.y:0,a);
-  threshold.current.visible=s.chapter===4;arcs.current.visible=s.chapter===4;vault.current.visible=s.chapter===5;route.current.visible=s.chapter===3;broken.current.visible=s.chapter===4&&!s.rescued;if(routeLine.current)routeLine.current.geometry.instanceCount=Math.max(1,Math.floor(64*THREE.MathUtils.clamp(sm.progress*3,0,1)));
- });
- return <group ref={world}>
-  <mesh rotation={[-Math.PI/2,0,0]} position={[0,-.4,0]}><circleGeometry args={[8.5,6]}/><meshStandardMaterial color={colors.ground} roughness={1}/></mesh>
-  <instancedMesh ref={hexes} args={[undefined,undefined,cells.length]}><cylinderGeometry args={[.49,.49,1,6]}/><meshStandardMaterial roughness={.9} flatShading/></instancedMesh>
-  <instancedMesh ref={buildings} args={[undefined,undefined,structures.length]}><boxGeometry/><meshStandardMaterial color={colors.white} roughness={.8}/></instancedMesh>
-  <instancedMesh ref={sites} args={[undefined,undefined,candidates.length]}><boxGeometry/><meshStandardMaterial roughness={.7}/></instancedMesh>
-  <instancedMesh ref={stores} args={[undefined,undefined,branches.length]}><boxGeometry/><meshStandardMaterial color={colors.ink} roughness={.7}/></instancedMesh>
-  <group ref={route} visible={false}><Line ref={routeLine} points={routePoints} color={colors.purple} lineWidth={4} dashed={state.current.delayed} dashSize={.3} gapSize={.24} transparent opacity={state.current.delayed?.35:1}/>{[12,30,49].map(i=><mesh key={i} position={routePoints[i]} rotation={[-Math.PI/2,0,0]}><ringGeometry args={[.12,.19,24]}/><meshBasicMaterial color={colors.purple} side={THREE.DoubleSide}/></mesh>)}</group>
-  <group ref={arcs} visible={false}>{arcPoints.map((points,i)=><Line key={i} points={points} color={colors.purple} lineWidth={1.4} transparent opacity={.65}/>)}</group>
-  <mesh ref={threshold} visible={false} position={[0,1.5,0]} rotation={[-Math.PI/2,0,0]}><planeGeometry args={[8,7]}/><meshBasicMaterial color={colors.purple} transparent opacity={.1} side={THREE.DoubleSide} depthWrite={false}/><Edges color={colors.purple} transparent opacity={.35}/></mesh>
-  <group ref={broken} visible={false} position={[.78,.75,.45]}><mesh position={[.17,0,0]} rotation={[.2,0,-.2]}><boxGeometry args={[.24,.18,.58]}/><meshStandardMaterial color={colors.purple}/></mesh><mesh position={[-.2,.05,0]} rotation={[0,0,.25]}><boxGeometry args={[.24,.16,.58]}/><meshStandardMaterial color={colors.purple}/></mesh></group>
-  <group ref={vault} visible={false} position={[0,1.8,.7]}><mesh><boxGeometry args={[5,3.5,4]}/><meshBasicMaterial color={colors.lavender} transparent opacity={.065} depthWrite={false} side={THREE.DoubleSide}/><Edges color={colors.purple} transparent opacity={.5}/></mesh></group>
- </group>
+
+class SceneBoundary extends Component<{ children: ReactNode; onFailure: () => void }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() { return { failed: true }; }
+  componentDidCatch() { this.props.onFailure(); }
+  render() { return this.state.failed ? null : this.props.children; }
 }
-export default function City({state,onFailure}:{state:MutableRefObject<SceneState>;onFailure:()=>void}){
- const [mobile,setMobile]=useState(false); useEffect(()=>{setMobile(innerWidth<760);const probe=document.createElement('canvas');const context=probe.getContext('webgl2');if(!context)onFailure();else context.getExtension('WEBGL_lose_context')?.loseContext(); const resize=()=>setMobile(innerWidth<760);window.addEventListener('resize',resize);return()=>window.removeEventListener('resize',resize)},[onFailure]);
- return <SceneBoundary onFailure={onFailure}><Canvas frameloop={state.current.paused||state.current.chapter===6?"never":"always"} orthographic camera={{position:[10,12,10],zoom:45,near:.1,far:100}} dpr={[1,1.5]} gl={{antialias:true,alpha:true,powerPreference:'low-power'}} onCreated={({gl})=>{gl.domElement.addEventListener('webglcontextlost',onFailure,{once:true});gl.setClearColor(colors.paper,0)}}><ambientLight intensity={1.7}/><directionalLight position={[3,10,6]} intensity={3}/><directionalLight position={[-5,3,-5]} intensity={.7}/><Landscape state={state} mobile={mobile}/></Canvas></SceneBoundary>
+type Point = [number, number, number];
+function Block({ at, size, color, glow = false }: { at: Point; size: Point; color: string; glow?: boolean }) {
+  return <mesh position={at} castShadow receiveShadow><boxGeometry args={size} /><meshStandardMaterial color={color} roughness={.78} emissive={glow ? color : '#000000'} emissiveIntensity={glow ? .35 : 0} /></mesh>;
+}
+function Sign({ text, at, width = 2, color = '#233c32', ink = '#fff4dc' }: { text: string; at: Point; width?: number; color?: string; ink?: string }) {
+  const texture = useMemo(() => {
+    const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 128;
+    const ctx = canvas.getContext('2d')!;
+    ctx.fillStyle = color; ctx.fillRect(0, 0, 512, 128);
+    ctx.fillStyle = ink; ctx.font = 'bold 54px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, 256, 68);
+    const result = new THREE.CanvasTexture(canvas); result.colorSpace = THREE.SRGBColorSpace; return result;
+  }, [text, color, ink]);
+  useEffect(() => () => texture.dispose(), [texture]);
+  return <mesh position={at}><planeGeometry args={[width, width / 4]} /><meshBasicMaterial map={texture} /></mesh>;
+}
+function Shop({ x, height, color, name, awning }: { x: number; height: number; color: string; name: string; awning: string }) {
+  return <group position={[x, 0, 0]}>
+    <Block at={[0, height / 2, 0]} size={[2.6, height, 2]} color={color} />
+    <Block at={[0, height + .06, 0]} size={[2.78, .18, 2.18]} color="#f2ddba" />
+    <Block at={[0, height + .18, 0]} size={[2.65, .1, 2.05]} color="#c5aa88" />
+    {Array.from({ length: 9 }, (_, row) => <Block key={row} at={[0, 2.1 + row * .23, 1.008]} size={[2.6, .018, .012]} color="#d6b29a" />)}
+    {[-.7, .7].map((wx) => <group key={wx}>
+      <Block at={[wx, height - 1.03, 1.04]} size={[.86, 1.37, .12]} color="#f4e4c9" />
+      <Block at={[wx, height - 1.03, 1.12]} size={[.66, 1.15, .06]} color="#294c4b" />
+      <Block at={[wx, height - 1.03, 1.16]} size={[.045, 1.16, .04]} color="#e8d8bb" />
+      <Block at={[wx, height - 1.03, 1.16]} size={[.67, .045, .04]} color="#e8d8bb" />
+      <Block at={[wx, height - 1.74, 1.15]} size={[1, .12, .27]} color="#f4e4c9" />
+    </group>)}
+    <Block at={[0, .94, 1.035]} size={[2.35, 1.78, .12]} color="#233c32" />
+    {[-.8, 0, .8].map((wx) => <group key={wx}>
+      <Block at={[wx, .95, 1.12]} size={[.66, 1.53, .04]} color="#f8ba61" glow />
+      <Block at={[wx, .62, 1.17]} size={[.66, .05, .06]} color="#775131" />
+      <Block at={[wx, .38, 1.2]} size={[.45, .3, .14]} color={wx === 0 ? '#c6783e' : '#eed1a0'} />
+    </group>)}
+    <Sign text={name} at={[0, 2.02, 1.12]} />
+    <group position={[0, 1.82, 1.42]} rotation={[.22, 0, 0]}>
+      {Array.from({ length: 10 }, (_, i) => <group key={i}>
+        <Block at={[-1.17 + i * .26, 0, 0]} size={[.26, .08, .95]} color={i % 2 ? '#fff0d5' : awning} />
+        <Block at={[-1.17 + i * .26, -.13, .45]} size={[.26, .25, .06]} color={i % 2 ? '#fff0d5' : awning} />
+      </group>)}
+    </group>
+    <Block at={[0, .08, 1.25]} size={[2.65, .16, .6]} color="#d6bfa4" />
+  </group>;
+}
+function Tree({ at }: { at: Point }) {
+  return <group position={at}>
+    <mesh position={[0, .25, 0]} castShadow><cylinderGeometry args={[.29, .21, .5, 12]} /><meshStandardMaterial color="#b65f3a" /></mesh>
+    <mesh position={[0, 1.1, 0]} castShadow><cylinderGeometry args={[.07, .1, 1.8, 8]} /><meshStandardMaterial color="#6b5032" /></mesh>
+    {[[0, 2, 0], [-.3, 1.8, .1], [.3, 2.2, -.1]].map((p, i) => <mesh key={i} position={p as Point} castShadow><icosahedronGeometry args={[.68, 1]} /><meshStandardMaterial color={['#355e39', '#517644', '#739452'][i]} roughness={1} /></mesh>)}
+  </group>;
+}
+function Street({ paused }: { paused: boolean }) {
+  const world = useRef<THREE.Group>(null!);
+  const sale = useRef<THREE.Group>(null!);
+  const elapsed = useRef(0);
+  const { size, camera } = useThree();
+  useEffect(() => {
+    const cam = camera as THREE.OrthographicCamera;
+    cam.zoom = Math.min(size.width / 13.2, size.height / 9.4); cam.updateProjectionMatrix();
+    cam.position.set(9, 7.7, 13); cam.lookAt(0, 1.4, .7);
+  }, [camera, size]);
+  useFrame(({ pointer }, dt) => {
+    if (paused || document.hidden) return;
+    elapsed.current += Math.min(dt, .04);
+    const t = elapsed.current;
+    const fine = matchMedia('(pointer: fine)').matches;
+    world.current.rotation.y = THREE.MathUtils.damp(world.current.rotation.y, Math.sin(t * .18) * .055 + (fine ? pointer.x * .08 : 0), 4.5, dt);
+    sale.current.position.y = 4.7 + Math.sin(t * 1.1) * .15;
+    sale.current.rotation.y = Math.sin(t * .7) * .12;
+    sale.current.rotation.z = -.12 + Math.sin(t * .9) * .035;
+  });
+  return <group ref={world} position={[0, -.65, 0]}>
+    <Block at={[0, -.24, 1.1]} size={[10.9, .45, 7.1]} color="#b68a67" />
+    <Block at={[0, .01, 1.2]} size={[10.9, .09, 6.9]} color="#d0b499" />
+    <Block at={[0, .1, .9]} size={[10.8, .16, 3.9]} color="#e4d0ad" />
+    {Array.from({ length: 17 }, (_, i) => <Block key={i} at={[-5.1 + i * .64, .068, 3.6]} size={[.025, .008, 1.8]} color="#b7997e" />)}
+    {[2.9, 3.5, 4.1].map(z => <Block key={z} at={[0, .07, z]} size={[10.8, .008, .025]} color="#b7997e" />)}
+    <Shop x={-3.9} height={4.5} color="#a85742" name="THE CORNER" awning="#274d40" />
+    <Shop x={-1.3} height={4.05} color="#d4aa73" name="DAILY GOODS" awning="#aa4930" />
+    <Shop x={1.3} height={4.7} color="#a4b6a4" name="MARKET & CO." awning="#274d40" />
+    <Shop x={3.9} height={3.8} color="#b97050" name="LOCAL FINDS" awning="#a84b31" />
+    {[-4.8, 4.7].map(x => <Tree key={x} at={[x, .2, 2.4]} />)}
+    {[-2.7, 2.8].map(x => <group key={x} position={[x, .2, 2.1]}>
+      <Block at={[0, 1.2, 0]} size={[.065, 2.4, .065]} color="#263f37" />
+      <Block at={[0, 2.45, 0]} size={[.29, .36, .29]} color="#ffdb91" glow />
+      <Block at={[0, 2.67, 0]} size={[.4, .08, .4]} color="#263f37" />
+    </group>)}
+    <group position={[-.5, .22, 2.65]} rotation={[-.12, -.12, 0]}>
+      <Block at={[0, .5, 0]} size={[.69, 1, .12]} color="#f6e9cf" />
+      <Sign text="SALE" at={[0, .67, .07]} width={.62} color="#a44229" />
+      <Sign text="COME IN" at={[0, .36, .07]} width={.56} color="#f6e9cf" ink="#284439" />
+    </group>
+    <group ref={sale} position={[2.6, 4.7, 2.1]} rotation={[0, 0, -.12]}>
+      <Block at={[0, 0, 0]} size={[1.55, .83, .16]} color="#b74628" />
+      <Sign text="SALE" at={[0, 0, .09]} width={1.35} color="#b74628" />
+    </group>
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.48, 0]} receiveShadow><planeGeometry args={[200, 200]} /><shadowMaterial transparent opacity={.16} /></mesh>
+  </group>;
+}
+export default function City({ paused, onFailure }: { paused: boolean; onFailure: () => void }) {
+  return <SceneBoundary onFailure={onFailure}><Canvas shadows orthographic camera={{ position: [9, 7.7, 13], zoom: 55, near: .1, far: 100 }} dpr={[1, 1.5]} frameloop={paused ? 'demand' : 'always'} gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }} onCreated={({ gl }) => { gl.domElement.addEventListener('webglcontextlost', onFailure, { once: true }); }}>
+    <ambientLight intensity={1.6} />
+    <directionalLight castShadow position={[-4, 10, 8]} intensity={2.5} color="#ffe4b7" shadow-mapSize={[1024, 1024]} shadow-camera-left={-12} shadow-camera-right={12} shadow-camera-top={12} shadow-camera-bottom={-12} shadow-normalBias={.04} />
+    <directionalLight position={[5, 5, -4]} intensity={1.2} color="#d4e7e3" />
+    <Street paused={paused} />
+  </Canvas></SceneBoundary>;
 }

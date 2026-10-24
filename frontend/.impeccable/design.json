@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-24T00:00:00Z",
+  "title": "StoreScout marketing retail landing",
+  "extensions": {
+    "motion": [
+      {
+        "name": "street-motion",
+        "value": "demand when paused or offscreen",
+        "purpose": "Suspend decorative street motion; reduced motion uses a static CSS street."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stacked-hero",
+        "value": "1024px"
+      },
+      {
+        "name": "compact-street",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [],
+  "narrative": {
+    "northStar": "Local retail street",
+    "overview": "Marketing-only brick storefronts, striped awnings, warm windows and a SALE sign. See frontend/docs/RETAIL_LANDING.md for palette and typography; frontend/DESIGN.md remains the workspace authority.",
+    "keyCharacteristics": [
+      "Storefront/location brand mark",
+      "Texture-ready top-down 3D expansion pass on refresh",
+      "Forest fill and label-rollover pill navigation",
+      "Distinct neighbourhood, due diligence and network visuals",
+      "Explicitly synthetic daypart graph",
+      "Manrope typography"
+    ],
+    "rules": [
+      {
+        "name": "Illustration boundary",
+        "body": "The scene is illustrative, not geographic or analytical evidence.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Preserve routes and backend financial calculations.",
+      "Keep pause, reduced-motion and offscreen suspension behavior."
+    ],
+    "donts": [
+      "Do not interpret storefronts or SALE lettering as rankings or model output."
+    ]
+  }
+}

@@ -1,44 +1,27 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import WorkspaceNavigation from "./WorkspaceNavigation";
 import { useWorkspace } from "@/lib/workspace";
 import { money, methodLabel } from "@/lib/format";
+import { compactMoney } from "@/lib/presentation";
 import { ErrorNotice } from "./Feedback";
-const links = [
-  ["/app", "Explore & Compare"],
-  ["/app/scenarios", "Scenario & Rescue"],
-  ["/app/portfolio", "Portfolio & Report"],
-];
+import BrandMark from "./BrandMark";
 export default function WorkspaceShell({ children }: { children: ReactNode }) {
   const w = useWorkspace();
-  const pathname = usePathname();
   return (
     <div className="workspace-frame">
       <aside className="workspace-sidebar">
         <Link className="workspace-brand" href="/" aria-label="StoreScout home">
-          <svg aria-hidden="true" viewBox="0 0 32 36" width="25" height="28">
-            <path d="M16 1 30 9v18l-14 8L2 27V9Z" fill="currentColor" />
-            <path d="m9 13 7-4 7 4v10l-7 4-7-4Z" fill="var(--paper)" />
-          </svg>
+          <BrandMark size={28} />
           StoreScout
         </Link>
         <p className="workspace-scope">Retail expansion workspace</p>
-        <nav aria-label="Investment workflow">
-          {links.map(([href, label]) => (
-            <Link
-              key={href}
-              href={href}
-              aria-current={pathname === href ? "page" : undefined}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
+        <WorkspaceNavigation contentReady={!!w.project && !w.loading} />
         <div className="sidebar-note">
-          <strong>One investment case</strong>
+          <strong>Your next store, considered</strong>
           <p>
-            Compare locations, test assumptions, then review the whole network.
+            Explore a location. Test the conditions. Decide where to invest.
           </p>
           <Link href="/">Back to overview</Link>
         </div>
@@ -55,7 +38,7 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
         <main id="main-content" className="workspace-sheet">
           <div className="context-bar">
             <label>
-              Saved scenario
+              <span>Scenario</span>
               <select
                 aria-label="Saved scenario"
                 value={w.scenario?.scenario_id ?? ""}
@@ -75,18 +58,20 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
               </select>
             </label>
             <div>
-              <span>Scenario budget · ASSUMED</span>
-              <strong>{money(w.scenario?.budget_inr)}</strong>
+              <span>Budget · assumed</span>
+              <strong title={money(w.scenario?.budget_inr)}>
+                {compactMoney(w.scenario?.budget_inr)}
+              </strong>
             </div>
             <div className="context-state" role="status">
               <span>
                 {w.dirty
                   ? "Unsaved assumptions"
                   : w.current
-                    ? "Matching saved evaluation"
+                    ? "Analysis up to date"
                     : w.evaluation
-                      ? "Previous evaluation · stale"
-                      : "Awaiting evaluation"}
+                      ? "Previous results · refresh needed"
+                      : "Ready to analyse"}
               </span>
               <button
                 disabled={
@@ -94,16 +79,22 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
                 }
                 onClick={() => void w.evaluate()}
               >
-                {w.operation === "evaluate"
-                  ? "Evaluating…"
-                  : "Evaluate scenario"}
+                {w.operation === "evaluate" ? "Analysing…" : "Run analysis"}
               </button>
             </div>
           </div>
-          <div className="method-notice">
-            <span>{methodLabel(w.evaluation?.data.method_mode)}</span>
-            <a href="#evidence-details">Technical Details</a>
-          </div>
+          {w.evaluation && (
+            <div className="method-notice">
+              <span>
+                {w.evaluation
+                  ? w.evaluation.data.method_mode === "scenario_assumptions"
+                    ? "Assumption-based estimates · review the saved inputs."
+                    : methodLabel(w.evaluation.data.method_mode)
+                  : "Select a location, then run your saved scenario."}
+              </span>
+              <a href="#evidence-details">Technical Details</a>
+            </div>
+          )}
           {w.loading && (
             <p role="status" className="loading-state">
               Loading the saved demo project and scenarios…
@@ -112,14 +103,14 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
           <ErrorNotice error={w.loadError} retry={() => void w.load()} />
           {w.dirty && (
             <div className="message" role="status">
-              Assumptions changed. Previous results are stale. Save and evaluate
-              before creating a portfolio or exporting a report.{" "}
+              Conditions changed. Save and analyse them before creating an
+              investment plan or report.{" "}
               <Link href="/app/scenarios">Review changes</Link>
             </div>
           )}
           {w.evaluation && !w.current && !w.dirty && (
             <div className="message" role="status">
-              Previous results are retained from{" "}
+              Showing previous results from{" "}
               {w.evaluatedScenario?.name ?? w.evaluation.data.scenario_id}. They
               are not current for this selection.
             </div>
@@ -132,7 +123,7 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
           )}
           {children}
           <details className="identity-details" id="evidence-details">
-            <summary>Technical Details</summary>
+            <summary>Data and analysis details</summary>
             <dl>
               <div>
                 <dt>Project</dt>
@@ -147,7 +138,7 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
                 <dd>{w.evaluation?.data.evaluation_id ?? "Not computed"}</dd>
               </div>
               <div>
-                <dt>Feature snapshot requested</dt>
+                <dt>Data version requested</dt>
                 <dd>{w.featureSnapshotId}</dd>
               </div>
               <div>
@@ -159,7 +150,7 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
                 </dd>
               </div>
               <div>
-                <dt>Model artifact</dt>
+                <dt>Model reference</dt>
                 <dd>
                   {w.evaluation?.data.model_artifact_id ??
                     "No model artifact available"}

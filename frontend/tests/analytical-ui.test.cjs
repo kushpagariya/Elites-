@@ -27,7 +27,7 @@ Module._load = function (name, parent, isMain) {
   if (name === "next/link")
     return ({ children, ...props }) =>
       React.createElement("a", props, children);
-  if (name === "./LocationMap")
+  if (name === "./LocationMap" || name === "@/features/explore/LocationMap")
     return {
       __esModule: true,
       default: () => React.createElement("div", null, "Map surface"),
@@ -130,6 +130,8 @@ function setup() {
       },
     },
     selection: ["a", "b"],
+    activePeriod: "weekday_lunch",
+    focusedSiteId: "a",
     infrastructure: [],
     acknowledged: [],
     maxStores: 2,
@@ -142,7 +144,9 @@ test("comparison renders saved financials and six daypart controls; supported ze
   assert.match(html, /Operating profit/);
   assert.match(html, /0\.0 \/ 100/);
   assert.match(html, /Supported evidence indicates zero/);
-  assert.equal((html.match(/aria-pressed=/g) || []).length, 6);
+  assert.equal((html.match(/aria-pressed=/g) || []).length, 16);
+  assert.match(html, /Detailed Comparison/);
+  assert.match(html, /Night · weekdays 20–06/);
   workspace.evaluation.data.site_analyses[0].dayparts[0].opportunity_index =
     null;
   workspace.evaluation.data.site_analyses[0].dayparts[0].reason =
@@ -154,12 +158,12 @@ test("comparison renders saved financials and six daypart controls; supported ze
 test("advanced scenario fields are enabled with labelled ranges and immutable save action", () => {
   setup();
   const html = renderToStaticMarkup(React.createElement(Scenarios));
-  assert.match(html, /Operating cost multiplier/);
-  assert.match(html, /Competition multiplier/);
+  assert.match(html, /Operating cost change/);
+  assert.match(html, /Competition adjustment/);
   assert.match(html, /Gross margin/);
-  assert.match(html, /max="1"/);
+  assert.match(html, /max="100"/);
   assert.doesNotMatch(html, /<fieldset disabled/);
-  assert.match(html, /Save new scenario/);
+  assert.match(html, /Save &amp; analyse changes/);
   assert.doesNotMatch(html, /awaiting agreement|contract support|TODO/);
 });
 test("unavailable optimization has no displayed financial recommendation and disables export", () => {
@@ -178,14 +182,14 @@ test("unavailable optimization has no displayed financial recommendation and dis
   };
   let html = renderToStaticMarkup(React.createElement(Portfolio));
   assert.match(html, /No investment recommendation/);
-  assert.match(html, /<button[^>]*disabled=""[^>]*>Download saved report/);
+  assert.match(html, /<button[^>]*disabled=""[^>]*>Download decision report/);
   workspace.portfolio.solver_status = "OPTIMAL";
   workspace.portfolio.status = "FULL_NETWORK_EXACT";
   html = renderToStaticMarkup(React.createElement(Portfolio));
   assert.match(html, /Empty portfolio/);
   assert.doesNotMatch(
     html,
-    /<button[^>]*disabled=""[^>]*>Download saved report/,
+    /<button[^>]*disabled=""[^>]*>Download decision report/,
   );
 });
 test("rescue guard rejects unverified, foreign-shape or out-of-bounds thresholds", () => {

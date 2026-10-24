@@ -1,0 +1,93 @@
+[
+  {
+    "width": 1440,
+    "hero": {
+      "overflow": false,
+      "canvas": true,
+      "fallback": false,
+      "nav": 4
+    }
+  },
+  {
+    "width": 1440,
+    "images": [
+      {
+        "loaded": true,
+        "src": "/_next/image?url=%2Fimages%2Fretail-due-diligence.png&w=3840&q=75"
+      },
+      {
+        "loaded": true,
+        "src": "/_next/image?url=%2Fimages%2Fretail-network.png&w=3840&q=75"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "hero": {
+      "overflow": false,
+      "canvas": true,
+      "fallback": false,
+      "nav": 4
+    }
+  },
+  {
+    "width": 768,
+    "menu": "true"
+  },
+  {
+    "width": 768,
+    "escape": "false"
+  },
+  {
+    "width": 768,
+    "images": [
+      {
+        "loaded": true,
+        "src": "/_next/image?url=%2Fimages%2Fretail-due-diligence.png&w=3840&q=75"
+      },
+      {
+        "loaded": true,
+        "src": "/_next/image?url=%2Fimages%2Fretail-network.png&w=3840&q=75"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "hero": {
+      "overflow": false,
+      "canvas": true,
+      "fallback": false,
+      "nav": 4
+    }
+  },
+  {
+    "width": 390,
+    "menu": "true"
+  },
+  {
+    "width": 390,
+    "escape": "false"
+  },
+  {
+    "width": 390,
+    "images": [
+      {
+        "loaded": true,
+        "src": "/_next/image?url=%2Fimages%2Fretail-due-diligence.png&w=3840&q=75"
+      },
+      {
+        "loaded": true,
+        "src": "/_next/image?url=%2Fimages%2Fretail-network.png&w=3840&q=75"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "reduced": {
+      "canvas": false,
+      "fallback": true
+    }
+  }
+]
