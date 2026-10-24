@@ -122,7 +122,9 @@ class IntegrationTests(unittest.TestCase):
         self.engine_mock.side_effect = None
         self.engine_mock.return_value = broken
         self.assertEqual(self.client.post(BASE + "/evaluate", json={}).status_code, 502)
-        self.assertEqual(self.client.get(BASE + "/model").status_code, 503)
+        model = self.client.get(BASE + "/model")
+        self.assertEqual(model.status_code, 200)
+        self.assertFalse(model.json()["data"]["trained_model_available"])
         model_dir = self.directory / "model"
         model_dir.mkdir()
         (model_dir / "test.bin").write_bytes(b"TEST ARTIFACT: NOT A TRAINED MODEL")

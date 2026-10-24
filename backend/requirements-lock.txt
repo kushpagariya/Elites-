@@ -13,3 +13,6 @@ starlette==0.46.2
 typing_extensions==4.16.0
 typing-inspection==0.4.4
 uvicorn==0.34.3
+
+# The capped prototype uses NumPy and exact enumeration; no second solver.
+numpy==2.3.5

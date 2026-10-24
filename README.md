@@ -4,13 +4,13 @@ Retail expansion planning: compare network economics, diagnose weak sites and al
 
 ## Start here
 
-The `backend-integration` branch adds evaluation/portfolio/rescue orchestration, atomic SQLite result/context saves, idempotency, saved-result reads, source/model hashes and printable reports. **Still required:** actual ML/domain implementations and the connected frontend workspace. Analytical execution returns HTTP 503 until these dependencies are delivered. Contract tests inject test engines; they do not establish model accuracy or a completed analytical prototype.
+The `frontend-backend-integration` branch combines the frontend workspace with backend orchestration, atomic SQLite saves, idempotency, evidence and reports. Explore, scenarios/rescue and portfolio/report now connect to the deterministic assumption-based engine. **No trained model is active:** synthetic/assumed results are not empirically validated forecasts and do not pass the PRD's meaningful-AI gate. See [integration status](docs/STATUS.md) for checks and remaining gaps.
 
 1. Read [architecture](docs/ARCHITECTURE.md), [contract](docs/CONTRACT.md), and [four-hour plan](docs/FOUR_HOUR_PLAN.md).
 2. Give each owner their prompt: [frontend](docs/handoffs/FRONTEND.md), [logic](docs/handoffs/LOGIC.md), [backend](docs/handoffs/BACKEND.md).
 3. Backend owner is also the integration owner. First real merged slice is due at H1; a full connected prototype is due at H4.
 
-Follow the [backend integration workflow](docs/BACKEND_INTEGRATION_WORKFLOW.md). Frontend continues on `frontend`; ML on `ML`. Tested combined changes belong on `backend-integration` before promotion to main.
+Follow the [backend integration workflow](docs/BACKEND_INTEGRATION_WORKFLOW.md). Teammates continue on `frontend` and `ML`; the current combined branch is `frontend-backend-integration`. Main and the teammate branches are preserved.
 
 ## Run locally
 

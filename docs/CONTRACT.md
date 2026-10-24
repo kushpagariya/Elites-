@@ -23,19 +23,21 @@ Paths below are relative to /api/v1/projects/demo unless indicated otherwise.
 | GET /scenarios/{id} | Saved Scenario | Working |
 | GET /infrastructure | Hypothetical event records | Working |
 | GET /features | Frozen raw source snapshot; prepared=false | Working; not computed spatial features |
-| GET /model | Model card + actual artifact/card SHA-256 | Working loader; 503 if bundle absent/invalid |
-| POST /evaluate | EvaluateRequest -> EvaluationData | Orchestration/save implemented; domain currently unavailable |
+| GET /model | Active estimator disclosure or installed card/hash details | Missing fitted bundle explicitly reports assumption mode; invalid bundle is 503 |
+| POST /evaluate | EvaluateRequest -> EvaluationData | Connected assumption-based engine with atomic save |
 | GET /evaluations/{id} | Saved EvaluationData | Implemented; 404 until result saved |
 | GET /sites/{id}/analysis?evaluation_id=... | Saved SiteAnalysis | Implemented; no recomputation |
 | GET /rankings?evaluation_id=... | evaluation_id, rankings[], diagnoses keyed by site ID | Implemented from saved evaluation |
-| GET /dayparts?evaluation_id=...&time_bin=... | Planned computed profile | 503 until agreed numerical DTO extension |
-| POST /sites/{id}/rescue | RescueRequest -> RescueResult | Orchestration/save implemented; domain solver missing |
+| GET /dayparts?evaluation_id=...&time_bin=... | Saved sites/profiles, optionally filtered by bin | Connected; no measured footfall implied |
+| POST /sites/{id}/rescue | RescueRequest -> RescueResult | Connected bounded solver; saved proposal only |
 | GET /rescues/{id} | Saved RescueResult | Implemented |
-| POST /portfolios | PortfolioRequest -> PortfolioResult | Orchestration/checks/save implemented; domain missing |
+| POST /portfolios | PortfolioRequest -> PortfolioResult | Exact full-network enumeration; checks and atomic save |
 | GET /portfolios/{id} | Saved PortfolioResult | Implemented |
 | GET /reports/{evaluation_id}?portfolio_run_id=... | Printable saved HTML | Implemented; format=json returns envelope; mismatched run is 409 |
 
-These endpoints are integration infrastructure. Existing domain evaluation/portfolio functions still raise NotImplementedError; no trained model is installed. Numerical readiness is not established by a passing transport test.
+The frontend branch's deterministic assumption-based engine is now connected. It is not a trained ML model and does not pass the meaningful-AI readiness gate. Missing numerical modules still map to explicit 503 errors. Numerical tests establish bounded synthetic invariants, not empirical forecast accuracy.
+
+GET /features?evaluation_id=... returns the frontend GeographicContext: evaluation_id, cells, POIs, ten catchment polygons, radius, empty unavailable roads/competitors and limitations. Without evaluation_id, the original frozen raw source snapshot remains available for compatibility. All saved geographic reads use original evaluation inputs.
 
 ## Scenario
 
@@ -45,7 +47,7 @@ Example POST /scenarios:
 
 Assumptions are a complete replacement snapshot, not a patch. Copy the selected scenario before editing; preserve unchanged fields and overrides. Pydantic supplies defaults for omitted fields, so omission does not inherit an override. Budget inherits when omitted or null. Unknown site overrides fail validation. Dates must be ISO calendar dates YYYY-MM-DD.
 
-The domain owner still implements date/horizon activation and partial-year effects. Valid date input alone never activates infrastructure. Margin/OPEX/competition controls and project creation/imports require coordinated schema extensions; the seed does not support them yet.
+Date/horizon activation and partial-year effects now come from the connected domain engine. Expanded assumptions support gross_margin_fraction, operating_cost_multiplier, competition_multiplier and valuation_date. Per-site overrides additionally support gross_margin_fraction, annual_opex_inr and competition_multiplier. Project creation/imports remain unavailable.
 
 ## Evaluation
 
@@ -67,7 +69,7 @@ FailFast has status (VIABLE/AT_RISK/REJECTED/REVIEW_REQUIRED), failed_rule_ids[]
 
 All candidates must have exactly one analysis; annual cash flows cover the saved horizon; source IDs belong to the frozen manifest. No trained mode may claim an absent/mismatched model artifact.
 
-Detailed sensitivity, branch allocation, POI support and infrastructure output fields remain an agreed producer/consumer extension. Do not invent frontend-only analytical values.
+SiteAnalysis now includes operating_profit_inr, low/base/high sensitivity snapshots, branch_impacts, effective_inputs, infrastructure_exposure, calibration and six dayparts. EvaluationData adds evidence with source/model/formula identifiers and limitations. Full schemas are in schemas.py/OpenAPI and matching frontend types/guards. Do not invent frontend-only analytical values.
 
 ## Rescue
 
@@ -77,11 +79,11 @@ POST /sites/site-01/rescue:
 
 Bounds above are an example. Default rent bounds are 0 to twice effective saved monthly rent; default sales bounds are 0.5 to 3. Supplied bounds must be finite/nonnegative/ordered; sales upper bound cannot exceed 3.
 
-RescueResult: rescue_id, evaluation_id, site_id, lever, lower_bound, upper_bound, status, threshold?, verification_npv_inr?, reasons[].
+RescueResult: rescue_id, evaluation_id, site_id, lever, lower_bound, upper_bound, status, threshold?, verification_npv_inr?, npv_at_threshold?, verified, reasons[], remaining_failed_rule_ids[]. Both NPV fields identify the same verification value; the latter matches the frontend's guarded adapter.
 
 Status: SOLVED | NOT_RECOVERABLE_WITHIN_BOUNDS | NON_MONOTONIC. SOLVED requires an in-bounds threshold and domain verification NPV within INR 1 of zero. Threshold units are monthly INR for rent or a sales multiplier. The backend checks the returned verification; numerical verification itself belongs to logic.
 
-A saved proposal does not mutate the scenario/evaluation. Applying it requires a new scenario and evaluation.
+A saved proposal does not mutate the scenario/evaluation. Applying it requires a new scenario and evaluation. A viable search bound is not falsely labelled break-even: when no crossing lies in the bounds, the response explains that the range must change. Zero-rent default upper bound has a minimum of INR 1 to keep the search interval valid.
 
 ## Portfolio
 
@@ -91,7 +93,7 @@ POST /portfolios:
 
 Budget comes from the evaluation's saved scenario, never the current UI or baseline project budget. Acknowledgements identify AT_RISK sites in that evaluation.
 
-PortfolioResult: portfolio_run_id, evaluation_id, selected_site_ids[], budget_used_inr, budget_unused_inr, full_network_npv_inr, status, evaluated_subsets, total_subsets.
+PortfolioResult: portfolio_run_id, evaluation_id, selected_site_ids[], budget_used_inr, budget_unused_inr, full_network_npv_inr, status, evaluated_subsets, total_subsets. Extensions include max_stores, acknowledged_risk_site_ids, solver_status/name/version, exclusions, objective_precision_inr, optimality_gap and limitations. The capped prototype uses exact enumeration without an OR-Tools dependency; tie precision is INR 0.01 and returned financial values retain full precision.
 
 Status: FULL_NETWORK_EXACT | FEASIBLE_PARTIAL | UNKNOWN. Exact requires completed counts. Empty zero is valid. An incomplete search cannot claim global optimality. Backend independently checks IDs, count, eligibility, acknowledgements and CAPEX/budget reconciliation in paise. It cannot prove numerical optimality without the logic invariants.
 
@@ -113,7 +115,7 @@ run_evaluation(project_dict, scenario_dict) returns computed EvaluationData fiel
 
 run_portfolio(project_dict, evaluation_context, max_stores, acknowledged_risk_site_ids) returns computed PortfolioResult fields without IDs. Context has project, scenario, evaluation, prepared_network and snapshot. Supplied project budget is the saved scenario budget.
 
-Proposed run_rescue(project, evaluation_context, site_id, normalized_request) returns status, threshold, verification_npv_inr, reasons. ML owner must implement this function; backend supplies identities/lever/bounds.
+The imported domain rescue function is run_rescue(prepared_network, site_id, lever, lower_bound, upper_bound). Backend adapts its verified/npv_at_threshold/remaining_failed_rule_ids response to the persisted RescueResult. Portfolio receives network_context as an internal alias of the saved prepared_network. Both use the frozen original assumptions and inputs.
 
 Model bundles contain model_card.json and a relative artifact_file within STORESCOUT_MODEL_DIR (default ml/artifacts/). Card requires model_artifact_id and method_mode. Backend computes hashes and checks optional artifact_sha256. Model metrics are only what the actual card records; a valid file hash alone cannot prove real inference or forecast accuracy.
 

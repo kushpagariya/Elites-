@@ -1,5 +1,7 @@
 # Backend and integration workflow
 
+Current integration: `frontend-backend-integration` merges frontend commit `d694ef2` with backend commit `cedbce2`. The existing frontend architecture is preserved. Richer schema extensions, actual assumption-based evaluation, DaypartDNA/geographic reads and rescue/portfolio/report are connected. The original steps below remain the design rationale; use current CONTRACT.md and STATUS.md for delivered behavior. ML training/inference is still unavailable. The imported rescue signature is `run_rescue(prepared_network, site_id, lever, lower_bound, upper_bound)`; the backend adapter handles persistence/verification fields. Exact full-network enumeration replaces the extra CP-SAT dependency for this capped prototype.
+
 Work on `backend-integration`, starting from scaffold commit `569f4f5`. Frontend continues on `frontend`; analytical modules continue on `ML` or the logic owner's branch. Do not overwrite either owner's files. This plan implements transport and persistence independently of the numerical engine.
 
 ## Delivery order

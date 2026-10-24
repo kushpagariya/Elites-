@@ -11,7 +11,8 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from starlette.exceptions import HTTPException
 
 from .repositories import store
-from .schemas import Project, Scenario, ScenarioCreate, EvaluateRequest, PortfolioRequest, RescueRequest, EvaluationData, PortfolioResult, RescueResult, SiteAnalysis, Envelope, ErrorEnvelope
+from .schemas import Project, Scenario, ScenarioCreate, EvaluateRequest, PortfolioRequest, RescueRequest, EvaluationData, PortfolioResult, RescueResult, SiteAnalysis, Envelope, ErrorEnvelope, GeographicContext, DaypartsData
+from .domain import pipeline
 from .services import analytics, catalogue, reports, sources
 from .services.errors import ServiceError
 
@@ -21,7 +22,7 @@ Token = Annotated[str | None, Header(alias="Idempotency-Key", min_length=1, max_
 
 
 def envelope(data, **meta):
-    return {"data": data, "meta": {"contract_version": "1", "fixture_id": "demo-1", **meta}}
+    return {"data": data, "meta": {"contract_version": "1", "schema_revision": "analytical-2", "fixture_id": "demo-1", **meta}}
 
 
 def error(status, code, message, details=None):
@@ -69,7 +70,7 @@ def api_index():
 @app.get("/api/v1/health")
 def health():
     # Liveness is deliberately distinct from model/analytical readiness.
-    return envelope({"status": "ok", "implementation_status": "integration", "analytics_readiness": "Check model endpoint and evaluate; health does not certify analytics."})
+    return envelope({"status": "ok", "implementation_status": "assumption_based_analytics", "analytics_readiness": "Assumption-based engine connected; no trained model is active."})
 
 
 @app.get("/api/v1/projects/{project_id}", response_model=Envelope[Project])
@@ -99,9 +100,16 @@ def infrastructure(project_id: str):
     return envelope(sources.installed_snapshot()["infrastructure"])
 
 
-@app.get("/api/v1/projects/{project_id}/features")
-def features(project_id: str):
+@app.get("/api/v1/projects/{project_id}/features", response_model=Envelope[GeographicContext] | Envelope[dict])
+def features(project_id: str, evaluation_id: str | None = None):
     catalogue.project(project_id)
+    if evaluation_id is not None:
+        analytics.saved(project_id, "evaluation", evaluation_id)
+        context = analytics.saved(project_id, "evaluation_context", evaluation_id)
+        frozen = context["project"]["inputs"]
+        radius = frozen["weights"]["catchment_radius_m"]
+        catchments = [{"site_id": site["site_id"], "geometry": pipeline.catchment_ring(site["latitude"], site["longitude"], radius)} for site in context["project"]["sites"]]
+        return envelope({"evaluation_id": evaluation_id, "pois": frozen["pois"], "cells": frozen["cells"], "roads": [], "competitors": [], "catchments": catchments, "catchment_radius_m": radius, "limitations": ["Road and observed competitor inventories are unavailable.", "SYNTHETIC points and assumed straight-line catchments; not travel-time isochrones."]}, evaluation_id=evaluation_id)
     snapshot = sources.installed_snapshot()
     return envelope({**snapshot, "prepared": False, "note": "Frozen source inputs; derived spatial features require the ML implementation."})
 
@@ -111,7 +119,7 @@ def model_card(project_id: str):
     catalogue.project(project_id)
     bundle = sources.model_bundle()
     if bundle is None:
-        raise ServiceError(503, "MODEL_UNAVAILABLE", "No fitted model bundle is installed; no model metrics are claimed.")
+        return envelope({"method_mode": "scenario_assumptions", "model_artifact_id": None, "estimator_version": pipeline.ENGINE_VERSION, "feature_schema": "wallet-reference-v1", "trained_model_available": False, "metrics": None, "limitations": ["No approved trained model is installed. The connected wallet-share estimator is assumption-based."]})
     return envelope({key: value for key, value in bundle.items() if key != "artifact_path"})
 
 
@@ -127,6 +135,12 @@ def read_evaluation(project_id: str, evaluation_id: str):
     return envelope(value, scenario_id=value["scenario_id"], evaluation_id=evaluation_id)
 
 
+@app.get("/api/v1/projects/{project_id}/evaluations", response_model=Envelope[list[EvaluationData]])
+def list_evaluations(project_id: str):
+    catalogue.project(project_id)
+    return envelope(store.list_objects("evaluation", project_id))
+
+
 @app.get("/api/v1/projects/{project_id}/sites/{site_id}/analysis", response_model=Envelope[SiteAnalysis])
 def read_analysis(project_id: str, site_id: str, evaluation_id: str):
     value = analytics.saved(project_id, "evaluation", evaluation_id)
@@ -139,16 +153,19 @@ def read_analysis(project_id: str, site_id: str, evaluation_id: str):
 @app.get("/api/v1/projects/{project_id}/rankings")
 def rankings(project_id: str, evaluation_id: str):
     value = analytics.saved(project_id, "evaluation", evaluation_id)
-    return envelope({"evaluation_id": evaluation_id, "rankings": value["rankings"], "diagnoses": {row["site_id"]: row["failfast"] for row in value["site_analyses"]}}, scenario_id=value["scenario_id"], evaluation_id=evaluation_id)
+    return envelope({"evaluation_id": evaluation_id, "rankings": value["rankings"], "diagnoses": {row["site_id"]: row["failfast"] for row in value["site_analyses"]}, "exclusions": [row for row in value["site_analyses"] if row["failfast"]["status"] in {"REJECTED", "REVIEW_REQUIRED"}]}, scenario_id=value["scenario_id"], evaluation_id=evaluation_id)
 
 
 @app.get("/api/v1/projects/{project_id}/dayparts")
 def dayparts(project_id: str, evaluation_id: str, time_bin: str | None = None):
-    analytics.saved(project_id, "evaluation", evaluation_id)
+    evaluation = analytics.saved(project_id, "evaluation", evaluation_id)
     context = analytics.saved(project_id, "evaluation_context", evaluation_id)
     if time_bin is not None and time_bin not in context["project"]["inputs"]["weights"]["time_bins"]:
         raise ServiceError(422, "INVALID_INPUT", "Unknown DaypartDNA time bin")
-    raise ServiceError(503, "DAYPARTS_UNAVAILABLE", "Detailed computed DaypartDNA response is awaiting the agreed ML schema; raw weights are not opportunity results.")
+    if not all(row.get("dayparts") for row in evaluation["site_analyses"]):
+        raise ServiceError(503, "DAYPARTS_UNAVAILABLE", "No computed DaypartDNA profiles were saved with this evaluation.")
+    value = DaypartsData(evaluation_id=evaluation_id, sites=[{"site_id": row["site_id"], "profiles": [profile for profile in row["dayparts"] if time_bin is None or profile["time_bin"] == time_bin]} for row in evaluation["site_analyses"]])
+    return envelope(value.model_dump(mode="json"), evaluation_id=evaluation_id, scenario_id=evaluation["scenario_id"])
 
 
 @app.post("/api/v1/projects/{project_id}/portfolios", response_model=Envelope[PortfolioResult])

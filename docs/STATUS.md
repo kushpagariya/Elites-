@@ -1,58 +1,79 @@
-# Backend integration status
+# Frontend/backend integration status
 
-Branch: backend-integration. Starting scaffold: 569f4f52f459ed09129c04a17ac97485601d7bb7.
+Working branch: frontend-backend-integration.
 
-## Implemented
+Integrated sources:
+- Backend: cedbce2 (also present on main through merge 8db534b).
+- Frontend: d694ef2, including the consolidated workspace and assumption-based analytical engine.
+- ML branch remains at the original scaffold; no trained ML artifact is activated.
 
-- API index, health, project and hypothetical infrastructure/source snapshot reads.
-- Immutable scenario create/list/read, ISO date validation and ordered rescue bounds.
-- Evaluation service loading frozen sources, actual model/card hashes and domain source identity.
-- Strict complete-result validation, candidate coverage/ranking/source checks.
-- Atomic SQLite public result + private frozen context + cache/idempotency saves.
-- Deduplication, conflicting idempotency keys and concurrent publication handling.
-- Saved evaluation/site/ranking/portfolio/rescue reads.
-- Portfolio orchestration with saved scenario budget; independent CAPEX/count/eligibility/risk checks.
-- Rescue orchestration and persisted proposals; applying a proposal still requires a new scenario.
-- Escaped printable HTML/JSON report preserving saved identities, assumptions and provenance.
-- Bounded analytical worker slots, timeout handling and no late result publication.
-- Typed frontend transport helpers and updated shared types/OpenAPI.
-- Complete implementation/integration order in BACKEND_INTEGRATION_WORKFLOW.md.
+## Connected prototype
 
-## Checks actually completed
+- Landing page and single frontend application root preserved.
+- /app: ten Navi Mumbai grocery candidates, four fictional branches, saved evaluation, two-site financial comparison, sensitivity, branch impacts, map evidence and six-bin DaypartDNA.
+- /app/scenarios: full immutable assumptions, rent/demand/margin/OPEX/competition controls, Current/Opens/Delayed, bounded rescue proposals and explicit apply/re-evaluate.
+- /app/portfolio: evaluated-scenario budget, count/risk constraints, full-network selection, exclusions and matching saved report download/preview.
+- Backend retains atomic evaluation/context saves, idempotency, source/model/engine hashes, independent budget/eligibility checks, bounded workers and safe error envelopes.
+- Rich frontend result DTOs are integrated into canonical Pydantic/OpenAPI schemas. Saved geographic reads use original evaluation inputs.
+- Assumption mode is visible throughout. No trained model, calibrated interval, measured footfall or empirical retail accuracy is claimed.
 
-- 19 API/repository contract tests passed, including rollback, concurrent cache publication, idempotency conflict, stale model/engine, invalid analytical output, budget/risk checks, rescue proposal immutability, report escaping/mismatched run and timeout behavior.
-- Four finance oracle unit tests passed.
-- Frontend route type generation and TypeScript no-emit check passed.
-- Next.js 16.4.3 default production build passed from this checkout.
-- OpenAPI regenerated; git diff whitespace check passed.
-- Live HTTP smoke check: API index/health/project/source reads 200; exactly ten candidates/four branches; model 503 MODEL_UNAVAILABLE; evaluation 503 ENGINE_UNAVAILABLE. OpenAPI has 18 paths.
-- Local backend started on 127.0.0.1:8000 with backend source reload enabled.
+## Integration decisions
 
-Contract tests explicitly inject TEST-ONLY engines and an invalid-as-a-model test artifact. They establish transport/persistence behavior, not trained inference, network correctness, portfolio optimality, forecast accuracy or complete PRD acceptance.
+The incoming branch also changed backend transport and added a competing services.py. Kept the transactional services package and adapted the incoming numerical functions rather than replacing persistence with the less complete duplicate service. Added frozen-context adapters and preserved both rescue verification field names for compatibility.
 
-The first production-build attempt reused dependencies through an external junction, which Turbopack rejected. Replaced that temporary link with a normal locked install; the default production build then passed. No product configuration workaround was committed.
+Replaced the extra CP-SAT dependency with the PRD's capped exact full-network enumeration. It examines up to 1,024 subsets, includes empty zero, preserves budget/count/eligibility/risk constraints and returns truthful exact/partial status. No individual NPV summation or additional pair penalty is used. Comparison/tie precision is INR 0.01; returned financial values retain full precision.
 
-## Current teammate heads inspected
+Fixed a rescue boundary case: a viable upper rent bound is not a break-even threshold. A range without a crossing now returns an explicit bounded no-solution explanation rather than an invalid SOLVED response.
 
-- origin/frontend: e56dd84621ba63885f7506a3d399c7e6d1e0543b, Landing Page.
-- origin/ML: 569f4f52f459ed09129c04a17ac97485601d7bb7, original scaffold.
-- origin/backend and origin/main: original scaffold.
+## Checks completed on this integration
 
-There were no newer teammate commits at the last fetch. The existing frontend marketing app is still nested under frontend/Elites/storescout and /app is a placeholder. Its illustrative local calculations have not been promoted into analytical results. Do not merge generated .next-dev output or declare this landing page a connected workspace.
+- Python unit/numerical checks: 12 passed, zero skipped.
+- Python API/repository checks: 22 passed.
+- Frontend node tests: 23 passed.
+- Frontend type generation and TypeScript no-emit: passed.
+- Production build: passed; routes /, /app, /app/scenarios and /app/portfolio generated.
+- OpenAPI regenerated.
+- Real HTTP smoke uses frontend's actual runtime-guarded API adapters against an isolated local verification database: all three infrastructure states, saved reopening, geography, DaypartDNA, bounded rescue/application, cached evaluation, nonempty exact portfolio, zero-budget/count plan, matching saved report and invalid-budget rejection.
+- Browser on the actual production frontend: evaluated baseline, selected two sites and read financial/sensitivity/daypart results; saved an explicit demand/rent/OPEX scenario; computed its 1,024-subset portfolio; downloaded the saved report and reopened its exact content in the preview.
+- Browser navigation preserved active context across the three workspace routes. Reload/return preserved the selected saved scenario.
+- SYNTHETIC/ASSUMED labels and scenario_assumptions mode stayed visible.
 
-## Remaining integration dependencies
+The first production-build attempt was blocked by Windows sandbox EPERM when creating generated Next.js output. Reran the same build outside that sandbox; it passed without a product configuration workaround.
 
-1. ML: implement domain.pipeline.run_evaluation and supply actual fitted bundle/model card. Include JSON _context for frozen network persistence. Existing domain functions are still stubs; backend execution honestly returns 503.
-2. ML: implement full-network run_portfolio and proposed run_rescue seam against saved context. Numerical invariants remain ML-owned.
-3. Backend + ML + frontend: freeze additive sensitivity, detailed evidence, DaypartDNA and infrastructure result DTOs. Current daypart endpoint intentionally returns 503; raw source weights are not computed opportunity.
-4. Frontend: consolidate one application root; connect workspace to typed helpers; verify annual INR/decimal horizon ROI, six time bins, 24-month delay and evaluation identity.
-5. Integration: merge compatible new branch commits, run relevant checks and then the real end-to-end investment journey. Preserve the last verified state if a merge fails.
-6. Complete-PRD follow-up: coordinated margin/OPEX/competition controls, project creation/import validation and remaining AC01-32. These are not claimed complete by the H4 infrastructure increment.
+Test doubles remain isolated in tests. Numerical fixtures establish synthetic invariants, not empirical forecast quality. The positive portfolio demonstration uses explicitly changed assumed demand and costs; it is not an observed investment outcome.
 
-A recurring check for new frontend/ML/backend commits is configured every ten minutes. It should stay quiet for unchanged heads, preserve uncommitted work, integrate only verified updates onto backend-integration, and notify on meaningful integration outcomes or blockers. It cannot guarantee a complete analytical prototype before the required teammate code arrives.
+## Run
 
-## Immediate integration agreement
+From the repository root:
 
-Read CONTRACT.md and BACKEND_INTEGRATION_WORKFLOW.md before changing the seam. Backend adds all public identities; domain supplies computed values only. Do not reconstruct full-network state from public rounded site cards. Do not silently mix changed engine/model implementations with a saved evaluation. Reports always read saved results.
+    python -m venv .venv
+    .venv\Scripts\python.exe -m pip install -r backend/requirements-lock.txt
+    .venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
 
-No main promotion, full UI journey rehearsal, actual model inference, model benchmark, infrastructure activation calculation, DaypartDNA numerical check or full-network optimality proof has been completed in this increment.
+In another terminal:
+
+    cd frontend
+    pnpm install --frozen-lockfile
+    pnpm dev
+
+Open http://127.0.0.1:3000/app.
+API docs: http://127.0.0.1:8000/docs.
+Optional local backend reload: add --reload --reload-dir backend.
+The current local session also runs the built frontend on port 3000.
+
+For verification only, run an isolated backend with STORESCOUT_DB_PATH pointing to a separate local SQLite file and port 8001, then in frontend:
+
+    $env:STORESCOUT_TEST_API='http://127.0.0.1:8001/api/v1'
+    pnpm test:live
+
+This creates labelled smoke scenarios; it does not delete/reset stored user data.
+
+## Remaining acceptance gaps
+
+- Meaningful-AI gate: fit and validate a real learned artifact on the agreed synthetic/real target contract, then integrate inference and model card. Current wallet-share estimates are explicit assumption mode.
+- Project creation and validated CSV imports.
+- Remaining full-PRD source quality/model evaluation/user validation/performance/reliability checks. No full AC01-32 completion claim.
+- Further analytical review should assess synthetic defaults and commercial parameter behavior before any real investment use.
+- The previously configured branch-check automation is currently PAUSED in app configuration. Do not silently reactivate it; preserve its expiry and user preference.
+
+No main/frontend/ML branch is overwritten or force-pushed by this integration. The combined result is published on frontend-backend-integration.

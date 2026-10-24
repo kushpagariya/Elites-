@@ -1,0 +1,12 @@
+.next/
+.next-dev/
+out/
+node_modules/
+*.tsbuildinfo
+.env.local
+
+.runtime/
+public/vendor/maplibre/
+
+# Generated isolated rendering fixture; not application data.
+/docs/verification/analytical-ui/preview.html

@@ -4,21 +4,33 @@
   "packageManager": "pnpm@11.25.0",
   "version": "0.0.0",
   "scripts": {
-    "dev": "next dev --hostname 127.0.0.1",
-    "build": "next build",
+    "dev": "node scripts/prepare-map.mjs && next dev --hostname 127.0.0.1",
+    "build": "node scripts/prepare-map.mjs && next build",
     "start": "next start --hostname 127.0.0.1",
-    "typecheck": "next typegen && tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "node --test tests/*.test.cjs",
+    "test:live": "node tests/live-smoke.mjs"
   },
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
+    "@fontsource-variable/manrope": "^5.2.0",
+    "@react-three/drei": "^10.7.0",
+    "@react-three/fiber": "^9.3.0",
+    "maplibre-gl": "^6.15.0",
+    "motion": "^12.23.0",
     "next": "16.4.3",
     "react": "19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "three": "^0.180.0",
+    "three-stdlib": "^2.36.1"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.180.0",
     "typescript": "^5.9.3"
   }
 }

@@ -48,15 +48,15 @@ def evaluate(project_id, body, token=None):
         "engine_sha256": sources.engine_identity(),
         "model_artifact_sha256": bundle["artifact_sha256"] if bundle else None,
         "model_card_sha256": bundle["card_sha256"] if bundle else None,
-        "valuation_date": sources.VALUATION_DATE,
-        "orchestration_version": "integration-1",
+        "valuation_date": scenario["assumptions"].get("valuation_date", sources.VALUATION_DATE),
+        "orchestration_version": "integration-2",
     }
     request_hash = store.fingerprint(body.model_dump(mode="json"))
     key = store.fingerprint({"project": project, "scenario": scenario, "snapshot": snapshot})
     cached = _cached(project_id, "evaluation", key, token, request_hash)
     if cached:
         return cached
-    project["inputs"] = {**inputs, "model_bundle": bundle}
+    project["inputs"] = {**inputs, "snapshot_id": inputs["snapshot_hash"], "model_bundle": bundle}
     computed = gateway.invoke("run_evaluation", copy.deepcopy(project), copy.deepcopy(scenario))
     if not isinstance(computed, dict):
         invalid("Evaluation engine must return an object.")
@@ -138,10 +138,11 @@ def portfolio(project_id, body, token=None):
         return cached
     project = copy.deepcopy(context["project"])
     project["budget_inr"] = context["scenario"]["budget_inr"]
-    computed = gateway.invoke("run_portfolio", project, copy.deepcopy(context), body.max_stores, sorted(acknowledgements))
+    domain_context = {**copy.deepcopy(context), "network_context": copy.deepcopy(context["prepared_network"])}
+    computed = gateway.invoke("run_portfolio", project, domain_context, body.max_stores, sorted(acknowledgements))
     if not isinstance(computed, dict) or {"portfolio_run_id", "evaluation_id"}.intersection(computed):
         invalid("Portfolio engine must return computed fields without backend-owned identities.")
-    result = validate(PortfolioResult, {**computed, "portfolio_run_id": str(uuid4()), "evaluation_id": body.evaluation_id})
+    result = validate(PortfolioResult, {**computed, "portfolio_run_id": str(uuid4()), "evaluation_id": body.evaluation_id, "max_stores": body.max_stores, "acknowledged_risk_site_ids": sorted(acknowledgements)})
     selected = result["selected_site_ids"]
     if len(set(selected)) != len(selected) or len(selected) > body.max_stores or set(selected) - set(analyses):
         invalid("Portfolio selected invalid, duplicate or too many sites.")
@@ -174,7 +175,7 @@ def rescue(project_id, site_id, body, token=None):
     assumptions = context["scenario"]["assumptions"]
     override = assumptions["site_overrides"].get(site_id, {}).get("monthly_rent_inr")
     current_rent = override if override is not None else sites[site_id]["monthly_rent_inr"] * assumptions["rent_multiplier"]
-    defaults = (0, 2 * current_rent) if body.lever == "rent" else (0.5, 3)
+    defaults = (0, max(2 * current_rent, 1)) if body.lever == "rent" else (0.5, 3)
     request["lower_bound"] = defaults[0] if body.lower_bound is None else body.lower_bound
     request["upper_bound"] = defaults[1] if body.upper_bound is None else body.upper_bound
     if request["lower_bound"] > request["upper_bound"] or body.lever == "sales" and request["upper_bound"] > 3:
@@ -184,13 +185,18 @@ def rescue(project_id, site_id, body, token=None):
     cached = _cached(project_id, operation, key, token, request_hash)
     if cached:
         return cached
-    computed = gateway.invoke("run_rescue", copy.deepcopy(context["project"]), copy.deepcopy(context), site_id, request.copy())
-    if not isinstance(computed, dict) or set(computed) - {"status", "threshold", "verification_npv_inr", "reasons"}:
+    computed = gateway.invoke("run_rescue", copy.deepcopy(context["prepared_network"]), site_id, body.lever, request["lower_bound"], request["upper_bound"])
+    accepted = {"status", "threshold", "verification_npv_inr", "npv_at_threshold", "verified", "reasons", "remaining_failed_rule_ids", "site_id", "lever", "lower_bound", "upper_bound"}
+    if not isinstance(computed, dict) or set(computed) - accepted:
         invalid("Rescue engine returned fields outside the agreed computed result.")
+    computed = dict(computed)
+    npv = computed.get("npv_at_threshold", computed.get("verification_npv_inr"))
+    computed.update(npv_at_threshold=npv, verification_npv_inr=npv)
+    computed.setdefault("verified", computed.get("status") == "SOLVED" and npv is not None and abs(npv) <= 1)
     result = validate(RescueResult, {**computed, **request, "site_id": site_id, "rescue_id": str(uuid4())})
     if result["status"] == "SOLVED":
         threshold, npv = result["threshold"], result["verification_npv_inr"]
-        if threshold is None or not request["lower_bound"] <= threshold <= request["upper_bound"] or npv is None or abs(npv) > 1:
+        if threshold is None or not request["lower_bound"] <= threshold <= request["upper_bound"] or npv is None or abs(npv) > 1 or not result["verified"]:
             invalid("Solved rescue must contain an in-bounds threshold verified within INR 1 of break-even.")
     elif result["threshold"] is not None:
         invalid("An unsolved rescue cannot claim a threshold.")

@@ -1,6 +1,6 @@
 # StoreScout architecture
 
-One local operator, one Navi Mumbai grocery demonstration, 10 candidates/four fictional branches. The complete PRD remains authoritative. Backend integration provides orchestration, atomic persistence and saved-result endpoints; the numerical pipeline and connected UI still require teammate delivery.
+One local operator, one Navi Mumbai grocery demonstration, 10 candidates/four fictional branches. The complete PRD remains authoritative. The frontend workspace now connects to backend orchestration, atomic persistence and a deterministic assumption-based numerical pipeline. No trained ML model is active; that acceptance gate remains open.
 
 ```mermaid
 flowchart TD

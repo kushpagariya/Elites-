@@ -1,0 +1,1534 @@
+{
+ "url": "http://127.0.0.1:3000/app",
+ "at": "2026-10-24T12:11:04.136Z",
+ "allow": [
+  "palette-purple",
+  "palette-cream"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.55,
+    0.63,
+    0.89
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 2314,
+     "screens": 2.6,
+     "words": 417,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Explore & Compare",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 26,
+     "vw": 1.8,
+     "font": "Manrope Variable",
+     "weight": 650,
+     "tracking": -0.04,
+     "leading": 1.2,
+     "top": 212,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Explore & Compare",
+     "words": 3,
+     "lines": 1,
+     "size": 26,
+     "font": "Manrope Variable"
+    },
+    "headings": [],
+    "headingSummary": {
+     "count": 0,
+     "maxLines": 0,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Manrope Variable",
+       "share": 0.99,
+       "mono": false
+      },
+      {
+       "family": "Helvetica Neue",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      19,
+      23,
+      26
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Manrope Variable",
+      "size": 13,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.7
+     },
+     "measureChars": 92,
+     "max": {
+      "size": 26,
+      "vw": 1.8,
+      "font": "Manrope Variable",
+      "text": "Explore & Compare"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.01,
+     "smallText": 15
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f4",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.16,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f7f7f4",
+       "top": 0,
+       "hsl": {
+        "h": 60,
+        "s": 0.16,
+        "l": 0.96
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 64,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#62616a",
+       "share": 0.62
+      },
+      {
+       "color": "#18181b",
+       "share": 0.36
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#f7f7f4",
+      "hsl": {
+       "h": 60,
+       "s": 0.16,
+       "l": 0.96
+      },
+      "fg": "#18181b"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 4,
+     "height": 42,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Explore & Compare",
+      "Evaluate scenario"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.maplibregl-ctrl.maplibregl-ctrl-group → rgba(0, 0, 0, 0.1) 0px 0px 0px 2px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 5,
+     "hairlineSamples": [
+      "div.context-bar 1154px",
+      "div.profile-state 565px",
+      "div.profile-state 565px",
+      "details.branch-details 1154px",
+      "details.identity-details 1154px"
+     ],
+     "outlinedBoxes": 4,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 16,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 4,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 900,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "manrope variable"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 2314,
+    "margins": {
+     "left": 32,
+     "right": 33
+    },
+    "sections": [
+     {
+      "sel": "section",
+      "tag": "section",
+      "top": 371,
+      "height": 930,
+      "words": 160,
+      "media": 0,
+      "middle": 99,
+      "heading": {
+       "text": "Candidate locations",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 253,
+      "right": 33,
+      "textLeft": 253,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.location-map-section",
+      "tag": "section",
+      "top": 1329,
+      "height": 395,
+      "words": 29,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Location context",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 253,
+      "right": 33,
+      "textLeft": 253,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.analysis-grid",
+      "tag": "div",
+      "top": 1751,
+      "height": 181,
+      "words": 46,
+      "media": 0,
+      "middle": 296,
+      "heading": {
+       "text": "Two-site comparison",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 253,
+      "right": 52,
+      "textLeft": 253,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section",
+      "tag": "section",
+      "top": 1932,
+      "height": 208,
+      "words": 59,
+      "media": 0,
+      "middle": 70,
+      "heading": {
+       "text": "DaypartDNA",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 253,
+      "right": 33,
+      "textLeft": 253,
+      "textRight": 50,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Explore & Compare",
+      "size": 26,
+      "top": 212,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 253,
+      "n": 6
+     },
+     {
+      "x": 842,
+      "n": 1
+     },
+     {
+      "x": 972,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 8,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.08,
+    "voidBox": {
+     "x": 840,
+     "y": 120,
+     "w": 360,
+     "h": 300
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#f7f7f4",
+    "sidebar": {
+     "w": 228,
+     "tag": "aside",
+     "links": 5,
+     "share": 0.16
+    },
+    "topbar": {
+     "h": 64
+    },
+    "canvas": {
+     "left": 25,
+     "right": 33
+    },
+    "hero": {
+     "text": "Explore & Compare",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 26,
+     "vw": 1.8,
+     "font": "Manrope Variable",
+     "weight": 650,
+     "tracking": -0.04,
+     "leading": 1.2,
+     "top": 212,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 7,
+     "radii": [
+      [
+       0,
+       4
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       16,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": {
+     "count": 14,
+     "median": 71
+    },
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.07,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      19,
+      23,
+      26
+     ]
+    },
+    "title": {
+     "text": "Explore & Compare",
+     "size": 26,
+     "top": 212
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.61,
+    0.63,
+    0.93
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2690,
+     "screens": 2.6,
+     "words": 399,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 1,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Explore & Compare",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 26,
+     "vw": 3.4,
+     "font": "Manrope Variable",
+     "weight": 650,
+     "tracking": -0.04,
+     "leading": 1.2,
+     "top": 367,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Explore & Compare",
+     "words": 3,
+     "lines": 1,
+     "size": 26,
+     "font": "Manrope Variable"
+    },
+    "headings": [
+     {
+      "text": "Explore & Compare",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Manrope Variable",
+      "weight": 650,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 367,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Manrope Variable",
+       "share": 0.99,
+       "mono": false
+      },
+      {
+       "family": "Helvetica Neue",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      19,
+      23,
+      26
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Manrope Variable",
+      "size": 13,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 6.1
+     },
+     "measureChars": 92,
+     "max": {
+      "size": 26,
+      "vw": 3.4,
+      "font": "Manrope Variable",
+      "text": "Explore & Compare"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.01,
+     "smallText": 15
+    },
+    "eyebrows": [
+     {
+      "text": "Awaiting evaluation",
+      "above": "Explore & Compare",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 283
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f4",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.16,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f7f7f4",
+       "top": 0,
+       "hsl": {
+        "h": 60,
+        "s": 0.16,
+        "l": 0.96
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 166,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#62616a",
+       "share": 0.61
+      },
+      {
+       "color": "#18181b",
+       "share": 0.37
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#f7f7f4",
+      "hsl": {
+       "h": 60,
+       "s": 0.16,
+       "l": 0.96
+      },
+      "fg": "#18181b"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 4,
+     "height": 42,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Explore & Compare",
+      "Evaluate scenario"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.maplibregl-ctrl.maplibregl-ctrl-group → rgba(0, 0, 0, 0.1) 0px 0px 0px 2px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 6,
+     "hairlineSamples": [
+      "main#main-content.workspace-sheet 768px",
+      "div.context-bar 728px",
+      "div.profile-state 352px",
+      "div.profile-state 352px",
+      "details.branch-details 728px"
+     ],
+     "outlinedBoxes": 3,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 4,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 3,
+     "fixed": false,
+     "height": 44,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "manrope variable"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2690,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "aside.workspace-sidebar",
+      "tag": "aside",
+      "top": 0,
+      "height": 122,
+      "words": 10,
+      "media": 0,
+      "middle": 24,
+      "heading": {
+       "text": "StoreScout",
+       "size": 23,
+       "tag": "a"
+      },
+      "left": 28,
+      "right": 357,
+      "textLeft": 28,
+      "textRight": 357,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.workspace-body",
+      "tag": "div",
+      "top": 122,
+      "height": 2568,
+      "words": 358,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Explore & Compare",
+       "size": 26,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 0,
+      "textLeft": 20,
+      "textRight": -18,
+      "fullBleed": false,
+      "footer": true,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Explore & Compare",
+      "size": 26,
+      "top": 367,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 7
+     },
+     {
+      "x": 396,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 8,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#f7f7f4",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 20,
+     "right": -17
+    },
+    "hero": {
+     "text": "Explore & Compare",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 26,
+     "vw": 3.4,
+     "font": "Manrope Variable",
+     "weight": 650,
+     "tracking": -0.04,
+     "leading": 1.2,
+     "top": 367,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 6,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 6,
+     "radii": [
+      [
+       0,
+       4
+      ],
+      [
+       4,
+       2
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": {
+     "count": 14,
+     "median": 71
+    },
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.07,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      19,
+      23,
+      26
+     ]
+    },
+    "title": {
+     "text": "Explore & Compare",
+     "size": 26,
+     "top": 367
+    },
+    "colourShare": 0.002
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.89,
+    0.5,
+    0.94,
+    0.94
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 3189,
+     "screens": 3.8,
+     "words": 398,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 2,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Explore & Compare",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 24,
+     "vw": 6.2,
+     "font": "Manrope Variable",
+     "weight": 650,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 389,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Explore & Compare",
+     "words": 3,
+     "lines": 1,
+     "size": 24,
+     "font": "Manrope Variable"
+    },
+    "headings": [
+     {
+      "text": "StoreScout",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.9,
+      "font": "Manrope Variable",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 1.55,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 12,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "Explore & Compare",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Manrope Variable",
+      "weight": 650,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 389,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Manrope Variable",
+       "share": 0.99,
+       "mono": false
+      },
+      {
+       "family": "Helvetica Neue",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      19,
+      23,
+      24
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Manrope Variable",
+      "size": 13,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 6.1
+     },
+     "measureChars": 55,
+     "max": {
+      "size": 24,
+      "vw": 6.2,
+      "font": "Manrope Variable",
+      "text": "Explore & Compare"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.03,
+     "smallText": 15
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f4",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.16,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f7f7f4",
+       "top": 0,
+       "hsl": {
+        "h": 60,
+        "s": 0.16,
+        "l": 0.96
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 164,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#62616a",
+       "share": 0.61
+      },
+      {
+       "color": "#18181b",
+       "share": 0.37
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#f7f7f4",
+      "hsl": {
+       "h": 60,
+       "s": 0.16,
+       "l": 0.96
+      },
+      "fg": "#18181b"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 4,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Explore & Compare",
+      "Evaluate scenario"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.maplibregl-ctrl.maplibregl-ctrl-group → rgba(0, 0, 0, 0.1) 0px 0px 0px 2px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 6,
+     "hairlineSamples": [
+      "main#main-content.workspace-sheet 390px",
+      "div.context-bar 358px",
+      "div.profile-state 358px",
+      "div.profile-state 358px",
+      "details.branch-details 358px"
+     ],
+     "outlinedBoxes": 3,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 4,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 3,
+     "fixed": false,
+     "height": 56,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "manrope variable"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 3189,
+    "margins": {
+     "left": 16,
+     "right": 17
+    },
+    "sections": [
+     {
+      "sel": "div.context-bar",
+      "tag": "div",
+      "top": 185,
+      "height": 184,
+      "words": 11,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section",
+      "tag": "section",
+      "top": 657,
+      "height": 996,
+      "words": 160,
+      "media": 0,
+      "middle": 332,
+      "heading": {
+       "text": "Candidate locations",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 0,
+      "textLeft": 16,
+      "textRight": -392,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.location-map-section",
+      "tag": "section",
+      "top": 1681,
+      "height": 421,
+      "words": 29,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Location context",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 17,
+      "textLeft": 16,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.analysis-grid",
+      "tag": "div",
+      "top": 2129,
+      "height": 422,
+      "words": 46,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Two-site comparison",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 38,
+      "textLeft": 16,
+      "textRight": 38,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section",
+      "tag": "section",
+      "top": 2551,
+      "height": 475,
+      "words": 59,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "DaypartDNA",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 26,
+      "textLeft": 16,
+      "textRight": 26,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Explore & Compare",
+      "size": 24,
+      "top": 389,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 8
+     }
+    ],
+    "leftBlocks": 8,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": false,
+    "ground": "#f7f7f4",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 16,
+     "right": -391
+    },
+    "hero": {
+     "text": "Explore & Compare",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 24,
+     "vw": 6.2,
+     "font": "Manrope Variable",
+     "weight": 650,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 389,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 1,
+    "layout": {
+     "panels": 8,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 8,
+     "radii": [
+      [
+       0,
+       6
+      ],
+      [
+       4,
+       2
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": {
+     "count": 14,
+     "median": 71
+    },
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.07,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      19,
+      23,
+      24
+     ]
+    },
+    "title": {
+     "text": "Explore & Compare",
+     "size": 24,
+     "top": 389
+    },
+    "colourShare": 0.001
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\ASUS\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\verification\\workspace\\explore\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\ASUS\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\verification\\workspace\\explore\\desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\ASUS\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\verification\\workspace\\explore\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\ASUS\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\verification\\workspace\\explore\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\ASUS\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\verification\\workspace\\explore\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\ASUS\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\verification\\workspace\\explore\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
