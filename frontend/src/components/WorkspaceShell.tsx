@@ -6,15 +6,7 @@ import { useWorkspace } from "@/lib/workspace";
 import { money, methodLabel } from "@/lib/format";
 import { compactMoney } from "@/lib/presentation";
 import { ErrorNotice } from "./Feedback";
-<<<<<<< Updated upstream
-=======
 import BrandMark from "./BrandMark";
-const links = [
-  ["/app", "Explore & Compare"],
-  ["/app/scenarios", "Scenario & Rescue"],
-  ["/app/portfolio", "Portfolio & Report"],
-];
->>>>>>> Stashed changes
 export default function WorkspaceShell({ children }: { children: ReactNode }) {
   const w = useWorkspace();
   return (
