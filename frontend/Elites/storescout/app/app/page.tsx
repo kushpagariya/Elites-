@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function AppPlaceholder(){return <main className="placeholder"><Link className="wordmark" href="/">StoreScout<span className="logo-dot"/></Link><div><p>Command Center</p><h1>The next chapter<br/>starts here.</h1><p>This is the reserved home for StoreScout’s analysis workspace. The current build is the marketing experience; the investment engine is not connected yet.</p><Link className="button" href="/">Back to the experience <span aria-hidden>↗</span></Link></div><p>Team Elites · Retail Expansion Intelligence Platform</p></main>}
