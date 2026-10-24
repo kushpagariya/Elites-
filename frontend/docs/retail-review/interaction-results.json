@@ -1,0 +1,55 @@
+[
+  {
+    "width": 1440,
+    "overflow": false,
+    "canvas": true,
+    "cta": "/app"
+  },
+  {
+    "width": 1440,
+    "paused": "true"
+  },
+  {
+    "width": 1440,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "overflow": false,
+    "canvas": true,
+    "cta": "/app"
+  },
+  {
+    "width": 768,
+    "paused": "true"
+  },
+  {
+    "width": 768,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "canvas": true,
+    "cta": "/app"
+  },
+  {
+    "width": 390,
+    "paused": "true"
+  },
+  {
+    "width": 390,
+    "errors": []
+  },
+  {
+    "reduced": {
+      "fallback": true,
+      "canvas": false,
+      "pause": false
+    }
+  },
+  {
+    "workspace": "/app",
+    "errors": []
+  }
+]

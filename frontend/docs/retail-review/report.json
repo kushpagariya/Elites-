@@ -1,0 +1,2992 @@
+{
+ "url": "http://127.0.0.1:3000",
+ "at": "2026-10-24T14:29:43.700Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 7,
+   "filled": [
+    1,
+    1,
+    1,
+    1,
+    0.98,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 6168,
+     "screens": 6.9,
+     "words": 819,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 11,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Know where to open your next store.",
+     "words": 7,
+     "chars": 35,
+     "lines": 3,
+     "size": 77.8,
+     "vw": 5.4,
+     "font": "Manrope Variable",
+     "weight": 750,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.42,
+     "top": 191,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Know where to open your next store.",
+     "words": 7,
+     "lines": 3,
+     "size": 77.8,
+     "font": "Manrope Variable"
+    },
+    "headings": [
+     {
+      "text": "Know where to open your next store.",
+      "words": 7,
+      "chars": 35,
+      "lines": 3,
+      "size": 77.8,
+      "vw": 5.4,
+      "font": "Manrope Variable",
+      "weight": 750,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 191,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "From possible locations to a clear investment plan.",
+      "words": 8,
+      "chars": 51,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 1100,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The same location can be busy at different times.",
+      "words": 9,
+      "chars": 49,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 1824,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "94",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Manrope Variable",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.03,
+      "top": 2454,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "62",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Manrope Variable",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.03,
+      "top": 2454,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "A good location. A bad investment?",
+      "words": 6,
+      "chars": 34,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 3366,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Know what must change before committing",
+      "words": 6,
+      "chars": 39,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Manrope Variable",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3809,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Don’t just choose a location. Choose a better investment.",
+      "words": 9,
+      "chars": 57,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 4229,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Financial analysis awaits a saved evaluation",
+      "words": 6,
+      "chars": 44,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Manrope Variable",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4604,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Know why a location is recommended.",
+      "words": 6,
+      "chars": 35,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 4961,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your next store deserves a smarter decision.",
+      "words": 7,
+      "chars": 44,
+      "lines": 2,
+      "size": 54,
+      "vw": 3.8,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.47,
+      "top": 5623,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 11,
+     "maxLines": 3,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": 6,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Manrope Variable",
+       "share": 1,
+       "mono": false
+      },
+      {
+       "family": "monospace",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      28,
+      32,
+      54,
+      56,
+      78
+     ],
+     "sizeCount": 19,
+     "notLoaded": [],
+     "body": {
+      "font": "Manrope Variable",
+      "size": 17,
+      "leading": 1.7,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.8
+     },
+     "measureChars": 80,
+     "max": {
+      "size": 77.8,
+      "vw": 5.4,
+      "font": "Manrope Variable",
+      "text": "Know where to open your"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "monospace"
+     ],
+     "monoSamples": [
+      "STEP 01",
+      "STEP 02",
+      "STEP 03"
+     ],
+     "microLabels": 9,
+     "microLabelShare": 0.035,
+     "microSamples": [
+      "How StoreScout Works",
+      "STEP 01",
+      "STEP 02",
+      "STEP 03",
+      "DaypartDNA + Future Infrastructure",
+      "Live Scenario Metrics"
+     ],
+     "upperShare": 0.03,
+     "centerShare": 0.04,
+     "smallText": 14
+    },
+    "eyebrows": [
+     {
+      "text": "How StoreScout Works",
+      "above": "From possible locations to a clear inves",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 1067
+     },
+     {
+      "text": "DaypartDNA + Future Infrastructure",
+      "above": "The same location can be busy at differe",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 1792
+     },
+     {
+      "text": "Daypart Opportunity",
+      "above": "94",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 2429
+     },
+     {
+      "text": "Transit Access Score",
+      "above": "62",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 2429
+     },
+     {
+      "text": "FailFast Risk Diagnosis",
+      "above": "A good location. A bad investment?",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 3333
+     },
+     {
+      "text": "Financial Analysis & Budget Optimisation",
+      "above": "Don’t just choose a location. Choose a b",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 4197
+     },
+     {
+      "text": "Transparent Reasoning",
+      "above": "Know why a location is recommended.",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 4928
+     }
+    ],
+    "numbered": [
+     {
+      "text": "STEP 01",
+      "size": 14,
+      "top": 1396
+     },
+     {
+      "text": "STEP 02",
+      "size": 14,
+      "top": 1396
+     },
+     {
+      "text": "STEP 03",
+      "size": 14,
+      "top": 1396
+     }
+    ],
+    "color": {
+     "bodyBg": "#f7f7f4",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.16,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f5f0e6",
+       "top": 0,
+       "hsl": {
+        "h": 40,
+        "s": 0.43,
+        "l": 0.93
+       }
+      },
+      {
+       "color": "#eee7da",
+       "top": 967,
+       "hsl": {
+        "h": 39,
+        "s": 0.37,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 2153,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#203c32",
+       "top": 4828,
+       "hsl": {
+        "h": 159,
+        "s": 0.3,
+        "l": 0.18
+       }
+      },
+      {
+       "color": "#e8d8bd",
+       "top": 5558,
+       "hsl": {
+        "h": 38,
+        "s": 0.48,
+        "l": 0.83
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#5e665d",
+       "share": 0.48
+      },
+      {
+       "color": "#203c32",
+       "share": 0.28
+      },
+      {
+       "color": "#c2c1c7",
+       "share": 0.13
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.04
+      },
+      {
+       "color": "#a83d24",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#203c32",
+      "hsl": {
+       "h": 159,
+       "s": 0.3,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 5,
+     "radius": 0,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Explore Demo",
+      "Explore StoreScout",
+      "See How It Works",
+      "Pause motion"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.daypart-map-container → rgba(0, 0, 0, 0.03) 0px 4px 20px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 10,
+     "hairlineSamples": [
+      "header.header 1440px",
+      "section#hero.hero-section 1440px",
+      "section#how-it-works.section-wrapper.tint-bg 1440px",
+      "section#daypart-dna.section-wrapper 1440px",
+      "div.map-controls-bar 1230px"
+     ],
+     "outlinedBoxes": 11,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": true,
+       "rounded": false,
+       "top": 1347
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 5237
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.39
+     }
+    ],
+    "nav": {
+     "links": 5,
+     "fixed": true,
+     "height": 90,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "manrope variable"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 6168,
+    "margins": {
+     "left": 72,
+     "right": 88
+    },
+    "sections": [
+     {
+      "sel": "section#hero.hero-section",
+      "tag": "section",
+      "top": 90,
+      "height": 793,
+      "words": 72,
+      "media": 1,
+      "middle": 64,
+      "heading": {
+       "text": "Know where to open your",
+       "size": 78,
+       "tag": "h1"
+      },
+      "left": 72,
+      "right": 0,
+      "textLeft": 72,
+      "textRight": 88,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#how-it-works.section-wrapper.tint-bg",
+      "tag": "section",
+      "top": 967,
+      "height": 725,
+      "words": 98,
+      "media": 0,
+      "middle": 70,
+      "heading": {
+       "text": "From possible locations to a clear investment plan",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 72,
+      "right": 112,
+      "textLeft": 72,
+      "textRight": 112,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.daypart-map-container",
+      "tag": "div",
+      "top": 2153,
+      "height": 742,
+      "words": 139,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "94",
+       "size": 32,
+       "tag": "span"
+      },
+      "left": 105,
+      "right": 108,
+      "textLeft": 105,
+      "textRight": 124,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div",
+      "tag": "div",
+      "top": 2952,
+      "height": 180,
+      "words": 69,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "What if a new metro station opens nearby?",
+       "size": 24,
+       "tag": "h3"
+      },
+      "left": 72,
+      "right": 646,
+      "textLeft": 72,
+      "textRight": 646,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#failfast.section-wrapper.tint-bg",
+      "tag": "section",
+      "top": 3233,
+      "height": 864,
+      "words": 102,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A good location. A bad investment?",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 72,
+      "right": 348,
+      "textLeft": 72,
+      "textRight": 348,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#financial-planning.section-wrapper",
+      "tag": "section",
+      "top": 4097,
+      "height": 731,
+      "words": 134,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Don’t just choose a location. Choose a better inve",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 72,
+      "right": 235,
+      "textLeft": 72,
+      "textRight": 235,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#evidence.section-wrapper.dark-bg",
+      "tag": "section",
+      "top": 4828,
+      "height": 1206,
+      "words": 127,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Know why a location is recommended.",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 72,
+      "right": 123,
+      "textLeft": 72,
+      "textRight": 123,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer-clean",
+      "tag": "footer",
+      "top": 6034,
+      "height": 134,
+      "words": 15,
+      "media": 0,
+      "middle": 825,
+      "heading": null,
+      "left": 72,
+      "right": 98,
+      "textLeft": 72,
+      "textRight": 98,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Know where to open your next store.",
+      "size": 78,
+      "top": 191,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 72,
+      "n": 22
+     },
+     {
+      "x": 101,
+      "n": 3
+     },
+     {
+      "x": 515,
+      "n": 2
+     },
+     {
+      "x": 544,
+      "n": 2
+     },
+     {
+      "x": 957,
+      "n": 2
+     },
+     {
+      "x": 986,
+      "n": 2
+     },
+     {
+      "x": 340,
+      "n": 1
+     },
+     {
+      "x": 608,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 35,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.06,
+    "voidBox": {
+     "x": 0,
+     "y": 780,
+     "w": 600,
+     "h": 120
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0.99,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 7249,
+     "screens": 7.1,
+     "words": 813,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 11,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Know where to open your next store.",
+     "words": 7,
+     "chars": 35,
+     "lines": 2,
+     "size": 48,
+     "vw": 6.3,
+     "font": "Manrope Variable",
+     "weight": 750,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.86,
+     "top": 124,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Know where to open your next store.",
+     "words": 7,
+     "lines": 2,
+     "size": 48,
+     "font": "Manrope Variable"
+    },
+    "headings": [
+     {
+      "text": "Know where to open your next store.",
+      "words": 7,
+      "chars": 35,
+      "lines": 2,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Manrope Variable",
+      "weight": 750,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 124,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "From possible locations to a clear investment plan.",
+      "words": 8,
+      "chars": 51,
+      "lines": 2,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1274,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The same location can be busy at different times.",
+      "words": 9,
+      "chars": 49,
+      "lines": 1,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 2354,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "94",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Manrope Variable",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.05,
+      "top": 3551,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "62",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Manrope Variable",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.05,
+      "top": 3551,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "A good location. A bad investment?",
+      "words": 6,
+      "chars": 34,
+      "lines": 1,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 4336,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Don’t just choose a location. Choose a better investment.",
+      "words": 9,
+      "chars": 57,
+      "lines": 2,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 5051,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Know why a location is recommended.",
+      "words": 6,
+      "chars": 35,
+      "lines": 1,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 5774,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your next store deserves a smarter decision.",
+      "words": 7,
+      "chars": 44,
+      "lines": 1,
+      "size": 34.6,
+      "vw": 4.5,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 6840,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": 7,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Manrope Variable",
+       "share": 1,
+       "mono": false
+      },
+      {
+       "family": "monospace",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      32,
+      34,
+      35,
+      48
+     ],
+     "sizeCount": 18,
+     "notLoaded": [],
+     "body": {
+      "font": "Manrope Variable",
+      "size": 17,
+      "leading": 1.7,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.8
+     },
+     "measureChars": 80,
+     "max": {
+      "size": 48,
+      "vw": 6.3,
+      "font": "Manrope Variable",
+      "text": "Know where to open your"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "monospace"
+     ],
+     "monoSamples": [
+      "STEP 01",
+      "STEP 02",
+      "STEP 03"
+     ],
+     "microLabels": 9,
+     "microLabelShare": 0.035,
+     "microSamples": [
+      "How StoreScout Works",
+      "STEP 01",
+      "STEP 02",
+      "STEP 03",
+      "DaypartDNA + Future Infrastructure",
+      "Live Scenario Metrics"
+     ],
+     "upperShare": 0.03,
+     "centerShare": 0.04,
+     "smallText": 14
+    },
+    "eyebrows": [
+     {
+      "text": "How StoreScout Works",
+      "above": "From possible locations to a clear inves",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 1241
+     },
+     {
+      "text": "DaypartDNA + Future Infrastructure",
+      "above": "The same location can be busy at differe",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2322
+     },
+     {
+      "text": "Daypart Opportunity",
+      "above": "94",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 3526
+     },
+     {
+      "text": "Transit Access Score",
+      "above": "62",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 3526
+     },
+     {
+      "text": "FailFast Risk Diagnosis",
+      "above": "A good location. A bad investment?",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 4303
+     },
+     {
+      "text": "Financial Analysis & Budget Optimisation",
+      "above": "Don’t just choose a location. Choose a b",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 5018
+     },
+     {
+      "text": "Transparent Reasoning",
+      "above": "Know why a location is recommended.",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 5742
+     }
+    ],
+    "numbered": [
+     {
+      "text": "STEP 01",
+      "size": 14,
+      "top": 1524
+     },
+     {
+      "text": "STEP 02",
+      "size": 14,
+      "top": 1774
+     },
+     {
+      "text": "STEP 03",
+      "size": 14,
+      "top": 2024
+     }
+    ],
+    "color": {
+     "bodyBg": "#f7f7f4",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.16,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f5f0e6",
+       "top": 0,
+       "hsl": {
+        "h": 40,
+        "s": 0.43,
+        "l": 0.93
+       }
+      },
+      {
+       "color": "#eee7da",
+       "top": 1177,
+       "hsl": {
+        "h": 39,
+        "s": 0.37,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 2594,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 3402,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#203c32",
+       "top": 5678,
+       "hsl": {
+        "h": 159,
+        "s": 0.3,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#5e665d",
+       "share": 0.48
+      },
+      {
+       "color": "#203c32",
+       "share": 0.27
+      },
+      {
+       "color": "#c2c1c7",
+       "share": 0.14
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.04
+      },
+      {
+       "color": "#a83d24",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#203c32",
+      "hsl": {
+       "h": 159,
+       "s": 0.3,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 10,
+     "inHero": 4,
+     "radius": 0,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Explore Demo",
+      "Explore StoreScout",
+      "See How It Works"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.daypart-map-container → rgba(0, 0, 0, 0.03) 0px 4px 20px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 10,
+     "hairlineSamples": [
+      "header.header 768px",
+      "section#hero.hero-section 768px",
+      "section#how-it-works.section-wrapper.tint-bg 768px",
+      "section#daypart-dna.section-wrapper 768px",
+      "div.map-controls-bar 686px"
+     ],
+     "outlinedBoxes": 11,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.45
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 76,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "manrope variable"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 7249,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "section#hero.hero-section",
+      "tag": "section",
+      "top": 76,
+      "height": 1033,
+      "words": 72,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Know where to open your",
+       "size": 48,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 36,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#how-it-works.section-wrapper.tint-bg",
+      "tag": "section",
+      "top": 1177,
+      "height": 1080,
+      "words": 98,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "From possible locations to a clear investment plan",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 70,
+      "textLeft": 20,
+      "textRight": 70,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.section-header-block",
+      "tag": "div",
+      "top": 2322,
+      "height": 217,
+      "words": 61,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "The same location can be busy at different times.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 29,
+      "textLeft": 20,
+      "textRight": 29,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.daypart-map-container",
+      "tag": "div",
+      "top": 2594,
+      "height": 1343,
+      "words": 139,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 41,
+      "right": 42,
+      "textLeft": 41,
+      "textRight": 65,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div",
+      "tag": "div",
+      "top": 3994,
+      "height": 180,
+      "words": 69,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "What if a new metro station opens nearby?",
+       "size": 24,
+       "tag": "h3"
+      },
+      "left": 20,
+      "right": 26,
+      "textLeft": 20,
+      "textRight": 26,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#failfast.section-wrapper.tint-bg",
+      "tag": "section",
+      "top": 4239,
+      "height": 715,
+      "words": 102,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A good location. A bad investment?",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 26,
+      "textLeft": 20,
+      "textRight": 26,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#financial-planning.section-wrapper",
+      "tag": "section",
+      "top": 4954,
+      "height": 723,
+      "words": 134,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Don’t just choose a location. Choose a better inve",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 53,
+      "textLeft": 20,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#evidence.section-wrapper.dark-bg",
+      "tag": "section",
+      "top": 5678,
+      "height": 1437,
+      "words": 127,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Know why a location is recommended.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 54,
+      "textLeft": 20,
+      "textRight": 54,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer-clean",
+      "tag": "footer",
+      "top": 7115,
+      "height": 134,
+      "words": 15,
+      "media": 0,
+      "middle": 257,
+      "heading": null,
+      "left": 20,
+      "right": 46,
+      "textLeft": 20,
+      "textRight": 46,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Know where to open your next store.",
+      "size": 48,
+      "top": 124,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 26
+     },
+     {
+      "x": 41,
+      "n": 7
+     },
+     {
+      "x": 126,
+      "n": 1
+     },
+     {
+      "x": 396,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 35,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 11,
+   "filled": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0.97,
+    1,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 8741,
+     "screens": 10.4,
+     "words": 813,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 11,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Know where to open your next store.",
+     "words": 7,
+     "chars": 35,
+     "lines": 3,
+     "size": 48,
+     "vw": 12.3,
+     "font": "Manrope Variable",
+     "weight": 750,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 124,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Know where to open your next store.",
+     "words": 7,
+     "lines": 3,
+     "size": 48,
+     "font": "Manrope Variable"
+    },
+    "headings": [
+     {
+      "text": "StoreScout",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.9,
+      "font": "Manrope Variable",
+      "weight": 750,
+      "tracking": -0.043,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.4,
+      "top": 19,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "Know where to open your next store.",
+      "words": 7,
+      "chars": 35,
+      "lines": 3,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Manrope Variable",
+      "weight": 750,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 124,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "From possible locations to a clear investment plan.",
+      "words": 8,
+      "chars": 51,
+      "lines": 3,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1322,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The same location can be busy at different times.",
+      "words": 9,
+      "chars": 49,
+      "lines": 3,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2623,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "94",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Manrope Variable",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 3933,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "62",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Manrope Variable",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.1,
+      "top": 3933,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "What if a new metro station opens nearby?",
+      "words": 8,
+      "chars": 41,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Manrope Variable",
+      "weight": 650,
+      "tracking": -0.02,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4494,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A good location. A bad investment?",
+      "words": 6,
+      "chars": 34,
+      "lines": 2,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4971,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Don’t just choose a location. Choose a better investment.",
+      "words": 9,
+      "chars": 57,
+      "lines": 3,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 5914,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Know why a location is recommended.",
+      "words": 6,
+      "chars": 35,
+      "lines": 2,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 6857,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Real information",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Manrope Variable",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 7245,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Estimates",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Manrope Variable",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 7563,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Assumptions",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Manrope Variable",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 7881,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Your next store deserves a smarter decision.",
+      "words": 7,
+      "chars": 44,
+      "lines": 3,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Manrope Variable",
+      "weight": 550,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 8167,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 14,
+     "maxLines": 3,
+     "over2Lines": 5,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": 6,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Manrope Variable",
+       "share": 1,
+       "mono": false
+      },
+      {
+       "family": "monospace",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      32,
+      34,
+      48
+     ],
+     "sizeCount": 17,
+     "notLoaded": [],
+     "body": {
+      "font": "Manrope Variable",
+      "size": 17,
+      "leading": 1.7,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.8
+     },
+     "measureChars": 41,
+     "max": {
+      "size": 48,
+      "vw": 12.3,
+      "font": "Manrope Variable",
+      "text": "Know where to open your"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "monospace"
+     ],
+     "monoSamples": [
+      "STEP 01",
+      "STEP 02",
+      "STEP 03"
+     ],
+     "microLabels": 9,
+     "microLabelShare": 0.035,
+     "microSamples": [
+      "How StoreScout Works",
+      "STEP 01",
+      "STEP 02",
+      "STEP 03",
+      "DaypartDNA + Future Infrastructure",
+      "Live Scenario Metrics"
+     ],
+     "upperShare": 0.03,
+     "centerShare": 0.04,
+     "smallText": 16
+    },
+    "eyebrows": [
+     {
+      "text": "How StoreScout Works",
+      "above": "From possible locations to a clear inves",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 1289
+     },
+     {
+      "text": "DaypartDNA + Future Infrastructure",
+      "above": "The same location can be busy at differe",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2591
+     },
+     {
+      "text": "Daypart Opportunity",
+      "above": "94",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 3888
+     },
+     {
+      "text": "Transit Access Score",
+      "above": "62",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 3888
+     },
+     {
+      "text": "FailFast Risk Diagnosis",
+      "above": "A good location. A bad investment?",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 4938
+     },
+     {
+      "text": "Financial Analysis & Budget Optimisation",
+      "above": "Don’t just choose a location. Choose a b",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 5881
+     },
+     {
+      "text": "Transparent Reasoning",
+      "above": "Know why a location is recommended.",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 6824
+     }
+    ],
+    "numbered": [
+     {
+      "text": "STEP 01",
+      "size": 14,
+      "top": 1665
+     },
+     {
+      "text": "STEP 02",
+      "size": 14,
+      "top": 1941
+     },
+     {
+      "text": "STEP 03",
+      "size": 14,
+      "top": 2241
+     }
+    ],
+    "color": {
+     "bodyBg": "#f7f7f4",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.16,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f5f0e6",
+       "top": 0,
+       "hsl": {
+        "h": 40,
+        "s": 0.43,
+        "l": 0.93
+       }
+      },
+      {
+       "color": "#eee7da",
+       "top": 1225,
+       "hsl": {
+        "h": 39,
+        "s": 0.37,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 3049,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 3765,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#203c32",
+       "top": 6760,
+       "hsl": {
+        "h": 159,
+        "s": 0.3,
+        "l": 0.18
+       }
+      },
+      {
+       "color": "#232328",
+       "top": 7144,
+       "hsl": {
+        "h": 240,
+        "s": 0.07,
+        "l": 0.15
+       }
+      },
+      {
+       "color": "#e8d8bd",
+       "top": 8126,
+       "hsl": {
+        "h": 38,
+        "s": 0.48,
+        "l": 0.83
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#5e665d",
+       "share": 0.48
+      },
+      {
+       "color": "#203c32",
+       "share": 0.27
+      },
+      {
+       "color": "#c2c1c7",
+       "share": 0.14
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.04
+      },
+      {
+       "color": "#a83d24",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#203c32",
+      "hsl": {
+       "h": 159,
+       "s": 0.3,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 10,
+     "inHero": 4,
+     "radius": 0,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Explore Demo",
+      "Explore StoreScout",
+      "See How It Works"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.daypart-map-container → rgba(0, 0, 0, 0.03) 0px 4px 20px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 10,
+     "hairlineSamples": [
+      "header.header 390px",
+      "section#hero.hero-section 390px",
+      "section#how-it-works.section-wrapper.tint-bg 390px",
+      "section#daypart-dna.section-wrapper 390px",
+      "div.map-controls-bar 308px"
+     ],
+     "outlinedBoxes": 9,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": true,
+       "rounded": false,
+       "top": 1616
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 7144
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.18
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 76,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "manrope variable"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 8741,
+    "margins": {
+     "left": 20,
+     "right": 22
+    },
+    "sections": [
+     {
+      "sel": "section#hero.hero-section",
+      "tag": "section",
+      "top": 76,
+      "height": 1029,
+      "words": 72,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Know where to open your",
+       "size": 48,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 31,
+      "fullBleed": true,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.retail-strip",
+      "tag": "div",
+      "top": 1105,
+      "height": 120,
+      "words": 13,
+      "media": 0,
+      "middle": 99,
+      "heading": null,
+      "left": 20,
+      "right": 52,
+      "textLeft": 20,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#how-it-works.section-wrapper.tint-bg",
+      "tag": "section",
+      "top": 1225,
+      "height": 1301,
+      "words": 98,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "From possible locations to a clear investment plan",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 30,
+      "textLeft": 20,
+      "textRight": 30,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.section-header-block",
+      "tag": "div",
+      "top": 2591,
+      "height": 402,
+      "words": 61,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "The same location can be busy at different times.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 23,
+      "textLeft": 20,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.daypart-map-container",
+      "tag": "div",
+      "top": 3049,
+      "height": 1389,
+      "words": 139,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 41,
+      "right": 12,
+      "textLeft": 41,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div",
+      "tag": "div",
+      "top": 4494,
+      "height": 315,
+      "words": 69,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "What if a new metro station opens nearby?",
+       "size": 24,
+       "tag": "h3"
+      },
+      "left": 20,
+      "right": 28,
+      "textLeft": 20,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#failfast.section-wrapper.tint-bg",
+      "tag": "section",
+      "top": 4874,
+      "height": 944,
+      "words": 102,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A good location. A bad investment?",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 33,
+      "textLeft": 20,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#financial-planning.section-wrapper",
+      "tag": "section",
+      "top": 5817,
+      "height": 942,
+      "words": 134,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Don’t just choose a location. Choose a better inve",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 34,
+      "textLeft": 20,
+      "textRight": 34,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.section-header-block",
+      "tag": "div",
+      "top": 6824,
+      "height": 265,
+      "words": 40,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Know why a location is recommended.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 22,
+      "textLeft": 20,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.evidence-pillars-grid",
+      "tag": "div",
+      "top": 7144,
+      "height": 922,
+      "words": 69,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Real information",
+       "size": 22,
+       "tag": "h3"
+      },
+      "left": 49,
+      "right": 53,
+      "textLeft": 49,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.final-cta-box",
+      "tag": "div",
+      "top": 8126,
+      "height": 351,
+      "words": 18,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Your next store deserves a smarter decision.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 47,
+      "right": 47,
+      "textLeft": 47,
+      "textRight": 47,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer-clean",
+      "tag": "footer",
+      "top": 8541,
+      "height": 199,
+      "words": 15,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 46,
+      "textLeft": 20,
+      "textRight": 46,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Know where to open your next store.",
+      "size": 48,
+      "top": 124,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 28
+     },
+     {
+      "x": 41,
+      "n": 7
+     }
+    ],
+    "leftBlocks": 35,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "1 headline(s) wrap past two lines at 1440px: \"Know where to open your next store.\" → 3 lines (7 words, 77.8px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "7 eyebrow/kicker label(s) above headings: \"How StoreScout Works\" above \"From possible locations to a clear inves\"; \"DaypartDNA + Future Infrastructure\" above \"The same location can be busy at differe\"; \"Daypart Opportunity\" above \"94\"; \"Transit Access Score\" above \"62\"; \"FailFast Risk Diagnosis\" above \"A good location. A bad investment?\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "numbering",
+   "width": 1440,
+   "message": "Decorative index numbers: \"STEP 01\", \"STEP 02\", \"STEP 03\"",
+   "fix": "Remove them. If order truly matters, write it into the words (\"First, …\") or use a real <ol>.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "9 tiny uppercase letter-spaced labels (e.g. \"How StoreScout Works\", \"STEP 01\", \"STEP 02\", \"STEP 03\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "1 box-shadow(s) on elements at rest: div.daypart-map-container → rgba(0, 0, 0, 0.03) 0px 4px 20px 0px",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "10 thin rule(s)/divider line(s): header.header 1440px | section#hero.hero-section 1440px | section#how-it-works.section-wrapper.tint-bg 1440px | section#daypart-dna.section-wrapper 1440px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "11 boxes drawn with a 1px outline.",
+   "fix": "Define a surface by its fill (one tone step from the page) or leave the content unboxed.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "icon-cards",
+   "width": 1440,
+   "message": "1 row(s) of identical cards each topped with a small icon (3 cards).",
+   "fix": "Replace with one composed section from the direction: a narrative split, a list set in large type, or real imagery per item.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #f7f7f4, section #f5f0e6, section #eee7da).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "19 different font sizes (11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24, 25, 28, 32, 54, 56, 78).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "grey-body",
+   "width": 1440,
+   "message": "The running text is a soft grey on its ground (4.8:1).",
+   "fix": "Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "14 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 72px on the left, 88px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
+  },
+  {
+   "level": "WARN",
+   "id": "lopsided",
+   "width": 1440,
+   "message": "A section keeps its content on one side and leaves 646px of the width empty: \"What if a new metro station opens nearby?\".",
+   "fix": "Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence."
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 0 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "5 headline(s) wrap past two lines at 390px: \"Know where to open your next store.\" → 3 lines (7 words, 48px); \"From possible locations to a clear investment pl\" → 3 lines (8 words, 34px); \"The same location can be busy at different times\" → 3 lines (9 words, 34px); \"Don’t just choose a location. Choose a better in\" → 3 lines (9 words, 34px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\ashut_2urnib0\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\retail-review\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\ashut_2urnib0\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\retail-review\\desktop-page-01.jpg",
+    "C:\\Users\\ashut_2urnib0\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\retail-review\\desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\ashut_2urnib0\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\retail-review\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\ashut_2urnib0\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\retail-review\\tablet-page-01.jpg",
+    "C:\\Users\\ashut_2urnib0\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\retail-review\\tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\ashut_2urnib0\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\retail-review\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\ashut_2urnib0\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\retail-review\\mobile-page-01.jpg",
+    "C:\\Users\\ashut_2urnib0\\OneDrive\\Documents\\GitHub\\Elites-\\frontend\\docs\\retail-review\\mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

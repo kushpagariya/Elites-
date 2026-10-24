@@ -71,7 +71,7 @@ const infraConfig: Record<InfraKey, {
   },
   future: {
     label: 'Future Project Opens',
-    statusText: 'Metro Purple Line operational',
+    statusText: 'Illustrative metro line operational',
     badgeClass: 'badge-future',
     accessScore: 92,
     travelTime: '13 min direct metro connection',
@@ -80,7 +80,7 @@ const infraConfig: Record<InfraKey, {
   },
   delayed: {
     label: 'Project Delayed',
-    statusText: 'Commissioning deferred (+18 months)',
+    statusText: 'Commissioning deferred (+24 months)',
     badgeClass: 'badge-delayed',
     accessScore: 64,
     travelTime: '32 min (construction detours active)',
@@ -126,6 +126,7 @@ export default function DaypartMap() {
               <button
                 key={key}
                 type="button"
+                aria-pressed={activeInfra === key}
                 className={`control-pill ${activeInfra === key ? 'active' : ''}`}
                 onClick={() => setActiveInfra(key)}
               >
@@ -166,7 +167,7 @@ export default function DaypartMap() {
                 <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(24,24,27,0.04)" strokeWidth="1" />
               </pattern>
               <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#7244e5" floodOpacity="0.35" />
+                <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#a83d24" floodOpacity="0.35" />
               </filter>
             </defs>
 
@@ -177,28 +178,28 @@ export default function DaypartMap() {
             {/* Neighborhood Zones */}
             {/* Zone 1: Tech Office Corridor (North-East) */}
             <g className={`zone-shape ${activeDaypart === 'lunch' ? 'zone-active' : ''}`}>
-              <polygon points="340,40 580,30 630,190 410,210" fill={activeDaypart === 'lunch' ? '#e9e1f8' : '#f0efe9'} stroke="#dfded8" strokeWidth="1.5" />
+              <polygon points="340,40 580,30 630,190 410,210" fill={activeDaypart === 'lunch' ? '#ede1cb' : '#f0efe9'} stroke="#dfded8" strokeWidth="1.5" />
               <text x="480" y="85" textAnchor="middle" className="zone-text-title">Tech Office Corridor</text>
               <text x="480" y="105" textAnchor="middle" className="zone-text-sub">Peak: Lunch hours</text>
             </g>
 
             {/* Zone 2: University & Transit Hub (South-West) */}
             <g className={`zone-shape ${activeDaypart === 'morning' ? 'zone-active' : ''}`}>
-              <polygon points="50,210 270,180 320,390 90,410" fill={activeDaypart === 'morning' ? '#e9e1f8' : '#f0efe9'} stroke="#dfded8" strokeWidth="1.5" />
+              <polygon points="50,210 270,180 320,390 90,410" fill={activeDaypart === 'morning' ? '#ede1cb' : '#f0efe9'} stroke="#dfded8" strokeWidth="1.5" />
               <text x="180" y="270" textAnchor="middle" className="zone-text-title">Transit & University Hub</text>
               <text x="180" y="290" textAnchor="middle" className="zone-text-sub">Peak: Morning commute</text>
             </g>
 
             {/* Zone 3: High Street Retail & Dining (South-East) */}
             <g className={`zone-shape ${activeDaypart === 'evening' ? 'zone-active' : ''}`}>
-              <polygon points="360,230 620,210 650,400 380,410" fill={activeDaypart === 'evening' ? '#e9e1f8' : '#f0efe9'} stroke="#dfded8" strokeWidth="1.5" />
+              <polygon points="360,230 620,210 650,400 380,410" fill={activeDaypart === 'evening' ? '#ede1cb' : '#f0efe9'} stroke="#dfded8" strokeWidth="1.5" />
               <text x="510" y="310" textAnchor="middle" className="zone-text-title">High Street Dining</text>
               <text x="510" y="330" textAnchor="middle" className="zone-text-sub">Peak: Evening dinner</text>
             </g>
 
             {/* Zone 4: Central Shopping Center (North-West) */}
             <g className={`zone-shape ${activeDaypart === 'weekend' ? 'zone-active' : ''}`}>
-              <polygon points="60,40 320,50 330,170 80,190" fill={activeDaypart === 'weekend' ? '#e9e1f8' : '#f0efe9'} stroke="#dfded8" strokeWidth="1.5" />
+              <polygon points="60,40 320,50 330,170 80,190" fill={activeDaypart === 'weekend' ? '#ede1cb' : '#f0efe9'} stroke="#dfded8" strokeWidth="1.5" />
               <text x="190" y="95" textAnchor="middle" className="zone-text-title">Lifestyle & Shopping Mall</text>
               <text x="190" y="115" textAnchor="middle" className="zone-text-sub">Peak: Weekends</text>
             </g>
@@ -214,7 +215,7 @@ export default function DaypartMap() {
                 <path
                   d="M 90,370 Q 250,260 440,160 T 620,70"
                   fill="none"
-                  stroke={activeInfra === 'future' ? '#7244e5' : '#a19e95'}
+                  stroke={activeInfra === 'future' ? '#a83d24' : '#a19e95'}
                   strokeWidth={activeInfra === 'future' ? '4.5' : '3'}
                   strokeDasharray={activeInfra === 'delayed' ? '8 6' : 'none'}
                 />
@@ -227,21 +228,21 @@ export default function DaypartMap() {
                 ].map((stn, idx) => (
                   <g key={idx}>
                     {activeInfra === 'future' && (
-                      <circle cx={stn.x} cy={stn.y} r="18" fill="#7244e5" opacity="0.16" />
+                      <circle cx={stn.x} cy={stn.y} r="18" fill="#a83d24" opacity="0.16" />
                     )}
                     <circle
                       cx={stn.x}
                       cy={stn.y}
                       r="6.5"
                       fill="#ffffff"
-                      stroke={activeInfra === 'future' ? '#7244e5' : '#898680'}
+                      stroke={activeInfra === 'future' ? '#a83d24' : '#898680'}
                       strokeWidth="2.5"
                     />
                     <text
                       x={stn.x + 12}
                       y={stn.y - 10}
                       className="stn-label"
-                      fill={activeInfra === 'future' ? '#7244e5' : '#62616a'}
+                      fill={activeInfra === 'future' ? '#a83d24' : '#62616a'}
                     >
                       {stn.name}
                     </text>
@@ -278,15 +279,20 @@ export default function DaypartMap() {
                 <g
                   key={site.id}
                   className={`store-pin candidate ${isSelected ? 'selected' : ''}`}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={site.name}
+                  aria-pressed={isSelected}
+                  onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedSite(site.id); } }}
                   onClick={() => setSelectedSite(site.id)}
                   style={{ cursor: 'pointer' }}
                 >
                   {isSelected && (
-                    <circle cx={site.x} cy={site.y} r="24" fill="#7244e5" opacity="0.18" />
+                    <circle cx={site.x} cy={site.y} r="24" fill="#a83d24" opacity="0.18" />
                   )}
                   <polygon
                     points={`${site.x},${site.y - 12} ${site.x + 10},${site.y - 6} ${site.x + 10},${site.y + 6} ${site.x},${site.y + 12} ${site.x - 10},${site.y + 6} ${site.x - 10},${site.y - 6}`}
-                    fill="#7244e5"
+                    fill="#a83d24"
                     stroke="#ffffff"
                     strokeWidth="1.5"
                     filter="url(#glow-purple)"
@@ -301,15 +307,15 @@ export default function DaypartMap() {
           </svg>
 
           <div className="map-footer-note">
-            <span>* Estimates based on nearby POIs and infrastructure assumptions, not measured footfall.</span>
-            <span>Click any purple candidate pin to inspect opportunity.</span>
+            <span>Synthetic example; scores do not use measured POIs or footfall.</span>
+            <span>Click any red candidate pin to inspect opportunity.</span>
           </div>
         </div>
 
         {/* Dynamic Scenario Insights Panel */}
         <div className="map-insight-card">
           <div className="insight-header">
-            <span className="insight-kicker">Live Scenario Metrics</span>
+            <span className="insight-kicker">Illustrative scenario</span>
             <h4 className="insight-title">
               {selectedSite === 1 ? 'Central Junction Site' : selectedSite === 2 ? 'High Street Corner' : 'Galleria North Site'}
             </h4>
@@ -335,6 +341,11 @@ export default function DaypartMap() {
             </div>
           </div>
 
+          <div className="daypart-chart" aria-label="Illustrative daypart opportunity comparison">
+            <h5>Neighbourhood rhythm</h5>
+            {(['morning', 'lunch', 'evening', 'weekend'] as DaypartKey[]).map(key => <div key={key} className={`daypart-chart-row ${activeDaypart === key ? 'is-active' : ''}`}><span>{daypartConfig[key].label}</span><div className="daypart-chart-track" aria-hidden="true"><div className="daypart-chart-fill" style={{transform:`scaleX(${daypartConfig[key].score / 100})`}} /></div><span>{daypartConfig[key].score}</span></div>)}
+            <small>Synthetic illustration · relative scores /100</small>
+          </div>
           <div className="insight-details">
             <div className="detail-item">
               <span className="detail-title">Current Daypart Focus</span>

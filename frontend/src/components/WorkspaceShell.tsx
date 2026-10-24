@@ -6,16 +6,22 @@ import { useWorkspace } from "@/lib/workspace";
 import { money, methodLabel } from "@/lib/format";
 import { compactMoney } from "@/lib/presentation";
 import { ErrorNotice } from "./Feedback";
+<<<<<<< Updated upstream
+=======
+import BrandMark from "./BrandMark";
+const links = [
+  ["/app", "Explore & Compare"],
+  ["/app/scenarios", "Scenario & Rescue"],
+  ["/app/portfolio", "Portfolio & Report"],
+];
+>>>>>>> Stashed changes
 export default function WorkspaceShell({ children }: { children: ReactNode }) {
   const w = useWorkspace();
   return (
     <div className="workspace-frame">
       <aside className="workspace-sidebar">
         <Link className="workspace-brand" href="/" aria-label="StoreScout home">
-          <svg aria-hidden="true" viewBox="0 0 32 36" width="25" height="28">
-            <path d="M16 1 30 9v18l-14 8L2 27V9Z" fill="currentColor" />
-            <path d="m9 13 7-4 7 4v10l-7 4-7-4Z" fill="var(--paper)" />
-          </svg>
+          <BrandMark size={28} />
           StoreScout
         </Link>
         <p className="workspace-scope">Retail expansion workspace</p>
