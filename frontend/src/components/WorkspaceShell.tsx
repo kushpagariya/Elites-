@@ -102,7 +102,7 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
           </div>
           <div className="method-notice">
             <span>{methodLabel(w.evaluation?.data.method_mode)}</span>
-            <a href="#evidence-details">Evidence details</a>
+            <a href="#evidence-details">Technical Details</a>
           </div>
           {w.loading && (
             <p role="status" className="loading-state">
@@ -132,7 +132,7 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
           )}
           {children}
           <details className="identity-details" id="evidence-details">
-            <summary>Evidence and computation identities</summary>
+            <summary>Technical Details</summary>
             <dl>
               <div>
                 <dt>Project</dt>
@@ -174,6 +174,22 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
                 <dd>{w.evaluation?.data.created_at_utc ?? "Not evaluated"}</dd>
               </div>
             </dl>
+            {w.evaluation?.data.evidence && (
+              <>
+                <h3>Evidence and methods</h3>
+                <p>
+                  Valuation date: {w.evaluation.data.evidence.valuation_date}
+                </p>
+                <ul>
+                  {w.evaluation.data.evidence.limitations.map((text, i) => (
+                    <li key={i}>{text}</li>
+                  ))}
+                </ul>
+                <pre className="report-preview">
+                  {JSON.stringify(w.evaluation.data.evidence, null, 2)}
+                </pre>
+              </>
+            )}
           </details>
         </main>
       </div>

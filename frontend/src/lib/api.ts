@@ -39,7 +39,7 @@ export async function apiRequest<T>(
     )
       throw error;
     throw new ApiError(
-      "Could not reach the API. Check that the backend is running.",
+      "The calculation service could not be reached. Please retry.",
       0,
     );
   }
@@ -63,7 +63,7 @@ export async function apiRequest<T>(
         : payload;
     const message =
       response.status === 501
-        ? "This capability is awaiting implementation."
+        ? "This calculation is currently unavailable."
         : (serverMessage ?? `The API request failed (${response.status}).`);
     throw new ApiError(message, response.status, detail);
   }
@@ -90,6 +90,8 @@ import type {
   PortfolioResult,
   RescueRequest,
   InfrastructureEvent,
+  GeoContext,
+  RescueResult,
 } from "./types";
 import {
   record,
@@ -98,6 +100,8 @@ import {
   isScenario,
   isEvaluation,
   isPortfolio,
+  isRescue,
+  isGeoContext,
 } from "./guards";
 import { FEATURE_SNAPSHOT_ID } from "./workspace-model";
 
@@ -147,11 +151,12 @@ export const requestRescue = (
   body: RescueRequest,
   signal?: AbortSignal,
 ) =>
-  apiRequest<unknown>(
+  checked(
     "/projects/demo/sites/" + encodeURIComponent(siteId) + "/rescue",
+    isRescue,
     post(body, signal),
   );
-/** TODO: needs backend — pass only an identifier from the frozen bin contract. */
+/** Period identifiers are frozen in the canonical weight and profile schema. */
 export const getDayparts = (
   evaluationId: string,
   bin: string,
@@ -209,7 +214,7 @@ export async function getSavedReport(
   if (!response.ok)
     throw new ApiError(
       response.status === 404 || response.status === 501
-        ? "Saved report export is not available from the backend yet."
+        ? "A saved report is not available for this investment case."
         : "Report download failed. Try again.",
       response.status,
     );
@@ -225,3 +230,11 @@ export async function getSavedReport(
     );
   return { blob, text, type };
 }
+
+export const getGeoContext = (evaluationId: string, signal?: AbortSignal) =>
+  checked(
+    "/projects/demo/features?" +
+      new URLSearchParams({ evaluation_id: evaluationId }),
+    isGeoContext,
+    { signal },
+  );

@@ -1,66 +1,62 @@
-# Shared implementation contract
+# StoreScout interface contract
 
-Backend owns changes. Canonical types: `backend/app/schemas.py`; generated OpenAPI: `contracts/openapi.json`; frontend mirrors: `frontend/src/lib/types.ts`. Regenerate with `python scripts/export_contract.py`. Runtime docs: `/docs`. Schema identifiers are technical identifiers, not a document release badge.
+The canonical schema is backend/app/schemas.py; contracts/openapi.json is generated from the application. frontend/src/lib/types.ts and runtime guards consume the same fields. Backend/integration owns changes. Envelope contract_version stays "1"; additive analytical fields use meta.schema_revision "analytical-2". Strict consumers must update with this increment. No units or existing status meanings changed.
 
-## Common rules
+## Semantics and compatibility
 
-Base URL `http://127.0.0.1:8000/api/v1`. Success `{data: ..., meta: {contract_version:'1',fixture_id:'demo-1',...}}`; errors `{error:{code,message,details:[{field,reason}]}}`. INR amounts, decimal fractions, square metres, WGS84 coordinates; use metric/geodesic distances. Nonfinite values are invalid; unknown is null plus a reason. Source labels are SYNTHETIC, ASSUMED, REAL. Never interpret synthetic as observed.
+Base URL: http://127.0.0.1:8000/api/v1. Success is {data,meta}; errors are {error:{code,message,details:[{field,reason}]}}. 422 invalid input, 404 missing/cross-project identity, 409 snapshot/idempotency/report mismatch, 503 unavailable computation. No stack traces in responses. INR base amounts, monthly rent, annual OPEX excluding rent/COGS, ROI fractions, payback years, WGS84 input coordinates and metre distances. Null is unknown/not applicable, never zero. JSON rejects nonfinite numbers and unknown request fields.
 
-Identifiers in this seed: project `demo`; immutable scenario `baseline`; feature snapshot `features-demo-1`; fixture `demo-1`; weight matrix `weights-demo-1`. Backend allocates other scenario/evaluation/run IDs. All requests validate project/object association. Finance uses full precision; round only display/accepted paise. Candidate cap 10; branch cap four.
+Old saved scenarios are normalized with additive defaults: operating_cost_multiplier=1, competition_multiplier=1, gross_margin_fraction=null, valuation_date=2026-10-24. Dates use exact YYYY-MM-DD and must exist in the calendar. Baseline is immutable. Scenario assumptions are a complete replacement snapshot; base_scenario_id is provenance, not an instruction to apply a partial patch. Omitted budget inherits from the base. No schema/table migration or data deletion is needed.
 
-## Routes and implementation state
+## Operations
 
-| Method/path | Input -> success | Setup state / H4 owner |
-| --- | --- | --- |
-| GET /health | none -> status and implementation_status | Working / backend |
-| GET /projects/demo | none -> Project | Working synthetic fixture |
-| GET /projects/demo/scenarios | none -> Scenario[] | Working saved list |
-| POST /projects/demo/scenarios | ScenarioCreate -> Scenario, 201 | Working immutable SQLite save |
-| GET /projects/demo/infrastructure | none -> infrastructure records | Working hypothetical event |
-| POST /projects/demo/evaluate | EvaluateRequest -> EvaluationData | 501 until backend+logic integrate |
-| GET /projects/demo/sites/{id}/analysis?evaluation_id=... | saved analysis | Backend adds route for H4 |
-| GET /projects/demo/rankings?evaluation_id=... | saved sorted site IDs + diagnoses | 501; backend derives from saved evaluation |
-| POST /projects/demo/sites/{id}/rescue | RescueRequest -> verified threshold plus fixed-input assumptions | 501; logic computes/backend persists no scenario mutation |
-| POST /projects/demo/portfolios | PortfolioRequest -> PortfolioResult | 501; exact full-network pipeline |
-| GET /projects/demo/dayparts?evaluation_id=...&time_bin=... | raw index/share/support/source IDs | 501; coordinate additions before UI depends on them |
-| GET /projects/demo/features | prepared snapshot | 501; backend reads logic-prepared snapshot |
-| GET /projects/demo/model | model mode/artifact/split/metrics/features | 501; backend exposes actual model card |
-| GET /projects/demo/reports/{evaluation_id}?portfolio_run_id=... | saved printable HTML/JSON | Backend adds route; no unsaved slider state |
+| Operation under /projects/{project_id} | Input / result | State |
+|---|---|---|
+| GET project, GET/POST scenarios, GET infrastructure | Existing Project, Scenario and labelled event records | Preserved |
+| POST evaluate | EvaluateRequest -> Envelope[EvaluationData] | Computed assumption mode, atomically saved |
+| GET evaluations, GET evaluations/{evaluation_id} | All saved evaluations / one matching project | Implemented |
+| GET sites/{site_id}/analysis?evaluation_id= | Saved SiteAnalysis | Implemented |
+| GET rankings?evaluation_id= | RankingData including rejected/review-required analyses | Implemented |
+| GET dayparts?evaluation_id=&time_bin= | DaypartsData; bin optional, unknown bins 422 | Implemented |
+| GET features?evaluation_id= | GeographicContext from frozen sources | Implemented; missing roads/competitors explicitly empty |
+| GET model | ModelCard, artifact null, metrics null, trained_model_available false | Honest assumption estimator; ML promotion blocked |
+| POST sites/{site_id}/rescue | RescueRequest -> RescueResult | Bounded, verified; never mutates a scenario |
+| POST portfolios | PortfolioRequest -> PortfolioResult | OR-Tools integration; explicit UNAVAILABLE if runtime cannot import |
+| GET portfolios/{portfolio_run_id} | Saved PortfolioResult | Implemented |
+| GET reports/{evaluation_id}?portfolio_run_id=&format=html\|json | Frozen HTML download / JSON | Requires matching saved, completed portfolio |
 
-Project creation/CSV import, richer financial assumptions, detailed evidence/Daypart response models and full report styling follow the H4 slice. Backend freezes those small schemas with consumers before they implement them; no owner independently invents endpoint shapes.
+## Scenario fields
 
-## Scenario request
+Existing rent_multiplier, demand_multiplier, budget, infrastructure_state current/opens/delayed, effect fraction, opening_date and delay_months remain. New global gross_margin_fraction (null inherits per-site), operating_cost_multiplier 0–3 and competition_multiplier 0–3 are supported. Site overrides accept monthly_rent_inr, sales_multiplier 0–3, gross_margin_fraction 0–1, annual_opex_inr >=0 and competition_multiplier 0–3. Null/omitted overrides inherit. Explicit rent/OPEX overrides replace globally adjusted costs; local competition multiplies global pressure. Competition is a disclosed external-attraction assumption, not an observed competitor count.
 
-```json
-{"base_scenario_id":"baseline","name":"Rent negotiation","budget_inr":20000000,"assumptions":{"demand_multiplier":1,"rent_multiplier":1,"site_overrides":{"site-01":{"monthly_rent_inr":150000}},"infrastructure_state":"current","infrastructure_effect_fraction":0,"opening_date":null,"delay_months":24}}
-```
+## Evaluation fields
 
-`assumptions` is a **complete replacement snapshot**, not a patch. UI first reads/copies the selected scenario, edits it, and sends the complete result. `base_scenario_id` tracks provenance. Budget inherits only when omitted. Missing overrides mean no override; unknown site IDs are rejected. Current setup uses strings for dates; backend must add ISO date and horizon validation before infrastructure activation.
+Existing fields remain, including site_analyses and roi_fraction. SiteAnalysis adds operating_profit_inr; effective_inputs; branch_impacts; low/base/high sensitivity FinanceSnapshots; calibration; infrastructure_exposure[]; dayparts[]. Operating profit is before existing-branch displacement; network cash flow subtracts displaced contribution exactly once. Sensitivity reallocates -20%/+20% wallet spending; low also adds 10% rent. These are deterministic commercial cases, never confidence intervals.
 
-## Evaluation request and response
+Evaluation evidence identifies feature/source snapshots, finance/rule/weight/estimator versions, valuation date, disclosed parameters and limitations. model_artifact_id stays null for scenario_assumptions. No trained model or accuracy claim is fabricated.
 
-Request `{"scenario_id":"baseline","feature_snapshot_id":"features-demo-1"}`. Domain returns computed fields; service adds identities/time then validates `EvaluationData`:
+Six canonical bins: weekday_morning (06–11), weekday_lunch (11–15), weekday_evening (15–20), weekday_night (20–06), weekend_day (06–18), weekend_evening (18–06), Asia/Kolkata. Raw POI opportunity weights category, decay and weekly duration (25/20/25/50/24/24 hours). Unknown opening hours assume availability. opportunity_index is 0–100 within-site share of the six supported raw bins, NOT a cross-city calibrated score. No supported POIs gives null; supported zero gives 0. Each profile carries categories/counts, source IDs, reliability, source status and nullable observation date. Synthetic fixture dates remain unknown. Baseline POI profiles do not claim observed changes from hypothetical future infrastructure.
 
-- `evaluation_id, project_id, scenario_id, created_at_utc, model_artifact_id`.
-- `method_mode`: model_simulated, model_real_evaluated or scenario_assumptions. Missing model never silently claims ML.
-- `site_analyses[]`: site_id, annual_revenue_inr, lost_existing_contribution_inr, annual_cashflows_inr, npv_inr, roi_fraction?, payback_years?, failfast, drivers[], source_ids[].
-- `failfast`: status, failed_rule_ids[], reasons[], max_viable_monthly_rent_inr?, required_sales_multiplier?, rescue_status.
-- `rankings[]`: site IDs sorted by NPV, lower CAPEX and stable ID; excluded diagnoses remain in site_analyses.
+Infrastructure exposure uses a disclosed 3 km radial linear decay. The reference-sales bridge is applied once per year, before attraction calibration, using geographic exposure × assumed effect × active-year fraction. Current excludes proposed events; Opens uses an explicit/labelled hypothetical date; Delayed shifts it by the saved month count. Cancelled events never activate. Missing dates/geometry require review when a nonzero future effect is requested. One valuation date/horizon is shared across scenarios. Catchments on the map are geodesic display circles, not road isochrones.
 
-Full sensitivity and POI support fields need a coordinated schema extension during H1-H2. Don't encode annual revenue as a 0-100 score or ROI as percent when its field expects a decimal.
+## Rescue
 
-## Portfolio request and response
+RescueResult: evaluation_id, site_id, lever, status, lower_bound, upper_bound, threshold|null, verified, npv_at_threshold|null, reasons[], remaining_failed_rule_ids[]. Status is SOLVED, NOT_RECOVERABLE_WITHIN_BOUNDS or NON_MONOTONIC. Rent defaults to [0,max(3× effective rent,1,000,000)] INR/month; the exact zero-rent-NPV / discounted rent-annuity threshold is clipped to bounds and verified through the same network. Sales defaults to [0.5,3], checks 13 samples for monotonicity, then bisects and verifies. This is a bounded numerical monotonicity check, not a global proof outside the range. A no-solution result is not a transport error. Applying a verified result creates/evaluates a complete new scenario; unrelated budget, coverage, evidence and downside rules are rechecked.
 
-Request `{"evaluation_id":"<saved-id>","max_stores":2,"acknowledged_risk_site_ids":[]}`. Budget comes only from the evaluation's saved scenario. Response data fields are portfolio_run_id, evaluation_id, selected_site_ids[], budget_used_inr, budget_unused_inr, full_network_npv_inr, status, evaluated_subsets and total_subsets. Status: FULL_NETWORK_EXACT, FEASIBLE_PARTIAL or UNKNOWN. Empty set with zero NPV is valid; incomplete search cannot prove no positive portfolio exists.
+## Portfolio
 
-Logic receives private context with exact scenario, public evaluation and frozen network/model inputs. It must recompute joint allocation; sum of individual NPVs is invalid. Backend rechecks budget/count/acknowledgements independently.
+Budget, original assumptions and all attractions come from the saved private evaluation context. Eligibility is VIABLE or explicitly acknowledged AT_RISK. Request max_stores includes zero. Amount feasibility is in integer paise. Enumerate at most 1,024 subsets and compute each feasible set using the common network denominator, then OR-Tools CP-SAT selects a table row with maximum paise-rounded NPV, lower CAPEX, fewer stores and sorted IDs as deterministic ties. No sum of singleton NPVs or second candidate-pair penalty. Five seconds covers enumeration and solving; incomplete search never claims exactness.
 
-## Persistence and idempotency to implement
+Existing status FULL_NETWORK_EXACT / FEASIBLE_PARTIAL / UNKNOWN remains. Additional solver_status OPTIMAL / FEASIBLE / PARTIAL / UNAVAILABLE / UNKNOWN, name/version, objective_precision_inr=.01, optimality_gap (0 if proven, null otherwise), exclusions with reason codes/reasons, limitations, max_stores and acknowledged_risk_site_ids are saved. evaluated_subsets counts examined masks, including infeasible/filtered masks. Empty is a valid zero-valued computed plan; UNAVAILABLE is not an empty-plan recommendation. UI hides decision totals and disables export for unavailable/unknown output.
 
-Create an evaluation cache key from SHA-256 of canonical sorted-key JSON: project/scenario hash + feature/source snapshot IDs + model artifact hash + rule/weight/finance versions. Portfolio key adds evaluation ID, max count and sorted acknowledgements. Same input returns the same saved evaluation; changed inputs create a new immutable record. Current scaffold only persists scenarios; backend implements result/context transactions before H3. UI keys every result by evaluation/scenario ID and rejects obsolete responses.
+## Persistence, retries and identity
 
-## Internal seams
+SHA-256 over canonical sorted project/scenario/source content, engine version and schema revision identifies immutable evaluations. Changed source content changes the ID even if a fixture label is reused. Public evaluation and private frozen context commit in one existing SQLite transaction; failure rolls back both. Same inputs return the original saved result. Finance/rule/model identities and declared parameters are part of the key. New rescue/portfolio requests reject incompatible saved method versions with 409; historical reports remain readable. Optional Idempotency-Key cannot identify different inputs (409). Portfolio runs are immutable and uniquely identified; retry can create another equivalent run. Report retrieval is read-only and rechecks evaluation/run association.
 
-`domain.pipeline.run_evaluation(project_dict, scenario_dict) -> computed_fields_dict`. Project internal inputs contains source files/feature snapshot; logic performs no HTTP/SQL. Backend adds identity/time fields before `EvaluationData.model_validate`.
+The client aborts superseded requests and checks incrementing tokens and project/scenario/evaluation identities. Edits mark all derived output stale; old successful values remain visibly stale while portfolio/export is disabled. Optional geography is keyed to the displayed evaluation. A failed geography request cannot overwrite finances.
 
-`run_portfolio(project_dict, evaluation_context_dict, max_stores, acknowledged_risk_site_ids) -> computed_fields_dict`; service adds portfolio_run_id/evaluation_id and validates `PortfolioResult`. Logic owns the full-network operation; backend owns retrieval and atomic persistence. These seams currently raise NotImplementedError.
+## Verification
+
+python -m unittest tests.unit.test_finance tests.unit.test_decision_engine tests.contract.test_scaffold -q
+
+From frontend: pnpm test; pnpm typecheck; pnpm build. Final end-to-end acceptance is deliberately deferred. The current Windows OR-Tools import is blocked by Application Control on pandas._libs.sparse; the optimization integration is implemented but has not been numerically verified in this host. Report serialization uses an explicitly test-only saved completed portfolio fixture. See docs/IMPLEMENTATION_REPORT.md.

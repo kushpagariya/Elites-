@@ -1,7 +1,10 @@
-"""Check real scaffold boundaries; analytics are intentionally unavailable."""
+"""Targeted API contracts and persistence; final E2E acceptance is deferred."""
 import os
 import tempfile
 import unittest
+from unittest.mock import patch
+from backend.app.repositories import store
+from backend.app import services
 from pathlib import Path
 from fastapi.testclient import TestClient
 from backend.app.main import app
@@ -37,10 +40,48 @@ class ScaffoldContractTests(unittest.TestCase):
         self.assertEqual(values[0]["assumptions"]["rent_multiplier"], 1)
         self.assertEqual(values[1]["assumptions"]["rent_multiplier"], 0.8)
 
-    def test_unimplemented_is_not_fake_success(self):
+    def test_saved_evaluation_is_explicit_assumption_mode(self):
         response = self.client.post("/api/v1/projects/demo/evaluate", json={"scenario_id": "baseline"})
-        self.assertEqual(response.status_code, 501)
-        self.assertEqual(response.json()["error"]["code"], "NOT_IMPLEMENTED")
+        self.assertEqual(response.status_code, 200, response.text[:300])
+        value=response.json()["data"]
+        self.assertEqual(value["method_mode"],"scenario_assumptions")
+        self.assertIsNone(value["model_artifact_id"])
+        self.assertEqual(len(value["site_analyses"]),10)
+        for resource in ["features","dayparts","rankings"]:
+            result=self.client.get(f"/api/v1/projects/demo/{resource}?evaluation_id={value['evaluation_id']}")
+            self.assertEqual(result.status_code,200,result.text[:150])
+            self.assertEqual(result.json()["data"]["evaluation_id"],value["evaluation_id"])
+        model=self.client.get("/api/v1/projects/demo/model").json()["data"]
+        self.assertFalse(model["trained_model_available"]);self.assertIsNone(model["metrics"])
+        self.assertEqual(self.client.get("/api/v1/projects/demo/evaluations/"+value["evaluation_id"]).json()["data"],value)
+
+    def test_atomic_snapshot_rollback(self):
+        with self.assertRaises(ValueError):
+            store.save_many("demo",[("evaluation","atomic",{"ok":True}),("evaluation_context","atomic",{"bad":float("nan")})])
+        self.assertIsNone(store.get("evaluation","demo","atomic"))
+
+    def test_idempotency_and_report_snapshot(self):
+        response=self.client.post("/api/v1/projects/demo/evaluate",json={},headers={"Idempotency-Key":"unit-request"})
+        self.assertEqual(response.status_code,200,response.text[:100]);evaluation=response.json()["data"]
+        repeated=self.client.post("/api/v1/projects/demo/evaluate",json={},headers={"Idempotency-Key":"unit-request"})
+        self.assertEqual(repeated.json()["data"],evaluation)
+        scenario=self.client.post("/api/v1/projects/demo/scenarios",json={"name":"Different","assumptions":{"demand_multiplier":1.1}}).json()["data"]
+        conflict=self.client.post("/api/v1/projects/demo/evaluate",json={"scenario_id":scenario["scenario_id"]},headers={"Idempotency-Key":"unit-request"})
+        self.assertEqual(conflict.status_code,409)
+        # TEST-ONLY saved completed run isolates report serialization from the blocked solver DLL.
+        run={"portfolio_run_id":"unit-report","evaluation_id":evaluation["evaluation_id"],"selected_site_ids":[],"budget_used_inr":0,"budget_unused_inr":20000000,"full_network_npv_inr":0,"status":"FULL_NETWORK_EXACT","solver_status":"OPTIMAL","evaluated_subsets":1024,"total_subsets":1024}
+        store.save("portfolio","demo","unit-report",run)
+        report=self.client.get(f"/api/v1/projects/demo/reports/{evaluation['evaluation_id']}?portfolio_run_id=unit-report")
+        self.assertEqual(report.status_code,200)
+        for label in ["SYNTHETIC","ASSUMED",evaluation["evaluation_id"],"unit-report",evaluation["evidence"]["source_snapshot_id"]]: self.assertIn(label,report.text)
+        self.assertEqual(self.client.get("/api/v1/projects/demo/reports/missing?portfolio_run_id=unit-report").status_code,404)
+        with patch("backend.app.services.ENGINE_VERSION","future-incompatible-version"):
+            self.assertEqual(self.client.post("/api/v1/projects/demo/sites/site-01/rescue",json={"evaluation_id":evaluation["evaluation_id"]}).status_code,409)
+            self.assertEqual(self.client.get(f"/api/v1/projects/demo/reports/{evaluation['evaluation_id']}?portfolio_run_id=unit-report").status_code,200)
+
+    def test_snapshot_conflict_and_bad_date(self):
+        self.assertEqual(self.client.post("/api/v1/projects/demo/evaluate",json={"feature_snapshot_id":"old"}).status_code,409)
+        self.assertEqual(self.client.post("/api/v1/projects/demo/scenarios",json={"name":"bad date","assumptions":{"opening_date":"2027-02-30"}}).status_code,422)
 
     def test_unknown_project_and_invalid_input(self):
         self.assertEqual(self.client.get("/api/v1/projects/another").status_code, 404)

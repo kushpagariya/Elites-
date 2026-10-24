@@ -36,3 +36,11 @@ def list_objects(kind: str, project_id: str):
     with connection() as db:
         rows = db.execute("SELECT body FROM objects WHERE kind=? AND project_id=? ORDER BY object_id", (kind, project_id)).fetchall()
     return [json.loads(row[0]) for row in rows]
+
+
+def save_many(project_id: str, objects: list[tuple[str, str, dict]]):
+    """Commit public output, private snapshot and cache/idempotency records atomically."""
+    with connection() as db:
+        for kind, object_id, body in objects:
+            db.execute("INSERT INTO objects VALUES (?, ?, ?, ?)",
+                       (kind, project_id, object_id, json.dumps(body, allow_nan=False)))

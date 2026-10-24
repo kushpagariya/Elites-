@@ -32,6 +32,7 @@ export function matchesEvaluation(
     actual.size === expected.size &&
     [...actual].every((id) => expected.has(id)) &&
     e.rankings.every((id) => actual.has(id)) &&
+    (!e.evidence || e.evidence.feature_snapshot_id === FEATURE_SNAPSHOT_ID) &&
     (e.method_mode === "scenario_assumptions" || e.model_artifact_id !== null)
   );
 }

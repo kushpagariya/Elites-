@@ -6,6 +6,8 @@ export default function Portfolio() {
   const w = useWorkspace();
   const p = w.current ? w.portfolio : null;
   const e = w.evaluation?.data;
+  const available =
+    p && p.solver_status !== "UNAVAILABLE" && p.solver_status !== "UNKNOWN";
   const siteName = (id: string) =>
     w.project?.data.sites.find((s) => s.site_id === id)?.name ?? id;
   const risks = w.current
@@ -26,8 +28,8 @@ export default function Portfolio() {
         <section aria-labelledby="portfolio-heading">
           <h2 id="portfolio-heading">Full-network selection</h2>
           <p>
-            Budget comes from the evaluated scenario. Individual site NPVs are
-            never added together in the browser.
+            Find the strongest combination within your saved budget, including
+            overlap and effects on existing branches.
           </p>
           <form
             onSubmit={(event) => {
@@ -99,9 +101,12 @@ export default function Portfolio() {
           {p ? (
             <div className="portfolio-result">
               <h3>
-                {p.selected_site_ids.length
-                  ? "Selected stores"
-                  : "Empty portfolio"}
+                {p.solver_status === "UNAVAILABLE" ||
+                p.solver_status === "UNKNOWN"
+                  ? "Portfolio unavailable"
+                  : p.selected_site_ids.length
+                    ? "Selected stores"
+                    : "Empty portfolio"}
               </h3>
               {p.selected_site_ids.length ? (
                 <ul>
@@ -110,25 +115,43 @@ export default function Portfolio() {
                   ))}
                 </ul>
               ) : (
-                <p>No stores were selected in the returned plan.</p>
+                <p>
+                  {available
+                    ? "No stores were selected. An empty plan is valid when no eligible combination creates value."
+                    : "Portfolio selection is currently unavailable. No investment recommendation has been made."}
+                </p>
               )}
               <dl className="result-metrics">
                 <div>
                   <dt>Full-network NPV (INR)</dt>
-                  <dd>{money(p.full_network_npv_inr)}</dd>
+                  <dd>
+                    {money(available ? p.full_network_npv_inr : undefined)}
+                  </dd>
                 </div>
                 <div>
                   <dt>CAPEX used (INR)</dt>
-                  <dd>{money(p.budget_used_inr)}</dd>
+                  <dd>{money(available ? p.budget_used_inr : undefined)}</dd>
                 </div>
                 <div>
                   <dt>Unused budget (INR)</dt>
-                  <dd>{money(p.budget_unused_inr)}</dd>
+                  <dd>{money(available ? p.budget_unused_inr : undefined)}</dd>
                 </div>
               </dl>
               <p>
-                <strong>{p.status}</strong> · {p.evaluated_subsets} of{" "}
-                {p.total_subsets} subsets evaluated
+                <strong>
+                  {
+                    (
+                      {
+                        OPTIMAL: "Optimal combination",
+                        FEASIBLE: "Feasible combination",
+                        PARTIAL: "Partial search",
+                        UNAVAILABLE: "Calculation unavailable",
+                        UNKNOWN: "Result unknown",
+                      } as const
+                    )[p.solver_status ?? "UNKNOWN"]
+                  }
+                </strong>{" "}
+                · {p.evaluated_subsets} of {p.total_subsets} subsets evaluated
               </p>
               {p.status !== "FULL_NETWORK_EXACT" && (
                 <p>
@@ -138,7 +161,18 @@ export default function Portfolio() {
                 </p>
               )}
               <details>
-                <summary>Portfolio identity</summary>
+                <summary>Technical Details</summary>
+                <p>
+                  {p.solver_name} · {p.solver_version ?? "Version unavailable"}
+                </p>
+                <p>
+                  Solver: {p.solver_status} · objective precision INR{" "}
+                  {p.objective_precision_inr ?? "Unknown"} · gap{" "}
+                  {p.optimality_gap ?? "Unknown"}
+                </p>
+                {p.limitations?.map((text, i) => (
+                  <p key={i}>{text}</p>
+                ))}
                 <p>Run: {p.portfolio_run_id}</p>
                 <p>Evaluation: {p.evaluation_id}</p>
               </details>
@@ -154,7 +188,10 @@ export default function Portfolio() {
                       <strong>{s.name}</strong> ·{" "}
                       {a?.failfast.status ?? "No diagnosis"}
                       <br />
-                      {a?.failfast.reasons.join(" ") ||
+                      {p.exclusions
+                        ?.find((x) => x.site_id === s.site_id)
+                        ?.reasons.join(" ") ||
+                        a?.failfast.reasons.join(" ") ||
                         "Not selected; a specific exclusion explanation was not supplied."}
                     </p>
                   );
@@ -162,9 +199,8 @@ export default function Portfolio() {
             </div>
           ) : (
             <Unavailable>
-              No portfolio has been computed for this evaluation. The backend
-              must return an exact, partial or unknown result, including a valid
-              empty set when appropriate.
+              Choose a store-count cap and review any at-risk locations, then
+              calculate the portfolio.
             </Unavailable>
           )}
         </section>
@@ -177,7 +213,12 @@ export default function Portfolio() {
           <button
             className="secondary"
             disabled={
-              !w.current || !p || p.evaluation_id !== e?.evaluation_id || w.busy
+              !w.current ||
+              !p ||
+              p.solver_status === "UNAVAILABLE" ||
+              p.solver_status === "UNKNOWN" ||
+              p.evaluation_id !== e?.evaluation_id ||
+              w.busy
             }
             onClick={() => void w.downloadReport()}
           >
@@ -187,8 +228,8 @@ export default function Portfolio() {
           </button>
           <p className="helper">
             Requires a completed saved evaluation and matching portfolio run.
-            Export stays unavailable until the backend supplies the matching
-            saved report.
+            The report preserves the assumptions and evidence used for this
+            decision.
           </p>
           {w.report ? (
             <>

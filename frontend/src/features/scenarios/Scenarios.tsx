@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useWorkspace } from "@/lib/workspace";
-import { money } from "@/lib/format";
+import { money, percent } from "@/lib/format";
 import { ErrorNotice, Unavailable } from "@/components/Feedback";
 
 export default function Scenarios() {
@@ -18,10 +18,16 @@ export default function Scenarios() {
     ? w.evaluation?.data.site_analyses.find((s) => s.site_id === site?.site_id)
         ?.failfast
     : undefined;
-  const threshold =
-    lever === "rent"
-      ? diagnosis?.max_viable_monthly_rent_inr
-      : diagnosis?.required_sales_multiplier;
+  const proposal =
+    w.current &&
+    w.rescueResult?.site_id === site?.site_id &&
+    w.rescueResult?.lever === lever
+      ? w.rescueResult
+      : null;
+  const threshold = proposal?.threshold;
+  const analysis = w.current
+    ? w.evaluation?.data.site_analyses.find((s) => s.site_id === site?.site_id)
+    : null;
   const number = (v: string) => (v === "" ? NaN : Number(v));
   const fieldValue = (v: number | undefined | null) =>
     v == null || Number.isNaN(v) ? "" : v;
@@ -145,7 +151,7 @@ export default function Scenarios() {
                     }
                   />
                   <small>
-                    Applied by the backend; no rent is recalculated here.
+                    1 keeps baseline rent; location overrides replace it.
                   </small>
                 </label>
               </div>
@@ -299,35 +305,160 @@ export default function Scenarios() {
                   </table>
                 </div>
               </fieldset>
-              <details>
-                <summary>Margin, operating cost and competition</summary>
-                <p>
-                  The current request schema does not accept these edits. They
-                  remain required PRD work and need backend contract support.
+              <fieldset>
+                <legend>Margin, operating cost and competition</legend>
+                <p className="helper">
+                  ASSUMED commercial inputs. Operating costs exclude rent and
+                  cost of goods. A location override replaces its global
+                  setting.
                 </p>
-                <fieldset disabled>
+                <div className="form-grid">
+                  <label>
+                    Gross margin (fraction, 0–1)
+                    <input
+                      type="number"
+                      min={0}
+                      max={1}
+                      step="0.01"
+                      value={fieldValue(
+                        draft.assumptions.gross_margin_fraction,
+                      )}
+                      placeholder="Keep each site's margin"
+                      onChange={(e) =>
+                        w.editAssumptions({
+                          gross_margin_fraction:
+                            e.target.value === ""
+                              ? null
+                              : Number(e.target.value),
+                        })
+                      }
+                    />
+                  </label>
+                  <label>
+                    Operating cost multiplier
+                    <input
+                      type="number"
+                      required
+                      min={0}
+                      max={3}
+                      step="0.01"
+                      value={fieldValue(
+                        draft.assumptions.operating_cost_multiplier ?? 1,
+                      )}
+                      onChange={(e) =>
+                        w.editAssumptions({
+                          operating_cost_multiplier: number(e.target.value),
+                        })
+                      }
+                    />
+                  </label>
+                  <label>
+                    Competition multiplier
+                    <input
+                      type="number"
+                      required
+                      min={0}
+                      max={3}
+                      step="0.01"
+                      value={fieldValue(
+                        draft.assumptions.competition_multiplier ?? 1,
+                      )}
+                      onChange={(e) =>
+                        w.editAssumptions({
+                          competition_multiplier: number(e.target.value),
+                        })
+                      }
+                    />
+                    <small>
+                      Assumed competitive pressure; 1 keeps the baseline.
+                    </small>
+                  </label>
+                </div>
+                <details>
+                  <summary>Additional location adjustments</summary>
+                  <label>
+                    Location
+                    <select
+                      value={site?.site_id ?? ""}
+                      onChange={(e) => setSiteId(e.target.value)}
+                    >
+                      {w.project?.data.sites.map((s) => (
+                        <option key={s.site_id} value={s.site_id}>
+                          {s.name}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
                   <div className="form-grid">
-                    <label>
-                      Gross margin (decimal fraction)
-                      <input
-                        type="number"
-                        placeholder="Awaiting contract support"
-                      />
-                    </label>
-                    <label>
-                      Annual operating cost (INR)
-                      <input
-                        type="number"
-                        placeholder="Awaiting contract support"
-                      />
-                    </label>
-                    <label>
-                      Competition adjustment
-                      <input placeholder="Awaiting contract support" />
-                    </label>
+                    {(
+                      [
+                        [
+                          "gross_margin_fraction",
+                          "Gross margin (fraction, 0–1)",
+                          1,
+                        ],
+                        [
+                          "annual_opex_inr",
+                          "Annual operating cost (INR)",
+                          undefined,
+                        ],
+                        [
+                          "competition_multiplier",
+                          "Local competition multiplier",
+                          3,
+                        ],
+                      ] as const
+                    ).map(([key, label, max]) => (
+                      <label key={key}>
+                        {label}
+                        <input
+                          type="number"
+                          min={0}
+                          max={max}
+                          step="0.01"
+                          value={fieldValue(
+                            site
+                              ? draft.assumptions.site_overrides[
+                                  site.site_id
+                                ]?.[key]
+                              : undefined,
+                          )}
+                          placeholder="Inherit global setting"
+                          onChange={(e) => {
+                            if (!site) return;
+                            const overrides = structuredClone(
+                              draft.assumptions.site_overrides,
+                            );
+                            const next = { ...overrides[site.site_id] };
+                            if (e.target.value === "") delete next[key];
+                            else next[key] = Number(e.target.value);
+                            overrides[site.site_id] = next;
+                            w.editAssumptions({ site_overrides: overrides });
+                          }}
+                        />
+                      </label>
+                    ))}
                   </div>
-                </fieldset>
-              </details>
+                </details>
+              </fieldset>
+              <div className="before-after">
+                <div>
+                  <strong>Saved assumptions</strong>
+                  <p>
+                    Demand {w.scenario.assumptions.demand_multiplier}× · rent{" "}
+                    {w.scenario.assumptions.rent_multiplier}×
+                  </p>
+                  <p>Budget {money(w.scenario.budget_inr)}</p>
+                </div>
+                <div>
+                  <strong>Proposed assumptions</strong>
+                  <p>
+                    Demand {fieldValue(draft.assumptions.demand_multiplier)}× ·
+                    rent {fieldValue(draft.assumptions.rent_multiplier)}×
+                  </p>
+                  <p>Budget {money(draft.budget_inr)}</p>
+                </div>
+              </div>
               <div className="form-actions">
                 <button
                   type="submit"
@@ -454,9 +585,9 @@ export default function Scenarios() {
                   </label>
                 </div>
                 <p className="helper">
-                  Blank bounds use the backend policy. The PRD proposes rent
-                  0–2× current and sales 0.5–3×. No search is run in the
-                  browser.
+                  Blank bounds use the saved search policy: sales 0.5–3×; rent
+                  starts at zero with a bounded upper limit. The returned bounds
+                  are shown with the result.
                 </p>
                 <button type="submit" disabled={!w.current || w.busy || !site}>
                   {w.operation === "rescue"
@@ -469,7 +600,31 @@ export default function Scenarios() {
                   <p>
                     <strong>{diagnosis.status}</strong>
                   </p>
-                  <p>Rescue status: {diagnosis.rescue_status}</p>
+                  {proposal && (
+                    <>
+                      <p>
+                        Recovery:{" "}
+                        {proposal.status.replaceAll("_", " ").toLowerCase()}
+                      </p>
+                      <p>
+                        Search bounds:{" "}
+                        {proposal.lower_bound.toLocaleString("en-IN")} –{" "}
+                        {proposal.upper_bound.toLocaleString("en-IN")}{" "}
+                        {lever === "rent" ? "INR/month" : "× sales"}
+                      </p>
+                      <ul>
+                        {proposal.reasons.map((r, i) => (
+                          <li key={i}>{r}</li>
+                        ))}
+                      </ul>
+                      {proposal.remaining_failed_rule_ids.length > 0 && (
+                        <p>
+                          Other rules still need review:{" "}
+                          {proposal.remaining_failed_rule_ids.join(", ")}
+                        </p>
+                      )}
+                    </>
+                  )}
                   {diagnosis.failed_rule_ids.length > 0 && (
                     <p>Failed rules: {diagnosis.failed_rule_ids.join(", ")}</p>
                   )}
@@ -480,17 +635,17 @@ export default function Scenarios() {
                       ))}
                     </ul>
                   )}
-                  {diagnosis.rescue_status ===
-                    "NOT_RECOVERABLE_WITHIN_BOUNDS" && (
+                  {proposal?.status === "NOT_RECOVERABLE_WITHIN_BOUNDS" && (
                     <p>No recovery was found within the supplied bounds.</p>
                   )}
-                  {diagnosis.rescue_status === "NON_MONOTONIC" && (
+                  {proposal?.status === "NON_MONOTONIC" && (
                     <p>
                       A monotonic threshold could not be verified. Review the
                       scenario before applying changes.
                     </p>
                   )}
-                  {diagnosis.rescue_status === "SOLVED" &&
+                  {proposal?.status === "SOLVED" &&
+                    proposal.verified &&
                     threshold != null && (
                       <>
                         <p>
@@ -517,11 +672,33 @@ export default function Scenarios() {
                   and verified rescue thresholds.
                 </Unavailable>
               )}
-              <p className="helper">
-                The standalone rescue response schema is awaiting agreement.
-                Verified thresholds already included in an evaluation can be
-                applied; an untyped response cannot change assumptions.
-              </p>
+              {analysis?.infrastructure_exposure?.length ? (
+                <details>
+                  <summary>Infrastructure exposure for {site?.name}</summary>
+                  {analysis.infrastructure_exposure.map((event) => (
+                    <div key={event.event_id}>
+                      <p>
+                        {event.hypothetical ? "HYPOTHETICAL · " : ""}Geographic
+                        exposure {percent(event.exposure_fraction)} · distance{" "}
+                        {event.distance_m == null
+                          ? "Unknown"
+                          : event.distance_m.toFixed(0) + " m"}
+                      </p>
+                      <p>
+                        Opening: {event.opening_date ?? "Unknown"} · assumed
+                        commercial effect{" "}
+                        {percent(event.assumed_effect_fraction)}
+                      </p>
+                      <p>
+                        Active share by projection year:{" "}
+                        {event.active_fractions
+                          .map((v) => percent(v))
+                          .join(" / ")}
+                      </p>
+                    </div>
+                  ))}
+                </details>
+              ) : null}
             </section>
           </div>
         </div>

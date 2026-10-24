@@ -4,6 +4,8 @@ import type {
   EvaluationData,
   PortfolioResult,
   ApiEnvelope,
+  RescueResult,
+  GeoContext,
 } from "./types";
 
 export function record(x: unknown): x is Record<string, unknown> {
@@ -79,6 +81,15 @@ export function isScenario(x: unknown): x is Scenario {
   )
     return false;
   const a = x.assumptions;
+  if (
+    !["operating_cost_multiplier", "competition_multiplier"].every(
+      (k) => a[k] === undefined || finite(a[k]),
+    ) ||
+    !(
+      a.gross_margin_fraction === undefined || nullable(a.gross_margin_fraction)
+    )
+  )
+    return false;
   return (
     [
       "demand_multiplier",
@@ -92,9 +103,13 @@ export function isScenario(x: unknown): x is Scenario {
     Object.values(a.site_overrides).every(
       (v) =>
         record(v) &&
-        ["monthly_rent_inr", "sales_multiplier"].every(
-          (k) => v[k] === undefined || nullable(v[k]),
-        ),
+        [
+          "monthly_rent_inr",
+          "sales_multiplier",
+          "gross_margin_fraction",
+          "annual_opex_inr",
+          "competition_multiplier",
+        ].every((k) => v[k] === undefined || nullable(v[k])),
     )
   );
 }
@@ -117,10 +132,27 @@ export function isEvaluation(x: unknown): x is EvaluationData {
     !Array.isArray(x.site_analyses)
   )
     return false;
+  if (
+    x.evidence != null &&
+    (!record(x.evidence) ||
+      ![
+        "feature_snapshot_id",
+        "source_snapshot_id",
+        "finance_version",
+        "rule_version",
+        "weight_version",
+        "estimator_version",
+        "valuation_date",
+      ].every((k) => text((x.evidence as Record<string, unknown>)[k])) ||
+      !strings(x.evidence.limitations) ||
+      !record(x.evidence.assumed_parameters))
+  )
+    return false;
   return x.site_analyses.every(
     (s) =>
       record(s) &&
       text(s.site_id) &&
+      validAnalysisExtras(s) &&
       ["annual_revenue_inr", "lost_existing_contribution_inr", "npv_inr"].every(
         (k) => finite(s[k]),
       ) &&
@@ -149,6 +181,23 @@ export function isEvaluation(x: unknown): x is EvaluationData {
 export function isPortfolio(x: unknown): x is PortfolioResult {
   return (
     record(x) &&
+    (x.solver_status === undefined ||
+      ["OPTIMAL", "FEASIBLE", "PARTIAL", "UNAVAILABLE", "UNKNOWN"].includes(
+        String(x.solver_status),
+      )) &&
+    (x.exclusions === undefined ||
+      (Array.isArray(x.exclusions) &&
+        x.exclusions.every(
+          (e) =>
+            record(e) &&
+            text(e.site_id) &&
+            strings(e.reason_codes) &&
+            strings(e.reasons),
+        ))) &&
+    (x.solver_status !== "OPTIMAL" || x.status === "FULL_NETWORK_EXACT") &&
+    (x.status !== "FULL_NETWORK_EXACT" ||
+      x.solver_status === undefined ||
+      x.solver_status === "OPTIMAL") &&
     text(x.portfolio_run_id) &&
     text(x.evaluation_id) &&
     strings(x.selected_site_ids) &&
@@ -184,5 +233,171 @@ export function isEnvelope<T>(
     x.meta.contract_version === "1" &&
     typeof x.meta.fixture_id === "string" &&
     guard(x.data)
+  );
+}
+
+function validAnalysisExtras(s: Record<string, unknown>): boolean {
+  const snapshot = (v: unknown) =>
+    record(v) &&
+    [
+      "annual_revenue_inr",
+      "operating_profit_inr",
+      "lost_existing_contribution_inr",
+      "npv_inr",
+    ].every((k) => finite(v[k])) &&
+    nullable(v.roi_fraction) &&
+    nullable(v.payback_years);
+  if (s.operating_profit_inr !== undefined && !nullable(s.operating_profit_inr))
+    return false;
+  if (
+    s.sensitivity !== undefined &&
+    (!record(s.sensitivity) || !Object.values(s.sensitivity).every(snapshot))
+  )
+    return false;
+  if (
+    s.effective_inputs != null &&
+    (!record(s.effective_inputs) ||
+      ![
+        "monthly_rent_inr",
+        "annual_opex_inr",
+        "gross_margin_fraction",
+        "sales_multiplier",
+        "competition_multiplier",
+      ].every((k) =>
+        finite((s.effective_inputs as Record<string, unknown>)[k]),
+      ))
+  )
+    return false;
+  if (
+    s.dayparts !== undefined &&
+    (!Array.isArray(s.dayparts) ||
+      !s.dayparts.every(
+        (p) =>
+          record(p) &&
+          [
+            "weekday_morning",
+            "weekday_lunch",
+            "weekday_evening",
+            "weekday_night",
+            "weekend_day",
+            "weekend_evening",
+          ].includes(String(p.time_bin)) &&
+          nullable(p.opportunity_index) &&
+          nullable(p.raw_opportunity) &&
+          finite(p.support_count) &&
+          strings(p.source_ids) &&
+          Array.isArray(p.categories) &&
+          p.categories.every(
+            (c) =>
+              record(c) &&
+              text(c.category) &&
+              finite(c.count) &&
+              finite(c.weighted_opportunity),
+          ),
+      ))
+  )
+    return false;
+  if (
+    s.infrastructure_exposure !== undefined &&
+    (!Array.isArray(s.infrastructure_exposure) ||
+      !s.infrastructure_exposure.every(
+        (e) =>
+          record(e) &&
+          text(e.event_id) &&
+          nullable(e.distance_m) &&
+          finite(e.exposure_fraction) &&
+          finite(e.assumed_effect_fraction) &&
+          Array.isArray(e.active_fractions) &&
+          e.active_fractions.every(finite) &&
+          typeof e.hypothetical === "boolean",
+      ))
+  )
+    return false;
+  if (
+    s.branch_impacts !== undefined &&
+    (!Array.isArray(s.branch_impacts) ||
+      !s.branch_impacts.every(
+        (b) =>
+          record(b) &&
+          text(b.store_id) &&
+          [
+            "baseline_revenue_inr",
+            "after_revenue_inr",
+            "lost_contribution_inr",
+          ].every((k) => finite(b[k])),
+      ))
+  )
+    return false;
+  return true;
+}
+export function isRescue(x: unknown): x is RescueResult {
+  return (
+    record(x) &&
+    text(x.evaluation_id) &&
+    text(x.site_id) &&
+    ["rent", "sales"].includes(String(x.lever)) &&
+    ["SOLVED", "NOT_RECOVERABLE_WITHIN_BOUNDS", "NON_MONOTONIC"].includes(
+      String(x.status),
+    ) &&
+    finite(x.lower_bound) &&
+    finite(x.upper_bound) &&
+    x.lower_bound < x.upper_bound &&
+    nullable(x.threshold) &&
+    nullable(x.npv_at_threshold) &&
+    typeof x.verified === "boolean" &&
+    strings(x.reasons) &&
+    strings(x.remaining_failed_rule_ids) &&
+    (x.status !== "SOLVED" ||
+      (finite(x.threshold) &&
+        x.threshold >= x.lower_bound &&
+        x.threshold <= x.upper_bound &&
+        x.verified &&
+        finite(x.npv_at_threshold) &&
+        x.npv_at_threshold >= -0.01))
+  );
+}
+export function isGeoContext(x: unknown): x is GeoContext {
+  return (
+    record(x) &&
+    (x.catchments === undefined ||
+      (Array.isArray(x.catchments) &&
+        x.catchments.every(
+          (c) =>
+            record(c) &&
+            text(c.site_id) &&
+            record(c.geometry) &&
+            c.geometry.type === "Polygon" &&
+            Array.isArray(c.geometry.coordinates) &&
+            c.geometry.coordinates.every(
+              (r) =>
+                Array.isArray(r) &&
+                r.every(
+                  (p) => Array.isArray(p) && p.length === 2 && p.every(finite),
+                ),
+            ),
+        ))) &&
+    text(x.evaluation_id) &&
+    finite(x.catchment_radius_m) &&
+    Array.isArray(x.pois) &&
+    x.pois.every(
+      (p) =>
+        record(p) &&
+        text(p.poi_id) &&
+        text(p.category) &&
+        finite(p.latitude) &&
+        finite(p.longitude),
+    ) &&
+    Array.isArray(x.cells) &&
+    x.cells.every(
+      (c) =>
+        record(c) &&
+        text(c.cell_id) &&
+        finite(c.latitude) &&
+        finite(c.longitude) &&
+        finite(c.annual_wallet_inr),
+    ) &&
+    Array.isArray(x.roads) &&
+    Array.isArray(x.competitors) &&
+    strings(x.limitations)
   );
 }

@@ -13,3 +13,14 @@ starlette==0.46.2
 typing_extensions==4.16.0
 typing-inspection==0.4.4
 uvicorn==0.34.3
+
+# Analytical/solver dependencies resolved on Python 3.13; host DLL policy currently blocks pandas sparse.
+absl-py==2.5.1
+immutabledict==4.3.1
+numpy==2.5.2
+ortools==9.14.6206
+pandas==3.0.5
+protobuf==6.31.1
+python-dateutil==2.9.0.post0
+six==1.17.0
+tzdata==2026.3

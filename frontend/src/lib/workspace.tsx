@@ -18,6 +18,7 @@ import {
   optimisePortfolio,
   requestRescue,
   getSavedReport,
+  getGeoContext,
 } from "./api";
 import type {
   ApiEnvelope,
@@ -29,6 +30,8 @@ import type {
   Scenario,
   ScenarioCreate,
   RescueRequest,
+  RescueResult,
+  GeoContext,
 } from "./types";
 import {
   FEATURE_SNAPSHOT_ID,
@@ -58,7 +61,7 @@ export function failure(error: unknown): Failure {
     e.status === 0
       ? "Connection unavailable"
       : e.status === 501
-        ? "Computation not connected"
+        ? "Calculation unavailable"
         : e.status === 503
           ? "Service unavailable"
           : e.status === 422
@@ -114,6 +117,8 @@ function useWorkspaceState() {
   const [evaluatedScenario, setEvaluatedScenario] = useState<Scenario | null>(
     null,
   );
+  const [rescueResult, setRescueResult] = useState<RescueResult | null>(null);
+  const [geoContext, setGeoContext] = useState<GeoContext | null>(null);
   const [portfolio, setPortfolio] = useState<PortfolioResult | null>(null);
   const [infrastructure, setInfrastructure] = useState<InfrastructureEvent[]>(
     [],
@@ -133,6 +138,8 @@ function useWorkspaceState() {
   );
   const clock = useRef(new RequestClock());
   const request = useRef<AbortController | null>(null);
+  const geoClock = useRef(new RequestClock());
+  const geoRequest = useRef<AbortController | null>(null);
   const loadClock = useRef(new RequestClock());
   const loadRequest = useRef<AbortController | null>(null);
   const scenario = scenarios.find((s) => s.scenario_id === scenarioId) ?? null;
@@ -145,6 +152,10 @@ function useWorkspaceState() {
   const busy = operation !== null;
   const invalidate = useCallback(() => {
     setEvaluationFresh(false);
+    setRescueResult(null);
+    setGeoContext(null);
+    geoClock.current.next();
+    geoRequest.current?.abort();
     clock.current.next();
     request.current?.abort();
     setOperation(null);
@@ -215,6 +226,8 @@ function useWorkspaceState() {
     void load();
     return () => {
       loadRequest.current?.abort();
+      geoRequest.current?.abort();
+      geoClock.current.next();
       request.current?.abort();
       clock.current.next();
       loadClock.current.next();
@@ -256,6 +269,24 @@ function useWorkspaceState() {
         "The returned evaluation does not match this project and scenario. No results were applied.",
         409,
       );
+    setRescueResult(null);
+    setGeoContext(null);
+    geoRequest.current?.abort();
+    const geoToken = geoClock.current.next();
+    const geoController = new AbortController();
+    geoRequest.current = geoController;
+    void getGeoContext(response.data.evaluation_id, geoController.signal)
+      .then((result) => {
+        if (
+          !geoController.signal.aborted &&
+          geoClock.current.accepts(geoToken) &&
+          result.data.evaluation_id === response.data.evaluation_id
+        )
+          setGeoContext(result.data);
+      })
+      .catch(() => {
+        /* Geography is optional; saved financial results stay usable. */
+      });
     setEvaluation(response);
     setEvaluationFresh(true);
     setEvaluatedScenario(s);
@@ -270,6 +301,8 @@ function useWorkspaceState() {
   const evaluate = async () => {
     if (!scenario || dirty || loading || loadError) return;
     setEvaluationFresh(false);
+    geoRequest.current?.abort();
+    geoClock.current.next();
     const { token, controller } = begin("evaluate");
     setPortfolio(null);
     setReport(null);
@@ -397,15 +430,29 @@ function useWorkspaceState() {
     if (!current || !evaluation) return;
     const { token, controller } = begin("rescue");
     try {
-      await requestRescue(
+      setRescueResult(null);
+      const result = await requestRescue(
         siteId,
         { ...body, evaluation_id: evaluation.data.evaluation_id },
         controller.signal,
       );
-      if (clock.current.accepts(token))
+      if (clock.current.accepts(token)) {
+        if (
+          result.data.evaluation_id !== evaluation.data.evaluation_id ||
+          result.data.site_id !== siteId ||
+          result.data.lever !== (body.lever ?? "rent")
+        )
+          throw new ApiError(
+            "This recovery result belongs to another investment case.",
+            409,
+          );
+        setRescueResult(result.data);
         setNotice(
-          "A rescue response was received, but its verified result schema is not yet agreed. No assumptions have been changed.",
+          result.data.status === "SOLVED"
+            ? "Recovery threshold verified. Review it before saving a new scenario."
+            : "The recovery search completed. Review the result below.",
         );
+      }
     } catch (e) {
       if (clock.current.accepts(token) && !controller.signal.aborted)
         setError(failure(e));
@@ -415,14 +462,17 @@ function useWorkspaceState() {
   };
   const applyRescue = (siteId: string, lever: "rent" | "sales") => {
     if (!current || !evaluation || !scenario) return;
-    const result = evaluation.data.site_analyses.find(
-      (s) => s.site_id === siteId,
-    )?.failfast;
-    if (result?.rescue_status !== "SOLVED") return;
-    const threshold =
-      lever === "rent"
-        ? result.max_viable_monthly_rent_inr
-        : result.required_sales_multiplier;
+    const result = rescueResult;
+    if (
+      !result ||
+      result.status !== "SOLVED" ||
+      !result.verified ||
+      result.evaluation_id !== evaluation.data.evaluation_id ||
+      result.site_id !== siteId ||
+      result.lever !== lever
+    )
+      return;
+    const threshold = result.threshold;
     if (
       threshold === null ||
       !Number.isFinite(threshold) ||
@@ -449,22 +499,13 @@ function useWorkspaceState() {
       },
     });
   };
-  const loadDayparts = () => {
-    if (!current || !evaluation) return;
-    // TODO: needs backend to freeze time-bin identifiers and response fields.
-    setNotice("");
-    setError({
-      title: "DaypartDNA unavailable",
-      message:
-        "TODO: needs backend — agree time-bin identifiers and the profile response schema before opportunity profiles can load.",
-      fields: [],
-    });
-  };
   const downloadReport = async () => {
     if (
       !current ||
       !evaluation ||
       !portfolio ||
+      portfolio.solver_status === "UNAVAILABLE" ||
+      portfolio.solver_status === "UNKNOWN" ||
       portfolio.evaluation_id !== evaluation.data.evaluation_id
     )
       return;
@@ -532,7 +573,8 @@ function useWorkspaceState() {
     optimise,
     rescue,
     applyRescue,
-    loadDayparts,
+    rescueResult,
+    geoContext,
     downloadReport,
   };
 }

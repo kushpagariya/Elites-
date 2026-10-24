@@ -7,3 +7,6 @@ node_modules/
 
 .runtime/
 public/vendor/maplibre/
+
+# Generated isolated rendering fixture; not application data.
+/docs/verification/analytical-ui/preview.html
