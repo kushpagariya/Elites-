@@ -33,3 +33,7 @@ Formatting and percentage/multiplier input conversion are presentation only. Fin
 ## Verification scope
 
 Focused map interactions and navigation were inspected with labelled synthetic input data and real online tiles. Desktop 1440px, tablet 768px and phone 390px reviews found no horizontal page overflow or browser console errors. Taste inspection had zero failures; its small-text warning remains for compact secondary labels. Full financial/ML acceptance and live analytical overlay integration remain deferred. See docs/UX_MAP_HANDOFF.md for exact commands and results.
+
+## Workspace feature navigation
+
+Keep the three page links and pair each with a labelled expand/collapse button. The current page opens by default. Feature links point to existing heading anchors: Explore exposes rankings, DaypartDNA and comparison; Test Changes exposes the scenario builder, Future Infrastructure and FailFast; Investment Plan exposes Budget Optimisation and Investment Reports. Retain separate page/section active states, keyboard focus at the destination, browser history and delayed-content deep links. On phones, expanded links wrap beneath the three main page links. No new routes or backend behavior.

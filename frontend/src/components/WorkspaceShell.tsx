@@ -1,19 +1,13 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import WorkspaceNavigation from "./WorkspaceNavigation";
 import { useWorkspace } from "@/lib/workspace";
 import { money, methodLabel } from "@/lib/format";
 import { compactMoney } from "@/lib/presentation";
 import { ErrorNotice } from "./Feedback";
-const links = [
-  ["/app", "Explore Locations"],
-  ["/app/scenarios", "Test Changes"],
-  ["/app/portfolio", "Investment Plan"],
-];
 export default function WorkspaceShell({ children }: { children: ReactNode }) {
   const w = useWorkspace();
-  const pathname = usePathname();
   return (
     <div className="workspace-frame">
       <aside className="workspace-sidebar">
@@ -25,17 +19,7 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
           StoreScout
         </Link>
         <p className="workspace-scope">Retail expansion workspace</p>
-        <nav aria-label="Investment workflow">
-          {links.map(([href, label]) => (
-            <Link
-              key={href}
-              href={href}
-              aria-current={pathname === href ? "page" : undefined}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
+        <WorkspaceNavigation contentReady={!!w.project && !w.loading} />
         <div className="sidebar-note">
           <strong>Your next store, considered</strong>
           <p>
