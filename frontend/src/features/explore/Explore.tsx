@@ -215,6 +215,7 @@ export default function Explore() {
                           ) : (
                             <span className="unknown-bar">—</span>
                           )}
+                          <strong aria-hidden="true">{p?.opportunity_index == null ? "—" : p.opportunity_index.toFixed(1)}</strong>
                         </button>
                       );
                     })}
@@ -301,6 +302,9 @@ export default function Explore() {
           </Unavailable>
         )}
       </section>
+      {compared.length === 2 && (
+        <div className="cashflow-panel"><CashflowComparison sites={compared} analyses={analyses} /></div>
+      )}
       <details className="detailed-comparison">
         <summary>Detailed Comparison</summary>
         <div
@@ -363,9 +367,6 @@ export default function Explore() {
             </tbody>
           </table>
         </div>
-        {compared.length === 2 && (
-          <CashflowComparison sites={compared} analyses={analyses} />
-        )}
         <p className="helper">
           NPV is the value of future network cash flows after investment,
           discounted to today. ROI compares the total return with initial

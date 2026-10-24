@@ -314,7 +314,9 @@ export default function Portfolio() {
           </details>
         ) : (
           <p className="helper">
-            A completed investment plan is needed before downloading its report.
+            {w.current && available && p?.evaluation_id === e?.evaluation_id
+              ? "Your report is ready to download. It includes this saved analysis and investment plan."
+              : "A completed investment plan is needed before downloading its report."}
           </p>
         )}
       </section>

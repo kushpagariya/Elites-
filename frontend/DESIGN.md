@@ -1,10 +1,10 @@
 # StoreScout workspace design
 
-This guide covers only /app, /app/scenarios and /app/portfolio. The landing page, its components and shared base styles are unchanged. Product and financial semantics remain governed by the PRD and API contracts.
+This guide covers the shared identity of the landing page and /app, /app/scenarios and /app/portfolio. Product and financial semantics remain governed by the PRD and API contracts.
 
 ## Direction
 
-Continue Taste's existing Framed sheet direction (seed 940076972; no redraw), Manrope typography and black/white/purple identity. Apply Impeccable's hierarchy, progressive disclosure and accessibility guidance, and Emil's restrained interactions. Workspace tokens and every visual override live in src/app/(workspace)/workspace.css beneath .workspace. Warm paper, flat white panels, charcoal text and purple actions support repeated analysis; risk states always have text labels.
+Preserve the established retail identity: Manrope, cream #f5f0e6, forest #203c32 and terracotta #a83d24. The landing introduces the product with a two-line headline, a physical expansion pass, readable interactive charts and relevant due-diligence/network illustrations. The workspace continues this palette with a forest navigation rail, warm paper and clear result panels. Shared tokens live in base.css; scoped layouts and refresh styles live beneath their route groups. Risk states retain separate colours and text labels. No new dependencies or calculation changes.
 
 ## Three tasks
 
@@ -16,7 +16,7 @@ Continue Taste's existing Framed sheet direction (seed 940076972; no redraw), Ma
 
 Retain MapLibre GL JS with OpenFreeMap Positron: https://tiles.openfreemap.org/styles/positron. Streets and place names come from vector tiles; retain native OpenFreeMap, OpenMapTiles and OpenStreetMap attribution. No paid key, bulk download or offline cache is used. The local MapLibre worker is prepared by the existing build script.
 
-Project coordinates place purple candidates and black existing stores. Current demo locations remain explicitly SYNTHETIC; streets do not validate those businesses. Selection is shared with accessible cards and comparisons. Zoom, pan, fit selection and reset are available. Loading, WebGL and tile errors expose retry while the shortlist remains usable; no artificial geographic fallback is displayed.
+Project coordinates place terracotta candidates and forest existing stores. Current demo locations remain explicitly SYNTHETIC; streets do not validate those businesses. Selection is shared with accessible cards and comparisons. Zoom, pan, fit selection and reset are available. Loading, WebGL and tile errors expose retry while the shortlist remains usable; no artificial geographic fallback is displayed.
 
 POIs, catchments and DaypartDNA halos use only matching current backend evidence. Missing scores have no halo; supported zero is distinct from unknown. Infrastructure renders only supplied, validated Point/LineString/Polygon geometry and retains hypothetical/source labels. Competitor inventory is unavailable and its layer stays disabled. Changing the saved scenario or shared period refreshes supported analytical layers.
 
@@ -24,7 +24,7 @@ POIs, catchments and DaypartDNA halos use only matching current backend evidence
 
 Keep results prominent and IDs inside Data and analysis details / Technical Details. Use concise headings, labelled INR amounts, readable status text, visible focus, native labelled controls and local table scrolling. Primary DaypartDNA choices are Morning, Lunch, Evening and Weekend, with all six canonical periods in a disclosure. Identify it as POI-derived opportunity, never measured footfall.
 
-Responsive grids collapse to one column on phones; comparison and map controls remain available. There is no entrance choreography; reduced-motion preferences are respected. Secondary map and evidence labels have a minimum 11px size, while primary controls and results are larger. Disabled text uses 5.92:1 contrast against its fill.
+Responsive grids collapse to one column on phones; comparison and map controls remain available. Marketing uses a short, already-visible hero entrance, restrained scroll depth and 200ms content transitions. Pause, reduced-motion and offscreen suspension remain available. The analytical app uses brief interaction feedback without entrance delays. Secondary labels have a 14px floor; primary text is 16–18px and phone inputs are 16px. Large direct values, horizontal daypart bars and a shared zero-centred cash-flow scale improve comparison. Exact cash flows remain in an accessible table. Unknown values are never drawn as zero.
 
 ## State and calculation boundaries
 
@@ -32,7 +32,7 @@ Formatting and percentage/multiplier input conversion are presentation only. Fin
 
 ## Verification scope
 
-Focused map interactions and navigation were inspected with labelled synthetic input data and real online tiles. Desktop 1440px, tablet 768px and phone 390px reviews found no horizontal page overflow or browser console errors. Taste inspection had zero failures; its small-text warning remains for compact secondary labels. Full financial/ML acceptance and live analytical overlay integration remain deferred. See docs/UX_MAP_HANDOFF.md for exact commands and results.
+The visual refresh passed 30 frontend tests and the production build with TypeScript. Browser review covered 1440px, 768px and 390px with no page overflow, including live local backend evaluation, two-site charts, scenario controls and portfolio optimisation. Taste source checks had zero failures; intentional control-border and analytical-shadow warnings remain. The standalone browser inspector was not run. See docs/FRONTEND_VISUAL_REFRESH.md for the exact scope and limitations. No trained ML model is active.
 
 ## Workspace feature navigation
 

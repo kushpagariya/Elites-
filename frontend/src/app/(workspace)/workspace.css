@@ -1,21 +1,21 @@
-/* Workspace only. Landing routes and global tokens are intentionally untouched. */
+/* Analytical layouts. Shared forest, cream and terracotta identity. */
 .workspace {
-  --paper: #f6f5f2;
-  --ground: #f6f5f2;
+  --paper: #f5f0e6;
+  --ground: #f5f0e6;
   --surface: #fff;
-  --ink: #24212d;
-  --muted: #66616f;
-  --line: #e5e2e9;
-  --purple: #7244e5;
-  --purple-hover: #6031cf;
+  --ink: #203c32;
+  --muted: #566359;
+  --line: #d7d9cc;
+  --purple: #a83d24;
+  --purple-hover: #84301c;
   --teal: #26736c;
   --amber: #94601b;
   --error: #a13b3b;
-  min-height: 100vh;
+  min-height: 100svh;
   background: var(--ground);
   color: var(--ink);
   font:
-    14px/1.5 "Manrope Variable",
+    16px/1.6 "Manrope Variable",
     sans-serif;
   font-variant-numeric: tabular-nums;
   & *,
@@ -58,7 +58,7 @@
     margin: 16px 0 8px;
   }
   h4 {
-    font-size: 13px;
+    font-size: 15px;
     margin: 14px 0 6px;
   }
   ul {
@@ -95,9 +95,9 @@
   }
   button:disabled {
     cursor: not-allowed;
-    background: #e7e4eb;
-    border-color: #e7e4eb;
-    color: #6f6878;
+    background: #e6e5db;
+    border-color: #e6e5db;
+    color: #59665c;
     transform: none;
   }
   button.secondary {
@@ -106,13 +106,13 @@
     border-color: var(--line);
   }
   button.secondary:hover {
-    background: #f2f0f6;
-    border-color: #bdb6ca;
+    background: #eeeade;
+    border-color: #a0ad9e;
   }
   button.secondary:disabled {
-    background: #f1eff4;
-    color: #767080;
-    border-color: #e5e1e9;
+    background: #eeeee5;
+    color: #59665c;
+    border-color: #d7d9cc;
   }
   button:focus-visible,
   a:focus-visible,
@@ -120,13 +120,13 @@
   select:focus-visible,
   summary:focus-visible,
   [tabindex]:focus-visible {
-    outline: 3px solid #9b7be7;
+    outline: 3px solid #a83d24;
     outline-offset: 3px;
   }
   label {
     display: grid;
     gap: 6px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 550;
     margin-bottom: 15px;
     min-width: 0;
@@ -137,13 +137,13 @@
     min-width: 0;
     height: 41px;
     padding: 8px 10px;
-    border: 1px solid #d8d3de;
+    border: 1px solid #c5cbbd;
     border-radius: 5px;
     color: var(--ink);
     background: #fff;
   }
   input::placeholder {
-    color: #77707e;
+    color: #566359;
   }
   input[type="checkbox"] {
     width: 17px;
@@ -162,7 +162,7 @@
   small {
     display: block;
     color: var(--muted);
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.5;
     font-weight: 400;
   }
@@ -175,7 +175,7 @@
   }
   legend {
     padding: 0 8px 0 0;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 650;
   }
   details {
@@ -188,12 +188,12 @@
     cursor: pointer;
     min-height: 42px;
     align-content: center;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
   }
   details > p,
   details > ul {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
   }
   section,
@@ -213,7 +213,7 @@
   }
   dt {
     color: var(--muted);
-    font-size: 12px;
+    font-size: 14px;
   }
   meter {
     display: block;
@@ -222,7 +222,7 @@
     accent-color: var(--purple);
   }
   meter::-webkit-meter-bar {
-    background: #ece8f1;
+    background: #e7eade;
     border: 0;
     border-radius: 3px;
   }
@@ -233,13 +233,13 @@
   .workspace-frame {
     display: grid;
     grid-template-columns: 204px minmax(0, 1fr);
-    min-height: 100vh;
+    min-height: 100svh;
   }
   .workspace-sidebar {
     position: sticky;
     top: 0;
     align-self: start;
-    height: 100vh;
+    height: 100svh;
     padding: 27px 18px 20px;
     display: flex;
     flex-direction: column;
@@ -259,7 +259,7 @@
     color: var(--purple);
   }
   .workspace-scope {
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
     margin: 7px 0 32px;
   }
@@ -274,31 +274,31 @@
     padding: 10px 12px;
     border-radius: 6px;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 550;
     color: var(--muted);
   }
   .workspace-sidebar nav a:hover {
-    background: #f5f3f7;
+    background: #eaeede;
     color: var(--ink);
   }
   .workspace-sidebar nav a[aria-current="page"] {
-    background: #efecf3;
+    background: #e0e7db;
     color: var(--ink);
     font-weight: 700;
   }
   .sidebar-note {
     margin-top: auto;
     padding-top: 24px;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
   }
   .sidebar-note strong {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--ink);
   }
   .sidebar-note a {
-    font-size: 11px;
+    font-size: 14px;
   }
   .workspace-body {
     min-width: 0;
@@ -310,11 +310,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
   }
   .workspace-topbar span:last-child {
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: 0.04em;
   }
   .workspace-sheet {
@@ -334,15 +334,15 @@
   .context-bar label {
     margin: 0;
     max-width: 360px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .context-bar select {
     height: 37px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .context-bar > div > span {
     display: block;
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
   }
   .context-bar strong {
@@ -366,7 +366,7 @@
     display: flex;
     justify-content: space-between;
     gap: 16px;
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
     margin-bottom: 22px;
   }
@@ -381,12 +381,12 @@
     margin-bottom: 20px;
   }
   .page-heading p {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--muted);
     margin: 5px 0 0;
   }
   .text-link {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--purple);
   }
@@ -398,7 +398,7 @@
     margin-bottom: 12px;
   }
   .section-heading p {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
     margin: 5px 0 0;
   }
@@ -407,12 +407,12 @@
   }
   .helper,
   .unavailable {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
     line-height: 1.6;
   }
   .unavailable {
-    background: #efedf2;
+    background: #e7eade;
     border-radius: 6px;
     padding: 16px;
     margin: 12px 0;
@@ -422,10 +422,10 @@
   }
   .message {
     padding: 12px 15px;
-    background: #ede8f6;
-    border: 1px solid #ddd3ef;
+    background: #e7eade;
+    border: 1px solid #e7eade;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 14px;
     margin: 12px 0;
   }
   .message p {
@@ -437,7 +437,7 @@
     color: #813c35;
   }
   .loading-state {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
   }
   .stale-label {
@@ -445,16 +445,16 @@
   }
   .quiet-tag {
     display: inline-block;
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
-    background: #eeebf1;
+    background: #e7eade;
     padding: 4px 7px;
     border-radius: 4px;
     font-weight: 500;
     white-space: nowrap;
   }
   .source-label {
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
   }
   .identity-details {
@@ -467,27 +467,27 @@
     margin: 12px 0;
   }
   .identity-details dd {
-    font-size: 12px;
+    font-size: 14px;
     overflow-wrap: anywhere;
   }
   .report-preview {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
-    font-size: 11px;
+    font-size: 14px;
     max-height: 320px;
     overflow: auto;
-    background: #f0edf4;
+    background: #e7eade;
     padding: 14px;
   }
   .diagnosis {
     display: inline-block;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 650;
     border-radius: 4px;
     padding: 3px 6px;
     white-space: nowrap;
-    background: #efedf2;
-    color: #6b6473;
+    background: #e7eade;
+    color: #566359;
   }
   .diagnosis-viable {
     background: #edf5f2;
@@ -502,14 +502,14 @@
     color: #a4473b;
   }
   .diagnosis-review_required {
-    background: #f2ecfa;
-    color: #705493;
+    background: #e7eade;
+    color: #566359;
   }
   .check-label {
     display: flex;
     align-items: start;
     gap: 9px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     margin: 8px 0;
   }
@@ -539,13 +539,13 @@
     display: flex;
     justify-content: space-between;
     gap: 8px;
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
   }
   .segmented {
     display: flex;
     gap: 2px;
-    background: #eae6ef;
+    background: #e7eade;
     padding: 3px;
     border-radius: 7px;
   }
@@ -556,16 +556,16 @@
     color: var(--muted);
     border: 0;
     padding: 7px 10px;
-    font-size: 12px;
+    font-size: 14px;
     white-space: nowrap;
   }
   .segmented button:hover {
-    background: #f4f1f8;
+    background: #e7eade;
   }
   .segmented button[aria-pressed="true"] {
     background: #fff;
     color: var(--purple);
-    box-shadow: 0 1px 2px #2520300c;
+    box-shadow: 0 1px 2px #203c320c;
   }
   .table-scroll {
     overflow-x: auto;
@@ -577,11 +577,11 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 12px;
+    font-size: 14px;
     text-align: left;
   }
   thead th {
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 550;
     color: var(--muted);
     white-space: nowrap;
@@ -606,7 +606,7 @@
     border-bottom: 1px solid var(--line);
   }
   .excluded-site p {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
   }
   .excluded-site .diagnosis {
@@ -630,7 +630,7 @@
     max-width: 215px;
   }
   .period-more select {
-    font-size: 11px;
+    font-size: 14px;
     height: 35px;
     padding: 6px 8px;
   }
@@ -658,7 +658,7 @@
     gap: 6px;
   }
   .map-view-actions button {
-    font-size: 11px;
+    font-size: 14px;
     min-height: 32px;
     padding: 6px 9px;
   }
@@ -668,7 +668,7 @@
   .location-map {
     width: 100%;
     height: 495px;
-    background: #eeeef0;
+    background: #e9e9df;
   }
   .city-map-panel.compact .location-map {
     height: 330px;
@@ -680,13 +680,13 @@
     position: absolute;
     inset: 0;
     z-index: 4;
-    background: #f4f3f6;
+    background: #eeeee5;
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: center;
     color: var(--muted);
-    font-size: 13px;
+    font-size: 15px;
   }
   .loading-dot {
     width: 8px;
@@ -701,11 +701,11 @@
     right: 16px;
     max-width: 350px;
     background: #fff;
-    border: 1px solid #ddd6e7;
+    border: 1px solid #cdd3c5;
     padding: 16px;
     border-radius: 7px;
     z-index: 5;
-    font-size: 12px;
+    font-size: 14px;
   }
   .map-error p {
     color: var(--muted);
@@ -736,10 +736,10 @@
     font-weight: 650;
   }
   .map-site-card dt {
-    font-size: 11px;
+    font-size: 14px;
   }
   .map-site-card > button {
-    font-size: 11px;
+    font-size: 14px;
     min-height: 34px;
     width: 100%;
   }
@@ -757,7 +757,7 @@
     flex-wrap: wrap;
     gap: 7px 14px;
     padding: 10px 13px;
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
   }
   .map-legend > span {
@@ -785,18 +785,18 @@
   }
   .map-data-label {
     margin-left: auto;
-    font-size: 11px;
+    font-size: 14px;
   }
   .map-layers {
     padding: 0 13px 5px;
     margin-top: 0;
   }
   .map-layers summary {
-    font-size: 11px;
+    font-size: 14px;
     min-height: 34px;
   }
   .map-layers .helper {
-    font-size: 11px;
+    font-size: 14px;
   }
   .layer-options {
     display: flex;
@@ -805,7 +805,7 @@
   }
   .layer-options label {
     align-items: center;
-    font-size: 11px;
+    font-size: 14px;
     min-height: 30px;
   }
   .layer-options small {
@@ -821,10 +821,10 @@
     min-height: 36px;
   }
   .maplibregl-ctrl button:hover {
-    background: #f3f0f7;
+    background: #e7eade;
   }
   .maplibregl-ctrl-attrib {
-    font-size: 11px;
+    font-size: 14px;
   }
   .maplibregl-ctrl-attrib a {
     font-weight: 400;
@@ -851,22 +851,22 @@
   }
   .shortlist-heading h2 span {
     color: var(--muted);
-    font-size: 12px;
+    font-size: 14px;
     margin-left: 4px;
   }
   .shortlist-heading p {
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
     margin: 4px 0 0;
   }
   .shortlist-heading a {
-    font-size: 11px;
+    font-size: 14px;
     white-space: nowrap;
   }
   .shortlist-guide {
-    background: #f2eef9;
+    background: #e7eade;
     padding: 12px 14px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .shortlist-guide p {
     margin: 4px 0 0;
@@ -881,10 +881,10 @@
     border-bottom: 1px solid var(--line);
   }
   .location-card[data-selected="true"] {
-    background: #f5f1fc;
+    background: #f4f3ea;
   }
   .location-card[data-focused="true"] {
-    box-shadow: inset 0 0 0 1px #ae95e6;
+    box-shadow: inset 0 0 0 1px #91a28b;
   }
   .location-card-main {
     display: flex;
@@ -899,20 +899,20 @@
     border-radius: 0;
   }
   .location-card-main:hover {
-    background: #eeeaf4;
+    background: #e7eade;
   }
   .location-card-main > span:nth-child(2) {
     flex: 1;
     min-width: 0;
   }
   .location-card-main strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .location-card-main small {
-    font-size: 11px;
+    font-size: 14px;
   }
   .location-rank {
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
     width: 14px;
     flex: 0 0 14px;
@@ -924,7 +924,7 @@
     white-space: nowrap;
   }
   .card-value small {
-    font-size: 11px;
+    font-size: 14px;
   }
   .location-card-footer {
     display: flex;
@@ -937,7 +937,7 @@
     display: flex;
     gap: 5px;
     align-items: center;
-    font-size: 11px;
+    font-size: 14px;
     min-height: 32px;
     margin: 0;
     cursor: pointer;
@@ -949,7 +949,7 @@
   .location-shortlist > .helper {
     padding: 9px 14px;
     margin: 0;
-    font-size: 11px;
+    font-size: 14px;
   }
   .opportunity-panel {
     margin: 24px 0;
@@ -959,12 +959,12 @@
     border-radius: 8px;
   }
   .opportunity-panel h2 .quiet-tag {
-    font-size: 11px;
+    font-size: 14px;
     margin-left: 7px;
     font-weight: 500;
   }
   .opportunity-panel .section-heading > .helper {
-    font-size: 11px;
+    font-size: 14px;
     margin: 0;
   }
   .opportunity-location h3 {
@@ -986,7 +986,7 @@
     color: var(--muted);
     padding: 7px 0;
     min-height: 45px;
-    font-size: 11px;
+    font-size: 14px;
     border-radius: 0;
     font-weight: 400;
   }
@@ -1003,15 +1003,15 @@
     margin-top: 4px;
   }
   .daypart-bar[aria-pressed="false"] meter::-webkit-meter-optimum-value {
-    background: #b8adcc;
+    background: #91a28b;
   }
   .unknown-bar {
     height: 10px;
     margin-top: 4px;
-    color: #aaa4b3;
+    color: #687564;
   }
   .profile-explanation {
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
     margin: 8px 0;
   }
@@ -1024,7 +1024,7 @@
     margin: 9px 0;
   }
   .category-list li {
-    font-size: 11px;
+    font-size: 14px;
     border: 1px solid var(--line);
     border-radius: 4px;
     padding: 4px 7px;
@@ -1034,7 +1034,7 @@
     margin-left: 5px;
   }
   .opportunity-panel > .helper {
-    font-size: 11px;
+    font-size: 14px;
     margin: 12px 0 0;
   }
   .investment-card {
@@ -1050,7 +1050,7 @@
     margin: 16px 0 20px;
   }
   .investment-primary dt {
-    font-size: 11px;
+    font-size: 14px;
   }
   .investment-primary dd {
     font-size: 23px;
@@ -1067,10 +1067,10 @@
     gap: 13px;
   }
   .comparison-metrics dt {
-    font-size: 11px;
+    font-size: 14px;
   }
   .comparison-metrics dd {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     margin: 3px 0 0;
   }
@@ -1084,18 +1084,18 @@
   }
   .sensitivity-strip span {
     display: block;
-    font-size: 11px;
+    font-size: 14px;
     text-transform: capitalize;
     color: var(--muted);
   }
   .sensitivity-strip strong {
-    font-size: 13px;
+    font-size: 15px;
   }
   .risk-reason {
-    font-size: 11px;
+    font-size: 14px;
   }
   .selection-count {
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
   }
   .detailed-comparison {
@@ -1114,7 +1114,7 @@
     padding: 22px;
   }
   .scenario-input-panel > p {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
     margin-bottom: 20px;
   }
@@ -1128,10 +1128,10 @@
     max-width: 150px;
   }
   .infrastructure-choice legend {
-    font-size: 13px;
+    font-size: 15px;
   }
   .infrastructure-choice .segmented button {
-    font-size: 11px;
+    font-size: 14px;
   }
   .advanced-assumptions {
     margin-top: 18px;
@@ -1171,28 +1171,28 @@
     padding-left: 16px;
   }
   .before-after strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .before-after p {
-    font-size: 11px;
+    font-size: 14px;
     margin: 7px 0;
     color: var(--muted);
   }
   .risk-rescue li {
-    font-size: 12px;
+    font-size: 14px;
   }
   .risk-rescue h3 {
-    font-size: 13px;
+    font-size: 15px;
   }
   .risk-rescue .section-heading h2 {
     font-size: 15px;
   }
   .rescue-result {
-    background: #f2eef8;
+    background: #e7eade;
     border-radius: 6px;
     padding: 14px;
     margin-top: 16px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .rescue-result .threshold-value {
     font-size: 22px;
@@ -1202,7 +1202,7 @@
   }
   .infrastructure-event h3 {
     margin: 12px 0 5px;
-    font-size: 13px;
+    font-size: 15px;
   }
   .infrastructure-event dl {
     display: grid;
@@ -1214,10 +1214,10 @@
     gap: 10px;
   }
   .infrastructure-event dd {
-    font-size: 11px;
+    font-size: 14px;
   }
   .infrastructure-outlook > div > p {
-    font-size: 11px;
+    font-size: 14px;
   }
   .event-timeline {
     display: flex;
@@ -1230,7 +1230,7 @@
   }
   .event-timeline span,
   .event-timeline small {
-    font-size: 11px;
+    font-size: 14px;
   }
   .event-timeline meter {
     height: 12px;
@@ -1244,7 +1244,7 @@
   .plan-budget span {
     display: block;
     color: var(--muted);
-    font-size: 11px;
+    font-size: 14px;
   }
   .plan-budget strong {
     font-size: 28px;
@@ -1252,7 +1252,7 @@
     letter-spacing: -0.035em;
   }
   .plan-budget p {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
     max-width: 48ch;
     margin: 0;
@@ -1278,20 +1278,20 @@
   }
   .plan-controls > form > button {
     width: 100%;
-    font-size: 12px;
+    font-size: 14px;
   }
   .risk-ack {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.6;
   }
   .risk-ack small {
-    font-size: 11px;
+    font-size: 14px;
   }
   .plan-result h2 {
     font-size: 16px;
   }
   .plan-result .quiet-tag {
-    font-size: 11px;
+    font-size: 14px;
     white-space: normal;
   }
   .plan-metrics {
@@ -1301,7 +1301,7 @@
     padding: 15px 0 22px;
   }
   .plan-metrics dt {
-    font-size: 11px;
+    font-size: 14px;
   }
   .plan-metrics dd {
     font-size: 26px;
@@ -1315,11 +1315,11 @@
     margin-bottom: 22px;
   }
   .budget-allocation .section-heading {
-    font-size: 11px;
+    font-size: 14px;
     margin-bottom: 6px;
   }
   .budget-allocation .section-heading span {
-    font-size: 11px;
+    font-size: 14px;
     color: var(--muted);
   }
   .budget-allocation meter {
@@ -1330,12 +1330,12 @@
     border-bottom: 1px solid var(--line);
   }
   .selected-plan-sites p {
-    font-size: 11px;
+    font-size: 14px;
     margin: 5px 0;
     color: var(--muted);
   }
   .selected-plan-sites small {
-    font-size: 11px;
+    font-size: 14px;
   }
   .decision-report {
     background: #fff;
@@ -1348,7 +1348,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 9px;
-    font-size: 12px;
+    font-size: 14px;
     margin: 18px 0;
     color: var(--muted);
   }
@@ -1426,7 +1426,7 @@
       gap: 4px;
     }
     .workspace-sidebar nav a {
-      font-size: 12px;
+      font-size: 14px;
       min-height: 40px;
       padding: 8px 12px;
     }
@@ -1487,13 +1487,13 @@
     .workspace-sidebar nav a {
       justify-content: center;
       min-height: 42px;
-      font-size: 11px;
+      font-size: 14px;
       padding: 7px 5px;
       text-align: center;
     }
     .workspace-topbar {
       padding: 0 16px;
-      font-size: 11px;
+      font-size: 14px;
     }
     .workspace-sheet {
       padding: 16px 16px 30px;
@@ -1513,16 +1513,16 @@
       justify-content: flex-end;
     }
     .context-state > span {
-      font-size: 11px;
+      font-size: 14px;
       max-width: 95px;
     }
     .context-state button {
       min-height: 37px;
-      font-size: 11px;
+      font-size: 14px;
       padding: 8px 12px;
     }
     .method-notice {
-      font-size: 11px;
+      font-size: 14px;
       margin-bottom: 20px;
       gap: 12px;
     }
@@ -1541,7 +1541,7 @@
       font-size: 24px;
     }
     .page-heading > .text-link {
-      font-size: 11px;
+      font-size: 14px;
       max-width: 110px;
       text-align: right;
     }
@@ -1555,7 +1555,7 @@
       max-width: 185px;
     }
     .segmented button {
-      font-size: 11px;
+      font-size: 14px;
       padding: 7px 9px;
     }
     .location-map {
@@ -1573,7 +1573,7 @@
       border-right: 1px solid var(--line);
     }
     .location-shortlist > .helper {
-      font-size: 11px;
+      font-size: 14px;
     }
     .location-card-main {
       padding: 12px 10px 7px;
@@ -1584,16 +1584,16 @@
       padding-right: 10px;
     }
     .location-card-main strong {
-      font-size: 11px;
+      font-size: 14px;
     }
     .location-card-main small {
-      font-size: 11px;
+      font-size: 14px;
     }
     .card-value {
-      font-size: 13px;
+      font-size: 15px;
     }
     .shortlist-guide {
-      font-size: 11px;
+      font-size: 14px;
     }
     .opportunity-panel {
       padding: 17px;
@@ -1640,7 +1640,7 @@
       flex-wrap: wrap;
     }
     .report-contents {
-      font-size: 11px;
+      font-size: 14px;
     }
     .decision-report > .section-heading {
       flex-wrap: wrap;
@@ -1655,19 +1655,19 @@
     }
     .context-state > span {
       max-width: 72px;
-      font-size: 11px;
+      font-size: 14px;
     }
     .context-bar {
       gap: 10px;
     }
     .context-bar > div > span {
-      font-size: 11px;
+      font-size: 14px;
     }
     .workspace-topbar {
-      font-size: 11px;
+      font-size: 14px;
     }
     .method-notice {
-      font-size: 11px;
+      font-size: 14px;
     }
     .daypart-selector {
       flex-wrap: wrap;
@@ -1687,10 +1687,10 @@
       padding: 10px;
     }
     .map-titlebar h2 {
-      font-size: 12px;
+      font-size: 14px;
     }
     .map-view-actions button {
-      font-size: 11px;
+      font-size: 14px;
       padding: 5px 7px;
       min-height: 34px;
     }
@@ -1705,7 +1705,7 @@
       width: 100%;
     }
     .map-legend {
-      font-size: 11px;
+      font-size: 14px;
       gap: 6px 10px;
     }
     .map-site-card {
@@ -1720,10 +1720,10 @@
       border-right: 0;
     }
     .location-card-main strong {
-      font-size: 13px;
+      font-size: 15px;
     }
     .location-card-main small {
-      font-size: 11px;
+      font-size: 14px;
     }
     .card-value {
       font-size: 15px;
@@ -1733,10 +1733,10 @@
     }
     .compare-check {
       min-height: 38px;
-      font-size: 11px;
+      font-size: 14px;
     }
     .location-card-footer .diagnosis {
-      font-size: 11px;
+      font-size: 14px;
     }
     .two-columns {
       grid-template-columns: 1fr;
@@ -1749,7 +1749,7 @@
       gap: 5px;
     }
     .daypart-bar {
-      font-size: 11px;
+      font-size: 14px;
       min-height: 44px;
     }
     .investment-primary {
@@ -1768,7 +1768,7 @@
       grid-template-columns: 1fr;
     }
     .scenario-input-panel .segmented button {
-      font-size: 11px;
+      font-size: 14px;
       padding: 8px 5px;
     }
     .plan-budget {
@@ -1778,7 +1778,7 @@
       font-size: 24px;
     }
     .plan-budget p {
-      font-size: 11px;
+      font-size: 14px;
     }
     .plan-metrics {
       grid-template-columns: 1fr 1fr;
@@ -1796,10 +1796,10 @@
     }
     .plan-controls > form > button {
       width: 100%;
-      font-size: 11px;
+      font-size: 14px;
     }
     .plan-result .quiet-tag {
-      font-size: 11px;
+      font-size: 14px;
     }
     .decision-report {
       padding: 17px;
@@ -1885,7 +1885,7 @@
   border: 0;
 }
 .workspace .period-more summary {
-  font-size: 12px;
+  font-size: 14px;
   min-height: 36px;
   white-space: nowrap;
   padding: 7px 9px;
@@ -1903,20 +1903,20 @@
   border-radius: 5px;
 }
 .workspace .period-more select {
-  font-size: 12px;
+  font-size: 14px;
   height: 36px;
 }
 .workspace .location-card-main strong {
-  font-size: 13px;
+  font-size: 15px;
 }
 .workspace .location-card-main small {
-  font-size: 12px;
+  font-size: 14px;
 }
 .workspace .compare-check {
-  font-size: 12px;
+  font-size: 14px;
 }
 .workspace .shortlist-guide {
-  font-size: 12px;
+  font-size: 14px;
 }
 @media (max-width: 480px) {
   .workspace .workspace-topbar {
@@ -1936,17 +1936,17 @@
     width: auto;
   }
   .workspace .period-more summary {
-    font-size: 11px;
+    font-size: 14px;
     padding: 7px 6px;
   }
 }
 
 .workspace button:disabled,
 .workspace button.secondary:disabled {
-  color: #60586b;
+  color: #566359;
 }
 .workspace .legend-dot.other {
-  background: #b8b1c3;
+  background: #9ca996;
 }
 
 /* Workspace feature navigation: existing routes and section anchors only. */
@@ -1977,7 +1977,7 @@
   box-shadow: none;
 }
 .workspace .workspace-nav-toggle:hover {
-  background: #f5f3f7;
+  background: #eaeede;
   color: var(--ink);
 }
 .workspace .workspace-nav-toggle[aria-expanded="true"] svg {
@@ -1995,12 +1995,12 @@
 .workspace .workspace-subnav a {
   min-height: 36px;
   padding: 7px 9px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
 }
 .workspace .workspace-subnav a[aria-current="location"] {
-  background: #f0ebfa;
-  color: #6136b5;
+  background: #e0e7db;
+  color: #203c32;
   font-weight: 700;
 }
 .workspace h2[id] {
@@ -2021,7 +2021,7 @@
   }
   .workspace .workspace-nav-row > a {
     padding: 8px 4px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .workspace .workspace-subnav {
     margin-left: 4px;
@@ -2030,7 +2030,7 @@
   .workspace .workspace-subnav a {
     text-align: left;
     justify-content: flex-start;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 @media (max-width: 760px) {
@@ -2044,7 +2044,7 @@
     flex: 1 1 29%;
   }
   .workspace .workspace-nav-row > a {
-    font-size: 11px;
+    font-size: 14px;
   }
   .workspace .workspace-nav-toggle {
     flex-basis: 24px;

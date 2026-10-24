@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useState, type MouseEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useReducedMotion, useScroll } from 'motion/react';
 import BrandMark from '@/components/BrandMark';
 import HeroLanyard from './HeroLanyard';
@@ -31,40 +31,33 @@ export default function Landing() {
   const frame=requestAnimationFrame(()=>setReady(true));return()=>cancelAnimationFrame(frame);
  },[]);
  const still=paused||!!reduced||flat;
- function clickFeedback(e:MouseEvent<HTMLDivElement>){
-  if(still||e.detail===0)return;
-  const ring=document.createElement('span');ring.className='retail-click-ring';ring.setAttribute('aria-hidden','true');
-  ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';document.body.appendChild(ring);
-  const animation=ring.animate([{transform:'translate(-50%,-50%) scale(.65)',opacity:.5},{transform:'translate(-50%,-50%) scale(2.5)',opacity:0}],{duration:400,easing:'cubic-bezier(0.23,1,0.32,1)'});
-  animation.onfinish=()=>ring.remove();
- }
- return <div className="landing-experience" data-motion-paused={still} onClick={clickFeedback}>
-  {!reduced&&<motion.div className="reading-progress" style={{scaleX:paused?0:scrollYProgress}} aria-hidden="true"/>}
+ return <div className="landing-experience" data-motion-paused={still}>
+  {!still&&<motion.div className="reading-progress" style={{scaleX:paused?0:scrollYProgress}} aria-hidden="true"/>}
   <PillNav logo={<BrandMark/>} logoAlt="StoreScout" items={navItems} activeHref="#hero" itemStyle="pill" hoverEffect="fill" indicator="dot"/>
   <main id="landing-content">
    <section id="hero" className="hero-section"><div className="hero-grid">
-    <div className="hero-copy"><h1 className="hero-title">Know where to open your <em>next store.</em></h1><p className="hero-lede">Find a neighbourhood that makes business sense.</p><p className="hero-body">Compare locations, understand the costs, and plan a retail network that fits your budget.</p><div className="hero-actions"><Link className="button" href="/app/">Explore StoreScout <Arrow/></Link><a className="button-secondary" href="#how-it-works">Take a closer look <Arrow down/></a></div><p className="hero-kicker"><span className="hero-kicker-dot"/>Local opportunity. Clear financial reasoning.</p></div>
+    <div className="hero-copy"><h1 className="hero-title">Your next store.<br/><em>A clearer plan.</em></h1><p className="hero-lede">Find the right place. Understand the investment.</p><p className="hero-body">Explore neighbourhoods, test the economics and build an expansion plan that fits your budget.</p><div className="hero-actions"><Link className="button" href="/app/">Explore StoreScout <Arrow/></Link><a className="button-secondary" href="#how-it-works">See how it works <Arrow down/></a></div><p className="demo-disclosure">Interactive Navi Mumbai demo · synthetic data</p></div>
     <div className="hero-3d-wrapper" aria-hidden="true"><HeroLanyard still={!ready||flat||!!reduced} paused={paused||!visible}/></div>
    </div></section>
    <div className="retail-strip"><span>Understand the place</span><span>Test the economics</span><span>Plan the network</span></div>
    <section id="how-it-works" className="section-wrapper tint-bg">
-    <div className="section-heading-row"><div><h2>A place. A plan.<br/>A clearer decision.</h2><p className="section-intro-text">Bring your expansion plan into focus, one decision at a time.</p></div><a className="text-link" href="#daypart-dna">Explore the neighbourhood <Arrow down/></a></div>
-    <div className="journey-layout"><Reveal paused={still}><RetailScene paused={still}/></Reveal><ol className="journey-steps"><li><span>01</span><div><h3>Set the brief</h3><p>Choose your city, retail format, budget and existing stores.</p></div></li><li><span>02</span><div><h3>Read the neighbourhood</h3><p>Explore nearby customers, competing destinations and travel access.</p></div></li><li><span>03</span><div><h3>Weigh the investment</h3><p>Compare costs, risks and how each site fits your network.</p></div></li></ol></div>
+    <div className="section-heading-row"><div><h2>From place to plan.</h2><p className="section-intro-text">Three connected steps. One considered investment.</p></div><a className="text-link" href="#daypart-dna">Read the neighbourhood <Arrow down/></a></div>
+    <div className="journey-layout"><Reveal paused={still}><RetailScene paused={still}/></Reveal><ol className="journey-steps"><li><span>1</span><div><h3>Explore the location</h3><p>See candidate sites, nearby destinations and your existing stores together.</p></div></li><li><span>2</span><div><h3>Test the conditions</h3><p>Change rent, demand or infrastructure timing. See what the plan depends on.</p></div></li><li><span>3</span><div><h3>Choose your expansion</h3><p>Compare network value and select a portfolio within your budget.</p></div></li></ol></div>
    </section>
    <section id="daypart-dna" className="section-wrapper">
-    <div className="section-heading-row"><div><h2>Right place.<br/>Right time.</h2><p className="section-intro-text">Office lunch hours and weekend shopping tell different stories. Explore the rhythm around a potential store.</p></div><p className="section-side-note">DaypartDNA connects nearby places with the times they matter.</p></div>
+    <div className="section-heading-row"><div><h2>Read the<br/>neighbourhood.</h2><p className="section-intro-text">A busy lunch hour tells a different story from a weekend. Explore what changes with the time of day.</p></div></div>
     <DaypartMap/>
     <div className="infrastructure-story"><div className="station-symbol" aria-hidden="true"><span>M</span><i/><i/></div><div><h3>What changes when the metro arrives?</h3><p>Switch between current access, a future opening and a delay. Keep the event assumptions visible before making a decision.</p></div><a className="text-link" href="/app/scenarios">Test a scenario <Arrow/></a></div>
    </section>
-   <section id="failfast" className="section-wrapper tint-bg"><div className="section-heading-row"><div><h2>Look beyond<br/>the busy street.</h2><p className="section-intro-text">A great address still needs the right economics. Explore the questions worth asking before you commit.</p></div><span className="section-side-note">FailFast · Understand the risk and what could change it.</span></div><FailFastCards paused={still}/></section>
+   <section id="failfast" className="section-wrapper tint-bg"><div className="section-heading-row"><div><h2>A busy street.<br/>But a viable store?</h2><p className="section-intro-text">Look beyond sales. Understand the costs, competition and impact on your existing stores.</p></div></div><FailFastCards paused={still}/></section>
    <section id="financial-planning" className="section-wrapper"><div className="section-header-block"><h2>Make every store count.</h2><p className="section-intro-text">From a single site to your next portfolio, follow the economics across the whole network.</p></div><FinancialPlanner paused={still}/></section>
    <section id="evidence" className="section-wrapper dark-bg"><div className="section-heading-row"><div><h2>Clarity behind<br/>every decision.</h2><p className="section-intro-text">Keep what is known, estimated and assumed in view.</p></div><div className="evidence-seal" aria-hidden="true"><BrandMark size={62}/></div></div><div className="evidence-pillars-grid">
-    <article className="evidence-pillar-card"><span className="evidence-index">The place</span><h3 className="pillar-title">Source information</h3><p className="pillar-desc">Population, roads, nearby destinations and store locations, with source and coverage labels.</p></article>
-    <article className="evidence-pillar-card"><span className="evidence-index">The model</span><h3 className="pillar-title">Estimates</h3><p className="pillar-desc">Demand, financial outcomes and network effects, with the model and evaluation identity preserved.</p></article>
-    <article className="evidence-pillar-card"><span className="evidence-index">The plan</span><h3 className="pillar-title">Your assumptions</h3><p className="pillar-desc">Rent, fit-out, operating margins and infrastructure timing. Save a new scenario when these change.</p></article>
-   </div><Reveal paused={still} className="final-cta-box"><div><h2>Your next chapter<br/>starts on this street.</h2><p className="final-cta-sub">Find the place. Understand the investment.</p><Link className="button" href="/app/">Start exploring <Arrow/></Link></div><div className="closing-brand" aria-hidden="true"><BrandMark size={112}/><span>Good places.<br/>Considered decisions.</span></div></Reveal></section>
+    <article className="evidence-pillar-card"><h3 className="pillar-title">Know the source.</h3><p className="pillar-desc">Data labels distinguish synthetic locations from the real street map.</p></article>
+    <article className="evidence-pillar-card"><h3 className="pillar-title">See the assumptions.</h3><p className="pillar-desc">This prototype uses scenario assumptions. Estimates are not trained-model forecasts.</p></article>
+    <article className="evidence-pillar-card"><h3 className="pillar-title">Keep the reasoning.</h3><p className="pillar-desc">Save scenarios, compare results and trace the inputs behind an investment plan.</p></article>
+   </div><Reveal paused={still} className="final-cta-box"><div><h2>Plan your next move.</h2><p className="final-cta-sub">Find the place. Understand the investment.</p><Link className="button" href="/app/">Start exploring <Arrow/></Link></div><div className="closing-brand" aria-hidden="true"><BrandMark size={112}/><span>Good places.<br/>Considered decisions.</span></div></Reveal></section>
   </main>
   <footer className="footer-clean"><div className="footer-inner"><div className="footer-identity"><span className="footer-title"><BrandMark size={28}/> StoreScout</span><span className="footer-subtitle">Retail expansion, considered. · Team Elites</span></div><a href="#hero" className="footer-back-link">Back to top <Arrow/></a></div></footer>
-  {ready&&!reduced&&<button className="motion-control" onClick={()=>setPaused(!paused)} aria-pressed={paused}>{paused?'Resume motion':'Pause motion'}</button>}
+  {ready&&!reduced&&!flat&&<button className="motion-control" onClick={()=>setPaused(!paused)} aria-pressed={paused}>{paused?'Resume motion':'Pause motion'}</button>}
  </div>;
 }

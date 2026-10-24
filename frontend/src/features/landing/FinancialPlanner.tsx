@@ -11,6 +11,6 @@ export default function FinancialPlanner({paused=false}:{paused?:boolean}) {
  const [active,setActive]=useState(0); const lens=lenses[active];
  return <div className="planning-showcase">
    <div className="story-tabs" role="group" aria-label="Explore financial planning">{lenses.map((l,i)=><button key={l.name} onClick={()=>setActive(i)} aria-pressed={active===i}>{l.name}</button>)}</div>
-   <div className="story-split"><div className="planning-copy" aria-live="polite"><h3>{lens.heading}</h3><p>{lens.detail}</p><ol className="finance-path">{lens.steps.map((step,i)=><li key={step}><span>{String(i+1).padStart(2,'0')}</span>{step}</li>)}</ol><p className="availability-note">Financial results appear after a completed saved evaluation. No live result is shown here.</p><Link className="text-link" href="/app/portfolio">Open portfolio planning <span aria-hidden="true">↗</span></Link></div><RetailScene kind="portfolio" paused={paused}/></div>
+   <div className="story-split"><div className="planning-copy" aria-live="polite"><h3>{lens.heading}</h3><p>{lens.detail}</p><ol className="finance-path">{lens.steps.map((step,i)=><li key={step}><span>{i+1}</span>{step}</li>)}</ol><p className="availability-note">Financial results appear after a completed saved evaluation. No live result is shown here.</p><Link className="text-link" href="/app/portfolio">Open portfolio planning <span aria-hidden="true">↗</span></Link></div><RetailScene kind="portfolio" paused={paused}/></div>
  </div>;
 }

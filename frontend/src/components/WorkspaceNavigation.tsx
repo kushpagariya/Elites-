@@ -49,7 +49,8 @@ export default function WorkspaceNavigation({
   useEffect(() => {
     const syncHash = () => setAnchor(window.location.hash.slice(1));
     syncHash();
-    setExpanded((previous) => ({ ...previous, [pathname]: true }));
+    // Start each page with its own features; keep the phone navigation compact.
+    setExpanded({ [pathname]: true });
     window.addEventListener("hashchange", syncHash);
     window.addEventListener("popstate", syncHash);
     return () => {

@@ -37,6 +37,7 @@ Module._load = function (name, parent, isMain) {
   return original.call(this, name, parent, isMain);
 };
 const Explore = require("../src/features/explore/Explore.tsx").default;
+const CashflowComparison = require("../src/features/explore/CashflowComparison.tsx").default;
 const Scenarios = require("../src/features/scenarios/Scenarios.tsx").default;
 const Portfolio = require("../src/features/portfolio/Portfolio.tsx").default;
 const guards = require("../src/lib/guards.ts");
@@ -212,6 +213,30 @@ test("rescue guard rejects unverified, foreign-shape or out-of-bounds thresholds
   assert.equal(guards.isRescue({ ...valid, npv_at_threshold: NaN }), false);
 });
 
+test("cash flow chart preserves saved negative, zero and missing values alongside exact data", () => {
+  const sites = [{ site_id: "a", name: "Site A" }, { site_id: "b", name: "Site B" }];
+  const analyses = new Map([
+    ["a", { annual_cashflows_inr: [-100, 0, 100] }],
+    ["b", { annual_cashflows_inr: [50] }],
+  ]);
+  const html = renderToStaticMarkup(React.createElement(CashflowComparison, { sites, analyses }));
+  assert.match(html, /Annual incremental cash flow chart/);
+  assert.match(html, /-₹100\.00/);
+  assert.match(html, /₹0\.00/);
+  assert.match(html, /Unavailable/);
+  assert.match(html, /View exact cash flows/);
+  assert.match(html, /width:50%;left:0%/);
+  assert.match(html, /width:50%;left:50%/);
+  assert.match(html, /width:25%;left:50%/);
+  assert.doesNotMatch(html, /NaN|Infinity/);
+});
+test("cash flow chart has an honest unavailable state without saved series", () => {
+  const html = renderToStaticMarkup(React.createElement(CashflowComparison, {
+    sites: [{ site_id: "a", name: "Site A" }], analyses: new Map(),
+  }));
+  assert.match(html, /have not been supplied/);
+  assert.doesNotMatch(html, /cashflow-track/);
+});
 module.exports = {
   Explore,
   setup,

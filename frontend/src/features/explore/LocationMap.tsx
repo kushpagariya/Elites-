@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, useId } from "react";
 import type { GeoJSONSource, Map as LibreMap } from "maplibre-gl";
 import { useWorkspace } from "@/lib/workspace";
 import { money, percent } from "@/lib/format";
+import { compactMoney } from "@/lib/presentation";
 import { hasMapGeometry } from "@/lib/map-data";
 import StatusBadge from "@/components/StatusBadge";
 import type { Project } from "@/lib/types";
@@ -170,14 +171,14 @@ export default function LocationMap({
                 id: "catchment-fill",
                 type: "fill",
                 source: "catchments",
-                paint: { "fill-color": "#7244e5", "fill-opacity": 0.09 },
+                paint: { "fill-color": "#a83d24", "fill-opacity": 0.09 },
               });
               instance.addLayer({
                 id: "catchment-edge",
                 type: "line",
                 source: "catchments",
                 paint: {
-                  "line-color": "#7244e5",
+                  "line-color": "#a83d24",
                   "line-width": 1.2,
                   "line-dasharray": [3, 2],
                 },
@@ -196,7 +197,7 @@ export default function LocationMap({
                     "case",
                     ["get", "relevant"],
                     "#297f79",
-                    "#9c9aab",
+                    "#9ca996",
                   ],
                   "circle-stroke-color": "white",
                   "circle-stroke-width": 1,
@@ -250,7 +251,7 @@ export default function LocationMap({
                 source: "branches",
                 paint: {
                   "circle-radius": 5,
-                  "circle-color": "#25232d",
+                  "circle-color": "#203c32",
                   "circle-stroke-color": "white",
                   "circle-stroke-width": 2,
                 },
@@ -274,7 +275,7 @@ export default function LocationMap({
                     100,
                     34,
                   ],
-                  "circle-color": "#7244e5",
+                  "circle-color": "#a83d24",
                   "circle-opacity": 0,
                 },
               });
@@ -292,8 +293,8 @@ export default function LocationMap({
                     6,
                   ],
                   "circle-color": compact
-                    ? ["case", ["get", "selected"], "#7244e5", "#b8b1c3"]
-                    : "#7244e5",
+                    ? ["case", ["get", "selected"], "#a83d24", "#9ca996"]
+                    : "#a83d24",
                   "circle-stroke-width": ["case", ["get", "selected"], 3, 2],
                   "circle-stroke-color": "white",
                 },
@@ -543,11 +544,11 @@ export default function LocationMap({
             <dl>
               <div>
                 <dt>Year 1 sales</dt>
-                <dd>{money(analysis?.annual_revenue_inr)}</dd>
+                <dd title={money(analysis?.annual_revenue_inr)}>{compactMoney(analysis?.annual_revenue_inr)}</dd>
               </div>
               <div>
                 <dt>Network NPV</dt>
-                <dd>{money(analysis?.npv_inr)}</dd>
+                <dd title={money(analysis?.npv_inr)}>{compactMoney(analysis?.npv_inr)}</dd>
               </div>
             </dl>
             {!compact && (

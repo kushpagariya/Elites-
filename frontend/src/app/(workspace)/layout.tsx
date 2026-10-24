@@ -3,6 +3,7 @@ import { WorkspaceProvider } from "@/lib/workspace";
 import WorkspaceShell from "@/components/WorkspaceShell";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "./workspace.css";
+import "./workspace-refresh.css";
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="workspace">
