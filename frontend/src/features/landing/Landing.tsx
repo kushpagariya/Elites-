@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion, useScroll } from 'motion/react';
 import BrandMark from '@/components/BrandMark';
 import HeroLanyard from './HeroLanyard';
@@ -9,11 +9,13 @@ import RetailScene, { Reveal } from './RetailScene';
 import DaypartMap from './DaypartMap';
 import FailFastCards from './FailFastCards';
 import FinancialPlanner from './FinancialPlanner';
+import { ExpansionField, useLandingChoreography } from './LandingMotion';
 const navItems=[{label:'Overview',href:'#hero'},{label:'How it works',href:'#how-it-works'},{label:'Neighbourhoods',href:'#daypart-dna'},{label:'Planning',href:'#financial-planning'}];
 function Arrow({ down=false }:{down?:boolean}) {
  return <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" style={down?{transform:'rotate(90deg)'}:undefined}><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.8"/></svg>;
 }
 export default function Landing() {
+ const surface=useRef<HTMLDivElement>(null);
  const reduced=useReducedMotion();
  const [flat,setFlat]=useState(false), [ready,setReady]=useState(false), [paused,setPaused]=useState(false), [visible,setVisible]=useState(true);
  const {scrollYProgress}=useScroll();
@@ -31,13 +33,14 @@ export default function Landing() {
   const frame=requestAnimationFrame(()=>setReady(true));return()=>cancelAnimationFrame(frame);
  },[]);
  const still=paused||!!reduced||flat;
- return <div className="landing-experience" data-motion-paused={still}>
+ useLandingChoreography(surface, still||!ready);
+ return <div ref={surface} className="landing-experience" data-motion-paused={still}>
   {!still&&<motion.div className="reading-progress" style={{scaleX:paused?0:scrollYProgress}} aria-hidden="true"/>}
   <PillNav logo={<BrandMark/>} logoAlt="StoreScout" items={navItems} activeHref="#hero" itemStyle="pill" hoverEffect="fill" indicator="dot"/>
   <main id="landing-content">
    <section id="hero" className="hero-section"><div className="hero-grid">
-    <div className="hero-copy"><h1 className="hero-title">Your next store.<br/><em>A clearer plan.</em></h1><p className="hero-lede">Find the right place. Understand the investment.</p><p className="hero-body">Explore neighbourhoods, test the economics and build an expansion plan that fits your budget.</p><div className="hero-actions"><Link className="button" href="/app/">Explore StoreScout <Arrow/></Link><a className="button-secondary" href="#how-it-works">See how it works <Arrow down/></a></div><p className="demo-disclosure">Interactive Navi Mumbai demo · synthetic data</p></div>
-    <div className="hero-3d-wrapper" aria-hidden="true"><HeroLanyard still={!ready||flat||!!reduced} paused={paused||!visible}/></div>
+    <div className="hero-copy"><h1 className="hero-title"><span className="hero-line"><span>Your next store.</span></span><em className="hero-line"><span>A clearer plan.</span></em></h1><p className="hero-lede">Find the right place. Understand the investment.</p><p className="hero-body">Explore neighbourhoods, test the economics and build an expansion plan that fits your budget.</p><div className="hero-actions"><Link className="button" href="/app/">Explore StoreScout <Arrow/></Link><a className="button-secondary" href="#how-it-works">See how it works <Arrow down/></a></div><p className="demo-disclosure">Interactive Navi Mumbai demo · synthetic data</p></div>
+    <div className="hero-3d-wrapper" aria-hidden="true"><ExpansionField paused={still||!visible||!ready}><HeroLanyard still={!ready||flat||!!reduced} paused={paused||!visible}/></ExpansionField></div>
    </div></section>
    <div className="retail-strip"><span>Understand the place</span><span>Test the economics</span><span>Plan the network</span></div>
    <section id="how-it-works" className="section-wrapper tint-bg">
