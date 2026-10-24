@@ -130,6 +130,9 @@ function useWorkspaceState() {
   const [loading, setLoading] = useState(true);
   const [operation, setOperation] = useState<Operation>(null);
   const [selection, setSelection] = useState<string[]>([]);
+  const [focusedSiteId, focusSite] = useState<string | null>(null);
+  const [activePeriod, setActivePeriod] =
+    useState<import("./presentation").TimePeriod>("weekday_lunch");
   const [maxStores, setMaxStores] = useState(2);
   const [acknowledged, setAcknowledged] = useState<string[]>([]);
   const [notice, setNotice] = useState("");
@@ -295,7 +298,7 @@ function useWorkspaceState() {
     setReport(null);
     setAcknowledged([]);
     setNotice(
-      "Saved evaluation loaded. Every result below uses this evaluation.",
+      "Analysis ready. Locations and insights now use this saved scenario.",
     );
   };
   const evaluate = async () => {
@@ -349,7 +352,7 @@ function useWorkspaceState() {
       setDraft(scenarioDraft(saved.data));
       setDirty(false);
       setOperation("evaluate");
-      setNotice("Scenario saved. Requesting its evaluation…");
+      setNotice("Scenario saved. Analysing the new conditions…");
       const result = await evaluateScenario(
         saved.data.scenario_id,
         controller.signal,
@@ -360,9 +363,7 @@ function useWorkspaceState() {
         setError(failure(e));
         if (savedIdentity)
           setNotice(
-            "Scenario saved as " +
-              savedIdentity +
-              ". Its evaluation did not complete. You can retry evaluation without saving again.",
+            "Your scenario was saved, but analysis did not finish. Retry Run analysis; there is no need to save again.",
           );
       }
     } finally {
@@ -415,7 +416,7 @@ function useWorkspaceState() {
           409,
         );
       setPortfolio(result.data);
-      setNotice("Portfolio result loaded from the saved evaluation.");
+      setNotice("Your investment plan is ready.");
     } catch (e) {
       if (clock.current.accepts(token) && !controller.signal.aborted)
         setError(failure(e));
@@ -449,7 +450,7 @@ function useWorkspaceState() {
         setRescueResult(result.data);
         setNotice(
           result.data.status === "SOLVED"
-            ? "Recovery threshold verified. Review it before saving a new scenario."
+            ? "Improvement found. Review the threshold before trying this change."
             : "The recovery search completed. Review the result below.",
         );
       }
@@ -556,6 +557,10 @@ function useWorkspaceState() {
     operation,
     busy,
     selection,
+    focusedSiteId,
+    focusSite,
+    activePeriod,
+    setActivePeriod,
     maxStores,
     acknowledged,
     notice,

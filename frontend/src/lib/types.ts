@@ -214,6 +214,11 @@ export type PortfolioResponse = ApiEnvelope<PortfolioResult>;
 
 /** Existing infrastructure response inspected from the live endpoint. */
 export interface InfrastructureEvent {
+  type?: string;
+  geometry?: {
+    type: "Point" | "LineString" | "Polygon";
+    coordinates: number[] | number[][] | number[][][];
+  };
   infra_project_id: string;
   name: string;
   status: string;

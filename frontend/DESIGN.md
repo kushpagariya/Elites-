@@ -1,45 +1,35 @@
 # StoreScout workspace design
 
-This guide extends the root DESIGN.md's landing identity for the implemented workspace. The root guide's references to a connection diagnostic describe the previous consolidation baseline; current operational routes are implemented here. Product flow follows the user-supplied StoreScout PRD PDF, especially sections 3.1, 5.1 and 9.
+This guide covers only /app, /app/scenarios and /app/portfolio. The landing page, its components and shared base styles are unchanged. Product and financial semantics remain governed by the PRD and API contracts.
 
-## Direction and users
+## Direction
 
-Taste direction: Framed sheet, seed 940076972, no redraw. Expansion and finance users compare ten grocery candidates with four fictional branches, test an immutable scenario, and review a full-network portfolio. Retain the existing Manrope, paper/ink/purple palette and hexagonal mark. The framed white sheet and neutral navigation suit repeated analytical work; no entrance animation is needed.
+Continue Taste's existing Framed sheet direction (seed 940076972; no redraw), Manrope typography and black/white/purple identity. Apply Impeccable's hierarchy, progressive disclosure and accessibility guidance, and Emil's restrained interactions. Workspace tokens and every visual override live in src/app/(workspace)/workspace.css beneath .workspace. Warm paper, flat white panels, charcoal text and purple actions support repeated analysis; risk states always have text labels.
 
-Questions answered first:
+## Three tasks
 
-- Explore: which sites should I compare, and what value and evidence does the saved evaluation support?
-- Scenario: what would have to change, and which failures remain after evaluating a new assumption snapshot?
-- Portfolio: which eligible set fits the evaluated budget, and is the search exact, partial or unknown?
+- **Explore Locations:** a real city map alongside a compact shortlist; focus a location, select exactly two for comparison, then read backend financial results. Keep the full financial table inside Detailed Comparison.
+- **Test Changes:** budget, demand change, rental change and infrastructure first. Advanced Assumptions contains margin, operating costs, competition and location overrides. Display before/after saved results and all remaining failure reasons. A rescue action creates an immutable scenario and requests evaluation.
+- **Investment Plan:** show saved network value, investment, remaining budget and selected stores before solver details. Retain risk review, store-count cap, empty/partial/unavailable outcomes and backend-generated reports.
 
-## System
+## Real map and evidence
 
-Use the shared shell and workspace provider. At desktop widths the frame has a 228px sidebar, 64px top bar, 8px right/bottom inset and a 16px sheet radius. Content uses 24px padding and gaps; mobile uses a compact three-column navigation row and 16px content margins. Tables scroll within a labelled focusable region rather than overflowing the page.
+Retain MapLibre GL JS with OpenFreeMap Positron: https://tiles.openfreemap.org/styles/positron. Streets and place names come from vector tiles; retain native OpenFreeMap, OpenMapTiles and OpenStreetMap attribution. No paid key, bulk download or offline cache is used. The local MapLibre worker is prepared by the existing build script.
 
-Manrope headings are 26px/650 for the desktop screen title, 24px on phones, 18px for sections and 16px for local groups. Body UI is 14px; supporting data labels are 12–13px. Tabular figures, right-aligned monetary columns and visible INR units make comparisons readable. Quiet borders distinguish data rows; no shadows are used on resting panels.
+Project coordinates place purple candidates and black existing stores. Current demo locations remain explicitly SYNTHETIC; streets do not validate those businesses. Selection is shared with accessible cards and comparisons. Zoom, pan, fit selection and reset are available. Loading, WebGL and tile errors expose retry while the shortlist remains usable; no artificial geographic fallback is displayed.
 
-Colors are inherited from src/app/base.css. Purple marks candidate geometry and the product mark. Black marks fictional branches. Financial states use text with restrained semantic ink; color never replaces VIABLE / AT_RISK / REJECTED / REVIEW_REQUIRED. Disabled actions retain readable contrast. Native focus rings and the skip link remain visible.
+POIs, catchments and DaypartDNA halos use only matching current backend evidence. Missing scores have no halo; supported zero is distinct from unknown. Infrastructure renders only supplied, validated Point/LineString/Polygon geometry and retains hypothetical/source labels. Competitor inventory is unavailable and its layer stays disabled. Changing the saved scenario or shared period refreshes supported analytical layers.
 
-MapLibre draws API coordinate inputs over the local SYNTHETIC GeoJSON boundary. It is not a real basemap, footfall visualization or financial result. Its locally prepared worker avoids CDN dependencies; the candidate table remains available on loading or WebGL failure.
+## Hierarchy and accessibility
 
-## Interaction and truth
+Keep results prominent and IDs inside Data and analysis details / Technical Details. Use concise headings, labelled INR amounts, readable status text, visible focus, native labelled controls and local table scrolling. Primary DaypartDNA choices are Morning, Lunch, Evening and Weekend, with all six canonical periods in a disclosure. Identify it as POI-derived opportunity, never measured footfall.
 
-Use actual links for routes and native labelled inputs. Comparison selection is shared with map pins and limited to two sites. Checkbox labels have 44px hit regions. Repeated action feedback uses 160ms transitions, fine-pointer hover gating and reduced-motion overrides. No page-load choreography delays the task.
+Responsive grids collapse to one column on phones; comparison and map controls remain available. There is no entrance choreography; reduced-motion preferences are respected. Secondary map and evidence labels have a minimum 11px size, while primary controls and results are larger. Disabled text uses 5.92:1 contrast against its fill.
 
-An edit immediately marks previous results stale, cancels pending work and disables portfolio/report actions. Numeric formatting never converts null into zero. Financial values, ranks, rescue thresholds and full-network totals come from saved backend responses. Backend errors name the recovery action; HTTP 501 remains unavailable rather than a sample result.
+## State and calculation boundaries
 
-ASSUMED budget/rent/demand inputs and SYNTHETIC project/source labels stay visible. Technical identities live in a disclosure, not release badges. Missing DaypartDNA evidence is distinct from zero opportunity; missing sensitivity remains unavailable rather than estimated in React.
+Formatting and percentage/multiplier input conversion are presentation only. Financial outputs, ranks, thresholds and network totals come from saved backend responses. Null is unknown, never zero. Preserve source/model/scenario/evaluation identities, request cancellation and incrementing response tokens. Edits mark derived results stale and disable portfolio/export until the matching completed evaluation arrives. Preserve prior successful values with a stale notice.
 
-## Render review
+## Verification scope
 
-All three screens were inspected at 1440, 768 and 390px; final reports show 0 FAIL and 0 WARN, with explicit allowances only for the preserved purple/paper palette. All final fold and page screenshots were opened. This verifies the current unavailable-computation state, not backend analytical correctness or a full accessibility audit.
-
-| Before | After | Why |
-| --- | --- | --- |
-| Connection diagnostic | Three task-specific screens on one shared context | Preserve the complete investment journey |
-| Blank MapLibre canvas after worker load failure | Version-matched worker served locally | The map renders without a CDN |
-| Small checkbox click regions | 44px comparison labels | Improve touch and keyboard usability |
-| Disabled secondary export resembled an enabled control | Consistent disabled fill and readable ink | Make unavailable actions apparent |
-| Long mobile context/header | Compact budget row and fully visible workflow navigation | Keep the task closer to the first viewport |
-
-The largest blocks carry the screen's questions: candidate inputs, scenario edits and portfolio selection. Frames align and columns collapse without page overflow; only actual data tables scroll. Financial unavailable states remain intentional until computation is connected. There are no invented totals, chart series, customers, fitted-model results or found photographs to credit.
+Focused map interactions and navigation were inspected with labelled synthetic input data and real online tiles. Desktop 1440px, tablet 768px and phone 390px reviews found no horizontal page overflow or browser console errors. Taste inspection had zero failures; its small-text warning remains for compact secondary labels. Full financial/ML acceptance and live analytical overlay integration remain deferred. See docs/UX_MAP_HANDOFF.md for exact commands and results.
