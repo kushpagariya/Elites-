@@ -1,0 +1,14 @@
+station_id,station_name,original_station_label,source_station_code,latitude,longitude,osm_poi_id,osm_station_code,line,operational_status,status_source_id,mapping_status,source_id,source_status
+bmrcl-315,Delta Electronics Bommasandra,315-Delta Electronics Bommasandra,315,12.8193944,77.6883453,osm-node-5760197806,BMSD,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-313,Huskur Road,313-Huskur Road,313,12.8391572,77.6773716,osm-node-5760198122,HSKR,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-312,Infosys Foundation Konappana Agrahara,312-Infosys Foundation Konappana Agrahara,312,12.8464399,77.6711872,osm-node-5760198133,ECTN,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-311,Electronic City,311-Electronic City,311,12.8565053,77.6635228,osm-node-5760198145,ETCT,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-310,Beratena Agrahara,310-Beratena Agrahara,310,12.863878,77.6579036,osm-node-5760198153,HOSR,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-39,Hosa Road,39-Hosa Road,39,12.8707491,77.652447,osm-node-5760198162,BSRD,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-38,Singasandra,38-Singasandra,38,12.8808178,77.6448456,osm-node-5760198182,CKBR,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-37,Kudlu Gate,37-Kudlu Gate,37,12.8899259,77.6392156,osm-node-5760198187,MSRN,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-36,Hongasandra,36-Hongasandra,36,12.9016952,77.6319861,osm-node-5760198198,OFDC,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-35,Bommanahalli,35-Bommanahalli,35,12.9106157,77.6264782,osm-node-5760198202,HSRL,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-34,Central Silk Board,34-Central Silk Board,34,12.9165816,77.620567,osm-node-5760198212,SBJT,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-33,BTM Layout,33-BTM Layout,33,12.9165878,77.6081182,osm-node-5760198226,BTML,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK
+bmrcl-314,Biocon Hebbagodi,314-Biocon Hebbagodi,314,12.8290325,77.6813744,osm-node-11521199307,HBGI,Yellow,OPERATIONAL,yellow-official;metro-rti,EXACT_NAME_MATCH,metro-rti;osm-pois,DERIVED_SOURCE_CROSSWALK

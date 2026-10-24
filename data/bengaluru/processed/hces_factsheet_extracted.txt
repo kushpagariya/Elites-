@@ -1,0 +1,2342 @@
+PDF_PAGE 1
+
+PDF_PAGE 2
+ 
+ 
+ 
+The Household Consumption Expenditure Survey (HCES) is designed to collect 
+information on consumption and expenditure of the households on goods and 
+services. It helps to understand the c onsumption and expenditure pattern, standard 
+of living and well -being of the households. Besides, the data of HCES provides the 
+budget shares of different commodity groups which is used to prepare the weighting 
+diagram for compilation of official Consumer Price Indices (CPIs).  
+ 
+The National Statistical Office has been conducting surveys on household 
+consumption expenditure at regular intervals since the inception of the National 
+Sample Survey (NSS)  in the year 1951. Following the recommendations of the 
+National Statistical Commission (NSC), it was planned to undertake the next survey 
+on household consumption expenditure during July , 2020 to June , 2021. Later, the 
+Ministry of Statistics & Programme Implementation (MoSPI) decided to conduct two 
+back-to-back surveys on the subject to facilitate a decision on revision of the base year 
+for macro-economic indicators, like Gross Domestic Product (GDP), Consumer Price 
+Indices (CPI) etc. However, the emergence of COVID -19 pandemic delayed the 
+launch of the survey fieldwork. Subsequently, after return of normalcy, two 
+consecutive surveys have been planned during the period August 2022 to July 2023 
+and August, 2023 to July, 2024. After completion of the fieldwork of the first survey, 
+a factsheet has been published by MOSPI in February , 2024 an d thereafter, the 
+detailed report of the survey along with the unit level data has been released in June, 
+2024. This factsheet is based on data collected in HCES: 2023-24. 
+ 
+HCES: 2023 -24 has been conducted following a methodology identical to that of 
+HCES: 2022-23 and using the same set of questionnaires with the exception that some 
+questions related to household characteristics has been dropped in HCES: 2023-24 to 
+reduce respondent burden. 
+ 
+PDF_PAGE 3
+ 
+The survey has covered the whole of the Indian Union , except a few inaccessible 
+villages in the Andaman and Nicobar Islands. Information in HCES:2023-24 has been 
+collected from 2,61, 953 Households (1,5 4,357 in rural areas and 1,0 7,596 in urban 
+areas). 
+ 
+As in HCES:  2022-23, three separate questionnaires, namely,  Questionnaire: FDQ, 
+Questionnaire: CSQ and Questionnaire: DGQ have been canvassed in HCES:  2023-24 
+in the selected households in three separate monthly visits in a quarter  to collect 
+information on food items, consumable and services items and durable goods , 
+respectively. Another questionnaire (Questionnaire: HCQ) has been used to collect 
+information on household characteristics and demographic particulars of the members 
+of the households. A ll possible six sequencing of t he three questionnaires, namely, 
+[(Q1, Q2, Q3), (Q1, Q3, Q2), (Q2, Q1, Q3), (Q2, Q3, Q1), (Q3, Q1, Q2) and (Q3, Q2, Q1)], 
+where Q1 refers to FDQ, Q2 refers to CSQ and Q3 refers to DGQ, have been used in 
+the survey to eliminate any bias due to adoption of a ny particular sequencing of the 
+questionnaires.  
+ 
+A multistage stratified sampling design, considering villages/urban blocks as the first 
+stage units has been used in the survey. The households are the ultimate stage units. 
+Simple Random Sampling Without Replacement (SRSWOR) method is used for 
+selecting the sample.   
+ 
+A total of 18 households with proportional representation from three groups  formed 
+on the basis of (i) land possessed in rural areas and (ii) possession of car in urban areas 
+as on the date of the survey have been selected in each sample village/urban block.  
+ 
+ 
+ 
+Fact Sheet: 2023-24                                                                                          Survey on Household Consumption Expenditure                                                                                           
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 2 of 21 
+PDF_PAGE 4
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Survey on Household Consumption Expenditure                                                                                          Fact Sheet: 2023-24 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 3 of 21 
+(a) The practice of imputation of the value figures at the time of collection of data in 
+the field for c onsumption out of (i) home -grown/home-produced stock and (ii) 
+gifts, loans, free collection and goods received in exchange of goods and services 
+etc. in past NSS household consumption expenditure survey has been continued in 
+HCES: 2022-23 & 2023-24 and accordingly, estimates of MPCE has been generated. 
+These are presented in Section I.  
+ 
+(b) Following the recommendations of the NSC, information on the quantity of (i) food 
+items: Rice, Wheat/Atta, Jowar, Bajra, Maize, Ragi, Barley, Small Millets, Pulses, 
+Gram, Salt, Sugar, Edible Oil and (ii) non -food items: Laptop/PC, Tablet, Mobile 
+Handset, Bicycle, Motor Cycle/Scooty, Clothing (School uniform), Footwear 
+(School shoe etc.) received and consumed/used by the households free of cost 
+through various social w elfare programmes has been made in HCES: 2022 -23. 
+Consequently, the value figures for these items have been imputed using an 
+appropriate method, in addition to the items as mentioned in para (a) above and 
+another estimate of MPCE has been generated in HCES : 2022-23. These estimates, 
+has been referred as ‘MPCE estimates with imputation’. The same practice has been 
+continued in HCES: 2023 -24 and ‘MPCE estimates with imputation’  are presented 
+in Section II. The value of education as well as health services rec eived free of cost by the 
+households has not been imputed. *  
+ 
+The value figures shown in tables and statements throughout this factsheet are 
+expressed as nominal values and represents expenditure in Indian Rupee as reported 
+by the respondents. 
+ 
+*: Pradhan Mantri Jan Aarogya Yojna (PM -JAY) or any other state specific schemes provide cashless access to 
+healthcare services for the beneficiary at the point of service, i.e., the hospital and the beneficiary does not have 
+any information on the cost of the services availed. For all such schemes, entire premium is borne by the 
+Government. Since HCES is not a record-based survey, often it is not possible to ascertain the exact ai lment or 
+disease for which the benefit has been availed. Hence, in view of the complexity and appropriateness involved 
+in imputation of the expenditure for such services, no attempt has been made for imputation of the expenditure 
+of health services availed by the households free of cost. For similar reasons, the expenditure for free education 
+services (i.e., reimbursement/waiver of school or college fees under RTE) has also not been imputed. 
+PDF_PAGE 5
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 4 of 21 
+This section presents the summary of level of household consumption expenditure, 
+as measured by the Monthly Per Capita Consumption Expenditure (MPCE), in India 
+during 2023 -24. The estimates presented here have been generated without imputing the 
+value figures of the items (as mentioned in Para (b) of Page 3) received free by the households 
+through various social welfare programmes. The estimates of key indicators of household 
+consumption expenditure are presented here for all-India. In addition, the estimates 
+of MPCE for the States and UTs are also included.  
+ 
+ 
+Average estimated MPCE in 2023-24 is observed to be Rs. 4,122 in rural India and Rs. 
+6,996 in urban India. The share of food and non -food items in total MPCE is shown 
+below in Statement 1. 
+ 
+Fact Sheet: 2023-24                                                                                          Survey on Household Consumption E xpenditure                                                                                           
+ 
+ 
+Statement 1: Average MPCE (Rs.) and share of food and non-food 
+items in 2023-24: All-India 
+Item Group 
+Rural India Urban India 
+Average 
+MPCE (Rs.) 
+Share in 
+MPCE (%) 
+Average 
+MPCE (Rs.) 
+Share in 
+MPCE (%) 
+Food 1,939 47.04 2,776 39.68 
+Non-food 2,183 52.96 4,220 60.32 
+ 
+❖ The bottom 5% of India’s rural population, ranked by MPCE, has an average 
+MPCE of Rs. 1,677, while it is Rs. 2,376 for the same category of population in the 
+urban areas.  
+❖ The top 5% of India’s rural and urban population, ranked by MPCE, has an 
+average MPCE of Rs. 10,137 and Rs. 20,310, respectively. 
+❖ Among the States, MPCE is the highest in Sikkim (Rural – Rs. 9,377 and Urban – 
+Rs. 13,927) and it is the lowest in Chhattisgarh (Rural – Rs. 2,739 and Urban – Rs. 
+4,927). 
+ 
+ 
+PDF_PAGE 6
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fractiles and fractile classes of MPCE :  For any fraction f (0<f<1), the 
+corresponding fractile of the distribution of MPCE (Y) is the level of MPCE, say, 
+Yf such that the proportion of population whose household MPCE lies below Yf 
+is f. A fractile  class of MPCE is a segment of the population lying within two 
+fractiles f1 and f2. 
+ 
+The estimates of average MPCE, at all -India level, across different fractile 
+classes of MPCE  for 2022 -23 & 2023 -24 is shown in Figure s 1R and 1U, 
+respectively for rural and urban India.  
+ 
+ 
+ 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 5 of 21 
+Figure 1R: Average MPCE (Rs.) across fractiles classes of MPCE for 2022-23 & 
+2023-24 - Rural 
+ 
+ 
+ 
+1,373
+1,782
+2,112
+2,454
+2,768
+3,094
+3,455
+3,887
+4,458
+5,356
+6,638
+10,501
+0-5%
+5-10%
+10-20%
+20-30%
+30-40%
+40-50%
+50-60%
+60-70%
+70-80%
+80-90%
+90-95%
+95-100%
+1,677
+2,126
+2,473
+2,833
+3,162
+3,498
+3,866
+4,304
+4,885
+5,763
+6,929
+10,137
+0-5%
+5-10%
+10-20%
+20-30%
+30-40%
+40-50%
+50-60%
+60-70%
+70-80%
+80-90%
+90-95%
+95-100%
+Average MPCE (Rs.)
+Fractile classes of MPCE
+2022-23 Fractile Class 2023-24
+Survey on Household Consumption Expenditure                                                                                          Fact Sheet: 2023-24 
+❖ Among the UTs, MPCE is the highest in Chandigarh (Rural – Rs. 8,857 and 
+Urban – Rs. 13,425), whereas it is the lowest in Dadra and Nagar Haveli and 
+Daman and Diu (Rs. 4,311) and Jammu and Kashmir (Rs. 6,327) in rural and 
+urban areas, respectively. 
+❖ The urban-rural difference in average MPCE among the states is the highest 
+in Meghalaya (104%) followed by Jharkhand (83%) and Chhattisgarh (80%). 
+ 
+PDF_PAGE 7
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+The statement below shows a comparison of the estimates of all -India average 
+MPCE from the last two surveys of consumption expenditure and HCES: 2023-24.  
+ 
+ 
+ Statement 2: Trend in level of Consumption since 2011-12: All-India 
+Sector 
+Average MPCE (Rs.) over different period 
+2011-12 
+ (68th round) 2022-23 2023-24 
+Rural 1,430 3,773 4,122 
+Urban 2,630 6,459 6,996 
+Difference as % of Rural 
+MPCE 83.9 71.2 69.7 
+ 
+Note: The estimates of MPCE are based on Modified Mixed Reference Period (MMRP) in which information 
+on household consumption expenditure on (i) edible oil; egg, fish & meat; milk and milk products; vegetables; 
+fruits; spices; beverages and processed foods; pan, tobacco & intoxicants  has been recorded for a reference 
+period of “last 7 days”, and (ii) clothing; bedding; footwear; education; medical (hospitalisation); durable 
+goods recorded for a reference period of “last 365 days”, and (ii) expenditure on all other items has been 
+recorded for a reference period of “last 30 days”. 
+ 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 6 of 21 
+Fact Sheet: 2023-24                                                                                          Survey on Household Consumption Expenditure                                                                                           
+Figure 1U: Average MPCE (Rs.) across fractiles classes of MPCE for 2022-23 & 
+2023-24 - Urban 
+ 
+ 
+ 
+2,001
+2,607
+3,157
+3,762
+4,348
+4,963
+5,662
+6,524
+7,673
+9,582
+12,399
+20,824
+0-5%
+5-10%
+10-20%
+20-30%
+30-40%
+40-50%
+50-60%
+60-70%
+70-80%
+80-90%
+90-95%
+95-100%
+2,376
+3,093
+3,687
+4,353
+4,979
+5,622
+6,334
+7,199
+8,353
+10,139
+12,817
+20,310
+0-5%
+5-10%
+10-20%
+20-30%
+30-40%
+40-50%
+50-60%
+60-70%
+70-80%
+80-90%
+90-95%
+95-100%
+Average MPCE (Rs.)
+Fractile classe of MPCE 
+2022-23 Fractile Class 2023-24
+PDF_PAGE 8
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+Statement 3: Trend in share of consumption of cereals and food items 
+since 2011-12: All-India 
+Period 
+Rural Urban 
+% share of 
+cereals in avg. 
+MPCE. 
+% share of 
+food in avg.  
+MPCE 
+% share of 
+cereals in avg.  
+MPCE 
+% share of 
+food in avg. 
+MPCE 
+2011-12 10.75 52.90 6.66 42.62 
+2022-23 4.91 46.38 3.64 39.17 
+2023-24 4.99 47.04 3.76 39.68 
+ 
+Survey on Household Consumption Expenditure                                                                                          Fact Sheet: 2023-24 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 7 of 21 
+Figure 2: Average monthly per capita quantity consumption of cereals in 2022-23 
+& 2023-24: All-India 
+ 
+ 
+9.61
+8.05
+9.35
+8.02
+7
+7.5
+8
+8.5
+9
+9.5
+10
+Rural Urban
+Average monthly per capita 
+quantity consumption (Kg.)
+2022-23
+ 2023-24
+ 
+ 
+The statement below shows the percentage share of ‘cereals’ and ‘all food items 
+together’ in average MPCE at all -India level since 2011-12. Average monthly per 
+capita quantity consumption of cereals during 2022 -23 and 2023 -24 is presented 
+in Figure 2. 
+ 
+PDF_PAGE 9
+ 
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+Fact Sheet: 2023-24                                                                                          Survey on Household Consumption E xpenditure                                                                                           
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 8 of 21 
+ 
+The following statement summarises the average MPCE and percentage break-
+up of MPCE by the item groups at all-India level. 
+ 
+Statement 4: Absolute and percentage break -up of MPCE  by item group s in 
+2023-24: All-India 
+Item group MPCE (Rs.) % share in total MPCE 
+Rural Urban Rural Urban 
+cereals & cereal substitutes 206 263 4.99 3.76 
+pulses & their products* 84 98 2.04 1.40 
+sugar & salt  37 40 0.89 0.57 
+milk & milk products 348 503 8.44 7.19 
+vegetables 248 288 6.03 4.12 
+fruits  158 271 3.85 3.87 
+egg, fish & meat 203 249 4.92 3.56 
+edible oil 114 127 2.77 1.82 
+spices 135 161 3.27 2.30 
+beverages, refreshments, 
+processed food# 406 776 9.84 11.09 
+food total 1,939 2,776 47.04 39.68 
+pan, tobacco & intoxicants 158 166 3.84 2.37 
+fuel and light 252 391 6.11 5.59 
+education 133 418 3.24 5.97 
+medical  282 409 6.83 5.85 
+conveyance 313 592 7.59 8.46 
+consumer services excluding 
+conveyance 217 400 5.25 5.72 
+misc. goods, entertainment 256 484 6.22 6.92 
+rent 23 460 0.56 6.58 
+taxes and cesses 9 23 0.21 0.33 
+clothing, bedding & footwear 273 396 6.63 5.66 
+durable goods 267 481 6.48 6.87 
+non-food total 2,183 4,220 52.96 60.32 
+all items 4,122 6,996 100.00 100.00 
+*includes gram     #includes purchased cooked meals       
+ 
+PDF_PAGE 10
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+Percentage composition of MPC E by item groups since 2011-12 is provided in 
+Statements 5 & 6, seperately for rural and urban India.  
+ 
+Statement 5: Trend in percentage composition of MPCE since 2011-12: Rural India 
+Item group  
+% share in total MPCE 
+2011-12 
+(68th round) 2022-23 2023-24 
+cereal  10.69 4.89 4.97 
+cereal substitutes 0.06 0.02 0.02 
+gram 0.14 0.24 0.26 
+pulses and pulse products* 2.76 1.77 1.78 
+sugar & salt 1.83 0.93 0.89 
+milk and milk products 8.04 8.33 8.44 
+vegetables 6.62 5.38 6.03 
+fruits (fresh) 2.25 2.54 2.66 
+fruits (dry) 0.58 1.17 1.19 
+egg, fish & meat 4.79 4.91 4.92 
+edible oil 3.74 3.59 2.77 
+spices 3.50 2.98 3.27 
+beverages, processed food# etc. 7.90 9.62 9.84 
+food: total 52.90 46.38 47.04 
+pan, tobacco & intoxicants 3.21 3.79 3.84 
+fuel and light 7.98 6.66 6.11 
+toilet articles & other household 
+consumables 4.01 5.12 5.20 
+education 3.49 3.30 3.24 
+medical (hospitalization) 2.15 2.36 2.25 
+medical (non- hospitalization) 4.50 4.77 4.58 
+conveyance 4.20 7.55 7.59 
+consumer services excluding conveyance& 3.99 5.08 5.25 
+entertainment 0.99 1.09 1.02 
+rent 0.45 0.78 0.56 
+other taxes & cesses 0.25 0.13 0.21 
+clothing & bedding$ 5.99 5.24 5.67 
+footwear 1.02 0.86 0.96 
+durable goods 4.85 6.89 6.48 
+non-food: total 47.10 53.62 52.96 
+total expenditure 100.00 100.00 100.00 
+*excludes gram     #includes purchased cooked meals     &includes tailoring charges     $excludes tailoring 
+charges  
+ 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 9 of 21 
+Survey on Household Consumption Expenditure                                                                                          Fact Sheet: 2023-24 
+PDF_PAGE 11
+ 
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+Statement 6: Trend in percentage composition of MPCE since 2011-12: Urban India 
+Item group  
+% share in total MPCE 
+2011-12 
+(68th round) 2022-23 2023-24 
+cereal  6.61 3.62 3.74 
+cereal substitutes 0.05 0.02 0.02 
+gram 0.11 0.18 0.18 
+pulses and pulse products* 1.93 1.21 1.22 
+sugar & salt 1.15 0.60 0.57 
+milk and milk products 7.01 7.22 7.19 
+vegetables 4.63 3.80 4.12 
+fruits (fresh) 2.64 2.50 2.61 
+fruits (dry) 0.78 1.31 1.26 
+egg, fish & meat 3.65 3.57 3.56 
+edible oil 2.66 2.37 1.82 
+spices 2.42 2.13 2.30 
+beverages, processed food# etc. 8.98 10.64 11.09 
+food: total 42.62 39.17 39.68 
+pan, tobacco & intoxicants 1.61 2.43 2.37 
+fuel and light 6.69 6.26 5.59 
+toilet articles & other household 
+consumables 3.88 4.98 5.15 
+education 6.90 5.78 5.97 
+medical (hospitalization) 1.96 1.91 1.96 
+medical (non- hospitalization) 3.58 4.00 3.89 
+conveyance 6.52 8.59 8.46 
+consumer services excluding 
+conveyance& 5.60 5.92 5.72 
+entertainment 1.61 1.58 1.77 
+rent 6.24 6.56 6.58 
+other taxes & cesses 0.82 0.24 0.33 
+clothing & bedding$ 5.37 4.64 4.80 
+footwear 1.00 0.77 0.86 
+durable goods 5.60 7.17 6.87 
+non-food: total 57.38 60.83 60.32 
+total expenditure 100.00 100.00 100.00 
+*excludes gram     #includes purchased cooked meals      &includes tailoring charges     $excludes 
+tailoring charges 
+ 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 10 of 21 
+Fact Sheet: 2023-24                                                                                          Survey on Household Co nsumption Expenditure                                                                                           
+PDF_PAGE 12
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+Statement 7: Average MPCE for each State/UT in 2023-24 
+State/UT Average MPCE (Rs.) 
+Rural Urban 
+Andhra Pradesh 5,327 7,182 
+Arunachal Pradesh 5,995 9,832 
+Assam 3,793 6,794 
+Bihar 3,670 5,080 
+Chhattisgarh 2,739 4,927 
+Delhi 7,400 8,534 
+Goa 8,048 9,726 
+Gujarat 4,116 7,175 
+Haryana 5,377 8,428 
+Himachal Pradesh 5,825 9,223 
+Jharkhand 2,946 5,393 
+Karnataka 4,903 8,076 
+Kerala 6,611 7,783 
+Madhya Pradesh 3,441 5,538 
+Maharashtra 4,145 7,363 
+Manipur 4,531 5,945 
+Meghalaya 3,852 7,839 
+Mizoram 5,963 8,709 
+Nagaland 5,155 8,022 
+Odisha 3,357 5,825 
+Punjab 5,817 7,359 
+Rajasthan 4,510 6,574 
+Sikkim 9,377 13,927 
+Tamil Nadu 5,701 8,165 
+Telangana 5,435 8,978 
+Tripura 6,259 8,034 
+Uttar Pradesh 3,481 5,395 
+Uttarakhand 5,003 7,486 
+West Bengal 3,620 5,775 
+Andaman & N Islands 7,771 10,453 
+Chandigarh 8,857 13,425 
+Dadra & Nagar Haveli and Daman & Diu 4,311 6,837 
+Jammu & Kashmir 4,774 6,327 
+Ladakh 5,010 7,533 
+Lakshadweep 6,350 6,377 
+Puducherry 7,598 8,637 
+All-India 4,122 6,996 
+ 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 11 of 21 
+Survey on Household Consumption Expenditure                                                                                          Fact Sheet: 2023-24 
+ 
+The average MPCE in 2023 -24 for  all State & UT s is provided below in 
+Statement 7.  
+ 
+PDF_PAGE 13
+ 
+  
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 12 of 21 
+Fact Sheet: 2023-24                                                                                          Survey on Household Consumption E xpenditure                                                                                           
+ 
+Average MPCE in 2022-23 & 2023-24 for major States is shown below in Figures 
+3R & 3U for rural and urban India, respectively.  
+ 
+Figure 3R: Average MPCE in 2022-23 & 2023-24 for major States - Rural 
+ 
+ 
+West Bengal
+Uttar Pradesh
+Telangana
+Tamil Nadu
+Rajasthan
+Punjab
+Odisha
+Maharashtra
+Madhya Pradesh
+Kerala
+Karnataka
+Jharkhand
+Haryana
+Gujarat
+Chhattisgarh
+Bihar
+Assam
+Andhra Pradesh
+2,000 3,000 4,000 5,000 6,000 7,000
+2022-23
+2023-24
+Figure 3U: Average MPCE in 2022-23 & 2023-24 for major States - Urban 
+ 
+ 
+West Bengal
+Uttar Pradesh
+Telangana
+Tamil Nadu
+Rajasthan
+Punjab
+Odisha
+Maharashtra
+Madhya Pradesh
+Kerala
+Karnataka
+Jharkhand
+Haryana
+Gujarat
+Chhattisgarh
+Bihar
+Assam
+Andhra Pradesh
+4,000 5,000 6,000 7,000 8,000 9,000 10,000
+2022-23
+2023-24
+PDF_PAGE 14
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+  
+ 
+  
+Survey on Household Consumption Expenditure                                                                                          Fact Sheet: 2023-24 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 13 of 21 
+ 
+The consumption inequality has declined to 0.266 and 0.314 in 2022 -23 from 
+0.283 and 0.363 in 2011 -12, respectively in rural and urban India. It has further 
+come down to 0.237 and 0.284 in 2023-24, respectively in rural and urban India.  
+ 
+The corresponding figures of Gini coefficient of total consumption expenditure 
+are also shown in Statement 8.  
+ 
+ Statement 8: Gini coefficient of total consumption expenditure 
+during 2011-12 to 2023-24: All-India 
+Sector 
+Gini coefficient in 
+2011-12 
+ (68th round) 2022-23 2023-24 
+Rural 0.283 0.266 0.237 
+Urban 0.363 0.314 0.284 
+ 
+PDF_PAGE 15
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+   
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+   
+Fact Sheet: 2023-24                                                                                          Survey on Household Consumption E xpenditure                                                                                           
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 12 of 21 
+ The estimates of MPCE presented in this section have been generated considering the 
+imputed value figures of the items received free by the households through various 
+social welfare programmes (as mentioned in para (b) on Page 3) , in addition to the 
+imputed values of consumption out of home produce, free collection, gifts, loans etc. 
+as mentioned in para (a) on page 3 . The estimates of key indicators of household 
+consumption expenditure relates to all-India. Estimates of average MPCE for all the 
+States and UTs are also included in this section.  
+ 
+ 
+The average MPCE with imputed values of free items in 2023 -24 has been estimated 
+to be Rs. 4,247 and Rs.7,078, respectively in rural and urban India.  
+ 
+The share of food and non-food items in total MPCE is shown below in Statement 8.  
+ 
+ 
+Statement 9: Average MPCE (Rs.) and share of food and non -food 
+items in 2023-24: All-India 
+Item Group 
+Rural India Urban India 
+Average 
+MPCE (Rs.) 
+Share in 
+MPCE (%) 
+Average 
+MPCE (Rs.) 
+Share in 
+MPCE (%) 
+Food 2,057 48.43 2,853 40.31 
+Non-food 2,190 51.57 4,225 59.69 
+ 
+❖ Among the States, MPCE is the highest in Sikkim (Rural – Rs. 9,474 and 
+Urban – Rs. 13,965). It is the lowest in Chhattisgarh (Rural – Rs. 2,927, Urban 
+– Rs. 5,114). 
+❖ Among the UTs, MPCE is the highest in Chandigarh (Rural – Rs. 8,857 and 
+Urban – Rs. 13,425), whereas it is the lowest in Dadra and Nagar Haveli and 
+Daman and Diu (Rs. 4,450) and Jammu and Kashmir (Rs. 6,375) in rural and 
+urban areas, respectively. 
+ 
+PDF_PAGE 16
+ 
+ 
+ 
+  
+ 
+  
+   
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Survey on Household Consumption Expenditure                                                                                          Fact Sheet: 2023-24 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 15 of 21 
+ 
+The statement below shows a comparison of the estimates of all -India average 
+MPCE from the last two surveys of consumption expenditure and HCES: 2023-24.  
+ 
+ 
+ 
+Statement 10: Trend in level of Consumption since 2011-12: All-India 
+Sector 
+Average MPCE (Rs.) over different period 
+2011-12 
+ (68th round) 2022-23 2023-24 
+Rural 1,430 3,860 4,247 
+Urban 2,630 6,521 7,078 
+Difference as % of Rural MPCE 83.9 68.9 66.7 
+Note: The estimates of MPCE are based on Modified Mixed Reference Period (MMRP) in which 
+information on household consumption expenditure on (i) edible oil; egg, fish & meat; milk and milk 
+products; vegetables; fruits; spices; beverages and processed foods; pan, tobacco & intoxicants has been 
+recorded for a reference period of “last 7 days”, and (ii) clothing; bedding; footwear; education; medical 
+(hospitalisation); durable goods recorded for a reference period of “last 365 days”, and (ii) expenditure 
+on all other items has been recorded for a reference period of “last 30 days”. 
+ 
+ 
+The statement below shows the percenta ge share of ‘cereals’ and ‘all food items 
+together’ in average MPCE at all-India level.  
+ 
+ Statement 11: Trend in share of consumption of cereals and food items 
+since 2011-12: All-India 
+Period 
+Rural Urban 
+% share of 
+cereals in avg. 
+MPCE. 
+% share of 
+food in avg.  
+MPCE 
+% share of 
+cereals in avg.  
+MPCE 
+% share of 
+food in avg. 
+MPCE 
+2011-12 10.75 52.90 6.66 42.62 
+2022-23 6.92 47.47 4.51 39.70 
+2023-24 7.60 48.43 4.80 40.31 
+ 
+PDF_PAGE 17
+ 
+ 
+ 
+ 
+   
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+Fact Sheet: 2023-24                                                                                          Survey on Household Consumption E xpenditure                                                                                           
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 16 of 21 
+ 
+The following statement summarises the aver age MPCE and percentage break -
+up of MPCE by the item groups at all-India level. 
+ 
+Statement 12: Absolute and percentage break-up of MPCE by item groups in 
+2023-24: All-India 
+Item group MPCE (Rs.) % share in total MPCE 
+Rural Urban Rural Urban 
+cereals & cereal substitutes 323 339 7.60 4.80 
+pulses & their products* 84 99 1.99 1.39 
+sugar & salt  37 40 0.87 0.56 
+milk & milk products 348 503 8.19 7.11 
+vegetables 248 288 5.85 4.07 
+fruits  158 271 3.73 3.83 
+egg, fish & meat 203 249 4.78 3.52 
+edible oil 115 127 2.70 1.80 
+spices 135 161 3.17 2.27 
+beverages, refreshments, 
+processed food# 406 776 9.55 10.96 
+food total 2,057 2,853 48.43 40.31 
+pan, tobacco & intoxicants 158 166 3.73 2.34 
+fuel and light 252 391 5.93 5.53 
+education 133 418 3.14 5.90 
+medical  282 409 6.63 5.79 
+conveyance 313 592 7.36 8.36 
+consumer services excluding 
+conveyance 217 400 5.10 5.65 
+misc. goods, entertainment 256 484 6.03 6.84 
+rent 23 460 0.55 6.50 
+taxes and cesses 9 23 0.20 0.32 
+clothing, bedding & footwear 278 398 6.56 5.63 
+durable goods 269 484 6.34 6.83 
+non-food total 2,190 4,225 51.57 59.69 
+all items 4,247 7,078 100.00 100.00 
+*includes gram     #includes purchased cooked meals       
+ 
+PDF_PAGE 18
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Survey on Household Consumption Expenditure                                                                                          Fact Sheet: 2023-24 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 17 of 21 
+ 
+ 
+Percentage composition in MPCE since 2011-12 is provided in Statements 1 3 & 14 
+below, separately for rural and urban India. 
+ 
+Statement 13: Trend in percentage composition of MPCE since 2011-12: Rural 
+India 
+Item group  
+% share in total MPCE 
+2011-12 
+(68th round) 2022-23 2023-24 
+cereal  10.69 6.90 7.58 
+cereal substitutes 0.06 0.02 0.02 
+gram 0.14 0.24 0.25 
+pulses and pulse products* 2.76 1.73 1.74 
+sugar & salt 1.83 0.92 0.87 
+milk and milk products 8.04 8.14 8.19 
+vegetables 6.62 5.26 5.85 
+fruits (fresh) 2.25 2.48 2.58 
+fruits (dry) 0.58 1.15 1.15 
+egg, fish & meat 4.79 4.80 4.78 
+edible oil 3.74 3.52 2.70 
+spices 3.50 2.92 3.17 
+beverages, processed food# etc. 7.90 9.41 9.55 
+food: total 52.90 47.47 48.43 
+pan, tobacco & intoxicants 3.21 3.70 3.73 
+fuel and light 7.98 6.51 5.93 
+toilet articles & other household 
+consumables 4.01 5.01 5.04 
+education 3.49 3.23 3.14 
+medical (hospitalization) 2.15 2.31 2.19 
+medical (non- hospitalization) 4.50 4.66 4.44 
+conveyance 4.20 7.38 7.36 
+consumer services excluding conveyance& 3.99 4.96 5.10 
+entertainment 0.99 1.06 0.99 
+rent 0.45 0.76 0.55 
+other taxes & cesses 0.25 0.12 0.20 
+clothing & bedding$ 5.99 5.18 5.61 
+footwear 1.02 0.85 0.95 
+durable goods 4.85 6.79 6.34 
+non-food: total 47.10 52.53 51.57 
+total expenditure 100.00 100.00 100.00 
+*excludes gram     #includes purchased cooked meals         &includes tailoring charges       $excludes 
+tailoring charges  
+ 
+PDF_PAGE 19
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fact Sheet: 2023-24                                                                                          Survey on Household Consumption E xpenditure                                                                                           
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 18 of 21 
+Statement 14: Trend in percentage composition of MPCE since 2011-12: Urban 
+India 
+Item group  
+% share in total MPCE 
+2011-12 
+(68th round) 2022-23 2023-24 
+cereal  6.61 4.49 4.78 
+cereal substitutes 0.05 0.02 0.02 
+gram 0.11 0.18 0.18 
+pulses and pulse products* 1.93 1.20 1.21 
+sugar & salt 1.15 0.60 0.56 
+milk and milk products 7.01 7.15 7.11 
+vegetables 4.63 3.76 4.07 
+fruits (fresh) 2.64 2.48 2.59 
+fruits (dry) 0.78 1.29 1.24 
+egg, fish & meat 3.65 3.54 3.52 
+edible oil 2.66 2.35 1.80 
+spices 2.42 2.11 2.27 
+beverages, processed food# etc. 8.98 10.53 10.96 
+food: total 42.62 39.70 40.31 
+pan, tobacco & intoxicants 1.61 2.41 2.34 
+fuel and light 6.69 6.20 5.53 
+toilet articles & other household consumables 3.88 4.93 5.09 
+education 6.90 5.73 5.90 
+medical (hospitalization) 1.96 1.89 1.94 
+medical (non- hospitalization) 3.58 3.96 3.85 
+conveyance 6.52 8.51 8.36 
+consumer services excluding conveyance& 5.60 5.86 5.65 
+entertainment 1.61 1.57 1.75 
+rent 6.24 6.49 6.50 
+other taxes & cesses 0.82 0.24 0.32 
+clothing & bedding$ 5.37 4.62 4.77 
+footwear 1.00 0.76 0.86 
+durable goods 5.60 7.13 6.83 
+non-food: total 57.38 60.30 59.69 
+total expenditure 100.00 100.00 100.00 
+*excludes gram     #includes purchased cooked meals      &includes tailoring charges     $excludes 
+tailoring charges 
+ 
+PDF_PAGE 20
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Survey on Household Consumption Expenditure                                                                                          Fact Sheet: 2023-24 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 19 of 21 
+ 
+The average MPCE in 2023 -24 for all State & UTs is provided below in Statement 
+15.  
+ 
+Statement 15: Average MPCE for each State/UT in 2023-24 
+State/UT Average MPCE (Rs.) 
+Rural Urban 
+Andhra Pradesh 5,539 7,341 
+Arunachal Pradesh 6,107 9,877 
+Assam 3,961 6,913 
+Bihar 3,788 5,165 
+Chhattisgarh 2,927 5,114 
+Delhi 7,415 8,548 
+Goa 8,178 9,782 
+Gujarat 4,190 7,198 
+Haryana 5,449 8,462 
+Himachal Pradesh 5,833 9,230 
+Jharkhand 3,056 5,455 
+Karnataka 5,068 8,169 
+Kerala 6,673 7,834 
+Madhya Pradesh 3,522 5,589 
+Maharashtra 4,249 7,415 
+Manipur 4,592 6,005 
+Meghalaya 3,900 7,857 
+Mizoram 5,963 8,709 
+Nagaland 5,282 8,136 
+Odisha 3,509 5,925 
+Punjab 5,874 7,383 
+Rajasthan 4,626 6,640 
+Sikkim 9,474 13,965 
+Tamil Nadu 5,872 8,325 
+Telangana 5,675 9,131 
+Tripura 6,368 8,118 
+Uttar Pradesh 3,578 5,474 
+Uttarakhand 5,123 7,547 
+West Bengal 3,815 5,903 
+Andaman & N Islands 7,805 10,461 
+Chandigarh 8,857 13,425 
+Dadra & Nagar Haveli and Daman & Diu 4,450 6,876 
+Jammu & Kashmir 4,896 6,375 
+Ladakh 5,063 7,561 
+Lakshadweep 6,489 6,477 
+Puducherry 7,609 8,639 
+All-India 4,247 7,078 
+ 
+PDF_PAGE 21
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+   
+ 
+ 
+ 
+  
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fact Sheet: 2023-24                                                                                          Survey on Household Co nsumption Expenditure                                                                                           
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 20 of 21 
+ 
+Average MPCE in 2022-23 & 2023-24 for major States is shown in Figures 4R & 
+4U for rural and urban India, respectively.  
+ 
+Figure 4R: Average MPCE in 2022-23 & 2023-24 for major States - Rural 
+ 
+ 
+West Bengal
+Uttar Pradesh
+Telangana
+Tamil Nadu
+Rajasthan
+Punjab
+Odisha
+Maharashtra
+Madhya Pradesh
+Kerala
+Karnataka
+Jharkhand
+Haryana
+Gujarat
+Chhattisgarh
+Bihar
+Assam
+Andhra Pradesh
+2,000 3,000 4,000 5,000 6,000 7,000
+2022-23
+2023-24
+Figure 4U: Average MPCE in 2022-23 & 2023-24 for major States - Urban 
+ 
+ 
+West Bengal
+Uttar Pradesh
+Telangana
+Tamil Nadu
+Rajasthan
+Punjab
+Odisha
+Maharashtra
+Madhya Pradesh
+Kerala
+Karnataka
+Jharkhand
+Haryana
+Gujarat
+Chhattisgarh
+Bihar
+Assam
+Andhra Pradesh
+4,000 5,000 6,000 7,000 8,000 9,000 10,000
+2022-23
+2023-24
+PDF_PAGE 22
+ 
+ 
+ 
+ 
+Survey on Household Consumption Expenditure                                                                                          Fact Sheet: 2023-24 
+ 
+State/UT/all-India 
+Number of Households  
+Sample Estimated (‘00) 
+Rural Urban Rural Urban 
+Andhra Pradesh 6,306 4,159 94,687 45,156 
+Arunachal Pradesh 2,653 1,420 2,177 623 
+Assam 6,053 2,519 62,481 9,811 
+Bihar 13,656 3,599 201,511 21,673 
+Chhattisgarh 2,856 2,112 45,912 13,329 
+Delhi 310 3,049 896 36,437 
+Goa 360 360 1,345 2,239 
+Gujarat 5,699 5,572 70,711 65,519 
+Haryana 2,785 2,478 36,277 25,542 
+Himachal Pradesh 1,355 1,051 15,570 2,440 
+Jharkhand 3,866 2,465 57,098 16,154 
+Karnataka 6,728 5,805 93,006 68,807 
+Kerala 3,883 3,517 48,864 49,251 
+Madhya Pradesh 8,426 5,679 112,662 44,845 
+Maharashtra 11,629 11,117 147,687 125,621 
+Manipur 1,637 2,607 4,994 1,837 
+Meghalaya 2,154 1,062 5,633 1,109 
+Mizoram 1,440 2,160 1,128 1,027 
+Nagaland 1,962 1,080 2,769 1,203 
+Odisha 6,768 2,445 93,841 21,935 
+Punjab 3,161 2,810 38,041 27,444 
+Rajasthan 8,765 4,378 109,262 42,479 
+Sikkim 1,439 719 1,207 575 
+Tamil Nadu 7,484 7,008 111,770 106,862 
+Telangana 3,571 3,215 56,897 54,075 
+Tripura 3,240 1,800 8,049 2,019 
+Uttar Pradesh 19,663 10,644 303,965 90,753 
+Uttarakhand 1,693 1,056 18,564 7,550 
+West Bengal 10,706 7,414 169,763 80,042 
+Andaman & N Islands 641 359 764 505 
+Chandigarh 359 359 113 2,427 
+Dadra & Nagar Haveli and Daman & Diu 354 344 544 1,319 
+Jammu & Kashmir 1,782 1,800 17,993 5,667 
+Ladakh 360 360 435 97 
+Lakshadweep 249 356 30 93 
+Puducherry 359 718 1,062 2,406 
+All-India 154,357 107,596 1,937,838 978,872 
+ 
+* All India figures include rural h ouseholds from uninhabitated villages those have been considered as a 
+special stratum. 
+Fact Sheet on HCES: 2023-24, M/o S&PI, GoI                                                                                                         Page 21 of 21 
+PDF_PAGE 23

@@ -1,0 +1,95 @@
+{
+  "feature_snapshot_id": "bengaluru-features-20261024-v1",
+  "source_manifest_id": "bengaluru-sources-20261024-v1",
+  "reference_date": "2026-10-24",
+  "timezone": "Asia/Kolkata",
+  "currency": "INR",
+  "coordinate_crs": "EPSG:4326",
+  "metric_crs": "EPSG:32643",
+  "seed": 20261024,
+  "bbox_west_south_east_north": [
+    77.6,
+    12.815,
+    77.725,
+    12.94
+  ],
+  "master_columns": [
+    "site_id",
+    "feature_snapshot_id",
+    "snapshot_as_of_date",
+    "city",
+    "locality",
+    "latitude",
+    "longitude",
+    "store_format",
+    "source_manifest_id",
+    "store_size_sqm",
+    "population_1500m_est",
+    "population_10min_est",
+    "accessible_households_est",
+    "annual_wallet_inr",
+    "wallet_price_year",
+    "mean_wallet_weighted_distance_m",
+    "travel_time_method",
+    "competitor_count_1500m",
+    "competitor_attraction_index",
+    "nearest_competitor_distance_m",
+    "office_poi_count_1500m",
+    "education_poi_count_1500m",
+    "healthcare_poi_count_1500m",
+    "transit_poi_count_1500m",
+    "shopping_poi_count_1500m",
+    "food_leisure_poi_count_1500m",
+    "weekday_morning_raw",
+    "weekday_lunch_raw",
+    "weekday_evening_raw",
+    "weekday_night_raw",
+    "weekend_day_raw",
+    "weekend_evening_raw",
+    "nearest_metro_station_id",
+    "nearest_metro_distance_m",
+    "metro_weekday_entries_per_hour",
+    "metro_weekday_exits_per_hour",
+    "metro_weekend_entries_per_hour",
+    "metro_weekend_exits_per_hour",
+    "metro_measurement_start_date",
+    "metro_measurement_end_date",
+    "daypart_data_status",
+    "poi_data_status",
+    "population_data_status",
+    "ridership_data_status",
+    "comp_data_status",
+    "monthly_rent_inr",
+    "capex_inr",
+    "annual_opex_excl_rent_inr",
+    "gross_margin_fraction",
+    "source_quality_score"
+  ],
+  "baseline_git_head": "569f4f52f459ed09129c04a17ac97485601d7bb7",
+  "inspected_fixtures": {
+    "cells.json": {
+      "sha256": "bb27efcb43b4a859f0a6d834bc033fcbf948e9e7d052fbfdefc6fa6a3d10a25f",
+      "rows": 100
+    },
+    "infrastructure.json": {
+      "sha256": "b6bedbb5c10fe40198df431cf9aef0ff12c6668cedef7558b0fa5f4048cbb4f2",
+      "rows": 1
+    },
+    "pois.json": {
+      "sha256": "e201b869d94f689df70dc7d8266639ab7db6d5ce656343cbaf3cc9993649b187",
+      "rows": 60
+    },
+    "project.json": {
+      "sha256": "3509590c53a5ff4acd9587d8aa6633efa085c519901cbeb621ba6f2200a3f0b0",
+      "rows": null
+    },
+    "source_manifest.json": {
+      "sha256": "f9ecbc1e60dac13f61125b8e3439e6ea0564c5dd1c095c1cb79c40695ecfd416",
+      "rows": null
+    },
+    "weights.json": {
+      "sha256": "d55b0d803bfc66122a88ea01e382b942564a2083e455dadcd29f2835356e2773",
+      "rows": null
+    }
+  }
+}

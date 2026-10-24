@@ -1,0 +1,638 @@
+{
+  "verdict": "DATASET_READY_WITH_LIMITATIONS",
+  "feature_snapshot_id": "bengaluru-features-20261024-v1",
+  "source_manifest_id": "bengaluru-sources-20261024-v1",
+  "reference_date": "2026-10-24",
+  "generated_at_utc": "2026-10-24T14:39:40.494446+00:00",
+  "checks": [
+    {
+      "check": "exact_master_schema",
+      "status": "PASS",
+      "details": {
+        "rows": 10,
+        "columns": 50,
+        "order_matches": true
+      }
+    },
+    {
+      "check": "candidate_unique_keys",
+      "status": "PASS",
+      "details": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "existing_unique_keys",
+      "status": "PASS",
+      "details": {
+        "rows": 4
+      }
+    },
+    {
+      "check": "cells_unique_keys",
+      "status": "PASS",
+      "details": {
+        "rows": 100
+      }
+    },
+    {
+      "check": "pois_unique_keys",
+      "status": "PASS",
+      "details": {
+        "rows": 4995
+      }
+    },
+    {
+      "check": "station_lookup_unique_keys",
+      "status": "PASS",
+      "details": {
+        "rows": 13
+      }
+    },
+    {
+      "check": "requested_record_counts",
+      "status": "PASS",
+      "details": {
+        "sites": 10,
+        "branches": 4,
+        "cells": 100
+      }
+    },
+    {
+      "check": "india_corridor_geography",
+      "status": "PASS",
+      "details": {
+        "invalid_point_locations": 0,
+        "bbox": [
+          77.6,
+          12.815,
+          77.725,
+          12.94
+        ]
+      }
+    },
+    {
+      "check": "financial_nonnegative_and_units",
+      "status": "PASS",
+      "details": "Rent monthly INR, CAPEX upfront INR, OPEX annual INR excluding rent/COGS, margin fraction; 2026-10-24 demo price basis."
+    },
+    {
+      "check": "missing_features_remain_null",
+      "status": "PASS",
+      "details": {
+        "master_nulls": 20
+      }
+    },
+    {
+      "check": "finite_master_numeric_values",
+      "status": "PASS",
+      "details": "No NaN or Infinity in numeric features."
+    },
+    {
+      "check": "unique_metro_keys",
+      "status": "PASS",
+      "details": {
+        "rows": 11976,
+        "duplicates": 0
+      }
+    },
+    {
+      "check": "metro_no_negative_or_fabricated_counts",
+      "status": "PASS",
+      "details": "August exits left null; observed workbook night zeros retained."
+    },
+    {
+      "check": "timezone_and_interval_integrity",
+      "status": "PASS",
+      "details": {
+        "invalid_intervals": 0,
+        "variable_last_train_intervals": 109
+      }
+    },
+    {
+      "check": "station_mapping_consistency",
+      "status": "PASS",
+      "details": {
+        "matched_corridor_stations": 13,
+        "unresolved_corridor_mappings": 0
+      }
+    },
+    {
+      "check": "overnight_daypart_assignment",
+      "status": "PASS",
+      "details": {
+        "boundary_examples": 7
+      }
+    },
+    {
+      "check": "recorded_hours_overnight_schedule",
+      "status": "PASS",
+      "details": "Friday 20:00-02:00 stays open Saturday 01:00; unsupported syntax not silently interpreted."
+    },
+    {
+      "check": "six_daypart_bins_and_duration_normalization",
+      "status": "PASS",
+      "details": "Raw indices are per nominal hour; weekly shares weight bin hours and starting days, totalling 168 hours."
+    },
+    {
+      "check": "poi_counts_recomputed_geodesically",
+      "status": "PASS",
+      "details": {
+        "site_category_checks": 70,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "daypart_formula_recomputed",
+      "status": "PASS",
+      "details": {
+        "weekday_night": 30.332160784209442,
+        "weekday_morning": 87.87241767068093,
+        "weekend_evening": 86.44430609967284,
+        "weekday_evening": 118.52048273451908,
+        "weekday_lunch": 87.53734044553913,
+        "weekend_day": 80.90154924518396
+      }
+    },
+    {
+      "check": "cells_partition_boundary_without_overlap",
+      "status": "PASS",
+      "details": {
+        "cells": 100,
+        "overlap_area_degrees2": 0.0,
+        "boundary_difference_degrees2": 0.0
+      }
+    },
+    {
+      "check": "population_conservation",
+      "status": "PASS",
+      "details": {
+        "source_clipped_population": 277898.3791938347,
+        "cell_population": 277898.379188,
+        "difference_persons": -5.834735929965973e-06
+      }
+    },
+    {
+      "check": "one_wallet_per_cell_and_consistent_annualization",
+      "status": "PASS",
+      "details": {
+        "unique_cell_wallets": 100,
+        "annual_wallet_total_inr": 9920688680.87,
+        "note": "Overlapping site catchment totals are descriptive views and must never be concatenated into the network wallet."
+      }
+    },
+    {
+      "check": "population_raster_overlap",
+      "status": "PASS",
+      "details": {
+        "window_shape": [
+          16,
+          16
+        ],
+        "resolution_degrees": [
+          0.0083333333,
+          0.0083333333
+        ],
+        "population_reference_year": 2020,
+        "nodata_pixels": 0
+      }
+    },
+    {
+      "check": "source_references_resolve",
+      "status": "PASS",
+      "details": {
+        "missing_source_references": []
+      }
+    },
+    {
+      "check": "master_field_lineage_complete",
+      "status": "PASS",
+      "details": {
+        "record_field_pairs": 500
+      }
+    },
+    {
+      "check": "generated_business_values_labelled",
+      "status": "PASS",
+      "details": {
+        "assumption_rows": 56235,
+        "candidate_record_field_checks": 70
+      }
+    },
+    {
+      "check": "source_licence_and_attribution",
+      "status": "PASS",
+      "details": {
+        "source_count": 14,
+        "unresolved_rights": "Metro ODbL versus OpenCity non-commercial metadata retained; no commercial rights resolution claimed."
+      }
+    },
+    {
+      "check": "downloaded_source_checksums",
+      "status": "PASS",
+      "details": {
+        "downloaded_files_checked": 43,
+        "hash_mismatches": [],
+        "intentional_exclusion": "Proprietary commercial HTML, unused as a statistical input"
+      }
+    },
+    {
+      "check": "bounded_generated_values",
+      "status": "PASS",
+      "details": {
+        "generated_values_checked": 56235,
+        "out_of_range": []
+      }
+    },
+    {
+      "check": "no_fake_training_targets_or_model_outputs",
+      "status": "PASS",
+      "details": {
+        "master_columns_checked": 50,
+        "supervised_training_readiness": "NOT_READY_NO_LABELS_BY_DESIGN"
+      }
+    },
+    {
+      "check": "valid_dates_snapshot_as_of_date",
+      "status": "PASS",
+      "details": {
+        "reference_date": "2026-10-24"
+      }
+    },
+    {
+      "check": "valid_dates_metro_measurement_start_date",
+      "status": "PASS",
+      "details": {
+        "reference_date": "2026-10-24"
+      }
+    },
+    {
+      "check": "valid_dates_metro_measurement_end_date",
+      "status": "PASS",
+      "details": {
+        "reference_date": "2026-10-24"
+      }
+    },
+    {
+      "check": "no_future_infrastructure_baseline_leakage",
+      "status": "PASS",
+      "details": "Yellow operational baseline; Blue geometry and assumed effects remain separate future scenario inputs."
+    },
+    {
+      "check": "delayed_opening_24_months",
+      "status": "PASS",
+      "details": "Both dates are explicitly assumed; verified commercial opening date remains null."
+    },
+    {
+      "check": "geojson_geometry_validity",
+      "status": "PASS",
+      "details": {
+        "invalid_geometries": [],
+        "source_geometry_repairs": 8
+      }
+    },
+    {
+      "check": "canonical_fixtures_preserved",
+      "status": "PASS",
+      "details": {
+        "cells.json": {
+          "sha256": "bb27efcb43b4a859f0a6d834bc033fcbf948e9e7d052fbfdefc6fa6a3d10a25f",
+          "rows": 100
+        },
+        "infrastructure.json": {
+          "sha256": "b6bedbb5c10fe40198df431cf9aef0ff12c6668cedef7558b0fa5f4048cbb4f2",
+          "rows": 1
+        },
+        "pois.json": {
+          "sha256": "e201b869d94f689df70dc7d8266639ab7db6d5ce656343cbaf3cc9993649b187",
+          "rows": 60
+        },
+        "project.json": {
+          "sha256": "3509590c53a5ff4acd9587d8aa6633efa085c519901cbeb621ba6f2200a3f0b0",
+          "rows": null
+        },
+        "source_manifest.json": {
+          "sha256": "f9ecbc1e60dac13f61125b8e3439e6ea0564c5dd1c095c1cb79c40695ecfd416",
+          "rows": null
+        },
+        "weights.json": {
+          "sha256": "d55b0d803bfc66122a88ea01e382b942564a2083e455dadcd29f2835356e2773",
+          "rows": null
+        }
+      }
+    },
+    {
+      "check": "git_history_branch_and_existing_code_unchanged",
+      "status": "PASS",
+      "details": {
+        "branch": "ML",
+        "head": "569f4f52f459ed09129c04a17ac97485601d7bb7",
+        "tracked_changes": "",
+        "commit_created": false,
+        "push_performed": false,
+        "branch_switched": false
+      }
+    },
+    {
+      "check": "canonical_project_schema_mapping",
+      "status": "PASS",
+      "details": "All 10 candidates and 4 branches validate against unchanged backend Project/Site/Store models. No evaluation engine invoked."
+    }
+  ],
+  "checks_passed": 40,
+  "checks_failed": 0,
+  "tables": [
+    {
+      "path": "data/bengaluru/final/acquisition_files.csv",
+      "rows": 57,
+      "columns": 9,
+      "null_values": 114,
+      "validation_status": "PASS",
+      "sha256": "a6f0fd9f52541bbf4efdea4ffc449affc22aec66ed7576482d9422e7b639ec1f"
+    },
+    {
+      "path": "data/bengaluru/final/candidate_sites.csv",
+      "rows": 10,
+      "columns": 17,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "fd2c8ddd23de5eb8c93501d6e2857a36cc5878e2a17d3e10a5eefa08a42067c2"
+    },
+    {
+      "path": "data/bengaluru/final/census_2011_wards.csv",
+      "rows": 198,
+      "columns": 15,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "1b14772e421fc339772bf840f656efef5b670adc1370d60e7f9b9d2134b12dc6"
+    },
+    {
+      "path": "data/bengaluru/final/daypart_profiles.csv",
+      "rows": 60,
+      "columns": 15,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "f451362c4a9499c8c41d577a4c0b17d37992e34c4dfea5931f32363d828fe3ee"
+    },
+    {
+      "path": "data/bengaluru/final/daypart_weights.csv",
+      "rows": 36,
+      "columns": 14,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "1b5b1e769c42196a17ab12b11e4e5e805645702e3542bbdcf8f3c79ce7b92d45"
+    },
+    {
+      "path": "data/bengaluru/final/existing_stores.csv",
+      "rows": 4,
+      "columns": 10,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "c72492a95e9c70bcee1d4382260d29add6d05a0b8b3522d54f77d8496561bb59"
+    },
+    {
+      "path": "data/bengaluru/final/expenditure_inputs.csv",
+      "rows": 31,
+      "columns": 13,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "a64d5682843917d335e32135bbe5864ba6f58c3df1a1f4b81c7562ebfb4eb96a"
+    },
+    {
+      "path": "data/bengaluru/final/field_lineage.csv",
+      "rows": 797,
+      "columns": 11,
+      "null_values": 1434,
+      "validation_status": "PASS",
+      "sha256": "0e8ef72665501dfd7b58b5a08d0a8e8ac354911e465bd6e10a0c67d82cb831fc"
+    },
+    {
+      "path": "data/bengaluru/final/infrastructure.csv",
+      "rows": 2,
+      "columns": 18,
+      "null_values": 6,
+      "validation_status": "PASS",
+      "sha256": "e3443010e47547bfda7fe8b3370b0e4b860e9bc101196d46ce62c29678b9f15f"
+    },
+    {
+      "path": "data/bengaluru/final/infrastructure_scenarios.csv",
+      "rows": 3,
+      "columns": 10,
+      "null_values": 3,
+      "validation_status": "PASS",
+      "sha256": "4dd3f8cdfb383868dc4766906e0ee49ac9f292930574a347f4068252a29270a0"
+    },
+    {
+      "path": "data/bengaluru/final/metro_activity_averages.csv",
+      "rows": 26,
+      "columns": 11,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "ff39a91718c15adb27d844a26cb21e3642936adb71f110763498395909ef51be"
+    },
+    {
+      "path": "data/bengaluru/final/metro_date_coverage.csv",
+      "rows": 793,
+      "columns": 7,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "e97dc468ea80a35b06eb8354feba600b6405d5fddc6ff9b83410b9d95057a280"
+    },
+    {
+      "path": "data/bengaluru/final/metro_daypart_coverage.csv",
+      "rows": 3526,
+      "columns": 11,
+      "null_values": 796,
+      "validation_status": "PASS",
+      "sha256": "9365cfd87e6c16197cc62385688b653c15f8c5a07d962fa273909559853edee0"
+    },
+    {
+      "path": "data/bengaluru/final/metro_hourly.csv",
+      "rows": 11976,
+      "columns": 17,
+      "null_values": 5450,
+      "validation_status": "PASS",
+      "sha256": "356c43e232301bef604aef47474927c050e20aea5d5947959e4944efdc677af4"
+    },
+    {
+      "path": "data/bengaluru/final/metro_station_lookup.csv",
+      "rows": 13,
+      "columns": 14,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "2c6b12b42d599076cfbd6185a4fcfe599f498eec6af44fb47cc1e4a2bc49c0a8"
+    },
+    {
+      "path": "data/bengaluru/final/missing_fields.csv",
+      "rows": 56290,
+      "columns": 9,
+      "null_values": 56310,
+      "validation_status": "PASS",
+      "sha256": "22eeff20e42af29684c84ca2175f1e5bce9b0d3a126ac86c20510c02d1cb6245"
+    },
+    {
+      "path": "data/bengaluru/final/poi_daypart_availability.csv",
+      "rows": 28656,
+      "columns": 8,
+      "null_values": 27030,
+      "validation_status": "PASS",
+      "sha256": "9437febc21b74e809f40b991636006df349f0c759a8a2e16e3308096328fd46d"
+    },
+    {
+      "path": "data/bengaluru/final/poi_deduplication.csv",
+      "rows": 264,
+      "columns": 3,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "ab1ee1a74299ab87688dfbe80a0be6358891b09737d4a87ff8c8c7fc9a03067c"
+    },
+    {
+      "path": "data/bengaluru/final/pois.csv",
+      "rows": 4995,
+      "columns": 18,
+      "null_values": 13689,
+      "validation_status": "PASS",
+      "sha256": "fe539e76f029647bd5d8834c9a9a1e01d8779333cd4b35696950d1fc31554a81"
+    },
+    {
+      "path": "data/bengaluru/final/project_assumptions.csv",
+      "rows": 24,
+      "columns": 7,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "a421f99978ec83a2775cc1eba0bcee910ce4b654e70339e1c1516425da7cb137"
+    },
+    {
+      "path": "data/bengaluru/final/schema_mapping.csv",
+      "rows": 55,
+      "columns": 5,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "3b7bfc0473229d0d39c1d2755c993a146937782571804162d78e8671428e2da5"
+    },
+    {
+      "path": "data/bengaluru/final/site_features.csv",
+      "rows": 10,
+      "columns": 50,
+      "null_values": 20,
+      "validation_status": "PASS",
+      "sha256": "766ba60f599277b70a810993088a27317154b5b10b561b7516d0cff602584868"
+    },
+    {
+      "path": "data/bengaluru/final/site_ward_lookup.csv",
+      "rows": 10,
+      "columns": 8,
+      "null_values": 8,
+      "validation_status": "PASS",
+      "sha256": "850664226ae9ce613072761b3d629d3007ef00db412c16ea973779e00eadaeee"
+    },
+    {
+      "path": "data/bengaluru/final/source_manifest.csv",
+      "rows": 14,
+      "columns": 13,
+      "null_values": 12,
+      "validation_status": "PASS",
+      "sha256": "6ced1c0f853517a2ccaf9f2b24cec0b6fd481f3670f0b0df50534bdf3e13be5a"
+    },
+    {
+      "path": "data/bengaluru/final/spending_cells.csv",
+      "rows": 100,
+      "columns": 17,
+      "null_values": 100,
+      "validation_status": "PASS",
+      "sha256": "524c333e7c2a4e450e6b05d04ef1a288424903b0d182e5dca7f4240c13189442"
+    },
+    {
+      "path": "data/bengaluru/final/synthetic_assumptions.csv",
+      "rows": 56235,
+      "columns": 15,
+      "null_values": 112625,
+      "validation_status": "PASS",
+      "sha256": "3a1011fca44910e53b7e21a9666bdcbae8180065b39b83bc92e6bd5f633d17bb"
+    },
+    {
+      "path": "data/bengaluru/final/ward_crosswalk.csv",
+      "rows": 163,
+      "columns": 13,
+      "null_values": 0,
+      "validation_status": "PASS",
+      "sha256": "1ad327dc7f025b7181b99ab97e4199a9aa32cf00245d71e79acbedbff877a422"
+    }
+  ],
+  "master_origin_breakdown": {
+    "DERIVED": 400,
+    "SYNTHETIC_ASSUMED": 80,
+    "UNRESOLVED_MISSING": 20
+  },
+  "master_origin_scope": "500 master record/field values only; observed source records are transformed before entry into this feature table. Derived values may depend on explicit assumptions.",
+  "observed_supporting_records": {
+    "osm_raw_elements": 5285,
+    "deduplicated_pois": 4995,
+    "corridor_metro_intervals": 11976,
+    "census_2011_wards": 198
+  },
+  "metrics": {
+    "grocery_monthly_per_capita_inr": 2974.915,
+    "population_total": 277898.3791938347,
+    "cell_population_total": 277898.379188,
+    "annual_network_wallet_inr": 9920688680.87,
+    "population_raster_pixels": 256,
+    "osm_raw_elements": 5285,
+    "poi_rows": 4995,
+    "poi_duplicates_removed": 264,
+    "poi_excluded_centres": 16,
+    "metro_corridor_stations": 13,
+    "metro_all_network_stations": 83,
+    "metro_raw_null_values_preserved": 0,
+    "metro_all_network_hourly_rows": 92280,
+    "metro_corridor_hourly_rows": 11976,
+    "metro_duplicates_removed": 0,
+    "august_exits": "MUST_REMAIN_UNKNOWN: processed destination counts do not establish exit-clock observations",
+    "daypart_opening_hours_parsed_pois": 204,
+    "ward_geometry_repairs": 8,
+    "historical_aoi_wards": 24,
+    "new_aoi_wards": 50,
+    "transport_line_records": 27764,
+    "blue_osm_segments": 4,
+    "master_value_origins": {
+      "DERIVED": 400,
+      "SYNTHETIC_ASSUMED": 80,
+      "UNRESOLVED_MISSING": 20
+    }
+  },
+  "limitations": [
+    "No measured sales labels or trained model exist. The 50-column file is a feature snapshot, not a supervised training dataset. Inference awaits a separately trained compatible model.",
+    "Population is a modelled 2020 WorldPop 1km estimate, carried as a historical proxy. Within-pixel density is assumed uniform; it is not a 2026 measurement or a 100m product.",
+    "Annual category wallets combine 2020 population with Karnataka urban HCES 2023-24 expenditure, 50% grocery eligibility for the processed-food/cooked-meal category, and a state-to-local transfer assumption. They are addressable category expenditure, not store sales.",
+    "Wallet price year is 2024 (2023-24 nominal survey prices); fictional rent, CAPEX and non-rent OPEX use a 2026-10-24 price basis. No inflation adjustment or matched-price economic forecast is claimed.",
+    "Ten-minute population and accessible households are null for all ten sites. No validated travel-time graph or local household denominator was obtained.",
+    "OSM is incomplete crowdsourced coverage. Counts of zero mean zero mapped records, not verified absence. Node/way centres, facility subdivisions and unrecorded shops can affect counts. Same-name/category duplicates within 40m are collapsed and logged.",
+    "Daypart weights and missing-hours availability/evidence weights are assumptions. Only a conservative opening-hours syntax subset is interpreted. Profiles are POI opportunity proxies, not measured store footfall. Metro traffic is kept separate.",
+    "Metro records cover August 1-18 and September 1-30, 2025 at network level. Corridor Yellow Line stations have later August coverage after launch. August exits are null because no exit-clock workbook was acquired; 23:00-to-last-train intervals have unknown duration. Master averages use September only and include observed night zeros.",
+    "Census 2011 remains historical. A 2012 198-ward geometry layer is joined by ward code to Census; geometry-only overlap crosswalks link it to December 2025 wards. Geometry repairs are recorded. Two Electronic City candidates lie outside available municipal ward polygons and retain null ward joins.",
+    "Yellow Line inauguration is verified as 2025-08-10; first commercial service date is not independently asserted. Blue Line official completion programmes are historical, not guaranteed openings. July 1, 2027 and the 24-month delayed July 1, 2029 date, plus a 10% illustrative effect, are explicitly assumed and excluded from baseline features. Blue geometry is an OSM partial alignment, not a verified official station-access map.",
+    "All candidate premises, areas, financials and existing company branches are synthetic. Public commercial listings were retrieved but mixed offices, asking prices and promoted distant properties do not verify available grocery premises or lease benchmarks.",
+    "Metro repository ODbL and OpenCity non-commercial metadata differ; BMRCL contents copyright is also stated. Rights for commercial redistribution remain unresolved. OSM ODbL, WorldPop CC-BY-4.0 and DataMeet CC-BY-SA-2.5-IN attribution/share-alike obligations are preserved.",
+    "Some original release dates are unverified and remain null. Retrieval times and file hashes are stored separately; retrieval is never substituted for observation or release date.",
+    "source_quality_score is 6/8 evidence-family availability, not a calibrated reliability measure, model confidence or prediction score. It does not measure source completeness within the corridor."
+  ],
+  "readiness": {
+    "reference_sales_training": "NOT_READY: no observed sales labels by design; no training or split performed",
+    "reference_sales_inference": "FEATURES_PREPARED_WITH_NULLS: needs later compatible trained artifact, missingness policy and feature contract",
+    "DaypartDNA": "READY_WITH_ASSUMPTIONS: 4995 mapped POIs before category filtering, 6 bins, weights, schedules, availability and evidence inputs",
+    "infrastructure_scenarios": "READY_FOR_ASSUMED_DEMO: current/opens/delayed inputs, no verified Blue opening date",
+    "Huff_cannibalisation": "INPUTS_PREPARED_WITH_ASSUMPTIONS: unique 100 cell wallets, 4 fictional branches, external competitors, attraction defaults; no allocation run",
+    "financial_calculations": "INPUTS_PREPARED_WITH_PRICE_MISMATCH: all required store financial fields and project assumptions; 2024 wallets versus 2026 demo costs need explicit later treatment",
+    "FailFast": "PARTIAL: financial inputs exist; critical demand/model evidence and routing/households remain unavailable; no viability calculated",
+    "sensitivity": "INPUTS_PREPARED: labelled low/base/high commercial assumptions, no forecasting performed",
+    "ranking_and_portfolio": "INPUTS_PREPARED_ONLY: 10 candidates and budget; awaits later evaluation/inference/network/finance; no ranking/optimization performed"
+  },
+  "git": {
+    "branch": "ML",
+    "head": "569f4f52f459ed09129c04a17ac97485601d7bb7",
+    "new_commits": 0,
+    "pushes": 0,
+    "branch_changes": 0,
+    "all_new_work_local_uncommitted": true
+  }
+}

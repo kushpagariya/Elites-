@@ -1,0 +1,28 @@
+[
+  {
+    "source_id": "hces-release-note",
+    "url": "https://www.mospi.gov.in/sites/default/files/press_release/HCES_Report202324_Press_Note_30012025.pdf",
+    "request_started_at_utc": "2026-10-24T17:04:25.562713+00:00",
+    "content_type": "application/pdf",
+    "status": "DOWNLOADED",
+    "local_path": "source_verification/hces_release_note.pdf",
+    "sha256": "34e7e8bf64c8e78094dc338064f3c68e848021209f4bee8bc9849b329d3d74ca",
+    "bytes": 274658,
+    "response_completed_at_utc": "2026-10-24T17:04:26.420661+00:00",
+    "date_and_release_statement_verified": true,
+    "verified_release_date": "2025-01-30"
+  },
+  {
+    "source_id": "hces-release-pib",
+    "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2097601&lang=2&reg=3",
+    "request_started_at_utc": "2026-10-24T17:04:27.922835+00:00",
+    "content_type": "text/html; charset=utf-8",
+    "status": "DOWNLOADED",
+    "local_path": "source_verification/hces_release_pib.html",
+    "sha256": "d748747d46d418b68d28e548bda3591159795acad4d14a0821d689e17689e356",
+    "bytes": 840798,
+    "response_completed_at_utc": "2026-10-24T17:04:28.689892+00:00",
+    "date_and_release_statement_verified": true,
+    "verified_release_date": "2025-01-30"
+  }
+]

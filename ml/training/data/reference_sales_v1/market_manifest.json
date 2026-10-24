@@ -1,0 +1,2700 @@
+{
+  "generator_version": "reference-market-simulator-v1",
+  "configuration": {
+    "generator_version": "reference-market-simulator-v1",
+    "feature_schema_version": "reference-sales-features-v1",
+    "model_version": "reference-sales-sim-v1",
+    "seed": 20261024,
+    "split_seed": 314159,
+    "model_seed": 271828,
+    "regular_markets": 100,
+    "shifted_markets": 20,
+    "alternatives_per_market": 20,
+    "cell_grid_side": 10,
+    "market_half_width_m": 2500,
+    "candidate_half_width_m": 1300,
+    "catchment_radius_m": 1500,
+    "feature_distance_decay_m": 750,
+    "regular": {
+      "population_per_cell_range": [
+        250,
+        2200
+      ],
+      "annual_wallet_per_person_inr_range": [
+        22000,
+        65000
+      ],
+      "external_competitors_range": [
+        0,
+        100
+      ],
+      "poi_count_range": [
+        500,
+        5000
+      ],
+      "allocation_decay_m_range": [
+        650,
+        900
+      ],
+      "outside_attraction_range": [
+        0.8,
+        1.2
+      ],
+      "market_appeal_range": [
+        0.85,
+        1.18
+      ],
+      "competitor_mass_range": [
+        0.8,
+        1.2
+      ],
+      "annual_capacity_inr_per_sqm_range": [
+        90000,
+        160000
+      ]
+    },
+    "shifted": {
+      "population_per_cell_range": [
+        1500,
+        4000
+      ],
+      "annual_wallet_per_person_inr_range": [
+        60000,
+        110000
+      ],
+      "external_competitors_range": [
+        90,
+        180
+      ],
+      "poi_count_range": [
+        2500,
+        7000
+      ],
+      "allocation_decay_m_range": [
+        1100,
+        1500
+      ],
+      "outside_attraction_range": [
+        1.4,
+        2.0
+      ],
+      "market_appeal_range": [
+        0.6,
+        0.85
+      ],
+      "competitor_mass_range": [
+        1.2,
+        1.6
+      ],
+      "annual_capacity_inr_per_sqm_range": [
+        65000,
+        100000
+      ]
+    },
+    "formats": {
+      "supermarket": {
+        "area_range_sqm": [
+          250,
+          1200
+        ],
+        "appeal": 1.0,
+        "daypart_preferences": [
+          0.8,
+          0.8,
+          1.2,
+          0.3,
+          1.3,
+          1.2
+        ]
+      },
+      "grocery": {
+        "area_range_sqm": [
+          80,
+          450
+        ],
+        "appeal": 0.85,
+        "daypart_preferences": [
+          1.2,
+          1.0,
+          1.1,
+          0.3,
+          1.0,
+          0.9
+        ]
+      },
+      "convenience": {
+        "area_range_sqm": [
+          40,
+          240
+        ],
+        "appeal": 1.15,
+        "daypart_preferences": [
+          0.6,
+          0.8,
+          1.0,
+          1.8,
+          0.7,
+          1.3
+        ]
+      }
+    },
+    "noise": {
+      "appeal_lognormal_sigma": 0.09,
+      "appeal_multiplier_bounds": [
+        0.8,
+        1.25
+      ]
+    },
+    "daypart_utility_coefficient": 0.8,
+    "daypart_utility_scale": 50,
+    "ridge_alpha_grid": [
+      1.0,
+      20.0,
+      100.0
+    ],
+    "catboost_grid": [
+      {
+        "iterations": 450,
+        "depth": 5,
+        "learning_rate": 0.06,
+        "l2_leaf_reg": 6
+      },
+      {
+        "iterations": 650,
+        "depth": 6,
+        "learning_rate": 0.04,
+        "l2_leaf_reg": 10
+      }
+    ],
+    "selection_metric": "validation_WAPE",
+    "activation_relative_test_WAPE_gain": 0.1,
+    "ood_test_WAPE_warning_ratio": 2.0,
+    "target_definition": "Competitors-only reference annual store sales in INR; each candidate alone, external competitors plus outside option, before own-company branch displacement",
+    "origin": "SYNTHETIC_GENERATOR_ASSUMPTIONS_NOT_EMPIRICAL_RETAIL_PARAMETERS"
+  },
+  "markets": [
+    {
+      "market_id": "sim-m0000",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        0
+      ],
+      "cell_count": 100,
+      "market_population": 172497.7683102596,
+      "market_wallet_inr": 7345419525.5763645,
+      "external_competitors": 51,
+      "poi_count": 2954,
+      "allocation_decay_m": 725.1752957928512,
+      "outside_attraction": 0.9536641635364048,
+      "market_appeal": 1.1772951726877086,
+      "annual_capacity_inr_per_sqm": 102562.0423543377,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0001",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        1
+      ],
+      "cell_count": 100,
+      "market_population": 188738.04602019434,
+      "market_wallet_inr": 11029219541.174158,
+      "external_competitors": 49,
+      "poi_count": 4942,
+      "allocation_decay_m": 830.8968739265882,
+      "outside_attraction": 0.8220770062148206,
+      "market_appeal": 1.0504357201266799,
+      "annual_capacity_inr_per_sqm": 100021.78244794649,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0002",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        2
+      ],
+      "cell_count": 100,
+      "market_population": 113377.72113107906,
+      "market_wallet_inr": 6166702960.019512,
+      "external_competitors": 4,
+      "poi_count": 3699,
+      "allocation_decay_m": 669.5316134538632,
+      "outside_attraction": 0.807242920860155,
+      "market_appeal": 1.1306372262768796,
+      "annual_capacity_inr_per_sqm": 123375.34273798032,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0003",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        3
+      ],
+      "cell_count": 100,
+      "market_population": 190442.49744509152,
+      "market_wallet_inr": 9061946348.707571,
+      "external_competitors": 17,
+      "poi_count": 2489,
+      "allocation_decay_m": 704.0089629169023,
+      "outside_attraction": 0.9026891987259023,
+      "market_appeal": 1.1317201835260007,
+      "annual_capacity_inr_per_sqm": 134525.4708767634,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0004",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        4
+      ],
+      "cell_count": 100,
+      "market_population": 217775.08665642864,
+      "market_wallet_inr": 6525356813.854042,
+      "external_competitors": 20,
+      "poi_count": 2914,
+      "allocation_decay_m": 860.0609106814901,
+      "outside_attraction": 1.0078626227236298,
+      "market_appeal": 0.8902125616278624,
+      "annual_capacity_inr_per_sqm": 157044.81590562162,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0005",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        5
+      ],
+      "cell_count": 100,
+      "market_population": 68646.96640704681,
+      "market_wallet_inr": 2477446761.5143485,
+      "external_competitors": 68,
+      "poi_count": 1249,
+      "allocation_decay_m": 700.4299428516426,
+      "outside_attraction": 0.9264236817382204,
+      "market_appeal": 1.1578644569405132,
+      "annual_capacity_inr_per_sqm": 108576.42005101533,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0006",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        6
+      ],
+      "cell_count": 100,
+      "market_population": 68354.13734764174,
+      "market_wallet_inr": 1585413192.011218,
+      "external_competitors": 19,
+      "poi_count": 938,
+      "allocation_decay_m": 830.206980456983,
+      "outside_attraction": 1.1289719899807356,
+      "market_appeal": 0.9211389553665847,
+      "annual_capacity_inr_per_sqm": 111625.8442374972,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0007",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        7
+      ],
+      "cell_count": 100,
+      "market_population": 85232.18057269674,
+      "market_wallet_inr": 2798022465.27991,
+      "external_competitors": 94,
+      "poi_count": 2143,
+      "allocation_decay_m": 698.3472579885936,
+      "outside_attraction": 0.8982168997976051,
+      "market_appeal": 1.0293349378572776,
+      "annual_capacity_inr_per_sqm": 103390.57675659483,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0008",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        8
+      ],
+      "cell_count": 100,
+      "market_population": 99385.04283957496,
+      "market_wallet_inr": 6384669455.730025,
+      "external_competitors": 73,
+      "poi_count": 2169,
+      "allocation_decay_m": 896.564086793307,
+      "outside_attraction": 0.86645448021979,
+      "market_appeal": 1.1136771568022912,
+      "annual_capacity_inr_per_sqm": 98093.3170729097,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0009",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        9
+      ],
+      "cell_count": 100,
+      "market_population": 61609.10813254173,
+      "market_wallet_inr": 1872909563.72029,
+      "external_competitors": 76,
+      "poi_count": 1281,
+      "allocation_decay_m": 667.1436278056033,
+      "outside_attraction": 0.8886001033851326,
+      "market_appeal": 0.9417876361931545,
+      "annual_capacity_inr_per_sqm": 100198.49443535114,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0010",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        10
+      ],
+      "cell_count": 100,
+      "market_population": 194187.98437871222,
+      "market_wallet_inr": 10706137956.91925,
+      "external_competitors": 16,
+      "poi_count": 2539,
+      "allocation_decay_m": 676.0824730269893,
+      "outside_attraction": 1.1949867186832202,
+      "market_appeal": 0.9491103439907697,
+      "annual_capacity_inr_per_sqm": 148141.7918787205,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0011",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        11
+      ],
+      "cell_count": 100,
+      "market_population": 71151.3620309663,
+      "market_wallet_inr": 1855535113.8745978,
+      "external_competitors": 19,
+      "poi_count": 1227,
+      "allocation_decay_m": 755.5040193191871,
+      "outside_attraction": 1.0575117799873008,
+      "market_appeal": 1.0062577111495365,
+      "annual_capacity_inr_per_sqm": 112121.25082089203,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0012",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        12
+      ],
+      "cell_count": 100,
+      "market_population": 46517.198558528915,
+      "market_wallet_inr": 1881331033.6830316,
+      "external_competitors": 5,
+      "poi_count": 2265,
+      "allocation_decay_m": 834.8387895155302,
+      "outside_attraction": 1.129765687186276,
+      "market_appeal": 1.0389992915646304,
+      "annual_capacity_inr_per_sqm": 95780.6470761818,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0013",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        13
+      ],
+      "cell_count": 100,
+      "market_population": 151395.77428235105,
+      "market_wallet_inr": 9075547123.504448,
+      "external_competitors": 14,
+      "poi_count": 602,
+      "allocation_decay_m": 819.8992061871046,
+      "outside_attraction": 0.8772207045907913,
+      "market_appeal": 1.0264528203935341,
+      "annual_capacity_inr_per_sqm": 133101.28871501924,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0014",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        14
+      ],
+      "cell_count": 100,
+      "market_population": 96092.3775127734,
+      "market_wallet_inr": 3812826952.9859204,
+      "external_competitors": 58,
+      "poi_count": 2699,
+      "allocation_decay_m": 723.0277149060357,
+      "outside_attraction": 1.1399051353773866,
+      "market_appeal": 1.1059217585159131,
+      "annual_capacity_inr_per_sqm": 122726.44863904116,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0015",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        15
+      ],
+      "cell_count": 100,
+      "market_population": 37798.19329044382,
+      "market_wallet_inr": 993008763.388469,
+      "external_competitors": 70,
+      "poi_count": 3203,
+      "allocation_decay_m": 743.4974494494245,
+      "outside_attraction": 1.087444185992083,
+      "market_appeal": 0.973825349863793,
+      "annual_capacity_inr_per_sqm": 133291.30005787284,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0016",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        16
+      ],
+      "cell_count": 100,
+      "market_population": 207424.56634457357,
+      "market_wallet_inr": 11343587507.306412,
+      "external_competitors": 48,
+      "poi_count": 4859,
+      "allocation_decay_m": 710.3370152741743,
+      "outside_attraction": 0.9202533493871301,
+      "market_appeal": 0.86915840587534,
+      "annual_capacity_inr_per_sqm": 105801.52398313773,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0017",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        17
+      ],
+      "cell_count": 100,
+      "market_population": 112554.27105088638,
+      "market_wallet_inr": 2835313333.947744,
+      "external_competitors": 73,
+      "poi_count": 4276,
+      "allocation_decay_m": 817.2767502698426,
+      "outside_attraction": 1.028499849494323,
+      "market_appeal": 0.912510296866394,
+      "annual_capacity_inr_per_sqm": 104412.82576779401,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0018",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        18
+      ],
+      "cell_count": 100,
+      "market_population": 77455.57733482432,
+      "market_wallet_inr": 4032938080.1776466,
+      "external_competitors": 69,
+      "poi_count": 4538,
+      "allocation_decay_m": 863.8791398423125,
+      "outside_attraction": 0.9093138163502218,
+      "market_appeal": 1.0406841421668667,
+      "annual_capacity_inr_per_sqm": 91013.15036894275,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0019",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        19
+      ],
+      "cell_count": 100,
+      "market_population": 126684.7606310975,
+      "market_wallet_inr": 2880801403.0415664,
+      "external_competitors": 61,
+      "poi_count": 3241,
+      "allocation_decay_m": 705.4154214527331,
+      "outside_attraction": 1.1554806547406258,
+      "market_appeal": 0.963248202879992,
+      "annual_capacity_inr_per_sqm": 108956.6406534497,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0020",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        20
+      ],
+      "cell_count": 100,
+      "market_population": 130648.75659775376,
+      "market_wallet_inr": 7866525662.887503,
+      "external_competitors": 65,
+      "poi_count": 3429,
+      "allocation_decay_m": 829.1558225454838,
+      "outside_attraction": 0.985322170915429,
+      "market_appeal": 1.1019319630712014,
+      "annual_capacity_inr_per_sqm": 133940.22492906632,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0021",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        21
+      ],
+      "cell_count": 100,
+      "market_population": 118679.78902800311,
+      "market_wallet_inr": 2725775802.224579,
+      "external_competitors": 88,
+      "poi_count": 1666,
+      "allocation_decay_m": 783.3558197393313,
+      "outside_attraction": 1.1564594764004041,
+      "market_appeal": 0.9836438268495815,
+      "annual_capacity_inr_per_sqm": 90161.44264682346,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0022",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        22
+      ],
+      "cell_count": 100,
+      "market_population": 89860.22528232317,
+      "market_wallet_inr": 2681778414.904001,
+      "external_competitors": 33,
+      "poi_count": 3712,
+      "allocation_decay_m": 710.2748795164775,
+      "outside_attraction": 1.0283644605735522,
+      "market_appeal": 0.9668187989697623,
+      "annual_capacity_inr_per_sqm": 116054.78143453514,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0023",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        23
+      ],
+      "cell_count": 100,
+      "market_population": 187734.86890433246,
+      "market_wallet_inr": 6889043780.924647,
+      "external_competitors": 25,
+      "poi_count": 1603,
+      "allocation_decay_m": 785.903924653356,
+      "outside_attraction": 1.1689838537528938,
+      "market_appeal": 0.8770550225586498,
+      "annual_capacity_inr_per_sqm": 143975.48591293857,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0024",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        24
+      ],
+      "cell_count": 100,
+      "market_population": 105317.75393193026,
+      "market_wallet_inr": 6708106597.922375,
+      "external_competitors": 81,
+      "poi_count": 2637,
+      "allocation_decay_m": 745.7194646675708,
+      "outside_attraction": 0.9722594665865691,
+      "market_appeal": 1.103855762397527,
+      "annual_capacity_inr_per_sqm": 99750.2762879283,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0025",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        25
+      ],
+      "cell_count": 100,
+      "market_population": 137536.40118326645,
+      "market_wallet_inr": 3353282693.3844023,
+      "external_competitors": 41,
+      "poi_count": 2701,
+      "allocation_decay_m": 847.390430739147,
+      "outside_attraction": 1.0623536471519657,
+      "market_appeal": 1.0379328747395669,
+      "annual_capacity_inr_per_sqm": 115883.2486542731,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0026",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        26
+      ],
+      "cell_count": 100,
+      "market_population": 108263.15883634845,
+      "market_wallet_inr": 2785954751.672915,
+      "external_competitors": 7,
+      "poi_count": 1668,
+      "allocation_decay_m": 834.1758477168369,
+      "outside_attraction": 0.9853170931635911,
+      "market_appeal": 1.1717488141991037,
+      "annual_capacity_inr_per_sqm": 98421.77237700502,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0027",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        27
+      ],
+      "cell_count": 100,
+      "market_population": 182327.1827309188,
+      "market_wallet_inr": 8307662037.246927,
+      "external_competitors": 39,
+      "poi_count": 3401,
+      "allocation_decay_m": 718.1333169644519,
+      "outside_attraction": 1.1859267984236643,
+      "market_appeal": 1.1047724564234034,
+      "annual_capacity_inr_per_sqm": 150180.48646051972,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0028",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        28
+      ],
+      "cell_count": 100,
+      "market_population": 124426.28338603483,
+      "market_wallet_inr": 6865074791.043799,
+      "external_competitors": 35,
+      "poi_count": 1520,
+      "allocation_decay_m": 658.4532801942514,
+      "outside_attraction": 1.0584265668734303,
+      "market_appeal": 1.123623636680455,
+      "annual_capacity_inr_per_sqm": 146597.68812101986,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0029",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        29
+      ],
+      "cell_count": 100,
+      "market_population": 45122.453889418895,
+      "market_wallet_inr": 2872271721.679815,
+      "external_competitors": 31,
+      "poi_count": 1277,
+      "allocation_decay_m": 721.0261182734852,
+      "outside_attraction": 1.084818887630981,
+      "market_appeal": 1.0518531863090181,
+      "annual_capacity_inr_per_sqm": 109625.0554363399,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0030",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        30
+      ],
+      "cell_count": 100,
+      "market_population": 207696.01265730427,
+      "market_wallet_inr": 6486615569.281353,
+      "external_competitors": 75,
+      "poi_count": 4686,
+      "allocation_decay_m": 835.9296244896477,
+      "outside_attraction": 1.090984560549776,
+      "market_appeal": 0.964088414670787,
+      "annual_capacity_inr_per_sqm": 101999.69677581555,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0031",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        31
+      ],
+      "cell_count": 100,
+      "market_population": 141491.81832782464,
+      "market_wallet_inr": 6423262996.617606,
+      "external_competitors": 27,
+      "poi_count": 1882,
+      "allocation_decay_m": 741.9433849330659,
+      "outside_attraction": 0.8347916316514236,
+      "market_appeal": 1.119641987475142,
+      "annual_capacity_inr_per_sqm": 145626.13168234428,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0032",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        32
+      ],
+      "cell_count": 100,
+      "market_population": 88295.17516637583,
+      "market_wallet_inr": 2273867692.308398,
+      "external_competitors": 77,
+      "poi_count": 4630,
+      "allocation_decay_m": 717.7933793505775,
+      "outside_attraction": 1.1938978491947783,
+      "market_appeal": 1.132906779704262,
+      "annual_capacity_inr_per_sqm": 96761.63780431305,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0033",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        33
+      ],
+      "cell_count": 100,
+      "market_population": 64769.892476115696,
+      "market_wallet_inr": 3759555903.446157,
+      "external_competitors": 63,
+      "poi_count": 2864,
+      "allocation_decay_m": 876.0256019409999,
+      "outside_attraction": 0.8940250043119022,
+      "market_appeal": 1.0434265715474607,
+      "annual_capacity_inr_per_sqm": 97683.7768192966,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0034",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        34
+      ],
+      "cell_count": 100,
+      "market_population": 158782.04473078513,
+      "market_wallet_inr": 10208553965.145697,
+      "external_competitors": 42,
+      "poi_count": 723,
+      "allocation_decay_m": 753.4509000716203,
+      "outside_attraction": 1.0589312534911712,
+      "market_appeal": 0.978721454841955,
+      "annual_capacity_inr_per_sqm": 101882.27174131363,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0035",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        35
+      ],
+      "cell_count": 100,
+      "market_population": 92589.80769176167,
+      "market_wallet_inr": 2908724207.0542097,
+      "external_competitors": 74,
+      "poi_count": 4722,
+      "allocation_decay_m": 795.2694712243772,
+      "outside_attraction": 1.1653840588113313,
+      "market_appeal": 0.8541878825665052,
+      "annual_capacity_inr_per_sqm": 92770.27030751247,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0036",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        36
+      ],
+      "cell_count": 100,
+      "market_population": 214930.8435725386,
+      "market_wallet_inr": 10532127851.206911,
+      "external_competitors": 93,
+      "poi_count": 3965,
+      "allocation_decay_m": 866.4795009258286,
+      "outside_attraction": 1.1302829215330905,
+      "market_appeal": 1.0127759246606711,
+      "annual_capacity_inr_per_sqm": 98511.13889108413,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0037",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        37
+      ],
+      "cell_count": 100,
+      "market_population": 79931.67498487534,
+      "market_wallet_inr": 4906350040.594074,
+      "external_competitors": 78,
+      "poi_count": 3275,
+      "allocation_decay_m": 743.5303940145108,
+      "outside_attraction": 0.9806763544284026,
+      "market_appeal": 0.8539928336954671,
+      "annual_capacity_inr_per_sqm": 117530.86291060386,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0038",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        38
+      ],
+      "cell_count": 100,
+      "market_population": 107326.56392635361,
+      "market_wallet_inr": 2390131872.4733253,
+      "external_competitors": 20,
+      "poi_count": 3774,
+      "allocation_decay_m": 682.6344521637982,
+      "outside_attraction": 1.140996453160007,
+      "market_appeal": 1.1758482029728596,
+      "annual_capacity_inr_per_sqm": 123244.5727806752,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0039",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        39
+      ],
+      "cell_count": 100,
+      "market_population": 36413.40946464433,
+      "market_wallet_inr": 2314441218.606538,
+      "external_competitors": 3,
+      "poi_count": 4167,
+      "allocation_decay_m": 839.6652115852856,
+      "outside_attraction": 0.8024637228852463,
+      "market_appeal": 0.8921684719502422,
+      "annual_capacity_inr_per_sqm": 150646.55649799274,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0040",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        40
+      ],
+      "cell_count": 100,
+      "market_population": 168563.0245990008,
+      "market_wallet_inr": 8510629234.005083,
+      "external_competitors": 3,
+      "poi_count": 1946,
+      "allocation_decay_m": 711.7172072584916,
+      "outside_attraction": 1.009957093715256,
+      "market_appeal": 1.0085468623915486,
+      "annual_capacity_inr_per_sqm": 122022.22184576155,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0041",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        41
+      ],
+      "cell_count": 100,
+      "market_population": 39610.08676375331,
+      "market_wallet_inr": 2236740530.5232344,
+      "external_competitors": 79,
+      "poi_count": 4118,
+      "allocation_decay_m": 871.3786464438608,
+      "outside_attraction": 0.8770711239368878,
+      "market_appeal": 1.1691265339302066,
+      "annual_capacity_inr_per_sqm": 116930.08469620082,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0042",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        42
+      ],
+      "cell_count": 100,
+      "market_population": 114279.89876595487,
+      "market_wallet_inr": 3566765318.595911,
+      "external_competitors": 28,
+      "poi_count": 2032,
+      "allocation_decay_m": 797.4853472372957,
+      "outside_attraction": 0.8077653230102848,
+      "market_appeal": 0.9414178093967239,
+      "annual_capacity_inr_per_sqm": 114916.7672786606,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0043",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        43
+      ],
+      "cell_count": 100,
+      "market_population": 142882.15183375776,
+      "market_wallet_inr": 7567787290.886936,
+      "external_competitors": 48,
+      "poi_count": 3464,
+      "allocation_decay_m": 833.3431664745908,
+      "outside_attraction": 1.0583006005243698,
+      "market_appeal": 1.0610230386902066,
+      "annual_capacity_inr_per_sqm": 118071.57310803207,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0044",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        44
+      ],
+      "cell_count": 100,
+      "market_population": 224010.23635709664,
+      "market_wallet_inr": 12168371810.464808,
+      "external_competitors": 18,
+      "poi_count": 3945,
+      "allocation_decay_m": 696.0918103880235,
+      "outside_attraction": 0.9251417366846602,
+      "market_appeal": 0.9473249129098796,
+      "annual_capacity_inr_per_sqm": 156210.37193100562,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0045",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        45
+      ],
+      "cell_count": 100,
+      "market_population": 78543.49612502634,
+      "market_wallet_inr": 2147824252.154662,
+      "external_competitors": 87,
+      "poi_count": 1896,
+      "allocation_decay_m": 758.256769853236,
+      "outside_attraction": 0.88026446118085,
+      "market_appeal": 1.1773294356033062,
+      "annual_capacity_inr_per_sqm": 92708.63776834351,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0046",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        46
+      ],
+      "cell_count": 100,
+      "market_population": 65901.14549951824,
+      "market_wallet_inr": 2623304997.5178566,
+      "external_competitors": 59,
+      "poi_count": 559,
+      "allocation_decay_m": 739.8927566284357,
+      "outside_attraction": 1.0001769732221186,
+      "market_appeal": 1.1430854455442057,
+      "annual_capacity_inr_per_sqm": 136894.7102733725,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0047",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        47
+      ],
+      "cell_count": 100,
+      "market_population": 137401.31042354944,
+      "market_wallet_inr": 7664262509.528753,
+      "external_competitors": 94,
+      "poi_count": 4006,
+      "allocation_decay_m": 670.106935521222,
+      "outside_attraction": 1.1264838334197615,
+      "market_appeal": 1.0368920788029148,
+      "annual_capacity_inr_per_sqm": 121511.51010976161,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0048",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        48
+      ],
+      "cell_count": 100,
+      "market_population": 50223.24616989113,
+      "market_wallet_inr": 3045641598.0867043,
+      "external_competitors": 89,
+      "poi_count": 3550,
+      "allocation_decay_m": 691.085671577857,
+      "outside_attraction": 0.9948394377173615,
+      "market_appeal": 1.0144765059749277,
+      "annual_capacity_inr_per_sqm": 132170.48812971442,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0049",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        49
+      ],
+      "cell_count": 100,
+      "market_population": 100042.88342714761,
+      "market_wallet_inr": 6311597796.869956,
+      "external_competitors": 53,
+      "poi_count": 3387,
+      "allocation_decay_m": 752.9269802705146,
+      "outside_attraction": 0.8493532962386423,
+      "market_appeal": 0.9995111472091212,
+      "annual_capacity_inr_per_sqm": 93026.12288663263,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0050",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        50
+      ],
+      "cell_count": 100,
+      "market_population": 207141.33208007665,
+      "market_wallet_inr": 11847572101.6323,
+      "external_competitors": 98,
+      "poi_count": 3219,
+      "allocation_decay_m": 836.707068233185,
+      "outside_attraction": 0.8915148110463308,
+      "market_appeal": 1.0723551413387469,
+      "annual_capacity_inr_per_sqm": 140152.55957521114,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0051",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        51
+      ],
+      "cell_count": 100,
+      "market_population": 189875.40102353078,
+      "market_wallet_inr": 8028203884.319148,
+      "external_competitors": 52,
+      "poi_count": 592,
+      "allocation_decay_m": 735.588343409644,
+      "outside_attraction": 0.9509952755708905,
+      "market_appeal": 1.148683301806522,
+      "annual_capacity_inr_per_sqm": 152082.75442517977,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0052",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        52
+      ],
+      "cell_count": 100,
+      "market_population": 45287.466495645676,
+      "market_wallet_inr": 1749042273.9792264,
+      "external_competitors": 22,
+      "poi_count": 3843,
+      "allocation_decay_m": 801.1515076544794,
+      "outside_attraction": 1.0870617448083175,
+      "market_appeal": 1.107945890905143,
+      "annual_capacity_inr_per_sqm": 148927.59832680467,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0053",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        53
+      ],
+      "cell_count": 100,
+      "market_population": 119913.65525839495,
+      "market_wallet_inr": 7414137923.513545,
+      "external_competitors": 36,
+      "poi_count": 2436,
+      "allocation_decay_m": 884.8724049893501,
+      "outside_attraction": 1.0640246895435252,
+      "market_appeal": 0.8622992464612186,
+      "annual_capacity_inr_per_sqm": 103813.17601543778,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0054",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        54
+      ],
+      "cell_count": 100,
+      "market_population": 109299.44426845893,
+      "market_wallet_inr": 3178210281.789663,
+      "external_competitors": 18,
+      "poi_count": 2115,
+      "allocation_decay_m": 849.374703296172,
+      "outside_attraction": 1.0735972127510964,
+      "market_appeal": 1.0192720186241075,
+      "annual_capacity_inr_per_sqm": 108859.96644073803,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0055",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        55
+      ],
+      "cell_count": 100,
+      "market_population": 223103.64782772606,
+      "market_wallet_inr": 6813693601.269,
+      "external_competitors": 7,
+      "poi_count": 4244,
+      "allocation_decay_m": 661.6762673469368,
+      "outside_attraction": 0.868324806525675,
+      "market_appeal": 0.9154312280607243,
+      "annual_capacity_inr_per_sqm": 121613.41020229158,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0056",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        56
+      ],
+      "cell_count": 100,
+      "market_population": 153513.34137519856,
+      "market_wallet_inr": 8330326079.556762,
+      "external_competitors": 11,
+      "poi_count": 4247,
+      "allocation_decay_m": 703.149908454951,
+      "outside_attraction": 0.9648926176536154,
+      "market_appeal": 0.8640039998613039,
+      "annual_capacity_inr_per_sqm": 143426.55997633128,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0057",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        57
+      ],
+      "cell_count": 100,
+      "market_population": 218520.3698511329,
+      "market_wallet_inr": 10236997266.427822,
+      "external_competitors": 93,
+      "poi_count": 1040,
+      "allocation_decay_m": 762.5590362969283,
+      "outside_attraction": 0.8728588992370955,
+      "market_appeal": 1.072830791260505,
+      "annual_capacity_inr_per_sqm": 152350.36585669813,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0058",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        58
+      ],
+      "cell_count": 100,
+      "market_population": 190456.73231253872,
+      "market_wallet_inr": 7749878709.836888,
+      "external_competitors": 25,
+      "poi_count": 3640,
+      "allocation_decay_m": 686.7917389220642,
+      "outside_attraction": 1.1699342145432285,
+      "market_appeal": 1.1073462161940444,
+      "annual_capacity_inr_per_sqm": 95759.54933187697,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0059",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        59
+      ],
+      "cell_count": 100,
+      "market_population": 174201.08333163452,
+      "market_wallet_inr": 11212112376.539595,
+      "external_competitors": 30,
+      "poi_count": 2982,
+      "allocation_decay_m": 875.240427824179,
+      "outside_attraction": 1.1142144866782342,
+      "market_appeal": 1.1666069221801747,
+      "annual_capacity_inr_per_sqm": 96520.91425320305,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0060",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        60
+      ],
+      "cell_count": 100,
+      "market_population": 179707.3233583451,
+      "market_wallet_inr": 6558534538.50997,
+      "external_competitors": 65,
+      "poi_count": 1565,
+      "allocation_decay_m": 757.1929912293108,
+      "outside_attraction": 0.816344033498906,
+      "market_appeal": 1.0186802269086435,
+      "annual_capacity_inr_per_sqm": 149983.12828599504,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0061",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        61
+      ],
+      "cell_count": 100,
+      "market_population": 45192.91669746793,
+      "market_wallet_inr": 2562525105.296538,
+      "external_competitors": 100,
+      "poi_count": 4611,
+      "allocation_decay_m": 741.9944972759143,
+      "outside_attraction": 0.9045875970138999,
+      "market_appeal": 1.1562276256472552,
+      "annual_capacity_inr_per_sqm": 147382.78048684917,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0062",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        62
+      ],
+      "cell_count": 100,
+      "market_population": 142208.99729453397,
+      "market_wallet_inr": 5291571081.735854,
+      "external_competitors": 83,
+      "poi_count": 4017,
+      "allocation_decay_m": 754.3118616730337,
+      "outside_attraction": 0.8900871441805056,
+      "market_appeal": 1.0433572176133492,
+      "annual_capacity_inr_per_sqm": 129891.82682747768,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0063",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        63
+      ],
+      "cell_count": 100,
+      "market_population": 178791.13371619114,
+      "market_wallet_inr": 4379642980.726668,
+      "external_competitors": 44,
+      "poi_count": 4959,
+      "allocation_decay_m": 834.2680352780415,
+      "outside_attraction": 0.8257596262862269,
+      "market_appeal": 0.8876824737836486,
+      "annual_capacity_inr_per_sqm": 154376.4476278866,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0064",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        64
+      ],
+      "cell_count": 100,
+      "market_population": 48217.91045631446,
+      "market_wallet_inr": 2345107471.551493,
+      "external_competitors": 13,
+      "poi_count": 4189,
+      "allocation_decay_m": 732.0934190559011,
+      "outside_attraction": 1.0097582449586964,
+      "market_appeal": 1.1475704008868046,
+      "annual_capacity_inr_per_sqm": 148367.5345496111,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0065",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        65
+      ],
+      "cell_count": 100,
+      "market_population": 87156.03669217402,
+      "market_wallet_inr": 2626199688.1724415,
+      "external_competitors": 69,
+      "poi_count": 2062,
+      "allocation_decay_m": 670.9282446804395,
+      "outside_attraction": 0.8189116865631519,
+      "market_appeal": 1.1302402340437014,
+      "annual_capacity_inr_per_sqm": 145502.11714294378,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0066",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        66
+      ],
+      "cell_count": 100,
+      "market_population": 152943.9212187082,
+      "market_wallet_inr": 5770108055.121444,
+      "external_competitors": 51,
+      "poi_count": 1759,
+      "allocation_decay_m": 870.6164097492438,
+      "outside_attraction": 0.9913606950470919,
+      "market_appeal": 0.9314451498603518,
+      "annual_capacity_inr_per_sqm": 125467.52951004496,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0067",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        67
+      ],
+      "cell_count": 100,
+      "market_population": 122868.9039717563,
+      "market_wallet_inr": 7653358931.922534,
+      "external_competitors": 43,
+      "poi_count": 1078,
+      "allocation_decay_m": 773.1257521785749,
+      "outside_attraction": 0.8170348548657396,
+      "market_appeal": 0.8964955334953923,
+      "annual_capacity_inr_per_sqm": 90635.42246564633,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0068",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        68
+      ],
+      "cell_count": 100,
+      "market_population": 140323.2032871779,
+      "market_wallet_inr": 8774331467.925386,
+      "external_competitors": 40,
+      "poi_count": 1253,
+      "allocation_decay_m": 747.7934836702203,
+      "outside_attraction": 0.9689128225504545,
+      "market_appeal": 0.8621733638127469,
+      "annual_capacity_inr_per_sqm": 99936.16803886104,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0069",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        69
+      ],
+      "cell_count": 100,
+      "market_population": 50448.59758469607,
+      "market_wallet_inr": 2471867511.0223436,
+      "external_competitors": 28,
+      "poi_count": 4867,
+      "allocation_decay_m": 676.8568619881846,
+      "outside_attraction": 0.8644824099939729,
+      "market_appeal": 0.8863557613917421,
+      "annual_capacity_inr_per_sqm": 153662.26751940002,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0070",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        70
+      ],
+      "cell_count": 100,
+      "market_population": 176781.93059300625,
+      "market_wallet_inr": 10862026702.962513,
+      "external_competitors": 92,
+      "poi_count": 4486,
+      "allocation_decay_m": 835.7369240513128,
+      "outside_attraction": 0.9177031507182486,
+      "market_appeal": 1.054539948666487,
+      "annual_capacity_inr_per_sqm": 121878.0776885635,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0071",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        71
+      ],
+      "cell_count": 100,
+      "market_population": 160695.02080630616,
+      "market_wallet_inr": 7215762912.262286,
+      "external_competitors": 82,
+      "poi_count": 4794,
+      "allocation_decay_m": 707.6079674819202,
+      "outside_attraction": 1.1881868250220922,
+      "market_appeal": 0.9775852509924274,
+      "annual_capacity_inr_per_sqm": 141057.90490931645,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0072",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        72
+      ],
+      "cell_count": 100,
+      "market_population": 134140.69440574563,
+      "market_wallet_inr": 4896428166.885793,
+      "external_competitors": 37,
+      "poi_count": 1029,
+      "allocation_decay_m": 786.7907949454753,
+      "outside_attraction": 1.196166205209849,
+      "market_appeal": 1.16826958189764,
+      "annual_capacity_inr_per_sqm": 124839.10382046766,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0073",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        73
+      ],
+      "cell_count": 100,
+      "market_population": 60123.5021920891,
+      "market_wallet_inr": 1617214322.3887062,
+      "external_competitors": 55,
+      "poi_count": 2401,
+      "allocation_decay_m": 863.6142865771468,
+      "outside_attraction": 1.010202532401567,
+      "market_appeal": 1.118115967545585,
+      "annual_capacity_inr_per_sqm": 95907.62452892601,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0074",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        74
+      ],
+      "cell_count": 100,
+      "market_population": 193802.1080049901,
+      "market_wallet_inr": 11130257321.290752,
+      "external_competitors": 36,
+      "poi_count": 853,
+      "allocation_decay_m": 815.5278393865682,
+      "outside_attraction": 0.8028241676975967,
+      "market_appeal": 1.0671301919460716,
+      "annual_capacity_inr_per_sqm": 149500.4659975731,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0075",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        75
+      ],
+      "cell_count": 100,
+      "market_population": 182625.65191274893,
+      "market_wallet_inr": 4933624967.943691,
+      "external_competitors": 44,
+      "poi_count": 3209,
+      "allocation_decay_m": 710.7608424507808,
+      "outside_attraction": 1.0279389023776075,
+      "market_appeal": 1.1574530204532911,
+      "annual_capacity_inr_per_sqm": 126681.71835767047,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0076",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        76
+      ],
+      "cell_count": 100,
+      "market_population": 94725.0551415002,
+      "market_wallet_inr": 4817907338.529322,
+      "external_competitors": 61,
+      "poi_count": 2300,
+      "allocation_decay_m": 752.5468838300985,
+      "outside_attraction": 1.0624066029052905,
+      "market_appeal": 0.9506617195162415,
+      "annual_capacity_inr_per_sqm": 144815.5833175871,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0077",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        77
+      ],
+      "cell_count": 100,
+      "market_population": 144767.99637399137,
+      "market_wallet_inr": 6674732394.124281,
+      "external_competitors": 18,
+      "poi_count": 2103,
+      "allocation_decay_m": 663.5130647065997,
+      "outside_attraction": 1.185643005335509,
+      "market_appeal": 0.9737698712532168,
+      "annual_capacity_inr_per_sqm": 110446.43725883059,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0078",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        78
+      ],
+      "cell_count": 100,
+      "market_population": 144799.27639343374,
+      "market_wallet_inr": 7645739228.721657,
+      "external_competitors": 82,
+      "poi_count": 2973,
+      "allocation_decay_m": 811.5188385399549,
+      "outside_attraction": 0.8306478040294332,
+      "market_appeal": 1.0456562404010221,
+      "annual_capacity_inr_per_sqm": 111404.47603510492,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0079",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        79
+      ],
+      "cell_count": 100,
+      "market_population": 38826.527540713505,
+      "market_wallet_inr": 1169214856.342596,
+      "external_competitors": 71,
+      "poi_count": 3343,
+      "allocation_decay_m": 716.5306861469742,
+      "outside_attraction": 0.8169027269240738,
+      "market_appeal": 0.9951748958203139,
+      "annual_capacity_inr_per_sqm": 150149.64500404027,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0080",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        80
+      ],
+      "cell_count": 100,
+      "market_population": 114362.84688926762,
+      "market_wallet_inr": 2775062557.854688,
+      "external_competitors": 87,
+      "poi_count": 2563,
+      "allocation_decay_m": 852.8396476754178,
+      "outside_attraction": 1.0734343608304882,
+      "market_appeal": 0.9029437861528561,
+      "annual_capacity_inr_per_sqm": 158639.7254477968,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0081",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        81
+      ],
+      "cell_count": 100,
+      "market_population": 169553.32500377184,
+      "market_wallet_inr": 5761570127.22528,
+      "external_competitors": 71,
+      "poi_count": 3790,
+      "allocation_decay_m": 885.5420704607413,
+      "outside_attraction": 1.1521323006855992,
+      "market_appeal": 0.852550311434767,
+      "annual_capacity_inr_per_sqm": 133542.72169949848,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0082",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        82
+      ],
+      "cell_count": 100,
+      "market_population": 182190.70163193796,
+      "market_wallet_inr": 8527422801.931708,
+      "external_competitors": 13,
+      "poi_count": 1550,
+      "allocation_decay_m": 880.5182993525773,
+      "outside_attraction": 1.0884228534008349,
+      "market_appeal": 0.8521576237840406,
+      "annual_capacity_inr_per_sqm": 95857.31995418463,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0083",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        83
+      ],
+      "cell_count": 100,
+      "market_population": 49518.00793684358,
+      "market_wallet_inr": 1210108621.0366192,
+      "external_competitors": 94,
+      "poi_count": 4756,
+      "allocation_decay_m": 705.2024104970585,
+      "outside_attraction": 0.9751437072144002,
+      "market_appeal": 1.1330763871057816,
+      "annual_capacity_inr_per_sqm": 127667.82962629976,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0084",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        84
+      ],
+      "cell_count": 100,
+      "market_population": 215380.17007382656,
+      "market_wallet_inr": 5166448297.543085,
+      "external_competitors": 19,
+      "poi_count": 1092,
+      "allocation_decay_m": 852.9267250544798,
+      "outside_attraction": 1.1813920146857733,
+      "market_appeal": 1.0660624386948863,
+      "annual_capacity_inr_per_sqm": 155987.36228615485,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0085",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        85
+      ],
+      "cell_count": 100,
+      "market_population": 113765.2404458073,
+      "market_wallet_inr": 2892788093.9818606,
+      "external_competitors": 34,
+      "poi_count": 3144,
+      "allocation_decay_m": 673.6593876899368,
+      "outside_attraction": 0.9271245928428421,
+      "market_appeal": 1.0246110825057737,
+      "annual_capacity_inr_per_sqm": 127654.5000431398,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0086",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        86
+      ],
+      "cell_count": 100,
+      "market_population": 96410.47292214693,
+      "market_wallet_inr": 2421214130.09821,
+      "external_competitors": 1,
+      "poi_count": 4785,
+      "allocation_decay_m": 740.8136717379971,
+      "outside_attraction": 0.8395409398959053,
+      "market_appeal": 1.0733866234060048,
+      "annual_capacity_inr_per_sqm": 149707.90200111535,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0087",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        87
+      ],
+      "cell_count": 100,
+      "market_population": 106852.233667094,
+      "market_wallet_inr": 6380677657.733789,
+      "external_competitors": 35,
+      "poi_count": 3758,
+      "allocation_decay_m": 667.4158708717493,
+      "outside_attraction": 0.953723741229475,
+      "market_appeal": 0.9188593799267649,
+      "annual_capacity_inr_per_sqm": 94416.68974006281,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0088",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        88
+      ],
+      "cell_count": 100,
+      "market_population": 54158.85690038759,
+      "market_wallet_inr": 2096784811.3872075,
+      "external_competitors": 77,
+      "poi_count": 1781,
+      "allocation_decay_m": 779.8037202426934,
+      "outside_attraction": 0.9889895760525805,
+      "market_appeal": 0.967634772036194,
+      "annual_capacity_inr_per_sqm": 105280.48200138197,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0089",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        89
+      ],
+      "cell_count": 100,
+      "market_population": 179889.50807583326,
+      "market_wallet_inr": 4872114078.969849,
+      "external_competitors": 74,
+      "poi_count": 1226,
+      "allocation_decay_m": 774.4671602116216,
+      "outside_attraction": 0.9644055745973488,
+      "market_appeal": 1.0298195042772507,
+      "annual_capacity_inr_per_sqm": 122841.7503090149,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0090",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        90
+      ],
+      "cell_count": 100,
+      "market_population": 74251.07804833453,
+      "market_wallet_inr": 4621112589.132361,
+      "external_competitors": 78,
+      "poi_count": 1356,
+      "allocation_decay_m": 846.4059139840249,
+      "outside_attraction": 1.0830651444162547,
+      "market_appeal": 1.1629915771351123,
+      "annual_capacity_inr_per_sqm": 93846.59552059944,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0091",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        91
+      ],
+      "cell_count": 100,
+      "market_population": 72688.78148905,
+      "market_wallet_inr": 2215754278.948128,
+      "external_competitors": 50,
+      "poi_count": 1055,
+      "allocation_decay_m": 862.3269977429062,
+      "outside_attraction": 0.9256098440384419,
+      "market_appeal": 0.9026150980651791,
+      "annual_capacity_inr_per_sqm": 127814.61595833868,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0092",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        92
+      ],
+      "cell_count": 100,
+      "market_population": 85100.93430292873,
+      "market_wallet_inr": 2352883752.7600393,
+      "external_competitors": 89,
+      "poi_count": 1816,
+      "allocation_decay_m": 882.552673442596,
+      "outside_attraction": 1.1049714410713891,
+      "market_appeal": 1.1203392989494256,
+      "annual_capacity_inr_per_sqm": 134835.05398634783,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0093",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        93
+      ],
+      "cell_count": 100,
+      "market_population": 80875.90913365273,
+      "market_wallet_inr": 4732987312.7523985,
+      "external_competitors": 42,
+      "poi_count": 4535,
+      "allocation_decay_m": 794.8289561563835,
+      "outside_attraction": 1.1143823063696148,
+      "market_appeal": 0.9494808539869596,
+      "annual_capacity_inr_per_sqm": 152851.649229852,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0094",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        94
+      ],
+      "cell_count": 100,
+      "market_population": 84997.45538752084,
+      "market_wallet_inr": 4237643825.832027,
+      "external_competitors": 15,
+      "poi_count": 1808,
+      "allocation_decay_m": 894.6912628683975,
+      "outside_attraction": 1.187112268927842,
+      "market_appeal": 1.1368406201711463,
+      "annual_capacity_inr_per_sqm": 143227.31065252225,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0095",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        95
+      ],
+      "cell_count": 100,
+      "market_population": 120919.07312503045,
+      "market_wallet_inr": 5407361885.485416,
+      "external_competitors": 9,
+      "poi_count": 3996,
+      "allocation_decay_m": 698.2630587629762,
+      "outside_attraction": 1.1785970877527263,
+      "market_appeal": 1.0521459475102786,
+      "annual_capacity_inr_per_sqm": 90266.72651278728,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0096",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        96
+      ],
+      "cell_count": 100,
+      "market_population": 171283.70788524055,
+      "market_wallet_inr": 5373208393.387593,
+      "external_competitors": 42,
+      "poi_count": 2372,
+      "allocation_decay_m": 892.71632346243,
+      "outside_attraction": 1.1497738494472352,
+      "market_appeal": 1.125359142170871,
+      "annual_capacity_inr_per_sqm": 139477.57691567365,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0097",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        97
+      ],
+      "cell_count": 100,
+      "market_population": 229766.7741628651,
+      "market_wallet_inr": 5381069124.670667,
+      "external_competitors": 50,
+      "poi_count": 917,
+      "allocation_decay_m": 821.4526692194938,
+      "outside_attraction": 1.186125355209843,
+      "market_appeal": 0.9527324206322307,
+      "annual_capacity_inr_per_sqm": 101352.90775639191,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0098",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        98
+      ],
+      "cell_count": 100,
+      "market_population": 219912.59821319845,
+      "market_wallet_inr": 10085064783.36754,
+      "external_competitors": 84,
+      "poi_count": 2274,
+      "allocation_decay_m": 800.6016423678544,
+      "outside_attraction": 0.890514360960857,
+      "market_appeal": 1.132211316804072,
+      "annual_capacity_inr_per_sqm": 91225.90308249093,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "sim-m0099",
+      "regime": "regular",
+      "seed_components": [
+        20261024,
+        0,
+        99
+      ],
+      "cell_count": 100,
+      "market_population": 204699.47297137,
+      "market_wallet_inr": 8502043897.026277,
+      "external_competitors": 26,
+      "poi_count": 2751,
+      "allocation_decay_m": 751.9911741318377,
+      "outside_attraction": 1.0331875588918178,
+      "market_appeal": 0.9697793222925641,
+      "annual_capacity_inr_per_sqm": 159184.600176925,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0000",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        0
+      ],
+      "cell_count": 100,
+      "market_population": 186435.0370624851,
+      "market_wallet_inr": 17045541066.5541,
+      "external_competitors": 115,
+      "poi_count": 5099,
+      "allocation_decay_m": 1446.7980338099114,
+      "outside_attraction": 1.499996602161896,
+      "market_appeal": 0.6007701768078134,
+      "annual_capacity_inr_per_sqm": 98705.500647293,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0001",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        1
+      ],
+      "cell_count": 100,
+      "market_population": 200927.35314523007,
+      "market_wallet_inr": 22409646107.33625,
+      "external_competitors": 118,
+      "poi_count": 3319,
+      "allocation_decay_m": 1137.3283759987057,
+      "outside_attraction": 1.662677288933223,
+      "market_appeal": 0.6906002053780758,
+      "annual_capacity_inr_per_sqm": 72036.0515039248,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0002",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        2
+      ],
+      "cell_count": 100,
+      "market_population": 375816.64435827784,
+      "market_wallet_inr": 30531109167.991547,
+      "external_competitors": 151,
+      "poi_count": 3873,
+      "allocation_decay_m": 1462.9184669551378,
+      "outside_attraction": 1.619127385758217,
+      "market_appeal": 0.6066775013609187,
+      "annual_capacity_inr_per_sqm": 99592.40346305139,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0003",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        3
+      ],
+      "cell_count": 100,
+      "market_population": 294838.0274186948,
+      "market_wallet_inr": 30994230727.25521,
+      "external_competitors": 153,
+      "poi_count": 4898,
+      "allocation_decay_m": 1327.056451956158,
+      "outside_attraction": 1.506322920031434,
+      "market_appeal": 0.8158710028884422,
+      "annual_capacity_inr_per_sqm": 86593.64711148212,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0004",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        4
+      ],
+      "cell_count": 100,
+      "market_population": 217025.95119799968,
+      "market_wallet_inr": 14850308382.339989,
+      "external_competitors": 159,
+      "poi_count": 6870,
+      "allocation_decay_m": 1331.5049694800873,
+      "outside_attraction": 1.6939118555030988,
+      "market_appeal": 0.714894843505307,
+      "annual_capacity_inr_per_sqm": 66879.8506954158,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0005",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        5
+      ],
+      "cell_count": 100,
+      "market_population": 179549.40600128923,
+      "market_wallet_inr": 12918645004.756012,
+      "external_competitors": 175,
+      "poi_count": 6861,
+      "allocation_decay_m": 1388.7250951332942,
+      "outside_attraction": 1.4792720081553,
+      "market_appeal": 0.829240938334836,
+      "annual_capacity_inr_per_sqm": 95714.2345552028,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0006",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        6
+      ],
+      "cell_count": 100,
+      "market_population": 188867.28361324297,
+      "market_wallet_inr": 12168943252.606815,
+      "external_competitors": 170,
+      "poi_count": 4396,
+      "allocation_decay_m": 1134.498268289785,
+      "outside_attraction": 1.5942673701822085,
+      "market_appeal": 0.8025818189772698,
+      "annual_capacity_inr_per_sqm": 72946.71037670356,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0007",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        7
+      ],
+      "cell_count": 100,
+      "market_population": 355916.98780180264,
+      "market_wallet_inr": 22595849631.3878,
+      "external_competitors": 153,
+      "poi_count": 3789,
+      "allocation_decay_m": 1207.6540539108942,
+      "outside_attraction": 1.457974092658068,
+      "market_appeal": 0.7363345521810266,
+      "annual_capacity_inr_per_sqm": 68064.25381858628,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0008",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        8
+      ],
+      "cell_count": 100,
+      "market_population": 143455.46860621768,
+      "market_wallet_inr": 15067208451.845327,
+      "external_competitors": 94,
+      "poi_count": 4499,
+      "allocation_decay_m": 1415.905583546728,
+      "outside_attraction": 1.9470411959942273,
+      "market_appeal": 0.8431473406871329,
+      "annual_capacity_inr_per_sqm": 78838.4375025108,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0009",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        9
+      ],
+      "cell_count": 100,
+      "market_population": 227292.26499060704,
+      "market_wallet_inr": 19839696988.32238,
+      "external_competitors": 115,
+      "poi_count": 5606,
+      "allocation_decay_m": 1311.0945122501248,
+      "outside_attraction": 1.729034704738475,
+      "market_appeal": 0.8154356480881564,
+      "annual_capacity_inr_per_sqm": 92853.0204528693,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0010",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        10
+      ],
+      "cell_count": 100,
+      "market_population": 230304.05590294214,
+      "market_wallet_inr": 23386951692.15218,
+      "external_competitors": 174,
+      "poi_count": 6070,
+      "allocation_decay_m": 1157.9822949738614,
+      "outside_attraction": 1.426426676162163,
+      "market_appeal": 0.6080347683827763,
+      "annual_capacity_inr_per_sqm": 89824.12261915577,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0011",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        11
+      ],
+      "cell_count": 100,
+      "market_population": 248915.63456778668,
+      "market_wallet_inr": 15525039812.953741,
+      "external_competitors": 139,
+      "poi_count": 3581,
+      "allocation_decay_m": 1319.6626617398872,
+      "outside_attraction": 1.6460467464476025,
+      "market_appeal": 0.7394045303817789,
+      "annual_capacity_inr_per_sqm": 75833.75854397532,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0012",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        12
+      ],
+      "cell_count": 100,
+      "market_population": 325412.3589024049,
+      "market_wallet_inr": 22543769275.688103,
+      "external_competitors": 105,
+      "poi_count": 5056,
+      "allocation_decay_m": 1261.0681857677614,
+      "outside_attraction": 1.996992703827913,
+      "market_appeal": 0.6580468392563095,
+      "annual_capacity_inr_per_sqm": 73840.42808126372,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0013",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        13
+      ],
+      "cell_count": 100,
+      "market_population": 282752.1752575859,
+      "market_wallet_inr": 25385827355.77377,
+      "external_competitors": 145,
+      "poi_count": 4322,
+      "allocation_decay_m": 1220.5889933344292,
+      "outside_attraction": 1.9129508966684075,
+      "market_appeal": 0.6683308953220453,
+      "annual_capacity_inr_per_sqm": 79538.4315423792,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0014",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        14
+      ],
+      "cell_count": 100,
+      "market_population": 201618.18696513242,
+      "market_wallet_inr": 13814400219.3528,
+      "external_competitors": 180,
+      "poi_count": 3979,
+      "allocation_decay_m": 1362.7762320732504,
+      "outside_attraction": 1.5431705600309327,
+      "market_appeal": 0.6588618003316167,
+      "annual_capacity_inr_per_sqm": 85226.30762776203,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0015",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        15
+      ],
+      "cell_count": 100,
+      "market_population": 268634.27907928865,
+      "market_wallet_inr": 21720975935.356297,
+      "external_competitors": 93,
+      "poi_count": 5168,
+      "allocation_decay_m": 1375.5167956887585,
+      "outside_attraction": 1.7983508342476544,
+      "market_appeal": 0.7788976177107692,
+      "annual_capacity_inr_per_sqm": 86836.34993855236,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0016",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        16
+      ],
+      "cell_count": 100,
+      "market_population": 346073.684556447,
+      "market_wallet_inr": 24496832587.601776,
+      "external_competitors": 155,
+      "poi_count": 5481,
+      "allocation_decay_m": 1119.5517175276284,
+      "outside_attraction": 1.9263040116092252,
+      "market_appeal": 0.6539654496291719,
+      "annual_capacity_inr_per_sqm": 69033.44377114653,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0017",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        17
+      ],
+      "cell_count": 100,
+      "market_population": 185524.72432208262,
+      "market_wallet_inr": 15993441610.507973,
+      "external_competitors": 125,
+      "poi_count": 5886,
+      "allocation_decay_m": 1421.7465706034186,
+      "outside_attraction": 1.7623408510827856,
+      "market_appeal": 0.703030104708144,
+      "annual_capacity_inr_per_sqm": 87293.75684000824,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0018",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        18
+      ],
+      "cell_count": 100,
+      "market_population": 198309.73810030922,
+      "market_wallet_inr": 18533091368.682976,
+      "external_competitors": 160,
+      "poi_count": 5630,
+      "allocation_decay_m": 1217.1845420754266,
+      "outside_attraction": 1.8019900497742534,
+      "market_appeal": 0.625307437913808,
+      "annual_capacity_inr_per_sqm": 76462.31948473857,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    },
+    {
+      "market_id": "ood-m0019",
+      "regime": "shifted",
+      "seed_components": [
+        20261024,
+        1,
+        19
+      ],
+      "cell_count": 100,
+      "market_population": 347177.3634169258,
+      "market_wallet_inr": 34459583462.432884,
+      "external_competitors": 179,
+      "poi_count": 3957,
+      "allocation_decay_m": 1260.5106933334353,
+      "outside_attraction": 1.5886028654511855,
+      "market_appeal": 0.6745379886828606,
+      "annual_capacity_inr_per_sqm": 92838.8867437077,
+      "own_company_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "origin": "SYNTHETIC_NOT_OBSERVED"
+    }
+  ],
+  "geometry": "Independently generated synthetic local Cartesian metric coordinates; no city/candidate coordinates copied",
+  "pricing": "Synthetic nominal INR, not a real release year or inflation estimate",
+  "alternative_policy": "20 sites are alternatives. Each target is computed alone against external competitors and outside; never sum alternative targets as jointly achieved sales."
+}

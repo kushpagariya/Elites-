@@ -1,0 +1,16 @@
+{
+  "public_package_created": false,
+  "raw_metro_workbooks_copied": false,
+  "unresolved_licensing": "BMRCL contents copyright, GitHub ODbL and OpenCity cc-nc metadata conflict remain unresolved; neither downloads nor derivation resolve rights.",
+  "not_cleared_for_public_distribution": [
+    "site_features_enriched.csv",
+    "metro_daypart_coverage.csv",
+    "metro_daypart_rates.csv",
+    "site_metro_daypart_rates.csv",
+    "site_evidence_coverage.csv"
+  ],
+  "inherited_metro_rights_apply_to_derived_records": true,
+  "legacy_zip_repo_relative_path": "StoreScout_Bengaluru_Dataset.zip",
+  "legacy_zip_status": "Existing workspace-root archive preserved unchanged; not cleared for publication",
+  "original_urls_checksums_and_timestamps": "source_acquisitions.csv and baseline_hashes.json; references only, not copied workbooks"
+}

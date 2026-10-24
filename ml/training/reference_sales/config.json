@@ -1,0 +1,56 @@
+{
+  "generator_version": "reference-market-simulator-v1",
+  "feature_schema_version": "reference-sales-features-v1",
+  "model_version": "reference-sales-sim-v1",
+  "seed": 20261024,
+  "split_seed": 314159,
+  "model_seed": 271828,
+  "regular_markets": 100,
+  "shifted_markets": 20,
+  "alternatives_per_market": 20,
+  "cell_grid_side": 10,
+  "market_half_width_m": 2500,
+  "candidate_half_width_m": 1300,
+  "catchment_radius_m": 1500,
+  "feature_distance_decay_m": 750,
+  "regular": {
+    "population_per_cell_range": [250, 2200],
+    "annual_wallet_per_person_inr_range": [22000, 65000],
+    "external_competitors_range": [0, 100],
+    "poi_count_range": [500, 5000],
+    "allocation_decay_m_range": [650, 900],
+    "outside_attraction_range": [0.8, 1.2],
+    "market_appeal_range": [0.85, 1.18],
+    "competitor_mass_range": [0.8, 1.2],
+    "annual_capacity_inr_per_sqm_range": [90000, 160000]
+  },
+  "shifted": {
+    "population_per_cell_range": [1500, 4000],
+    "annual_wallet_per_person_inr_range": [60000, 110000],
+    "external_competitors_range": [90, 180],
+    "poi_count_range": [2500, 7000],
+    "allocation_decay_m_range": [1100, 1500],
+    "outside_attraction_range": [1.4, 2.0],
+    "market_appeal_range": [0.6, 0.85],
+    "competitor_mass_range": [1.2, 1.6],
+    "annual_capacity_inr_per_sqm_range": [65000, 100000]
+  },
+  "formats": {
+    "supermarket": {"area_range_sqm": [250, 1200], "appeal": 1.0, "daypart_preferences": [0.8, 0.8, 1.2, 0.3, 1.3, 1.2]},
+    "grocery": {"area_range_sqm": [80, 450], "appeal": 0.85, "daypart_preferences": [1.2, 1.0, 1.1, 0.3, 1.0, 0.9]},
+    "convenience": {"area_range_sqm": [40, 240], "appeal": 1.15, "daypart_preferences": [0.6, 0.8, 1.0, 1.8, 0.7, 1.3]}
+  },
+  "noise": {"appeal_lognormal_sigma": 0.09, "appeal_multiplier_bounds": [0.8, 1.25]},
+  "daypart_utility_coefficient": 0.8,
+  "daypart_utility_scale": 50,
+  "ridge_alpha_grid": [1.0, 20.0, 100.0],
+  "catboost_grid": [
+    {"iterations": 450, "depth": 5, "learning_rate": 0.06, "l2_leaf_reg": 6},
+    {"iterations": 650, "depth": 6, "learning_rate": 0.04, "l2_leaf_reg": 10}
+  ],
+  "selection_metric": "validation_WAPE",
+  "activation_relative_test_WAPE_gain": 0.1,
+  "ood_test_WAPE_warning_ratio": 2.0,
+  "target_definition": "Competitors-only reference annual store sales in INR; each candidate alone, external competitors plus outside option, before own-company branch displacement",
+  "origin": "SYNTHETIC_GENERATOR_ASSUMPTIONS_NOT_EMPIRICAL_RETAIL_PARAMETERS"
+}
