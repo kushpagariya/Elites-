@@ -4,9 +4,15 @@ import os
 import sqlite3
 import hashlib
 from contextlib import contextmanager
+from contextvars import ContextVar
 from pathlib import Path
 
 DEFAULT_DB = Path(__file__).resolve().parents[3] / ".runtime" / "storescout.sqlite3"
+current_user: ContextVar[str | None] = ContextVar("storescout_user", default=None)
+
+
+def base_path():
+    return Path(os.getenv("STORESCOUT_DB_PATH", str(DEFAULT_DB)))
 
 
 class IdempotencyConflict(Exception):
@@ -23,7 +29,10 @@ def fingerprint(value):
 
 @contextmanager
 def connection():
-    path = Path(os.getenv("STORESCOUT_DB_PATH", str(DEFAULT_DB)))
+    path = base_path()
+    user_id = current_user.get()
+    if user_id:
+        path = path.with_name(f"{path.stem}-{user_id}{path.suffix}")
     path.parent.mkdir(parents=True, exist_ok=True)
     db = sqlite3.connect(path, timeout=10)
     try:

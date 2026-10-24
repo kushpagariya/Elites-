@@ -16,7 +16,7 @@ export default function RetailScene({kind='neighbourhood',paused=false}:{kind?:'
  const [failed,setFailed]=useState(false);const failure=useCallback(()=>setFailed(true),[]);
  const {scrollYProgress}=useScroll({target:ref,offset:['start end','end start']});
  const transform=useTransform(scrollYProgress,[0,1],['translateY(12px)','translateY(-12px)']);
- if(kind==='neighbourhood')return <div ref={ref} className="neighbourhood-model" aria-hidden="true">{reduced||failed||!inView?<RetailBackdrop/>:<City paused={paused||!inView} onFailure={failure}/>}<span className="model-caption">A neighbourhood, seen in context.</span></div>;
+ if(kind==='neighbourhood')return <div ref={ref} className="neighbourhood-model" aria-hidden="true">{reduced||failed||!inView?<RetailBackdrop/>:<City paused={paused||!inView} onFailure={failure}/>}</div>;
  const risk=kind==='risk';
  return <motion.figure ref={ref} className={'editorial-visual visual-'+kind} style={{transform:reduced||paused?'none':transform}}>
   <Image src={risk?'/images/retail-due-diligence.png':'/images/retail-network.png'} alt={risk?'Miniature corner grocery beside a magnifying glass and a key, illustrating investment due diligence.':'A city planning map with three connected location pins, illustrating portfolio planning.'} width={1536} height={1024} sizes="(max-width:768px) 100vw,50vw"/>

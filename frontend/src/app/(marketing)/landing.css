@@ -59,7 +59,6 @@
   .journey-steps p { color:var(--muted); }
   .neighbourhood-model { position:relative; min-width:0; width:100%; }
   .neighbourhood-model canvas,.neighbourhood-model .fallback-city { width:100%!important; height:100%!important; }
-  .model-caption { position:absolute; bottom:0; text-align:center; width:100%; color:var(--muted); }
   .editorial-visual { position:relative; margin:0; min-width:0; }
   .editorial-visual>img { display:block; width:100%; height:auto; }
   .editorial-visual figcaption { display:flex; justify-content:space-between; align-items:center; margin-top:14px; }
@@ -83,7 +82,6 @@
   .footer-title { display:flex; align-items:center; gap:10px; font-size:24px; font-weight:700; }
   .footer-subtitle { color:var(--muted); }
   .footer-back-link { display:inline-flex; align-items:center; gap:12px; min-height:44px; }
-  .motion-control { padding:10px 16px; min-height:44px; background:var(--ink); color:var(--paper); }
   .reading-progress { position:fixed; top:0; left:0; right:0; transform-origin:left; z-index:80; }
   [data-motion-paused=true] * { animation-play-state:paused!important; }
   [data-motion-paused=true] :is(.hero-title,.hero-lede,.hero-actions,.rhythm-detail h3,.risk-explanation h3,.infra-demo-result strong) { animation:none; }
@@ -153,7 +151,7 @@
   .button:active, .button-secondary:active { transform: scale(.97); }
   .demo-disclosure { color: var(--muted); font-size: 15px; margin-top: 24px; }
   .lanyard-hint { font-size: 14px; bottom: 10px; }
-  .retail-strip { font-size: clamp(17px, 1.75vw, 25px); gap: 28px; padding-block: 26px; }
+  .retail-strip { font-size: 14px; gap: 20px; padding-block: 12px; line-height: 1.5; }
   .retail-strip span::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #e1b58e; margin: 0 18px 3px 0; }
   .section-wrapper { padding-block: clamp(72px, 8vw, 120px); }
   .section-wrapper.tint-bg { background: #eae7da; }
@@ -163,7 +161,6 @@
   .text-link { font-size: 16px; font-weight: 650; min-height: 44px; gap: 12px; }
   .journey-layout { grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
   .neighbourhood-model { height: 420px; }
-  .model-caption { font-size: 15px; }
   .journey-steps li { padding: 24px 0; gap: 22px; border-color: #203c3226; }
   .journey-steps li > span { font-size: 16px; font-weight: 650; color: var(--purple); padding-top: 5px; }
   .journey-steps h3 { font-size: 26px; }
@@ -250,7 +247,7 @@
     .hero-title { font-size: clamp(48px, 8vw, 68px); max-width: 15ch; }
     .hero-3d-wrapper { width: 100%; height: 420px; margin: 0; }
     .hero-section { padding-block: 0 24px; }
-    .retail-strip { display: grid; grid-template-columns: 1fr; gap: 14px; font-size: 19px; }
+    .retail-strip { gap: 12px; font-size: 12px; flex-wrap: wrap; justify-content: center; }
     .journey-layout, .story-split, .rhythm-grid { grid-template-columns: 1fr; }
     .neighbourhood-model { height: 340px; }
     .risk-story .editorial-visual { order: 0; }
@@ -300,7 +297,6 @@
     .final-cta-box h2 { font-size: 36px; }
     .footer-inner { flex-direction: column; }
     .footer-clean { padding-bottom: 84px; }
-    .motion-control { right: 14px; bottom: 12px; }
   }
 }
 @keyframes retail-arrive {
@@ -314,3 +310,6 @@
 @media (prefers-reduced-motion:reduce) {
   .landing *, .landing *::before, .landing *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+.landing .pill-login { font-size: 14px; font-weight: 650; padding: 12px 8px; white-space: nowrap; }
+@media(max-width:480px) { .landing .pill-demo { display: none; } .landing .retail-strip span::before { width: 4px; height: 4px; margin: 0 6px 2px 0; } }

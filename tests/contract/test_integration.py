@@ -49,8 +49,12 @@ class IntegrationTests(unittest.TestCase):
         self.engine = patch.object(gateway.pipeline, "run_evaluation", side_effect=test_engine)
         self.engine_mock = self.engine.start()
         self.client = TestClient(app)
+        account = self.client.post("/api/v1/auth/register", json={"name": "Contract account", "email": "contract@example.test", "password": "contract-passphrase-2026"})
+        self.assertEqual(account.status_code, 201, account.text)
+        self.user_context = store.current_user.set(account.json()["data"]["id"])
 
     def tearDown(self):
+        store.current_user.reset(self.user_context)
         self.client.close()
         self.engine.stop()
         self.source_patch.stop()
@@ -73,6 +77,7 @@ class IntegrationTests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertEqual(self.engine_mock.call_count, 1)
         with TestClient(app) as fresh:
+            fresh.cookies.update(self.client.cookies)
             self.assertEqual(fresh.get(BASE + "/evaluations/" + first["evaluation_id"]).json()["data"], first)
         identity = first["evaluation_id"]
         row = self.client.get(BASE + f"/sites/site-01/analysis?evaluation_id={identity}")
@@ -247,9 +252,14 @@ class IntegrationTests(unittest.TestCase):
         self.assertIsNone(store.get("evaluation", "demo", "x"))
         self.assertIsNone(store.cached_id("demo", "evaluation", "rollback", None, "r"))
         barrier = threading.Barrier(2)
+        user_id = store.current_user.get()
         def publish(identity):
-            barrier.wait()
-            return store.save_result("demo", "evaluation", "same", None, "r", identity, [("evaluation", identity, {"identity": identity})])
+            context = store.current_user.set(user_id)
+            try:
+                barrier.wait()
+                return store.save_result("demo", "evaluation", "same", None, "r", identity, [("evaluation", identity, {"identity": identity})])
+            finally:
+                store.current_user.reset(context)
         with ThreadPoolExecutor(max_workers=2) as pool:
             results = list(pool.map(publish, ["a", "b"]))
         self.assertEqual(results[0], results[1])

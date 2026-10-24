@@ -7,6 +7,7 @@ import { money, methodLabel } from "@/lib/format";
 import { compactMoney } from "@/lib/presentation";
 import { ErrorNotice } from "./Feedback";
 import BrandMark from "./BrandMark";
+import SignOut from "./SignOut";
 export default function WorkspaceShell({ children }: { children: ReactNode }) {
   const w = useWorkspace();
   return (
@@ -31,9 +32,10 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
           <span>
             {w.project
               ? w.project.data.city + " / " + w.project.data.category
-              : "Local demonstration"}
+              : "Your workspace"}
           </span>
           <span>{w.project?.data.source_status ?? "Source unavailable"}</span>
+          <SignOut/>
         </header>
         <main id="main-content" className="workspace-sheet">
           <div className="context-bar">
@@ -97,7 +99,7 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
           )}
           {w.loading && (
             <p role="status" className="loading-state">
-              Loading the saved demo project and scenarios…
+              Loading your project and saved scenarios…
             </p>
           )}
           <ErrorNotice error={w.loadError} retry={() => void w.load()} />

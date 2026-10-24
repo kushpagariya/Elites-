@@ -23,6 +23,6 @@ export default function PillNav({logo,logoAlt='StoreScout',items,activeHref='#he
   <nav id="landing-pill-nav" className={'pill-nav-links'+(open?' is-open':'')} aria-label="Main navigation">
    {items.map(item=><a key={item.href} className={'pill-link'+(active===item.href?' is-active':'')} href={item.href} aria-current={active===item.href?'location':undefined} onClick={()=>{setActive(item.href);setOpen(false);}}><span className="pill-fill" aria-hidden="true"/><span className="pill-label"><span>{item.label}</span><span aria-hidden="true" className="pill-label-hover">{item.label}</span></span><span className="pill-dot" aria-hidden="true"/></a>)}
   </nav>
-  <div className="pill-actions"><Link className="pill-demo" href="/app/">Explore demo <span aria-hidden="true">↗</span></Link><button ref={toggle} className="pill-toggle" aria-label={open?'Close navigation':'Open navigation'} aria-expanded={open} aria-controls="landing-pill-nav" onClick={()=>setOpen(!open)}><span/><span/></button></div>
+  <div className="pill-actions"><Link className="pill-login" href="/login?mode=register">Try now</Link><Link className="pill-demo" href="/login">Log in <span aria-hidden="true">↗</span></Link><button ref={toggle} className="pill-toggle" aria-label={open?'Close navigation':'Open navigation'} aria-expanded={open} aria-controls="landing-pill-nav" onClick={()=>setOpen(!open)}><span/><span/></button></div>
  </header>;
 }

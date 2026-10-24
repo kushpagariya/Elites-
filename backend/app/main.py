@@ -9,14 +9,45 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from starlette.exceptions import HTTPException
+from starlette.concurrency import run_in_threadpool
 
 from .repositories import store
+from . import auth
 from .schemas import Project, Scenario, ScenarioCreate, EvaluateRequest, PortfolioRequest, RescueRequest, EvaluationData, PortfolioResult, RescueResult, SiteAnalysis, Envelope, ErrorEnvelope, GeographicContext, DaypartsData
 from .domain import pipeline
 from .services import analytics, catalogue, reports, sources
 from .services.errors import ServiceError
 
 app = FastAPI(title="StoreScout API", version="1", responses={status: {"model": ErrorEnvelope} for status in (404, 409, 422, 500, 502, 503)})
+app.include_router(auth.router)
+
+
+@app.middleware("http")
+async def authenticated_workspace(request: Request, call_next):
+    path = request.url.path
+    if request.method == "OPTIONS" or not path.startswith("/api/v1/"):
+        return await call_next(request)
+    if request.method not in ("GET", "HEAD"):
+        origin = request.headers.get("origin")
+        allowed = {os.getenv("FRONTEND_ORIGIN", "http://localhost:3000"), "http://127.0.0.1:3000", "http://localhost:3001", "http://127.0.0.1:3001"}
+        if origin and origin not in allowed:
+            return error(403, "ORIGIN_NOT_ALLOWED", "This request came from an unapproved website.")
+        if request.headers.get("sec-fetch-site") == "cross-site":
+            return error(403, "ORIGIN_NOT_ALLOWED", "Please open StoreScout directly to continue.")
+    if not path.startswith("/api/v1/projects/"):
+        return await call_next(request)
+    user = await run_in_threadpool(auth.session_user, request.cookies.get(auth.COOKIE))
+    if not user:
+        return error(401, "SIGN_IN_REQUIRED", "Please sign in to continue.")
+    context = store.current_user.set(user["id"])
+    try:
+        response = await call_next(request)
+        response.headers["Cache-Control"] = "no-store"
+        return response
+    finally:
+        store.current_user.reset(context)
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=list(dict.fromkeys([
@@ -26,6 +57,7 @@ app.add_middleware(
         "http://127.0.0.1:3001",
     ])),
     allow_methods=["GET", "POST"],
+    allow_credentials=True,
     allow_headers=["Content-Type", "Idempotency-Key"],
     expose_headers=["Content-Disposition"],
 )

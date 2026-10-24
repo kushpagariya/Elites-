@@ -96,7 +96,7 @@ export default function DaypartMap() {
   const inf = infraConfig[activeInfra];
   return (
     <div className="rhythm-demo">
-      <p className="rhythm-demo-notice">Synthetic concept demo. These scores explain the idea; they are not measured footfall or model predictions.</p>
+      <p className="rhythm-demo-notice">Illustrative opportunity scores using synthetic data. Figures do not represent measured footfall.</p>
       <div className="rhythm-grid">
         <div className="rhythm-chart">
           <h3>One place. Different peaks.</h3>

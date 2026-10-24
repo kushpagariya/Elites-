@@ -7,6 +7,18 @@ const target = new URL(base);
 if (target.protocol !== "http:" || !["127.0.0.1", "localhost"].includes(target.hostname) || target.pathname !== "/api/v1")
   throw Error("Use a local verification API.");
 process.env.NEXT_PUBLIC_API_BASE_URL = base;
+const originalFetch = globalThis.fetch;
+const registration = await originalFetch(base + '/auth/register', {
+  method: 'POST', headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({name: 'Smoke account', email: `smoke-${crypto.randomUUID()}@example.test`, password: crypto.randomUUID()}),
+});
+assert.equal(registration.status, 201);
+const sessionCookie = registration.headers.get('set-cookie').split(';')[0];
+globalThis.fetch = (input, init = {}) => {
+  const headers = new Headers(init.headers);
+  if (new URL(String(input)).origin === target.origin) headers.set('Cookie', sessionCookie);
+  return originalFetch(input, {...init, headers});
+};
 const require = createRequire(import.meta.url);
 const ts = require("typescript");
 require.extensions[".ts"] = (module, file) => module._compile(

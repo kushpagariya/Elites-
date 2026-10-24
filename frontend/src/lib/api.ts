@@ -1,7 +1,7 @@
 import type { DemoProjectResponse, HealthResponse } from "./types";
 
 export const API_BASE_URL = (
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:8000/api/v1"
+  process.env.NEXT_PUBLIC_API_BASE_URL ?? "/api/v1"
 ).replace(/\/+$/, "");
 
 export class ApiError extends Error {
@@ -31,6 +31,7 @@ export async function apiRequest<T>(
       ...init,
       headers,
       cache: "no-store",
+      credentials: "include",
     });
   } catch (error) {
     if (
@@ -46,6 +47,9 @@ export async function apiRequest<T>(
 
   const payload: unknown = await response.json().catch(() => null);
   if (!response.ok) {
+    if (response.status === 401 && path.startsWith('/projects/') && typeof window !== 'undefined') {
+      window.location.assign('/login');
+    }
     const errorBody =
       payload && typeof payload === "object" && "error" in payload
         ? payload.error
@@ -202,7 +206,7 @@ export async function getSavedReport(
         encodeURIComponent(evaluationId) +
         "?" +
         new URLSearchParams({ portfolio_run_id: runId }),
-      { signal, cache: "no-store" },
+      { signal, cache: "no-store", credentials: "include" },
     );
   } catch (error) {
     if (signal?.aborted) throw error;

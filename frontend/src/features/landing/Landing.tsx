@@ -18,7 +18,7 @@ function Arrow({ down=false }:{down?:boolean}) {
 export default function Landing() {
  const surface=useRef<HTMLDivElement>(null);
  const reduced=useReducedMotion();
- const [flat,setFlat]=useState(false), [ready,setReady]=useState(false), [paused,setPaused]=useState(false), [visible,setVisible]=useState(true);
+ const [ready,setReady]=useState(false), [visible,setVisible]=useState(true);
  const {scrollYProgress}=useScroll();
  useEffect(()=>{
   const hero=document.getElementById('hero');
@@ -29,19 +29,17 @@ export default function Landing() {
   return()=>{observer.disconnect();document.removeEventListener('visibilitychange',visibility);};
  },[]);
  useEffect(()=>{
-  const connection=(navigator as Navigator&{connection?:{saveData:boolean}}).connection;
-  if(connection?.saveData||new URLSearchParams(location.search).has('flat'))setFlat(true);
   const frame=requestAnimationFrame(()=>setReady(true));return()=>cancelAnimationFrame(frame);
  },[]);
- const still=paused||!!reduced||flat;
+ const still=!!reduced;
  useLandingChoreography(surface, still||!ready);
  return <div ref={surface} className="landing-experience" data-motion-paused={still}>
-  {!still&&<motion.div className="reading-progress" style={{scaleX:paused?0:scrollYProgress}} aria-hidden="true"/>}
+  {!still&&<motion.div className="reading-progress" style={{scaleX:scrollYProgress}} aria-hidden="true"/>}
   <PillNav logo={<BrandMark/>} logoAlt="StoreScout" items={navItems} activeHref="#hero" itemStyle="pill" hoverEffect="fill" indicator="dot"/>
   <main id="landing-content">
    <section id="hero" className="hero-section"><div className="hero-grid">
-    <div className="hero-copy"><h1 className="hero-title"><span className="hero-line"><span>Your next store.</span></span><em className="hero-line"><span>A clearer plan.</span></em></h1><p className="hero-lede">Find the right place. Understand the investment.</p><p className="hero-body">Explore neighbourhoods, test the economics and build an expansion plan that fits your budget.</p><div className="hero-actions"><Link className="button" href="/app/">Explore StoreScout <Arrow/></Link><a className="button-secondary" href="#retail-film">Watch the story <Arrow down/></a></div><p className="demo-disclosure">Interactive Navi Mumbai demo · synthetic data</p></div>
-    <div className="hero-3d-wrapper" aria-hidden="true"><ExpansionField paused={still||!visible||!ready}><HeroLanyard still={!ready||flat||!!reduced} paused={paused||!visible}/></ExpansionField></div>
+    <div className="hero-copy"><h1 className="hero-title"><span className="hero-line"><span>Your next store.</span></span><em className="hero-line"><span>A clearer plan.</span></em></h1><p className="hero-lede">Find the right place. Understand the investment.</p><p className="hero-body">Explore neighbourhoods, test the economics and build an expansion plan that fits your budget.</p><div className="hero-actions"><Link className="button" href="/login?mode=register">Try now <Arrow/></Link><a className="button-secondary" href="#retail-film">Watch the story <Arrow down/></a></div></div>
+    <div className="hero-3d-wrapper" aria-hidden="true"><ExpansionField paused={still||!visible||!ready}><HeroLanyard still={!ready||!!reduced} paused={!visible}/></ExpansionField></div>
    </div></section>
    <div className="retail-strip"><span>Understand the place</span><span>Test the economics</span><span>Plan the network</span></div>
    <RetailFilm paused={still||!ready}/>
@@ -58,11 +56,10 @@ export default function Landing() {
    <section id="financial-planning" className="section-wrapper"><div className="section-header-block"><h2>Make every store count.</h2><p className="section-intro-text">From a single site to your next portfolio, follow the economics across the whole network.</p></div><FinancialPlanner paused={still}/></section>
    <section id="evidence" className="section-wrapper dark-bg"><div className="section-heading-row"><div><h2>Clarity behind<br/>every decision.</h2><p className="section-intro-text">Keep what is known, estimated and assumed in view.</p></div><div className="evidence-seal" aria-hidden="true"><BrandMark size={62}/></div></div><div className="evidence-pillars-grid">
     <article className="evidence-pillar-card"><h3 className="pillar-title">Know the source.</h3><p className="pillar-desc">Data labels distinguish synthetic locations from the real street map.</p></article>
-    <article className="evidence-pillar-card"><h3 className="pillar-title">See the assumptions.</h3><p className="pillar-desc">This prototype uses scenario assumptions. Estimates are not trained-model forecasts.</p></article>
+    <article className="evidence-pillar-card"><h3 className="pillar-title">See the assumptions.</h3><p className="pillar-desc">Review the assumptions behind each estimate and understand how they affect your plan.</p></article>
     <article className="evidence-pillar-card"><h3 className="pillar-title">Keep the reasoning.</h3><p className="pillar-desc">Save scenarios, compare results and trace the inputs behind an investment plan.</p></article>
-   </div><Reveal paused={still} className="final-cta-box"><div><h2>Plan your next move.</h2><p className="final-cta-sub">Find the place. Understand the investment.</p><Link className="button" href="/app/">Start exploring <Arrow/></Link></div><div className="closing-brand" aria-hidden="true"><BrandMark size={112}/><span>Good places.<br/>Considered decisions.</span></div></Reveal></section>
+   </div><Reveal paused={still} className="final-cta-box"><div><h2>Plan your next move.</h2><p className="final-cta-sub">Find the place. Understand the investment.</p><Link className="button" href="/login?mode=register">Get started <Arrow/></Link></div><div className="closing-brand" aria-hidden="true"><BrandMark size={112}/><span>Good places.<br/>Considered decisions.</span></div></Reveal></section>
   </main>
-  <footer className="footer-clean"><div className="footer-inner"><div className="footer-identity"><span className="footer-title"><BrandMark size={28}/> StoreScout</span><span className="footer-subtitle">Retail expansion, considered. · Team Elites</span></div><a href="#hero" className="footer-back-link">Back to top <Arrow/></a></div></footer>
-  {ready&&!reduced&&!flat&&<button className="motion-control" onClick={()=>setPaused(!paused)} aria-pressed={paused}>{paused?'Resume motion':'Pause motion'}</button>}
+  <footer className="footer-clean"><div className="footer-inner"><div className="footer-identity"><span className="footer-title"><BrandMark size={28}/> StoreScout</span><span className="footer-subtitle">Retail expansion, considered.</span></div><a href="#hero" className="footer-back-link">Back to top <Arrow/></a></div></footer>
  </div>;
 }

@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { animate, motion, useInView, useMotionValue, useReducedMotion, useTransform, type MotionValue } from 'motion/react';
 
@@ -75,7 +74,6 @@ export default function RetailFilm({ paused }: { paused: boolean }) {
         <FilmTitle progress={progress} times={[.62, .72, 1]} opacity={[0, 1, 1]}>Make your<br/>next move.</FilmTitle>
       </div>
     </div>
-    <Link className="retail-film-explore" href="/app/">Explore the demo <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 18 18 6M6 6h12v12" stroke="currentColor" strokeWidth="1.7"/></svg></Link>
     {!reduced && <div className="retail-film-controls" role="group" aria-label="Film playback">
       <button type="button" disabled={paused} onClick={() => {
         if (complete) { progress.set(0); setComplete(false); setPlaying(true); }

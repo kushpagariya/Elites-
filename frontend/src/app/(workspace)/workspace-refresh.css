@@ -187,3 +187,5 @@
 @media (prefers-reduced-motion:reduce) {
   .workspace *, .workspace *::before, .workspace *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+.workspace .account-signout { background: transparent; color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 9px 14px; font: inherit; font-size: 13px; cursor: pointer; white-space: nowrap; }

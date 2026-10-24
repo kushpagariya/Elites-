@@ -14,7 +14,7 @@ export default function FailFastCards({ paused = false }: { paused?: boolean }) 
     <div className="decision-panel">
       <div className="story-tabs" role="group" aria-label="Explore investment risks">{checks.map((check,i)=><button key={check.title} aria-pressed={active===i} onClick={()=>setActive(i)}>{check.title}</button>)}</div>
       <div className="risk-explanation" aria-live="polite"><h3 key={active}>{checks[active].label}</h3><p>{checks[active].body}</p><div className="next-question"><span>What to check</span><strong>{checks[active].change}</strong></div></div>
-      <p className="availability-note">A saved evaluation is required for a site diagnosis or verified rescue threshold.</p>
+      <p className="availability-note">Run a location analysis to identify risks and assess potential improvements.</p>
       <Link className="text-link" href="/app/scenarios">Explore scenarios <span aria-hidden="true">↗</span></Link>
     </div>
   </div>;

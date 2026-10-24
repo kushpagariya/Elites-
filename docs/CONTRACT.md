@@ -4,6 +4,8 @@ Backend owns schema changes. Canonical types: backend/app/schemas.py; generated 
 
 ## Common rules
 
+Authentication: POST `/api/v1/auth/register` accepts name, email and a 12–128 character password; POST `/auth/login` accepts email/password. Both return `{data: {id, name, email}}` and a seven-day HttpOnly, SameSite=Lax session cookie. GET `/auth/me` reads the signed-in account; POST `/auth/logout` revokes the session. `/projects/*` requires a valid session (401 otherwise). Each account has separate saved scenarios/evaluations/reports; shared synthetic baseline inputs remain labelled. Browser calls use the frontend's same-origin `/api/v1` proxy; direct clients must retain cookies. Authentication attempts are rate-limited. For HTTPS hosting set `STORESCOUT_SECURE_COOKIES=1` and the explicit `FRONTEND_ORIGIN`. Email verification and password recovery are not connected.
+
 Base URL: http://127.0.0.1:8000/api/v1. Success is {data, meta: {contract_version: "1", fixture_id: "demo-1", ...}}. Errors are {error: {code, message, details: [{field, reason}]}}. OpenAPI includes this error shape.
 
 Local browser origins: localhost and 127.0.0.1 on ports 3000 and 3001, plus the single configured FRONTEND_ORIGIN. The API exposes Content-Disposition for report consumers. No wildcard origin or arbitrary-port pattern is enabled.

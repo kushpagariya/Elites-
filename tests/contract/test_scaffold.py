@@ -27,8 +27,12 @@ class ScaffoldContractTests(unittest.TestCase):
         self.previous = os.environ.get("STORESCOUT_DB_PATH")
         os.environ["STORESCOUT_DB_PATH"] = str(Path(self.tmp.name) / "state.sqlite3")
         self.client = TestClient(app)
+        account = self.client.post("/api/v1/auth/register", json={"name": "Contract account", "email": "contract@example.test", "password": "contract-passphrase-2026"})
+        self.assertEqual(account.status_code, 201, account.text)
+        self.user_context = store.current_user.set(account.json()["data"]["id"])
 
     def tearDown(self):
+        store.current_user.reset(self.user_context)
         if self.previous is None:
             os.environ.pop("STORESCOUT_DB_PATH", None)
         else:
@@ -46,6 +50,7 @@ class ScaffoldContractTests(unittest.TestCase):
         response = self.client.post("/api/v1/projects/demo/scenarios", json=body)
         self.assertEqual(response.status_code, 201)
         fresh_client = TestClient(app)
+        fresh_client.cookies.update(self.client.cookies)
         values = fresh_client.get("/api/v1/projects/demo/scenarios").json()["data"]
         self.assertEqual(len(values), 2)
         self.assertEqual(values[0]["assumptions"]["rent_multiplier"], 1)
