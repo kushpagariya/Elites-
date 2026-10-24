@@ -16,7 +16,18 @@ from . import services
 ROOT=Path(__file__).resolve().parents[2]
 DATA_ROOT=ROOT/"data"/"demo"
 app=FastAPI(title="StoreScout API",version="1.1")
-app.add_middleware(CORSMiddleware,allow_origins=[os.getenv("FRONTEND_ORIGIN","http://localhost:3000"),"http://127.0.0.1:3000"],allow_methods=["GET","POST"],allow_headers=["Content-Type","Idempotency-Key"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        os.getenv("FRONTEND_ORIGIN", "http://localhost:3000"),
+        "http://127.0.0.1:3000",
+        "http://localhost:3001",
+        "http://127.0.0.1:3001",
+    ],
+    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:[0-9]+)?$",
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type", "Idempotency-Key"],
+)
 
 
 def envelope(data,**meta):
