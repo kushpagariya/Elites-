@@ -875,6 +875,22 @@
               "type": "string",
               "title": "Project Id"
             }
+          },
+          {
+            "name": "scenario_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Scenario Id"
+            }
           }
         ],
         "responses": {
@@ -2536,29 +2552,41 @@
             "required": false,
             "schema": {
               "enum": [
+                "pdf",
                 "html",
                 "json"
               ],
               "type": "string",
-              "default": "html",
+              "default": "pdf",
               "title": "Format"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
+            "description": "Frozen PDF by default; diagnostic HTML/JSON only when explicitly requested.",
             "content": {
+              "application/pdf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
               "text/html": {
                 "schema": {
                   "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object"
                 }
               }
             }
           },
           "404": {
             "content": {
-              "text/html": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorEnvelope"
                 }
@@ -2568,7 +2596,7 @@
           },
           "409": {
             "content": {
-              "text/html": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorEnvelope"
                 }
@@ -2578,7 +2606,7 @@
           },
           "422": {
             "content": {
-              "text/html": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorEnvelope"
                 }
@@ -2588,7 +2616,7 @@
           },
           "500": {
             "content": {
-              "text/html": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorEnvelope"
                 }
@@ -2598,7 +2626,7 @@
           },
           "502": {
             "content": {
-              "text/html": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorEnvelope"
                 }
@@ -2608,7 +2636,7 @@
           },
           "503": {
             "content": {
-              "text/html": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorEnvelope"
                 }
@@ -2829,6 +2857,35 @@
           "source_status"
         ],
         "title": "CellRecord"
+      },
+      "ComparisonReference": {
+        "properties": {
+          "before_scenario_id": {
+            "type": "string",
+            "title": "Before Scenario Id"
+          },
+          "before_evaluation_id": {
+            "type": "string",
+            "title": "Before Evaluation Id"
+          },
+          "after_scenario_id": {
+            "type": "string",
+            "title": "After Scenario Id"
+          },
+          "after_evaluation_id": {
+            "type": "string",
+            "title": "After Evaluation Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "before_scenario_id",
+          "before_evaluation_id",
+          "after_scenario_id",
+          "after_evaluation_id"
+        ],
+        "title": "ComparisonReference"
       },
       "Credentials": {
         "properties": {
@@ -3622,7 +3679,14 @@
       "GeographicContext": {
         "properties": {
           "evaluation_id": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Evaluation Id"
           },
           "catchment_radius_m": {
@@ -3761,6 +3825,17 @@
           "category": {
             "type": "string",
             "title": "Category"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
           },
           "latitude": {
             "type": "number",
@@ -4681,6 +4756,24 @@
               }
             ],
             "title": "Portfolio Run Id"
+          },
+          "selected_site_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 2,
+            "title": "Selected Site Ids"
+          },
+          "comparison": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ComparisonReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "additionalProperties": false,
@@ -4715,6 +4808,24 @@
               }
             ],
             "title": "Portfolio Run Id"
+          },
+          "selected_site_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 2,
+            "title": "Selected Site Ids"
+          },
+          "comparison": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ComparisonReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "analysis_current": {
             "type": "boolean",

@@ -56,6 +56,9 @@ def save_workspace(project_id: str, body: dict):
         db.execute("INSERT INTO objects VALUES ('workspace', ?, 'current', ?) "
                    "ON CONFLICT(kind, project_id, object_id) DO UPDATE SET body=excluded.body",
                    (project_id, canonical_json(body)))
+        db.execute("INSERT INTO objects VALUES ('workspace_scenario', ?, ?, ?) "
+                   "ON CONFLICT(kind, project_id, object_id) DO UPDATE SET body=excluded.body",
+                   (project_id, body['scenario_id'], canonical_json(body)))
 
 
 def get(kind: str, project_id: str, object_id: str):

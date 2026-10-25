@@ -8,14 +8,14 @@ from typing import Annotated, Literal
 from fastapi import FastAPI, Header, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, Response
 from starlette.exceptions import HTTPException
 from starlette.concurrency import run_in_threadpool
 
 from .repositories import store
 from . import auth
 from .schemas import Project, Scenario, ScenarioCreate, EvaluateRequest, PortfolioRequest, RescueRequest, EvaluationData, PortfolioResult, RescueResult, SiteAnalysis, Envelope, ErrorEnvelope, GeographicContext, DaypartsData, WorkspaceState, WorkspaceView
-from .services import analytics, catalogue, reports, sources, presentation, showcase
+from .services import analytics, catalogue, reports, sources, presentation, showcase, workspaces
 from .services.errors import ServiceError
 
 @asynccontextmanager
@@ -69,7 +69,7 @@ app.add_middleware(
     allow_methods=["GET", "POST"],
     allow_credentials=True,
     allow_headers=["Content-Type", "Idempotency-Key"],
-    expose_headers=["Content-Disposition"],
+    expose_headers=["Content-Disposition", "X-Evaluation-ID", "X-Portfolio-Run-ID", "X-Report-SHA256"],
 )
 Token = Annotated[str | None, Header(alias="Idempotency-Key", min_length=1, max_length=128)]
 
@@ -142,33 +142,13 @@ def read_scenarios(project_id: str):
 
 
 @app.get("/api/v1/projects/{project_id}/workspace", response_model=Envelope[WorkspaceView])
-def read_workspace(project_id: str):
-    catalogue.project(project_id)
-    value = store.get("workspace", project_id, "current") or WorkspaceState().model_dump(mode="json")
-    fresh = False
-    if value["evaluation_id"]:
-        try:
-            analytics.context_for(project_id, value["evaluation_id"])
-            fresh = True
-        except ServiceError:
-            pass
-    return envelope({**value, "analysis_current": fresh})
+def read_workspace(project_id: str, scenario_id: str | None = None):
+    return envelope(workspaces.view(project_id, scenario_id))
 
 
 @app.post("/api/v1/projects/{project_id}/workspace", response_model=Envelope[WorkspaceState])
 def save_workspace(project_id: str, body: WorkspaceState):
-    catalogue.scenario(project_id, body.scenario_id)
-    if body.evaluation_id:
-        evaluation = analytics.saved(project_id, "evaluation", body.evaluation_id)
-        if evaluation["scenario_id"] != body.scenario_id:
-            raise ServiceError(409, "CONTEXT_MISMATCH", "The saved analysis belongs to a different scenario.")
-    if body.portfolio_run_id:
-        portfolio = analytics.saved(project_id, "portfolio", body.portfolio_run_id)
-        if portfolio["evaluation_id"] != body.evaluation_id:
-            raise ServiceError(409, "CONTEXT_MISMATCH", "The saved plan belongs to a different analysis.")
-    value = body.model_dump(mode="json")
-    store.save_workspace(project_id, value)
-    return envelope(value)
+    return envelope(workspaces.save(project_id, body))
 
 
 @app.get("/api/v1/projects/{project_id}/scenarios/{scenario_id}", response_model=Envelope[Scenario])
@@ -195,7 +175,7 @@ def features(project_id: str, evaluation_id: str | None = None):
         analytics.saved(project_id, "evaluation", evaluation_id)
         context = analytics.saved(project_id, "evaluation_context", evaluation_id)
         return envelope(presentation.geographic(context, evaluation_id), evaluation_id=evaluation_id)
-    return envelope({"feature_snapshot_id": sources.FEATURE_SNAPSHOT_ID, "prepared": True, "note": "Bengaluru fitted-model inputs; run a saved scenario for computed geographic evidence."})
+    return envelope(presentation.geographic({'project': {**sources.project_data(), 'inputs': sources.installed_snapshot()}}, None))
 
 
 @app.get("/api/v1/projects/{project_id}/model")
@@ -273,10 +253,19 @@ def read_rescue(project_id: str, rescue_id: str):
     return envelope(value, evaluation_id=value["evaluation_id"])
 
 
-@app.get("/api/v1/projects/{project_id}/reports/{evaluation_id}", response_class=HTMLResponse)
-def report(project_id: str, evaluation_id: str, portfolio_run_id: str | None = None, format: Literal["html", "json"] = "html"):
+@app.get("/api/v1/projects/{project_id}/reports/{evaluation_id}", response_class=Response,
+         responses={200: {'description': 'Frozen PDF by default; diagnostic HTML/JSON only when explicitly requested.',
+                          'content': {'application/pdf': {'schema': {'type': 'string', 'format': 'binary'}},
+                                      'text/html': {'schema': {'type': 'string'}}, 'application/json': {'schema': {'type': 'object'}}}}})
+def report(project_id: str, evaluation_id: str, portfolio_run_id: str | None = None, format: Literal["pdf", "html", "json"] = "pdf"):
     value = reports.report_data(project_id, evaluation_id, portfolio_run_id)
     headers = {"Cache-Control": "no-store", "X-Content-Type-Options": "nosniff"}
+    if format == "pdf":
+        document = reports.pdf_document(project_id, evaluation_id, portfolio_run_id)
+        headers.update({'Content-Disposition': f'attachment; filename="{document["filename"]}"',
+                        'X-Evaluation-ID': evaluation_id, 'X-Portfolio-Run-ID': portfolio_run_id or '',
+                        'X-Report-SHA256': document['sha256']})
+        return Response(reports.pdf_bytes(document), media_type='application/pdf', headers=headers)
     if format == "json":
         return JSONResponse(envelope(value, evaluation_id=evaluation_id), headers=headers)
     headers["Content-Security-Policy"] = "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'"

@@ -372,7 +372,7 @@ export function isGeoContext(x: unknown): x is GeoContext {
                 ),
             ),
         ))) &&
-    text(x.evaluation_id) &&
+    (x.evaluation_id === null || text(x.evaluation_id)) &&
     finite(x.catchment_radius_m) &&
     Array.isArray(x.pois) &&
     x.pois.every(

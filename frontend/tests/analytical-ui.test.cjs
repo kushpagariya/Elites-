@@ -122,6 +122,7 @@ function setup() {
       assumptions,
     },
     current: true,
+    hasSavedAnalysis: true,
     evaluation: {
       data: {
         evaluation_id: "eval-unit",
@@ -159,8 +160,8 @@ test("comparison renders saved financials and six daypart controls; supported ze
 test("advanced scenario fields are enabled with labelled ranges and immutable save action", () => {
   setup();
   const html = renderToStaticMarkup(React.createElement(Scenarios));
-  assert.match(html, /Monthly rent \(INR\)/);
-  assert.match(html, /Customer demand change/);
+  assert.match(html, /Base monthly rent \(INR\)/);
+  assert.match(html, /Location sales adjustment/);
   assert.doesNotMatch(html, /Operating cost change|Competition adjustment|Gross margin \(%\)/);
   assert.match(html, /max="200"/);
   assert.doesNotMatch(html, /<fieldset disabled/);
@@ -183,14 +184,14 @@ test("unavailable optimization has no displayed financial recommendation and dis
   };
   let html = renderToStaticMarkup(React.createElement(Portfolio));
   assert.match(html, /No investment recommendation/);
-  assert.match(html, /<button[^>]*disabled=""[^>]*>Download decision report/);
+  assert.match(html, /<button[^>]*disabled=""[^>]*>Download PDF report/);
   workspace.portfolio.solver_status = "OPTIMAL";
   workspace.portfolio.status = "FULL_NETWORK_EXACT";
   html = renderToStaticMarkup(React.createElement(Portfolio));
   assert.match(html, /Empty portfolio/);
   assert.doesNotMatch(
     html,
-    /<button[^>]*disabled=""[^>]*>Download decision report/,
+    /<button[^>]*disabled=""[^>]*>Download PDF report/,
   );
 });
 test("rescue guard rejects unverified, foreign-shape or out-of-bounds thresholds", () => {

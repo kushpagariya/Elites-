@@ -147,8 +147,8 @@ export const evaluateScenario = (scenarioId: string, signal?: AbortSignal, snaps
       signal,
     ),
   );
-export const getWorkspace = (signal?: AbortSignal) => checked(
-  "/projects/demo/workspace",
+export const getWorkspace = (signal?: AbortSignal, scenarioId?: string) => checked(
+  "/projects/demo/workspace" + (scenarioId ? "?" + new URLSearchParams({scenario_id: scenarioId}) : ""),
   (x): x is WorkspaceState & {analysis_current: boolean} => record(x) && typeof x.scenario_id === "string" && typeof x.analysis_current === "boolean" &&
     (x.evaluation_id === null || typeof x.evaluation_id === "string") &&
     (x.portfolio_run_id === null || typeof x.portfolio_run_id === "string"), {signal});
@@ -235,22 +235,27 @@ export async function getSavedReport(
       response.status,
     );
   const type = response.headers.get("content-type") ?? "";
-  if (!type.includes("text/html") && !type.includes("application/json"))
+  if (!type.includes("application/pdf"))
     throw new ApiError("The report format is not supported.", 502);
   const blob = await response.blob();
-  const text = await blob.text();
-  if (!text.includes(evaluationId) || !text.includes(runId))
+  const signature = await blob.slice(0, 5).text();
+  if (signature !== "%PDF-" || response.headers.get("X-Evaluation-ID") !== evaluationId || response.headers.get("X-Portfolio-Run-ID") !== runId)
     throw new ApiError(
       "The report does not identify the active evaluation and portfolio. Download was stopped.",
       409,
     );
-  return { blob, text, type };
+  const checksum = response.headers.get('X-Report-SHA256');
+  if (!checksum || !/^[a-f0-9]{64}$/.test(checksum)) throw new ApiError('The saved PDF has no integrity record.', 502);
+  const actual = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', await blob.arrayBuffer()))).map(v => v.toString(16).padStart(2, '0')).join('');
+  if (actual !== checksum) throw new ApiError('The saved PDF failed its integrity check.', 502);
+  const filename = `storescout-bengaluru-${evaluationId}-${runId}.pdf`;
+  return { blob, type, filename };
 }
 
-export const getGeoContext = (evaluationId: string, signal?: AbortSignal) =>
+export const getGeoContext = (evaluationId?: string, signal?: AbortSignal) =>
   checked(
-    "/projects/demo/features?" +
-      new URLSearchParams({ evaluation_id: evaluationId }),
+    "/projects/demo/features" + (evaluationId ? "?" +
+      new URLSearchParams({ evaluation_id: evaluationId }) : ""),
     isGeoContext,
     { signal },
   );

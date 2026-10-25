@@ -41,7 +41,7 @@ export default function LoginForm() {
       <Link href="/" className="auth-brand" aria-label="StoreScout home"><BrandMark size={38}/><span>Store<span>Scout</span></span></Link>
       <div className="auth-form-content">
         <h1 id="auth-title">{register ? 'Your next chapter\nstarts here.' : 'Welcome back.'}</h1>
-        <p className="auth-intro">{register ? 'Create your account and start planning your next location.' : 'Sign in to your StoreScout workspace.'}</p>
+        <p className="auth-intro">{register ? 'Create your account to plan grocery locations in Bengaluru.' : 'Sign in to your Bengaluru grocery planning workspace.'}</p>
         <form onSubmit={submit} aria-busy={busy}>
           <fieldset disabled={busy}>
             {register && <label htmlFor="auth-name">Full name<input id="auth-name" name="name" autoComplete="name" required maxLength={80} placeholder="Your name"/></label>}

@@ -9,6 +9,7 @@ import {
   reasonLabel, riskSummary,
 } from "@/lib/presentation";
 import StatusBadge from "@/components/StatusBadge";
+import { delayedOpening } from '@/lib/workspace-model';
 import { ErrorNotice, Unavailable } from "@/components/Feedback";
 import type { EvaluationData, Scenario, SiteOverride } from "@/lib/types";
 const eventLabels = {
@@ -25,15 +26,12 @@ export default function Scenarios() {
   const [lever, setLever] = useState<"rent" | "sales">("rent");
   const [lower, setLower] = useState("");
   const [upper, setUpper] = useState("");
-  const [before, setBefore] = useState<{
-    scenario: Scenario;
-    evaluation: EvaluationData;
-  } | null>(null);
+  const before = w.comparison;
   const draft = w.draft;
   const site =
     w.project?.data.sites.find((s) => s.site_id === siteId) ??
     w.project?.data.sites[0];
-  const analysis = w.current
+  const analysis = w.hasSavedAnalysis
     ? w.evaluation?.data.site_analyses.find((s) => s.site_id === site?.site_id)
     : undefined;
   const proposal =
@@ -43,9 +41,8 @@ export default function Scenarios() {
       ? w.rescueResult
       : null;
   const hasAfter = Boolean(
-    w.current &&
+    w.hasSavedAnalysis &&
       before &&
-      w.scenario?.base_scenario_id === before.scenario.scenario_id &&
       before.evaluation.evaluation_id !== w.evaluation?.data.evaluation_id,
   );
   const currentSnapshot =
@@ -109,14 +106,11 @@ export default function Scenarios() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                if (w.evaluation && w.evaluatedScenario)
-                  setBefore({
-                    evaluation: w.evaluation.data,
-                    scenario: w.evaluatedScenario,
-                  });
                 void w.saveAndEvaluate();
               }}
             >
+              <label>Scenario name<input required maxLength={100} value={draft.name} onChange={e => w.edit({name:e.target.value})}/></label>
+              <h3>Area-wide conditions</h3>
               <label>
                 Expansion budget (INR)
                 <input
@@ -132,8 +126,8 @@ export default function Scenarios() {
               </label>
               {(
                 [
-                  ["demand_multiplier", "Customer demand change"],
-                  ["rent_multiplier", "Rental cost change"],
+                  ["demand_multiplier", "Area-wide customer demand change"],
+                  ["rent_multiplier", "Area-wide rent change"],
                 ] as const
               ).map(([key, label]) => (
                 <div className="change-control" key={key}>
@@ -177,6 +171,7 @@ export default function Scenarios() {
                   </div>
                 </div>
               ))}
+              <p className="helper">Area-wide demand scales the spending wallet and demand for every candidate. Rent change multiplies each location’s base monthly rent, including location overrides. Zero change preserves the saved baseline.</p>
               <fieldset className="infrastructure-choice">
                 <legend>Future infrastructure</legend>
                 <div
@@ -192,7 +187,7 @@ export default function Scenarios() {
                         draft.assumptions.infrastructure_state === state
                       }
                       onClick={() =>
-                        w.editAssumptions({ infrastructure_state: state, ...(state !== "current" && draft.assumptions.infrastructure_effect_fraction === 0 ? {infrastructure_effect_fraction: w.infrastructure[0]?.assumed_effect_fraction ?? 0} : {}) })
+                        w.editAssumptions({ infrastructure_state: state })
                       }
                     >
                       {eventLabels[state]}
@@ -207,17 +202,6 @@ export default function Scenarios() {
               </fieldset>
               <details className="advanced-assumptions">
                 <summary>Advanced Assumptions</summary>
-                <div className="form-grid">
-                  <label className="full-width">
-                    Scenario name
-                    <input
-                      required
-                      maxLength={100}
-                      value={draft.name}
-                      onChange={(e) => w.edit({ name: e.target.value })}
-                    />
-                  </label>
-                </div>
                 <h3>Individual-location overrides</h3>
                 <label>
                   Location
@@ -245,13 +229,13 @@ export default function Scenarios() {
                     [
                       [
                         "monthly_rent_inr",
-                        "Monthly rent (INR)",
+                        "Base monthly rent (INR)",
                         "money",
                         undefined,
                       ],
                       [
                         "sales_multiplier",
-                        "Customer demand change (%)",
+                        "Location sales adjustment (%)",
                         "change",
                         200,
                       ],
@@ -263,6 +247,7 @@ export default function Scenarios() {
                     return (
                       <label key={key}>
                         {label}
+                        <small>{value == null ? 'Inherited' : 'Overridden'}{key === 'monthly_rent_inr' && site ? ` · saved base ${money(site.monthly_rent_inr)}` : ' · 0% means baseline sales'}</small>
                         <input
                           type="number"
                           min={kind === "change" ? -100 : 0}
@@ -282,6 +267,7 @@ export default function Scenarios() {
                     );
                   })}
                 </div>
+                <p className="helper">Location sales adjustment applies only to this candidate’s baseline reference sales, separately from area-wide demand. Effective rent = base monthly rent × area-wide rent multiplier. Blank overrides inherit saved inputs.</p>
                 <h3>Infrastructure timing &amp; effect</h3>
                 <div className="form-grid">
                   <label>
@@ -353,7 +339,7 @@ export default function Scenarios() {
                   className="secondary"
                   type="button"
                   disabled={w.busy}
-                  onClick={() => w.selectScenario(w.scenario!.scenario_id)}
+                  onClick={w.resetEdits}
                 >
                   Reset edits
                 </button>
@@ -403,7 +389,7 @@ export default function Scenarios() {
                   <p>
                     Rent{" "}
                     {changePercent(
-                      (before?.scenario ?? w.scenario).assumptions
+                      (displayBefore?.scenario ?? w.scenario).assumptions
                         .rent_multiplier,
                     )}
                     %
@@ -420,6 +406,7 @@ export default function Scenarios() {
                     )}
                   </p>
                   {earlier && <StatusBadge status={earlier.failfast.status} />}
+                  {earlier && <><p>Annual sales {money(earlier.annual_revenue_inr)}</p><p>Effective monthly rent {money(earlier.effective_inputs?.monthly_rent_inr)}</p></>}
                 </div>
                 <div>
                   <strong>{hasAfter ? "New result" : "Proposed change"}</strong>
@@ -447,8 +434,10 @@ export default function Scenarios() {
                   {hasAfter && (
                     <StatusBadge status={analysis?.failfast.status} />
                   )}
+                  {hasAfter && analysis && <><p>Annual sales {money(analysis.annual_revenue_inr)}</p><p>Effective monthly rent {money(analysis.effective_inputs?.monthly_rent_inr)}</p></>}
                 </div>
               </div>
+              {hasAfter && earlier && analysis && <p className="helper">Sales change {money(analysis.annual_revenue_inr-earlier.annual_revenue_inr)} · Incremental NPV change {money(analysis.npv_inr-earlier.npv_inr)}. Starting scenario: {before?.scenario.name}; resulting scenario: {w.scenario.name}. Both use their saved analysis snapshots.</p>}
               {hasAfter && w.evaluation?.data.rankings.length ? (
                 <p className="helper">
                   Top locations now:{" "}
@@ -590,6 +579,8 @@ export default function Scenarios() {
                             : proposal.threshold.toFixed(3) +
                               "× baseline reference sales"}
                         </p>
+                        <p>Current base rent {money(draft.assumptions.site_overrides[site?.site_id ?? '']?.monthly_rent_inr ?? site?.monthly_rent_inr)}; effective rent {money(analysis?.effective_inputs?.monthly_rent_inr)} / month. Current sales setting {(analysis?.effective_inputs?.sales_multiplier ?? 1).toFixed(3)}× baseline.</p>
+                        <p>Verified incremental NPV: {money(proposal.npv_at_threshold)}. A maximum affordable rent can exceed current rent; minimum required sales can be below current sales. Remaining evidence risks still apply.</p>
                         <button
                           type="button"
                           disabled={w.busy}
@@ -597,7 +588,7 @@ export default function Scenarios() {
                             site && w.applyRescue(site.site_id, lever)
                           }
                         >
-                          Try this change
+                          Create a new what-if scenario
                         </button>
                       </>
                     )}
@@ -638,6 +629,7 @@ export default function Scenarios() {
                         : event.source_status}
                     </p>
                     {event.geometry_note && <p className="helper">{event.geometry_note}</p>}
+                    {event.official_source_url && <p className="helper"><a href={event.official_source_url} target="_blank" rel="noopener noreferrer">Official project evidence</a>. The opening date, proximity geometry and commercial effect in this scenario are assumptions, not verified station timing or measured uplift.</p>}
                     <dl>
                       <div>
                         <dt>Opening date</dt>
@@ -650,6 +642,11 @@ export default function Scenarios() {
                             !event.expected_open_date) &&
                             " · assumed"}
                         </dd>
+                      </div>
+                      <div>
+                        <dt>Effective opening date</dt>
+                        <dd>{draft.assumptions.infrastructure_state === 'current' ? 'Not activated in Current state' : delayedOpening(draft.assumptions.opening_date ?? event.expected_open_date ?? event.assumed_demo_open_date,
+                          draft.assumptions.infrastructure_state === 'delayed' ? draft.assumptions.delay_months : 0) ?? 'Unknown'} · assumed timing</dd>
                       </div>
                       <div>
                         <dt>Commercial effect</dt>

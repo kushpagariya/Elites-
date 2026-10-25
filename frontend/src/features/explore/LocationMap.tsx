@@ -56,12 +56,12 @@ export default function LocationMap({
   const titleId = useId();
   const selected = selectedSiteIds ?? w.selection;
   const geo =
-    w.current &&
+    w.geoContext && w.evaluation && !w.dirty &&
     w.geoContext?.evaluation_id === w.evaluation?.data.evaluation_id
       ? w.geoContext
-      : null;
+      : w.referenceGeo;
   const focused = project?.sites.find((s) => s.site_id === w.focusedSiteId);
-  const analysis = w.current
+  const analysis = !w.dirty && w.evaluation?.data.scenario_id === w.scenario?.scenario_id
     ? w.evaluation?.data.site_analyses.find(
         (s) => s.site_id === focused?.site_id,
       )
@@ -118,6 +118,7 @@ export default function LocationMap({
           NavigationControl,
           AttributionControl,
           Popup,
+          Marker,
           setWorkerUrl,
           setWorkerCount,
         }) => {
@@ -188,6 +189,10 @@ export default function LocationMap({
                 type: "geojson",
                 data: empty(),
               });
+              instance.addSource('competitors', {type: 'geojson', data: empty(), cluster: true, clusterMaxZoom: 13, clusterRadius: 42});
+              instance.addLayer({id:'competitor-clusters',type:'circle',source:'competitors',filter:['has','point_count'],paint:{'circle-color':'#77503b','circle-radius':18,'circle-stroke-color':'#fff','circle-stroke-width':2}});
+              instance.addLayer({id:'competitor-counts',type:'symbol',source:'competitors',filter:['has','point_count'],layout:{'text-field':['get','point_count_abbreviated'],'text-size':12},paint:{'text-color':'#fff'}});
+              instance.addLayer({id:'competitor-pins',type:'circle',source:'competitors',filter:['!', ['has','point_count']],paint:{'circle-radius':5,'circle-color':'#d29b38','circle-stroke-color':'#77503b','circle-stroke-width':2}});
               instance.addLayer({
                 id: "destination-pins",
                 type: "circle",
@@ -253,7 +258,7 @@ export default function LocationMap({
                 type: "circle",
                 source: "branches",
                 paint: {
-                  "circle-radius": 5,
+                  "circle-radius": 8,
                   "circle-color": "#203c32",
                   "circle-stroke-color": "white",
                   "circle-stroke-width": 2,
@@ -306,14 +311,29 @@ export default function LocationMap({
                 const id = event.features?.[0]?.properties?.site_id;
                 if (typeof id !== "string") return;
                 latest.current.focusSite(id);
-                if (!compact) {
-                  const state = latest.current;
-                  if (
-                    !state.selection.includes(id) &&
-                    state.selection.length < 2
-                  )
-                    state.toggleSite(id);
-                }
+              });
+              instance.on('click', 'competitor-clusters', async event => {
+                const feature = event.features?.[0];
+                if (!feature || feature.geometry.type !== 'Point') return;
+                const zoom = await (instance.getSource('competitors') as GeoJSONSource).getClusterExpansionZoom(Number(feature.properties.cluster_id));
+                instance.easeTo({center: feature.geometry.coordinates as [number,number], zoom});
+              });
+              instance.on('click', 'competitor-pins', event => {
+                latest.current.focusSite(null);
+                const p = event.features?.[0]?.properties;
+                if (p) new Popup().setLngLat(event.lngLat).setText(`${p.name || 'Unnamed mapped shop'} · ${p.category} · ${p.source_status} · source: ${p.source_id}. Contextual competitor evidence. Sales and NPV are unavailable: no store financial observations were collected.`).addTo(instance);
+              });
+              instance.on('click','branch-pins',event => {
+                latest.current.focusSite(null);
+                new Popup().setLngLat(event.lngLat).setText(`${event.features?.[0]?.properties?.name} · Fictional existing branch (SYNTHETIC). Used for modelled displacement; no observed branch sales.`).addTo(instance);
+              });
+              project.sites.forEach((site, index) => {
+                const button = document.createElement('button');
+                button.type='button'; button.className='candidate-map-pin';
+                button.textContent=String(index+1); button.dataset.siteId=site.site_id;
+                button.setAttribute('aria-label','Candidate location '+site.name);
+                button.addEventListener('click',event=>{event.stopPropagation();latest.current.focusSite(site.site_id);});
+                new Marker({element:button}).setLngLat([site.longitude,site.latitude]).addTo(instance);
               });
               instance.on("mouseenter", "candidate-pins", () => {
                 instance.getCanvas().style.cursor = "pointer";
@@ -401,6 +421,10 @@ export default function LocationMap({
         GeoJSONSource["setData"]
       >[0],
     );
+    host.current?.querySelectorAll<HTMLButtonElement>('.candidate-map-pin').forEach(button => {
+      button.setAttribute('aria-pressed',String(selected.includes(button.dataset.siteId ?? '')));
+      button.dataset.focused=String(button.dataset.siteId === w.focusedSiteId);
+    });
     const categories = new Set(
       profiles
         .filter((s) => s.site_id === (w.focusedSiteId ?? selected[0]))
@@ -414,7 +438,7 @@ export default function LocationMap({
     );
     (instance.getSource("destinations") as GeoJSONSource).setData({
       type: "FeatureCollection",
-      features: (geo?.pois ?? []).filter(p => p.category === "competitor" ? competitors : pois).map((p) => ({
+      features: (geo?.pois ?? []).filter(p => p.category !== "competitor" && pois).map((p) => ({
         type: "Feature",
         geometry: { type: "Point", coordinates: [p.longitude, p.latitude] },
         properties: {
@@ -424,6 +448,8 @@ export default function LocationMap({
         },
       })),
     });
+    (instance.getSource('competitors') as GeoJSONSource).setData({type:'FeatureCollection',features:(geo?.pois ?? []).filter(p => p.category === 'competitor').map(p => ({type:'Feature',geometry:{type:'Point',coordinates:[p.longitude,p.latitude]},properties:{name:p.name,category:p.category,source_id:p.source_id,source_status:p.source_status}}))});
+    for (const layer of ['competitor-clusters','competitor-counts','competitor-pins']) instance.setLayoutProperty(layer,'visibility',competitors ? 'visible' : 'none');
     (instance.getSource("catchments") as GeoJSONSource).setData({
       type: "FeatureCollection",
       features: (catchments ? (geo?.catchments ?? []) : [])
@@ -544,17 +570,18 @@ export default function LocationMap({
                 ×
               </button>
             </div>
-            <StatusBadge status={analysis?.failfast.status} />
+            <p className="helper">Candidate location · {w.scenario?.name}</p>
+            {analysis ? <><StatusBadge status={analysis.failfast.status} />
             <dl>
               <div>
                 <dt>Year 1 sales</dt>
                 <dd title={money(analysis?.annual_revenue_inr)}>{compactMoney(analysis?.annual_revenue_inr)}</dd>
               </div>
               <div>
-                <dt>Network NPV</dt>
+                <dt>Incremental NPV</dt>
                 <dd title={money(analysis?.npv_inr)}>{compactMoney(analysis?.npv_inr)}</dd>
               </div>
-            </dl>
+            </dl></> : <><p>No saved analysis for these settings. Run analysis to see annual sales, incremental NPV and risk status.</p><button disabled={w.busy || w.dirty} onClick={() => void w.evaluate()}>Run Analysis</button>{w.dirty && <p className="helper">Save or reset your edits first.</p>}</>}
             {!compact && (
               <button
                 className="secondary"
@@ -574,7 +601,7 @@ export default function LocationMap({
       <div className="map-legend">
         <span>
           <i className="legend-dot purple" />
-          {compact ? "Recommended locations" : "Candidates"}
+          {compact ? "Recommended locations" : `${project?.sites.length ?? 0} candidate locations`}
         </span>
         {compact && (
           <span>
@@ -584,7 +611,7 @@ export default function LocationMap({
         )}
         <span>
           <i className="legend-dot ink" />
-          Existing stores
+          {project?.stores.length ?? 0} fictional existing branches
         </span>
         {geo && pois && (
           <span>
@@ -592,7 +619,7 @@ export default function LocationMap({
             POI categories
           </span>
         )}
-        {geo && competitors && <span><i className="legend-dot" style={{background: "#77503b"}}/>Mapped competitors</span>}
+        <span><i className="legend-dot" style={{background: "#d29b38"}}/>{(geo?.pois ?? []).filter(p => p.category === 'competitor').length} mapped competitors {competitors ? '' : '(hidden)'}</span>
         {infrastructure && w.infrastructure.some(hasMapGeometry) && (
           <span>
             <i className="legend-dot amber" />
@@ -631,6 +658,7 @@ export default function LocationMap({
             </label>
           ))}
         </div>
+        <p className="helper">Competitor shops are contextual mapped evidence, available before analysis. Clusters expand as you zoom in. Only the {project?.sites.length ?? 0} candidates can enter comparison or portfolio; adding contextual map records does not raise this limit.</p>
         <p className="helper">
           {geo
             ? "Catchments show assumed straight-line radii. DaypartDNA circles show within-location opportunity, not measured footfall or a cross-city score."

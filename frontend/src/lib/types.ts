@@ -49,10 +49,18 @@ export interface ApiEnvelope<T> {
   meta: ResponseMeta;
 }
 
+export interface ComparisonReference {
+  before_scenario_id: string;
+  before_evaluation_id: string;
+  after_scenario_id: string;
+  after_evaluation_id: string;
+}
 export interface WorkspaceState {
   scenario_id: string;
   evaluation_id: string | null;
   portfolio_run_id: string | null;
+  selected_site_ids?: string[];
+  comparison?: ComparisonReference | null;
 }
 
 export type DemoProject = Project & {
@@ -228,6 +236,7 @@ export interface InfrastructureEvent {
   hypothetical_demo: boolean;
   assumed_effect_fraction?: number;
   geometry_note?: string;
+  official_source_url?: string;
   source_status: Provenance;
   source_id: string;
   expected_open_date: string | null;
@@ -321,11 +330,12 @@ export interface RescueResult {
   diagnostics: Record<string, unknown>;
 }
 export interface GeoContext {
-  evaluation_id: string;
+  evaluation_id: string | null;
   catchment_radius_m: number;
   pois: {
     poi_id: string;
     category: string;
+    name?: string | null;
     latitude: number;
     longitude: number;
     source_id: string;

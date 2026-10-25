@@ -118,10 +118,19 @@ class EvaluateRequest(StrictModel):
     feature_snapshot_id: str = "bengaluru-features-20261024-v1"
 
 
+class ComparisonReference(StrictModel):
+    before_scenario_id: str
+    before_evaluation_id: str
+    after_scenario_id: str
+    after_evaluation_id: str
+
+
 class WorkspaceState(StrictModel):
     scenario_id: str = "baseline"
     evaluation_id: str | None = None
     portfolio_run_id: str | None = None
+    selected_site_ids: list[str] = Field(default_factory=list, max_length=2)
+    comparison: ComparisonReference | None = None
 
 
 class WorkspaceView(WorkspaceState):
@@ -313,6 +322,7 @@ class RescueResult(StrictModel):
 class PoiRecord(StrictModel):
     poi_id: str
     category: str
+    name: str | None = None
     latitude: FiniteFloat
     longitude: FiniteFloat
     opening_hours: str | None
@@ -340,7 +350,7 @@ class Catchment(StrictModel):
 
 
 class GeographicContext(StrictModel):
-    evaluation_id: str
+    evaluation_id: str | None
     catchment_radius_m: FiniteFloat = Field(gt=0)
     pois: list[PoiRecord]
     cells: list[CellRecord]

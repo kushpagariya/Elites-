@@ -14,7 +14,7 @@ export { PERIODS } from "@/lib/presentation";
 export default function Explore() {
   const w = useWorkspace();
   const project = w.project?.data;
-  const evaluation = w.evaluation?.data;
+  const evaluation = !w.dirty && w.evaluation && w.evaluation.data.scenario_id === w.scenario?.scenario_id ? w.evaluation.data : undefined;
   const analyses = new Map(
     evaluation?.site_analyses.map((s) => [s.site_id, s]),
   );
@@ -285,6 +285,12 @@ export default function Explore() {
             {w.selection.length} of 2 selected
           </span>
         </div>
+        <div className="two-columns comparison-pickers">
+          {[0,1].map(index => <label key={index}>Candidate {index + 1}<select aria-label={`Comparison candidate ${index + 1}`} value={w.selection[index] ?? ''} onChange={e => {
+            const ids = [...w.selection]; ids[index] = e.target.value;
+            w.chooseSites(ids); w.focusSite(e.target.value || null);
+          }}><option value="">Choose a candidate location</option>{sites.map(site => <option key={site.site_id} value={site.site_id} disabled={w.selection[1-index] === site.site_id}>{site.name}</option>)}</select></label>)}
+        </div>
         {compared.length === 2 ? (
           <div className="two-columns">
             {compared.map((site) => (
@@ -327,8 +333,8 @@ export default function Explore() {
                   "Investment",
                   "Monthly rent",
                   "Branch contribution lost",
-                  "Network NPV",
-                  "ROI",
+                  "Incremental NPV (alone)",
+                  "Horizon ROI",
                   "Payback",
                   "Status",
                 ].map((t) => (

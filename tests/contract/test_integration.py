@@ -175,7 +175,7 @@ class IntegrationTests(unittest.TestCase):
     def test_reports_are_frozen_escaped_and_require_matching_portfolios(self):
         scenario=self.scenario(name='<script>alert(1)</script>');evaluation=self.evaluate(scenario['scenario_id']);eid=evaluation['evaluation_id']
         run=self.client.post(BASE+'/portfolios',json={'evaluation_id':eid}).json()['data']
-        report=self.client.get(BASE+'/reports/'+eid+'?portfolio_run_id='+run['portfolio_run_id'])
+        report=self.client.get(BASE+'/reports/'+eid+'?format=html&portfolio_run_id='+run['portfolio_run_id'])
         self.assertEqual(report.status_code,200)
         self.assertNotIn('<script>alert(1)</script>',report.text);self.assertIn('&lt;script&gt;',report.text)
         value=self.client.get(BASE+'/reports/'+eid+'?format=json').json()['data']

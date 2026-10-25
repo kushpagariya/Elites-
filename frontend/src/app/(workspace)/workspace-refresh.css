@@ -189,3 +189,9 @@
 }
 
 .workspace .account-signout { background: transparent; color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 9px 14px; font: inherit; font-size: 13px; cursor: pointer; white-space: nowrap; }
+.workspace .candidate-map-pin { width:29px; height:29px; min-height:0; padding:0; display:grid; place-items:center; background:#a83d24; color:white; border:2px solid white; border-radius:50%; font:bold 12px/1 sans-serif; box-shadow:0 2px 8px #183e3540; cursor:pointer; }
+.workspace .candidate-map-pin[aria-pressed=true], .workspace .candidate-map-pin[data-focused=true] { outline:3px solid #183e35; outline-offset:2px; }
+.workspace .comparison-pickers { margin-bottom:20px; }
+.workspace .comparison-pickers label { display:grid; gap:8px; }
+.workspace .map-site-card { max-height:calc(100% - 32px); overflow:auto; }
+@media(max-width:640px) { .workspace .map-site-card { max-height:none; } .workspace .comparison-pickers { grid-template-columns:1fr; } }

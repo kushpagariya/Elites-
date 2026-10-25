@@ -58,7 +58,7 @@ def geographic(context, evaluation_id):
         lat, lng = site['latitude'], site['longitude']
         coords = [[lng + radius * cos(2*pi*i/64)/(111320*cos(radians(lat))), lat + radius*sin(2*pi*i/64)/111320] for i in range(65)]
         catchments.append(dict(site_id=site['site_id'], geometry=dict(type='Polygon', coordinates=[coords])))
-    pois = [{k: p[k] for k in ('poi_id', 'category', 'latitude', 'longitude', 'source_id')} | dict(opening_hours=p.get('opening_hours') or None, source_status='REAL') for p in inputs['pois']]
+    pois = [{k: p[k] for k in ('poi_id', 'category', 'latitude', 'longitude', 'source_id')} | dict(name=p.get('name') or None, opening_hours=p.get('opening_hours') or None, source_status='REAL') for p in inputs['pois']]
     cells = [{k: c[k] for k in ('cell_id', 'latitude', 'longitude', 'annual_wallet_inr', 'source_id')} | dict(source_status='ASSUMED') for c in inputs['cells']]
     return dict(evaluation_id=evaluation_id, catchment_radius_m=radius, pois=pois, cells=cells,
                 catchments=catchments, roads=[], competitors=[], limitations=[

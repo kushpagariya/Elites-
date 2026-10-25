@@ -87,7 +87,7 @@ class ScaffoldContractTests(unittest.TestCase):
         run_response = self.client.post("/api/v1/projects/demo/portfolios", json={"evaluation_id": evaluation["evaluation_id"]})
         self.assertEqual(run_response.status_code, 200, run_response.text)
         run_id = run_response.json()["data"]["portfolio_run_id"]
-        report=self.client.get(f"/api/v1/projects/demo/reports/{evaluation['evaluation_id']}?portfolio_run_id={run_id}")
+        report=self.client.get(f"/api/v1/projects/demo/reports/{evaluation['evaluation_id']}?format=json&portfolio_run_id={run_id}")
         self.assertEqual(report.status_code,200)
         for label in ["SYNTHETIC","ASSUMED",evaluation["evaluation_id"],run_id,evaluation["evidence"]["source_snapshot_id"]]: self.assertIn(label,report.text)
         self.assertEqual(self.client.get(f"/api/v1/projects/demo/reports/missing?portfolio_run_id={run_id}").status_code,404)

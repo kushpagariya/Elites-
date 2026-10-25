@@ -19,7 +19,7 @@ export default function InvestmentCard({
       <dl className="investment-primary">
         <div>
           <dt title="Net present value: future network cash flows less initial investment, discounted to today.">
-            Network NPV
+            Incremental NPV · opened alone
           </dt>
           <dd title={money(analysis?.npv_inr)}>
             {compactMoney(analysis?.npv_inr)}
@@ -44,7 +44,7 @@ export default function InvestmentCard({
           <dd>{money(site.capex_inr)}</dd>
         </div>
         <div>
-          <dt>ROI</dt>
+          <dt>Horizon ROI</dt>
           <dd>{percent(analysis?.roi_fraction)}</dd>
         </div>
         <div>

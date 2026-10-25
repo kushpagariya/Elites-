@@ -45,6 +45,7 @@ import {
   matchesEvaluation,
   matchesPortfolio,
   isCurrentEvaluation,
+  sameScenarioInputs,
 } from "./workspace-model";
 
 export interface Failure {
@@ -87,21 +88,6 @@ export function failure(error: unknown): Failure {
       details?.error?.details?.map((d) => d.field + ": " + d.reason) ?? [],
   };
 }
-const SCENARIO_KEY = "storescout:demo:scenario";
-function rememberScenario(id: string) {
-  try {
-    localStorage.setItem(SCENARIO_KEY, id);
-  } catch {
-    /* Storage may be disabled; server state remains authoritative. */
-  }
-}
-function rememberedScenario() {
-  try {
-    return localStorage.getItem(SCENARIO_KEY);
-  } catch {
-    return null;
-  }
-}
 type Operation =
   | "save"
   | "evaluate"
@@ -109,6 +95,7 @@ type Operation =
   | "rescue"
   | "dayparts"
   | "report"
+  | "restore"
   | null;
 function useWorkspaceState() {
   const [project, setProject] = useState<ApiEnvelope<Project> | null>(null);
@@ -124,6 +111,10 @@ function useWorkspaceState() {
   );
   const [rescueResult, setRescueResult] = useState<RescueResult | null>(null);
   const [geoContext, setGeoContext] = useState<GeoContext | null>(null);
+  const [referenceGeo, setReferenceGeo] = useState<GeoContext | null>(null);
+  const [comparison, setComparison] = useState<{scenario: Scenario; evaluation: EvaluationData} | null>(null);
+  const comparisonRef = useRef<WorkspaceState['comparison']>(null);
+  const pendingBefore = useRef<{scenario: Scenario; evaluation: EvaluationData} | null>(null);
   const [portfolio, setPortfolio] = useState<PortfolioResult | null>(null);
   const [infrastructure, setInfrastructure] = useState<InfrastructureEvent[]>(
     [],
@@ -141,9 +132,10 @@ function useWorkspaceState() {
   const [maxStores, setMaxStores] = useState(2);
   const [acknowledged, setAcknowledged] = useState<string[]>([]);
   const [notice, setNotice] = useState("");
-  const [report, setReport] = useState<{ text: string; type: string } | null>(
+  const [report, setReport] = useState<{ url: string; type: string } | null>(
     null,
   );
+  useEffect(() => () => { if (report) URL.revokeObjectURL(report.url); }, [report]);
   const clock = useRef(new RequestClock());
   const request = useRef<AbortController | null>(null);
   const geoClock = useRef(new RequestClock());
@@ -152,9 +144,12 @@ function useWorkspaceState() {
   const loadRequest = useRef<AbortController | null>(null);
   const saveQueue = useRef<Promise<unknown>>(Promise.resolve());
   const persistWorkspace = (state: WorkspaceState) => {
-    saveQueue.current = saveQueue.current.catch(() => {}).then(() => saveWorkspace(state)).catch(() => {
+    const complete = {selected_site_ids: selection, comparison: comparisonRef.current, ...state};
+    saveQueue.current = saveQueue.current.catch(() => {}).then(() => saveWorkspace(complete)).catch(() => {
       setNotice("Your scenarios and calculations are saved. The last-open view could not be remembered; please check your connection.");
+      return false;
     });
+    return saveQueue.current;
   };
   const scenario = scenarios.find((s) => s.scenario_id === scenarioId) ?? null;
   const current = isCurrentEvaluation(
@@ -200,13 +195,16 @@ function useWorkspaceState() {
     setLoading(true);
     setLoadError(null);
     invalidate();
-    const [p, s, infra, preference] = await Promise.allSettled([
+    setEvaluation(null);
+    const [p, s, infra, preference, reference] = await Promise.allSettled([
       loadProject(controller.signal),
       getScenarios(controller.signal),
       getInfrastructure(controller.signal),
       getWorkspace(controller.signal),
+      getGeoContext(undefined, controller.signal),
     ]);
     if (controller.signal.aborted || !loadClock.current.accepts(token)) return;
+    if (reference.status === 'fulfilled') setReferenceGeo(reference.value.data);
     if (p.status === "fulfilled") {
       setProject(p.value);
       const siteIds = new Set(p.value.data.sites.map((site) => site.site_id));
@@ -215,7 +213,7 @@ function useWorkspaceState() {
     if (s.status === "fulfilled") {
       setScenarios(s.value.data);
       setScenarioId((old) => {
-        const preferred = preference.status === "fulfilled" ? preference.value.data.scenario_id : rememberedScenario() ?? old;
+        const preferred = preference.status === "fulfilled" ? preference.value.data.scenario_id : 'baseline';
         return s.value.data.some((v) => v.scenario_id === preferred)
           ? preferred
           : (s.value.data[0]?.scenario_id ?? "baseline");
@@ -237,6 +235,16 @@ function useWorkspaceState() {
     } else setInfrastructureError(failure(infra.reason));
     if (p.status === "fulfilled" && s.status === "fulfilled" && preference.status === "fulfilled") {
       const state = preference.value.data;
+      setSelection(state.selected_site_ids ?? []);
+      comparisonRef.current = state.comparison ?? null;
+      if (state.comparison) {
+        try {
+          const before = await getEvaluation(state.comparison.before_evaluation_id, controller.signal);
+          const source = s.value.data.find(v => v.scenario_id === state.comparison?.before_scenario_id);
+          if (source && !controller.signal.aborted && loadClock.current.accepts(token) && before.data.scenario_id === source.scenario_id)
+            setComparison({scenario: source, evaluation: before.data});
+        } catch { /* A missing comparison is disclosed without substituting another analysis. */ }
+      }
       const savedScenario = s.value.data.find(value => value.scenario_id === state.scenario_id);
       if (savedScenario && state.evaluation_id) {
         try {
@@ -254,7 +262,7 @@ function useWorkspaceState() {
             ]);
             if (controller.signal.aborted || !loadClock.current.accepts(token)) return;
             if (geo.status === "fulfilled") setGeoContext(geo.value.data);
-            if (state.analysis_current && plan.status === "fulfilled" && plan.value && plan.value.data.evaluation_id === restored.data.evaluation_id) {
+            if (plan.status === "fulfilled" && plan.value && plan.value.data.evaluation_id === restored.data.evaluation_id) {
               setPortfolio(plan.value.data);
               setMaxStores(plan.value.data.max_stores ?? 2);
               setAcknowledged(plan.value.data.acknowledged_risk_site_ids ?? []);
@@ -281,24 +289,72 @@ function useWorkspaceState() {
   useEffect(() => {
     if (scenario) setDraft(scenarioDraft(scenario));
   }, [scenario]);
-  const selectScenario = (id: string) => {
-    rememberScenario(id);
+  const selectScenario = async (id: string) => {
+    if (id === scenarioId) { resetEdits(); return; }
     invalidate();
+    setEvaluation(null);
+    setEvaluationFresh(false);
+    setEvaluatedScenario(null);
+    setComparison(null);
+    comparisonRef.current = null;
+    pendingBefore.current = null;
     setDirty(false);
     setScenarioId(id);
     const next = scenarios.find((s) => s.scenario_id === id);
     if (next) setDraft(scenarioDraft(next));
-    persistWorkspace({scenario_id: id, evaluation_id: null, portfolio_run_id: null});
+    if (!next || !project) return;
+    const {token, controller} = begin('restore');
+    try {
+      await saveQueue.current;
+      const state = (await getWorkspace(controller.signal, id)).data;
+      if (!clock.current.accepts(token)) return;
+      setSelection(state.selected_site_ids ?? []);
+      comparisonRef.current = state.comparison ?? null;
+      if (state.evaluation_id) {
+        const restored = await getEvaluation(state.evaluation_id, controller.signal);
+        if (!clock.current.accepts(token)) return;
+        if (!matchesEvaluation(restored.data, id, project.data)) throw new ApiError('Saved analysis does not match this scenario.', 409);
+        setEvaluation(restored);
+        setEvaluatedScenario(next);
+        setEvaluationFresh(state.analysis_current);
+        const [geo, plan, before] = await Promise.allSettled([
+          getGeoContext(state.evaluation_id, controller.signal),
+          state.portfolio_run_id ? getPortfolio(state.portfolio_run_id, controller.signal) : Promise.resolve(null),
+          state.comparison ? getEvaluation(state.comparison.before_evaluation_id, controller.signal) : Promise.resolve(null),
+        ]);
+        if (!clock.current.accepts(token)) return;
+        if (geo.status === 'fulfilled') setGeoContext(geo.value.data);
+        if (plan.status === 'fulfilled' && plan.value && plan.value.data.evaluation_id === state.evaluation_id) {
+          setPortfolio(plan.value.data); setMaxStores(plan.value.data.max_stores ?? 2);
+          setAcknowledged(plan.value.data.acknowledged_risk_site_ids ?? []);
+        }
+        if (before.status === 'fulfilled' && before.value && state.comparison) {
+          const source = scenarios.find(s => s.scenario_id === state.comparison!.before_scenario_id);
+          if (source && before.value.data.scenario_id === source.scenario_id) setComparison({scenario: source, evaluation: before.value.data});
+        }
+      }
+      persistWorkspace(state);
+    } catch (e) {
+      if (!controller.signal.aborted && clock.current.accepts(token)) setError(failure(e));
+    } finally { finish(token); }
+  };
+  const resetEdits = () => {
+    if (!scenario) return;
+    clock.current.next(); request.current?.abort(); setOperation(null);
+    setDraft(scenarioDraft(scenario)); setDirty(false); setError(null); setRescueResult(null);
   };
   const edit = (patch: Partial<ScenarioCreate>) => {
-    invalidate();
-    setDirty(true);
-    setDraft((d) => (d ? { ...d, ...patch } : d));
+    clock.current.next(); request.current?.abort(); setOperation(null);
+    setRescueResult(null); setReport(null); setError(null);
+    if (draft && scenario) {
+      const changed = {...draft, ...patch};
+      setDraft(changed); setDirty(!sameScenarioInputs(changed, scenario));
+    }
   };
   const editAssumptions = (patch: Partial<Assumptions>) => {
     if (draft) edit({ assumptions: { ...draft.assumptions, ...patch } });
   };
-  const commitEvaluation = (
+  const commitEvaluation = async (
     response: ApiEnvelope<EvaluationData>,
     s: Scenario,
     token: number,
@@ -340,7 +396,18 @@ function useWorkspaceState() {
     setPortfolio(null);
     setReport(null);
     setAcknowledged([]);
-    persistWorkspace({scenario_id: s.scenario_id, evaluation_id: response.data.evaluation_id, portfolio_run_id: null});
+    const before = pendingBefore.current;
+    const pair = before && before.evaluation.evaluation_id !== response.data.evaluation_id ? {
+      before_scenario_id: before.scenario.scenario_id, before_evaluation_id: before.evaluation.evaluation_id,
+      after_scenario_id: s.scenario_id, after_evaluation_id: response.data.evaluation_id,
+    } : comparisonRef.current?.after_evaluation_id === response.data.evaluation_id ? comparisonRef.current : null;
+    comparisonRef.current = pair;
+    if (pair && before) setComparison(before);
+    else if (!pair) setComparison(null);
+    pendingBefore.current = null;
+    const remembered = await persistWorkspace({scenario_id: s.scenario_id, evaluation_id: response.data.evaluation_id, portfolio_run_id: null, comparison: pair});
+    if (!clock.current.accepts(token)) return;
+    if (remembered === false) return;
     setNotice(
       "Analysis ready. Locations and insights now use this saved scenario.",
     );
@@ -360,7 +427,7 @@ function useWorkspaceState() {
         controller.signal,
         project?.meta.feature_snapshot_id,
       );
-      commitEvaluation(result, scenario, token);
+      await commitEvaluation(result, scenario, token);
     } catch (e) {
       if (clock.current.accepts(token) && !controller.signal.aborted)
         setError(failure(e));
@@ -371,6 +438,11 @@ function useWorkspaceState() {
   const saveAndEvaluate = async (body: ScenarioCreate | null = draft) => {
     if (!body || !project || loadError || loading) return;
     const snapshot = structuredClone(body);
+    if (!snapshot.name.trim()) { setError(failure(new ApiError('Name the new scenario.', 422))); return; }
+    snapshot.name = snapshot.name.trim().slice(0, 100);
+    if (scenario && sameScenarioInputs(snapshot, scenario)) { resetEdits(); return; }
+    pendingBefore.current = evaluation && evaluatedScenario && evaluation.data.scenario_id === evaluatedScenario.scenario_id ?
+      {scenario: evaluatedScenario, evaluation: evaluation.data} : null;
     let savedIdentity: string | null = null;
     const { token, controller } = begin("save");
     setPortfolio(null);
@@ -388,8 +460,7 @@ function useWorkspaceState() {
           409,
         );
       savedIdentity = saved.data.scenario_id;
-      rememberScenario(saved.data.scenario_id);
-      persistWorkspace({scenario_id: saved.data.scenario_id, evaluation_id: null, portfolio_run_id: null});
+      persistWorkspace({scenario_id: saved.data.scenario_id, evaluation_id: null, portfolio_run_id: null, comparison: null});
       setScenarios((old) => [
         ...old.filter((s) => s.scenario_id !== saved.data.scenario_id),
         saved.data,
@@ -404,7 +475,7 @@ function useWorkspaceState() {
         controller.signal,
         project.meta.feature_snapshot_id,
       );
-      commitEvaluation(result, saved.data, token);
+      await commitEvaluation(result, saved.data, token);
     } catch (e) {
       if (clock.current.accepts(token) && !controller.signal.aborted) {
         setError(failure(e));
@@ -417,14 +488,14 @@ function useWorkspaceState() {
       finish(token);
     }
   };
-  const toggleSite = (id: string) =>
-    setSelection((old) =>
-      old.includes(id)
-        ? old.filter((v) => v !== id)
-        : old.length < 2
-          ? [...old, id]
-          : old,
-    );
+  const chooseSites = (ids: string[]) => {
+    const valid = [...new Set(ids)].filter(id => project?.data.sites.some(s => s.site_id === id)).slice(0,2);
+    setSelection(valid);
+    if (scenario) persistWorkspace({scenario_id: scenario.scenario_id, evaluation_id: evaluation?.data.scenario_id === scenario.scenario_id ? evaluation.data.evaluation_id : null,
+      portfolio_run_id: portfolio?.evaluation_id === evaluation?.data.evaluation_id ? portfolio?.portfolio_run_id ?? null : null,
+      selected_site_ids: valid});
+  };
+  const toggleSite = (id: string) => chooseSites(selection.includes(id) ? selection.filter(v => v !== id) : selection.length < 2 ? [...selection,id] : selection);
   const changePortfolioInputs = (max: number, ack: string[]) => {
     clock.current.next();
     request.current?.abort();
@@ -463,7 +534,8 @@ function useWorkspaceState() {
           409,
         );
       setPortfolio(result.data);
-      persistWorkspace({scenario_id: scenario.scenario_id, evaluation_id: e.evaluation_id, portfolio_run_id: result.data.portfolio_run_id});
+      await persistWorkspace({scenario_id: scenario.scenario_id, evaluation_id: e.evaluation_id, portfolio_run_id: result.data.portfolio_run_id});
+      if (!clock.current.accepts(token)) return;
       setNotice("Your investment plan is ready.");
     } catch (e) {
       if (clock.current.accepts(token) && !controller.signal.aborted)
@@ -550,8 +622,9 @@ function useWorkspaceState() {
   };
   const downloadReport = async () => {
     if (
-      !current ||
+      dirty ||
       !evaluation ||
+      evaluation.data.scenario_id !== scenario?.scenario_id ||
       !portfolio ||
       portfolio.solver_status === "UNAVAILABLE" ||
       portfolio.solver_status === "UNKNOWN" ||
@@ -566,18 +639,14 @@ function useWorkspaceState() {
         controller.signal,
       );
       if (!clock.current.accepts(token)) return;
-      const reopened = await result.blob.text();
-      if (!clock.current.accepts(token)) return;
       const url = URL.createObjectURL(result.blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download =
-        "storescout-" +
-        evaluation.data.evaluation_id +
-        (result.type.includes("html") ? ".html" : ".json");
+      a.download = result.filename;
+      document.body.appendChild(a);
       a.click();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-      setReport({ text: reopened, type: result.type });
+      a.remove();
+      setReport({ url, type: result.type });
       setNotice(
         "Saved report downloaded. The preview reopens the downloaded content.",
       );
@@ -614,6 +683,7 @@ function useWorkspaceState() {
     notice,
     report,
     current,
+    hasSavedAnalysis: !!evaluation && evaluation.data.scenario_id === scenario?.scenario_id && !dirty && !loading,
     featureSnapshotId: project?.meta.feature_snapshot_id ?? FEATURE_SNAPSHOT_ID,
     load,
     selectScenario,
@@ -628,6 +698,10 @@ function useWorkspaceState() {
     applyRescue,
     rescueResult,
     geoContext,
+    referenceGeo,
+    comparison,
+    chooseSites,
+    resetEdits,
     downloadReport,
   };
 }

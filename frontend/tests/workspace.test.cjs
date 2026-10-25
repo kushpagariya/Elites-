@@ -373,22 +373,36 @@ test("abort signals reach transport and aborted requests are not relabelled as n
     (e) => e.name === "AbortError",
   );
 });
-test("report download rejects foreign identities and reopens matching content unchanged", async (t) => {
+test("report download rejects foreign identities and preserves PDF bytes and integrity", async (t) => {
+  const text = '%PDF-1.4 saved decision document';
+  const digest = require('node:crypto').createHash('sha256').update(text).digest('hex');
+  const headers = {'content-type':'application/pdf','X-Evaluation-ID':'test-evaluation','X-Portfolio-Run-ID':'test-run','X-Report-SHA256':digest};
   mock(
     t,
     async () =>
-      new Response("<p>foreign report</p>", {
-        headers: { "content-type": "text/html" },
+      new Response(text, {
+        headers: {...headers,'X-Evaluation-ID':'foreign'},
       }),
   );
   await assert.rejects(
     () => api.getSavedReport("test-evaluation", "test-run"),
     (e) => e.status === 409,
   );
-  const text = "<p>SYNTHETIC test-evaluation test-run</p>";
   global.fetch = async () =>
-    new Response(text, { headers: { "content-type": "text/html" } });
+    new Response(text, { headers });
   const result = await api.getSavedReport("test-evaluation", "test-run");
   assert.equal(await result.blob.text(), text);
-  assert.equal(result.text, text);
+  assert.match(result.filename,/\.pdf$/);
+  global.fetch = async () => new Response(text+'corruption',{headers});
+  await assert.rejects(() => api.getSavedReport('test-evaluation','test-run'),e=>e.status===502);
+});
+
+test('repeated scenario drafts do not append revised suffixes and reset preserves zero overrides', () => {
+  let saved = scenario;
+  for(let n=0;n<30;n++) saved={...saved,...model.scenarioDraft(saved)};
+  assert.equal(saved.name,scenario.name);
+  assert.ok(saved.name.length<=100);
+  assert.equal(model.sameScenarioInputs(model.scenarioDraft(scenario),scenario),true);
+  assert.equal(model.scenarioDraft(scenario).assumptions.site_overrides.a.monthly_rent_inr,0);
+  assert.equal(model.delayedOpening('2028-02-29',12),'2029-02-28');
 });

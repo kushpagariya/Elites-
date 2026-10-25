@@ -12,7 +12,7 @@ Local browser origins: localhost and 127.0.0.1 on ports 3000 and 3001, plus the 
 
 Money is INR; revenue and other OPEX are annual; rent monthly; CAPEX upfront; rates/ROI decimal fractions; area square metres; coordinates WGS84. Nonfinite values are invalid. Unknown is null, never zero. Source labels are SYNTHETIC, ASSUMED, REAL.
 
-Seed identities: project demo, scenario baseline, feature snapshot features-demo-1, fixture demo-1, weights weights-demo-1. Backend allocates other IDs. Candidate cap ten; existing branch cap four. Fixture valuation date is pinned to 2026-10-24 in frozen inputs.
+Seed identities: project demo, scenario baseline, feature snapshot bengaluru-features-20261024-v1, fixture bengaluru-20261024, weights weights-demo-1. Backend allocates other IDs. Candidate cap ten; existing branch cap four. The 219 contextual competitor POIs do not count as candidates. Valuation date is pinned to 2026-10-24 in frozen inputs.
 
 ## Routes and current state
 
@@ -26,9 +26,9 @@ Paths below are relative to /api/v1/projects/demo unless indicated otherwise.
 | POST /scenarios | ScenarioCreate -> Scenario, 201 | Immutable SQLite save; optional idempotency |
 | GET /scenarios/{id} | Saved Scenario | Working |
 | GET /infrastructure | Hypothetical event records | Working |
-| GET /features | Frozen raw source snapshot; prepared=false | Working; not computed spatial features |
+| GET /features | GeographicContext with nullable evaluation_id | Source map context before analysis; saved evaluation geometry when an ID is supplied |
 | GET /model | Active estimator disclosure or installed card/hash details | Missing fitted bundle explicitly reports assumption mode; invalid bundle is 503 |
-| POST /evaluate | EvaluateRequest -> EvaluationData | Connected assumption-based engine with atomic save |
+| POST /evaluate | EvaluateRequest -> EvaluationData | Connected B.2 fitted CatBoost and domain engine with atomic save |
 | GET /evaluations/{id} | Saved EvaluationData | Implemented; 404 until result saved |
 | GET /sites/{id}/analysis?evaluation_id=... | Saved SiteAnalysis | Implemented; no recomputation |
 | GET /rankings?evaluation_id=... | evaluation_id, rankings[], diagnoses keyed by site ID | Implemented from saved evaluation |
@@ -37,11 +37,13 @@ Paths below are relative to /api/v1/projects/demo unless indicated otherwise.
 | GET /rescues/{id} | Saved RescueResult | Implemented |
 | POST /portfolios | PortfolioRequest -> PortfolioResult | Exact full-network enumeration; checks and atomic save |
 | GET /portfolios/{id} | Saved PortfolioResult | Implemented |
-| GET /reports/{evaluation_id}?portfolio_run_id=... | Printable saved HTML | Implemented; format=json returns envelope; mismatched run is 409 |
+| GET /reports/{evaluation_id}?portfolio_run_id=... | Stored application/pdf bytes | PDF is saved atomically with the portfolio. Correct filename, IDs and SHA256 in response headers; mismatched run is 409. Diagnostic format=json/html remains available. |
+| GET /workspace?scenario_id=... | WorkspaceView | Last view per account, or saved view for one scenario. Restores evaluation/portfolio, two candidate IDs and before/after references. |
+| POST /workspace | WorkspaceState | Account-scoped current and per-scenario pointers; validates every referenced identity and candidate selection. |
 
-The frontend branch's deterministic assumption-based engine is now connected. It is not a trained ML model and does not pass the meaningful-AI readiness gate. Missing numerical modules still map to explicit 503 errors. Numerical tests establish bounded synthetic invariants, not empirical forecast accuracy.
+The fitted B.2 CatBoost and deterministic domain engine are connected in model_simulated mode. The model was trained on synthetic labels, not observed store sales; no empirical forecasting accuracy or automatic investment approval is established. Missing/invalid model bundles fail explicitly.
 
-GET /features?evaluation_id=... returns the frontend GeographicContext: evaluation_id, cells, POIs, ten catchment polygons, radius, empty unavailable roads/competitors and limitations. Without evaluation_id, the original frozen raw source snapshot remains available for compatibility. All saved geographic reads use original evaluation inputs.
+GET /features?evaluation_id=... returns GeographicContext from that evaluation's saved inputs. Without evaluation_id it returns source map records with evaluation_id=null, before any financial analysis. Competitors are POIs whose category is competitor; names are nullable. No competitor financial results are invented. Cells/catchment geometry are labelled proxies; roads and the legacy competitors array remain empty.
 
 ## Scenario
 
@@ -51,13 +53,13 @@ Example POST /scenarios:
 
 Assumptions are a complete replacement snapshot, not a patch. Copy the selected scenario before editing; preserve unchanged fields and overrides. Pydantic supplies defaults for omitted fields, so omission does not inherit an override. Budget inherits when omitted or null. Unknown site overrides fail validation. Dates must be ISO calendar dates YYYY-MM-DD.
 
-Date/horizon activation and partial-year effects now come from the connected domain engine. Expanded assumptions support gross_margin_fraction, operating_cost_multiplier, competition_multiplier and valuation_date. Per-site overrides additionally support gross_margin_fraction, annual_opex_inr and competition_multiplier. Project creation/imports remain unavailable.
+Date/horizon activation and partial-year effects come from the domain engine. Supported controls are demand_multiplier, rent_multiplier, site_overrides (base monthly_rent_inr and absolute sales_multiplier), budget and infrastructure timing/effect. Margin/OPEX/CAPEX/competition/horizon/valuation-date edits and project creation/imports remain deferred; unsupported request fields are rejected. Switching infrastructure states preserves an intentional zero commercial effect.
 
 ## Evaluation
 
 POST /evaluate:
 
-    {"scenario_id":"baseline","feature_snapshot_id":"features-demo-1"}
+    {"scenario_id":"baseline","feature_snapshot_id":"bengaluru-features-20261024-v1"}
 
 Public EvaluationData:
 
@@ -81,13 +83,13 @@ POST /sites/site-01/rescue:
 
     {"evaluation_id":"<saved-id>","lever":"rent","lower_bound":0,"upper_bound":800000}
 
-Bounds above are an example. Default rent bounds are 0 to twice effective saved monthly rent; default sales bounds are 0.5 to 3. Supplied bounds must be finite/nonnegative/ordered; sales upper bound cannot exceed 3.
+Bounds above are an example. Default rent bounds are 0 to twice saved base monthly rent; default sales bounds are 0.5 to 3 relative to the current target. Supplied bounds must be finite/nonnegative/ordered. The returned sales override is absolute relative to baseline, intersected with the canonical limit of 3.
 
 RescueResult: rescue_id, evaluation_id, site_id, lever, lower_bound, upper_bound, status, threshold?, verification_npv_inr?, npv_at_threshold?, verified, reasons[], remaining_failed_rule_ids[]. Both NPV fields identify the same verification value; the latter matches the frontend's guarded adapter.
 
-Status: SOLVED | NOT_RECOVERABLE_WITHIN_BOUNDS | NON_MONOTONIC. SOLVED requires an in-bounds threshold and domain verification NPV within INR 1 of zero. Threshold units are monthly INR for rent or a sales multiplier. The backend checks the returned verification; numerical verification itself belongs to logic.
+Status: SOLVED | NOT_RECOVERABLE_WITHIN_BOUNDS | NON_MONOTONIC. SOLVED requires a canonical in-bounds override and fresh-scenario verification with nonnegative NPV. BREAK_EVEN means residual within INR1; VIABLE_BOUND is an already-viable tested bound and can have positive NPV. Rent is base INR/month, sales is absolute baseline multiplier. Numerical verification belongs to logic; backend validates the evidence and units.
 
-A saved proposal does not mutate the scenario/evaluation. Applying it requires a new scenario and evaluation. A viable search bound is not falsely labelled break-even: when no crossing lies in the bounds, the response explains that the range must change. Zero-rent default upper bound has a minimum of INR 1 to keep the search interval valid.
+A saved proposal does not mutate the scenario/evaluation. Applying actionable_site_override creates a new what-if scenario/evaluation and saves before/after references. Financial recovery never clears hard rejection or evidence risks. Zero-rent default upper bound has a minimum of INR1; zero global rent multiplier and zero current sales multiplier are explicitly blocked when no actionable inverse is defined.
 
 ## Portfolio
 
@@ -111,7 +113,7 @@ Public evaluation, private frozen context, cache index and successful idempotenc
 
 Optional Idempotency-Key is 1–128 characters, scoped by project and operation. Reusing it with different request input returns 409 IDEMPOTENCY_CONFLICT. Successful replay returns the original record; failed calculation does not reserve the key. Scenario creation without a key always creates a new immutable record.
 
-Saved reads/report use the original snapshot and never rerun calculations. Portfolio/rescue reject changed engine/model identities with 409 before recomputation.
+Saved reads/report use the original snapshot and never rerun calculations. Portfolio/rescue reject changed engine/model identities with 409 before recomputation. PDF bytes, evidence and SHA256 are stored atomically with new portfolios. Legacy plans freeze their original saved evidence on first PDF export; historical missing metadata cannot be reconstructed. Reopening an existing PDF never runs the renderer again. The client validates MIME, signature, evaluation/run headers and checksum, and previews the downloaded bytes.
 
 ## Internal domain seams
 
@@ -119,9 +121,9 @@ run_evaluation(project_dict, scenario_dict) returns computed EvaluationData fiel
 
 run_portfolio(project_dict, evaluation_context, max_stores, acknowledged_risk_site_ids) returns computed PortfolioResult fields without IDs. Context has project, scenario, evaluation, prepared_network and snapshot. Supplied project budget is the saved scenario budget.
 
-The imported domain rescue function is run_rescue(prepared_network, site_id, lever, lower_bound, upper_bound). Backend adapts its verified/npv_at_threshold/remaining_failed_rule_ids response to the persisted RescueResult. Portfolio receives network_context as an internal alias of the saved prepared_network. Both use the frozen original assumptions and inputs.
+The domain seam is calculate_rescue(project, prepared_network, site_id, lever, lower_bound=..., upper_bound=...). Backend maps canonical application evidence into RescueResult. Portfolio calls run_portfolio(project, prepared_network, max_stores, acknowledgements). Both use frozen original assumptions and inputs.
 
-Model bundles contain model_card.json and a relative artifact_file within STORESCOUT_MODEL_DIR (default ml/artifacts/). Card requires model_artifact_id and method_mode. Backend computes hashes and checks optional artifact_sha256. Model metrics are only what the actual card records; a valid file hash alone cannot prove real inference or forecast accuracy.
+The active bundle is ml/artifacts/reference_sales_v2: manifest.json, catboost.joblib, feature_schema.json, support.json and MODEL_CARD.md. Approved file hashes are in ml/evaluation/decision_engine_v1/artifact_bundle_manifest.json. The backend checks every file and model_simulated identity; synthetic metrics do not establish real-sales accuracy. The historical v1 model remains blocked.
 
 ## Runtime errors and limits
 

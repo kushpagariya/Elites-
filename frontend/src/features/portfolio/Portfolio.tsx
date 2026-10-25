@@ -8,8 +8,8 @@ import LocationMap from "@/features/explore/LocationMap";
 import { Unavailable } from "@/components/Feedback";
 export default function Portfolio() {
   const w = useWorkspace();
-  const p = w.current ? w.portfolio : null;
-  const e = w.evaluation?.data;
+  const p = !w.dirty && w.portfolio?.evaluation_id === w.evaluation?.data.evaluation_id && w.evaluation?.data.scenario_id === w.scenario?.scenario_id ? w.portfolio : null;
+  const e = w.evaluation && w.evaluation.data.scenario_id === w.scenario?.scenario_id ? w.evaluation.data : undefined;
   const solver =
     p?.solver_status ??
     (p?.status === "FULL_NETWORK_EXACT"
@@ -272,7 +272,7 @@ export default function Portfolio() {
           <button
             className="secondary"
             disabled={
-              !w.current ||
+              !e || w.dirty ||
               !available ||
               !p ||
               p.evaluation_id !== e?.evaluation_id ||
@@ -281,8 +281,8 @@ export default function Portfolio() {
             onClick={() => void w.downloadReport()}
           >
             {w.operation === "report"
-              ? "Downloading…"
-              : "Download decision report"}
+                ? "Downloading…"
+              : "Download PDF report"}
           </button>
         </div>
         <div className="report-contents">
@@ -298,19 +298,12 @@ export default function Portfolio() {
         {w.report ? (
           <details open>
             <summary>Downloaded report preview</summary>
-            {w.report.type.includes("html") ? (
-              <iframe
-                title="Saved decision report preview"
-                sandbox=""
-                srcDoc={w.report.text}
-              />
-            ) : (
-              <pre className="report-preview">{w.report.text}</pre>
-            )}
+            <iframe title="Saved decision report preview" src={w.report.url} style={{width:'100%',height:'75vh',minHeight:480}} />
+            <a href={w.report.url} target="_blank" rel="noopener noreferrer">Open saved PDF preview in a new tab</a>
           </details>
         ) : (
           <p className="helper">
-            {w.current && available && p?.evaluation_id === e?.evaluation_id
+            {!w.dirty && available && p?.evaluation_id === e?.evaluation_id
               ? "Your report is ready to download. It includes this saved analysis and investment plan."
               : "A completed investment plan is needed before downloading its report."}
           </p>

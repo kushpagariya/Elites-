@@ -10,13 +10,28 @@ export const FEATURE_SNAPSHOT_ID = "bengaluru-features-20261024-v1";
 export function scenarioDraft(s: Scenario): ScenarioCreate {
   return {
     base_scenario_id: s.scenario_id,
-    name:
-      s.name === "Current baseline"
-        ? "Rent and demand review"
-        : s.name + " — revised",
+    name: s.name.slice(0, 100),
     budget_inr: s.budget_inr,
     assumptions: structuredClone(s.assumptions),
   };
+}
+
+/** Ignore object-key order and null inherited overrides when comparing saved inputs. */
+export function sameScenarioInputs(draft: ScenarioCreate, saved: Scenario): boolean {
+  const normalize = (a: Scenario['assumptions']) => ({...a, site_overrides:
+    Object.fromEntries(Object.entries(a.site_overrides).sort(([a], [b]) => a.localeCompare(b)).map(([id, v]) =>
+      [id, Object.fromEntries(Object.entries(v).filter(([, v]) => v != null).sort(([a], [b]) => a.localeCompare(b)))]).filter(([, v]) => Object.keys(v).length))});
+  return draft.name === saved.name && draft.budget_inr === saved.budget_inr &&
+    JSON.stringify(normalize(draft.assumptions)) === JSON.stringify(normalize(saved.assumptions));
+}
+
+export function delayedOpening(opening: string | null, months: number): string | null {
+  if (!opening) return null;
+  const [year, month, day] = opening.split('-').map(Number);
+  const date = new Date(Date.UTC(year, month - 1 + months, 1));
+  const last = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0)).getUTCDate();
+  date.setUTCDate(Math.min(day, last));
+  return date.toISOString().slice(0, 10);
 }
 export function matchesEvaluation(
   e: EvaluationData,

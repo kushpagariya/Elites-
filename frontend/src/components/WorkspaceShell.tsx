@@ -17,7 +17,7 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
           <BrandMark size={28} />
           StoreScout
         </Link>
-        <p className="workspace-scope">Retail expansion workspace</p>
+        <p className="workspace-scope">Bengaluru grocery planning prototype</p>
         <WorkspaceNavigation contentReady={!!w.project && !w.loading} />
         <div className="sidebar-note">
           <strong>Your next store, considered</strong>
@@ -112,9 +112,9 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
           )}
           {w.evaluation && !w.current && !w.dirty && (
             <div className="message" role="status">
-              Showing previous results from{" "}
+              Showing saved results from{" "}
               {w.evaluatedScenario?.name ?? w.evaluation.data.scenario_id}. They
-              are not current for this selection.
+              remain available for review and PDF export. Run analysis before calculating a new portfolio or rescue.
             </div>
           )}
           <ErrorNotice error={w.error} />

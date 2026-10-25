@@ -176,7 +176,10 @@ def portfolio(project_id, body, token=None):
         invalid("Portfolio must respect the feasible empty zero alternative.")
     ensure_engine(context)
     record = {"request": request, "scenario_id": context["scenario"]["scenario_id"], "snapshot": context["snapshot"]}
-    identity = store.save_result(project_id, "portfolio", key, token, request_hash, result["portfolio_run_id"], [("portfolio", result["portfolio_run_id"], result), ("portfolio_context", result["portfolio_run_id"], record)])
+    from . import reports
+    document = reports.freeze(context, context['evaluation'], result, request)
+    identity = store.save_result(project_id, "portfolio", key, token, request_hash, result["portfolio_run_id"], [("portfolio", result["portfolio_run_id"], result), ("portfolio_context", result["portfolio_run_id"], record),
+        ('report', reports.report_key(body.evaluation_id, result['portfolio_run_id']), document)])
     return saved(project_id, "portfolio", identity)
 
 
