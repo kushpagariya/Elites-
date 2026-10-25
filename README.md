@@ -1,51 +1,57 @@
 # StoreScout
 
-Retail expansion planning: compare network economics, diagnose weak sites and allocate a capital budget. Read [the PRD](docs/PRD.md) for the full product.
+Grocery-location planning in Bengaluru with a connected Next.js interface, FastAPI backend and the delivered CatBoost/decision engine. The prototype supports ten candidates, four fictional existing branches and 219 contextual mapped competitor shops. Integrated on `full-integration` from frontend/backend `ff6d2c3` and ML `d7373f8`.
 
-## Start here
+## Run
 
-This commit creates the shared team scaffold. **Available:** startup screen, health API, synthetic 10-site/four-branch project, immutable SQLite scenario saves, hypothetical infrastructure record and a tested financial helper. **Awaiting implementation:** model training/inference, spatial features, network allocation, integrated evaluations, rescue, ranking, portfolios and reports. Analytics routes return HTTP 501 rather than invented results.
-
-1. Read [architecture](docs/ARCHITECTURE.md), [contract](docs/CONTRACT.md), and [four-hour plan](docs/FOUR_HOUR_PLAN.md).
-2. Give each owner their prompt: [frontend](docs/handoffs/FRONTEND.md), [logic](docs/handoffs/LOGIC.md), [backend](docs/handoffs/BACKEND.md).
-3. Backend owner is also the integration owner. First real merged slice is due at H1; a full connected prototype is due at H4.
-
-## Run locally
-
-Use Python 3.12 and Node.js 22 or newer. Run commands from the repository root unless stated otherwise.
+Use Python 3.12 and Node 22+. From the repository root:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r backend/requirements-lock.txt
+.\.venv\Scripts\python.exe -m ml.decision_engine.package --install
 .\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
 ```
 
-In another terminal:
+The installer verifies the supplied archive and restores the selected model without retraining. Startup warms the model before accepting requests. In another terminal:
 
 ```powershell
 cd frontend
-corepack pnpm install
-Copy-Item .env.example .env.local
+corepack pnpm install --frozen-lockfile
 corepack pnpm dev
 ```
 
-If Corepack is unavailable, use an installed pnpm; `npm install`/`npm run dev` also works, but keep only one lockfile after the team chooses its package manager. On macOS/Linux activate `.venv/bin/activate` and use `python` rather than the Windows executable path.
+Open [StoreScout](http://127.0.0.1:3000). Create an account or sign in. [API documentation](http://127.0.0.1:8000/docs). For a production frontend, run `corepack pnpm build` then `corepack pnpm start`. The frontend proxies `/api/v1` to port 8000. Set `STORESCOUT_API_ORIGIN` before frontend build/dev for another backend. Backend environment variables must be set explicitly; `.env` is not automatically loaded.
 
-Open `http://127.0.0.1:3000`; API docs: `http://127.0.0.1:8000/docs`. SQLite defaults to `.runtime/storescout.sqlite3`; no external database is required. `FRONTEND_ORIGIN` and `STORESCOUT_DB_PATH` are optional server environment variables; the backend does not automatically load `.env`.
+## Saved accounts and work
+
+Passwords use salted scrypt. HttpOnly session cookies expire after seven days and are revoked at sign-out. Accounts live in `.runtime/accounts.sqlite3`; each account has a separate `storescout-bengaluru-<user-id>.sqlite3` workspace. Scenarios, evaluations, frozen network inputs, plans and rescues are saved server-side. The last saved view is restored after sign-in/refresh. Changed sources/model/code mark results stale while preserving saved reports.
+
+Keep the database directory on persistent storage and back it up. Set `STORESCOUT_DB_PATH` to a stable absolute path when moving checkouts or deploying; accounts use the same parent directory. Set `STORESCOUT_SECURE_COOKIES=1` behind HTTPS and configure `FRONTEND_ORIGIN`. Runtime data and credentials stay out of Git. Older Navi Mumbai workspaces use a separate database filename.
+
+## Connected workflow
+
+Explore candidate locations and fictional branches alongside clustered competitor shops, visible before financial analysis. Explicitly compare two candidates, inspect six DaypartDNA periods, test demand/rent and infrastructure, apply verified rescue settings, select a budgeted full-network portfolio after risk review, and download/preview a paginated PDF. Competitors are contextual evidence and cannot enter comparison or portfolio.
+
+Each scenario restores its own saved evaluation and plan. Reset restores saved inputs; repeated unchanged saves preserve valid results. Before/after references persist through navigation, refresh, sign-in and rescue application. New portfolio saves include the exact PDF bytes, evidence and checksum in one transaction; older PDFs do not re-render after software/model updates. Legacy plans freeze their saved evidence when first exported. Historical metadata that was never saved cannot be reconstructed. The landing preview uses the engine and public snapshot without account data.
+
+Supported edits: budget, area-wide demand/rent, location base rent/sales adjustment and infrastructure timing/effect. CSV imports, new projects and additional financial controls remain explicitly deferred. Other shop categories and verified rental listings require separate data/model integrations. Public rollout additionally requires persistent hosting, backups, HTTPS and monitoring; the local prototype does not claim production readiness.
+
+CatBoost is trained on synthetic sales targets. Real-store accuracy is unvalidated. Historical population/spending, assumed business inputs, partial OSM coverage and scenario infrastructure dates remain identified. Outputs and rankings are computed by the delivered engine, never fixture scores.
 
 ## Check
 
 ```powershell
-python -m unittest discover -s tests/unit -v
-python -m unittest discover -s tests/contract -v
-python scripts/export_contract.py
+.\.venv\Scripts\python.exe scripts/check_integration.py
+.\.venv\Scripts\python.exe scripts/export_contract.py
 cd frontend
+corepack pnpm test
 corepack pnpm typecheck
 corepack pnpm build
 ```
 
-Contract checks need backend dependencies installed. `docs/STATUS.md` records actual scaffold checks and remaining gaps. Data in `data/demo/` is synthetic; the infrastructure event is hypothetical. No real forecast accuracy or completed product acceptance is claimed.
+For live API checks against an isolated local test database, set `STORESCOUT_TEST_API=http://127.0.0.1:8001/api/v1` then run `corepack pnpm test:live`; it creates disposable accounts/scenarios. Historical training audits require their larger original artifact sets; the runtime archive deliberately contains only the selected model.
 
-## Layout
+For rendered desktop/mobile regression, install Playwright as a test tool with Chrome, set `STORESCOUT_UI` to the isolated frontend URL and run `node tests/product-journey.mjs` from `frontend`. Optionally set `STORESCOUT_PLAYWRIGHT` to an existing Playwright module path. This journey uses actual backend data/calculations and a deterministic street-background style; external basemap availability is a separate dependency. Review [product verification](docs/PRODUCT_READINESS_VERIFICATION.md) for exact results and remaining limits.
 
-`frontend/` UI; `backend/app/api/` HTTP boundary; `backend/app/domain/` logic; `backend/app/repositories/` SQLite; `ml/` training/evaluation/artifacts; `data/` fixtures/manifests; `contracts/` generated OpenAPI/examples; `tests/` unit/contract/e2e; `scripts/` checks/export; `demo/` rehearsal assets; `docs/` decisions and handoffs.
+See [integration workflow](docs/FULL_INTEGRATION.md), [current status](docs/STATUS.md), and the original [ML handoff](ML_FINAL_HANDOFF_REPORT.md).

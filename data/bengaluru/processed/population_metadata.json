@@ -1,0 +1,19 @@
+{
+  "source_id": "worldpop-2020",
+  "source_file": "data/bengaluru/raw/population/ind_ppp_2020_1km_Aggregated_UNadj.tif",
+  "sha256": "27d08e3eabf59f63a2147901c25c046d584c3295f9ceb4c4cf08a902a5bec911",
+  "population_reference_year": 2020,
+  "crs": "EPSG:4326",
+  "resolution_degrees": [
+    0.0083333333,
+    0.0083333333
+  ],
+  "nominal_resolution": "1km aggregated (30 arc seconds), not 100m",
+  "product": "Global_2000_2020_1km_UNadj/2020/IND",
+  "release_date": null,
+  "licence": "CC-BY-4.0",
+  "method": "EPSG:32643 area-weighted pixel intersections, constant population density inside each source pixel",
+  "raster_overlap_fraction": 1.0,
+  "source_pixel_count": 256,
+  "no_2026_growth_applied": true
+}

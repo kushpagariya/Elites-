@@ -1,0 +1,71 @@
+column_order,field_name,unit,logical_type,origin,nullable,meaning,provenance_revision_id
+1,site_id,identifier,String,METADATA_CONFIG,False,"Stable candidate join key, site-01 through site-10; package-config. Keep as ID, not learned predictor.",bengaluru-integrity-v2
+2,feature_snapshot_id,identifier,String,METADATA_CONFIG,False,Version of this prepared feature view; not a claim of simultaneous observations; package-config.,bengaluru-integrity-v2
+3,snapshot_as_of_date,ISO date,ISODate,METADATA_CONFIG,False,User-fixed 2026-10-24 snapshot/valuation date; package-config.,bengaluru-integrity-v2
+4,city,city label,String,METADATA_CONFIG,False,Configured Bengaluru geography; package-config.,bengaluru-integrity-v2
+5,locality,place label,String,SYNTHETIC_DEMO,False,"Analyst-selected anchor label, not a verified shop address; assumptions/build_sites.",bengaluru-integrity-v2
+6,latitude,decimal degrees WGS84,Float64,SYNTHETIC_DEMO,False,"Hypothetical candidate latitude selected in code, not surveyed premises GPS; assumptions.",bengaluru-integrity-v2
+7,longitude,decimal degrees WGS84,Float64,SYNTHETIC_DEMO,False,Hypothetical candidate longitude selected in code; assumptions.,bengaluru-integrity-v2
+8,store_format,format label,String,METADATA_CONFIG,False,Configured supermarket format; package-config.,bengaluru-integrity-v2
+9,source_manifest_id,identifier,String,METADATA_CONFIG,False,"Source manifest version/join ID, not an evidence score; package-config.",bengaluru-integrity-v2
+10,store_size_sqm,sqm,Float64,SYNTHETIC_DEMO,False,"Seeded hypothetical area, 350–650 in 25 sqm increments; assumptions, seed 20261024.",bengaluru-integrity-v2
+11,population_1500m_est,estimated persons,Float64,DERIVED_FROM_MODELLED_SOURCE_WITH_ASSUMPTIONS,False,2020 WorldPop modelled population in metric circle via pixel area intersections and within-pixel uniform density; worldpop-2020.,bengaluru-integrity-v2
+12,population_10min_est,estimated persons,Float64,UNRESOLVED_MISSING,True,Intended network-time catchment population; no validated routing obtained.,bengaluru-integrity-v2
+13,accessible_households_est,estimated households,Float64,UNRESOLVED_MISSING,True,Intended accessible households; no defensible local persons-per-household denominator.,bengaluru-integrity-v2
+14,annual_wallet_inr,"INR/year, nominal 2023–24 prices",Float64,DERIVED_WITH_ASSUMPTIONS,False,"Unrounded population × INR 2,974.915/person/month ×12; WorldPop + HCES + grocery/local-transfer assumptions. Addressable category spending, not sales.",bengaluru-integrity-v2
+15,wallet_price_year,year,Int64,METADATA_CONFIG,False,"2024 encodes ending year of 2023–24 expenditure price period, not inflation adjustment; hces-2023-24.",bengaluru-integrity-v2
+16,mean_wallet_weighted_distance_m,metres,Float64,DERIVED_FROM_MODELLED_SOURCE_WITH_ASSUMPTIONS,False,Approximate population/wallet-weighted ellipsoidal distance to pixel/catchment-intersection centroids; worldpop-2020. Uniform spending makes weights proportional. Not road distance or exact within-pixel mean.,bengaluru-integrity-v2
+17,travel_time_method,method/status label,String,METADATA_CONFIG,False,Explicit unavailable-routing label; circular catchment used; package-config.,bengaluru-integrity-v2
+18,competitor_count_1500m,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,"Retained mapped supermarkets, convenience and grocery competitors within 1,500m; osm-pois. Mapped zero is not verified absence.",bengaluru-integrity-v2
+19,competitor_attraction_index,dimensionless relative index,Float64,DERIVED_WITH_ASSUMPTIONS,False,sum(exp(-geodesic distance/750)) over those competitors; equal unit attraction assumed; osm-pois + assumptions. No size/brand/sales calibration.,bengaluru-integrity-v2
+20,nearest_competitor_distance_m,metres,Float64,DERIVED_FROM_SOURCE,True,"Minimum mapped competitor distance **inside 1,500m**, not unrestricted citywide nearest-shop search; osm-pois.",bengaluru-integrity-v2
+21,office_poi_count_1500m,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,Office-category mapped records; not employees/floor area; osm-pois.,bengaluru-integrity-v2
+22,education_poi_count_1500m,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,"Schools, colleges, universities and kindergartens; not students; osm-pois.",bengaluru-integrity-v2
+23,healthcare_poi_count_1500m,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,"Hospitals, clinics, doctors and pharmacies; not beds or distinct campuses; osm-pois.",bengaluru-integrity-v2
+24,transit_poi_count_1500m,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,"Stations, stops, platforms, entrances and stop positions; not deduplicated physical hubs; osm-pois.",bengaluru-integrity-v2
+25,shopping_poi_count_1500m,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,Malls/department-store category; grocery competitors are separate; osm-pois.,bengaluru-integrity-v2
+26,food_leisure_poi_count_1500m,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,"Restaurants, cafes, fast food, food courts, cinema/theatre and leisure-tagged features; osm-pois.",bengaluru-integrity-v2
+27,weekday_morning_raw,relative opportunity per nominal hour,Float64,DERIVED_WITH_ASSUMPTIONS,False,"Monday–Friday starting 06:00–11:00, 5h, POI opportunity formula; osm-pois + approved-weights + assumed availability/evidence.",bengaluru-integrity-v2
+28,weekday_lunch_raw,relative opportunity per nominal hour,Float64,DERIVED_WITH_ASSUMPTIONS,False,"Monday–Friday 11:00–15:00, 4h; same source/formula.",bengaluru-integrity-v2
+29,weekday_evening_raw,relative opportunity per nominal hour,Float64,DERIVED_WITH_ASSUMPTIONS,False,"Monday–Friday 15:00–20:00, 5h; same source/formula.",bengaluru-integrity-v2
+30,weekday_night_raw,relative opportunity per nominal hour,Float64,DERIVED_WITH_ASSUMPTIONS,False,"Monday–Friday starting 20:00, ending next day 06:00, 10h; same sources. Overnight belongs to starting day.",bengaluru-integrity-v2
+31,weekend_day_raw,relative opportunity per nominal hour,Float64,DERIVED_WITH_ASSUMPTIONS,False,"Saturday–Sunday 06:00–18:00, 12h; same source/formula.",bengaluru-integrity-v2
+32,weekend_evening_raw,relative opportunity per nominal hour,Float64,DERIVED_WITH_ASSUMPTIONS,False,"Saturday–Sunday starting 18:00, ending next day 06:00, 12h; same sources.",bengaluru-integrity-v2
+33,nearest_metro_station_id,identifier,String,DERIVED_FROM_SOURCE,False,"Nearest matched operational corridor station ID; osm-pois + metro-rti + yellow-official. Join key, not learned location outcome.",bengaluru-integrity-v2
+34,nearest_metro_distance_m,metres,Float64,DERIVED_FROM_SOURCE,False,"Ellipsoidal WGS84 distance to that station point, not walking time/entrance routing; same sources.",bengaluru-integrity-v2
+35,metro_weekday_entries_per_hour,reported passengers/observed clock hour,Float64,DERIVED_FROM_SOURCE,False,Nearest-station September 2025 mean entries over 528 observed clock hours on 22 weekdays; night zeros retained; metro-rti.,bengaluru-integrity-v2
+36,metro_weekday_exits_per_hour,reported passengers/observed clock hour,Float64,DERIVED_FROM_SOURCE,False,September 2025 exit mean over same paired valid weekday intervals; metro-rti.,bengaluru-integrity-v2
+37,metro_weekend_entries_per_hour,reported passengers/observed clock hour,Float64,DERIVED_FROM_SOURCE,False,September 2025 entry mean over 192 observed clock hours on 8 weekend days; metro-rti.,bengaluru-integrity-v2
+38,metro_weekend_exits_per_hour,reported passengers/observed clock hour,Float64,DERIVED_FROM_SOURCE,False,September 2025 exit mean over same paired valid weekend intervals; metro-rti.,bengaluru-integrity-v2
+39,metro_measurement_start_date,ISO date,ISODate,DERIVED_FROM_SOURCE,False,Full aggregate window begins 2025-09-01; day-type-specific observed dates remain in supporting averages; metro-rti.,bengaluru-integrity-v2
+40,metro_measurement_end_date,ISO date,ISODate,DERIVED_FROM_SOURCE,False,Full window ends 2025-09-30; not a current traffic/retrieval date; metro-rti.,bengaluru-integrity-v2
+41,daypart_data_status,status label,String,METADATA_CONFIG,False,DERIVED_ASSUMED_OPPORTUNITY_PROXY; not measured footfall; package-config.,bengaluru-integrity-v2
+42,poi_data_status,status label,String,METADATA_CONFIG,False,OSM_PARTIAL_COVERAGE_MAPPED_COUNTS; completeness unverified; package-config.,bengaluru-integrity-v2
+43,population_data_status,status label,String,METADATA_CONFIG,False,"HISTORICAL_MODELLED_PROXY_2020; text, not a persons quantity; package-config.",bengaluru-integrity-v2
+44,ridership_data_status,status label,String,METADATA_CONFIG,False,HISTORICAL_PROXY_2025_09; no fabricated 2026 traffic; package-config.,bengaluru-integrity-v2
+45,comp_data_status,status label,String,METADATA_CONFIG,False,"Partial coverage, mapped-zero semantics and equal-attraction assumption; package-config.",bengaluru-integrity-v2
+46,monthly_rent_inr,"INR/month, 2026-10-24 demo basis",Float64,SYNTHETIC_DEMO,False,Synthetic area × INR 700/sqm/month; not a verified lease/comparable; assumptions.,bengaluru-integrity-v2
+47,capex_inr,"INR upfront, 2026-10-24 demo basis",Float64,SYNTHETIC_DEMO,False,"Synthetic area × INR 18,000/sqm upfront; assumptions.",bengaluru-integrity-v2
+48,annual_opex_excl_rent_inr,"INR/year, 2026-10-24 demo basis",Float64,SYNTHETIC_DEMO,False,"Synthetic area × INR 7,200/sqm/year, excluding rent and COGS; assumptions.",bengaluru-integrity-v2
+49,gross_margin_fraction,fraction 0–1,Float64,ASSUMED,False,"Assumed 0.22 at all sites, a fraction, not 22 or net margin; assumptions.",bengaluru-integrity-v2
+50,source_quality_score,fraction 0–1,Float64,ASSUMED_METADATA,False,"Literal 6/8 = 0.75 for every site, described as evidence-family availability. Not dynamically computed per site or calibrated confidence; package-config.",bengaluru-integrity-v2
+51,weekday_morning_weekly_exposure_share,fraction,Float64,DERIVED_WITH_ASSUMPTIONS,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+52,weekday_lunch_weekly_exposure_share,fraction,Float64,DERIVED_WITH_ASSUMPTIONS,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+53,weekday_evening_weekly_exposure_share,fraction,Float64,DERIVED_WITH_ASSUMPTIONS,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+54,weekday_night_weekly_exposure_share,fraction,Float64,DERIVED_WITH_ASSUMPTIONS,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+55,weekend_day_weekly_exposure_share,fraction,Float64,DERIVED_WITH_ASSUMPTIONS,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+56,weekend_evening_weekly_exposure_share,fraction,Float64,DERIVED_WITH_ASSUMPTIONS,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+57,daypart_poi_support_count,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+58,daypart_recorded_hours_support_count,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+59,daypart_assumed_hours_support_count,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+60,daypart_recorded_hours_fraction,fraction,Float64,DERIVED_FROM_SOURCE,True,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+61,mapped_supermarket_count_1500m,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+62,mapped_convenience_count_1500m,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+63,mapped_grocery_count_1500m,mapped POI count,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+64,operational_metro_station_count_1500m,station count,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+65,ward_2011_id,identifier,String,DERIVED_FROM_SOURCE,True,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+66,ward_2025_id,identifier,String,DERIVED_FROM_SOURCE,True,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+67,metro_sep2025_weekday_observation_hours,hours,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+68,metro_sep2025_weekday_observed_days,days,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+69,metro_sep2025_weekend_observation_hours,hours,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2
+70,metro_sep2025_weekend_observed_days,days,Int64,DERIVED_FROM_SOURCE,False,Audited v2 enrichment; see column lineage for exact aggregation and join,bengaluru-integrity-v2

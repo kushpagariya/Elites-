@@ -1,0 +1,205 @@
+{
+  "method_mode": "model_simulated",
+  "metrics": {
+    "median": {
+      "validation": {
+        "n": 400,
+        "MAE_inr": 25729867.534584638,
+        "RMSE_inr": 36356935.51799562,
+        "WAPE": 0.6177719648394803,
+        "absolute_error_sum_inr": 10291947013.833855,
+        "absolute_actual_sum_inr": 16659783220.347462,
+        "WAPE_undefined_reason": null
+      },
+      "test": {
+        "n": 400,
+        "MAE_inr": 27993008.973083287,
+        "RMSE_inr": 42379433.332708545,
+        "WAPE": 0.599153731035567,
+        "absolute_error_sum_inr": 11197203589.233315,
+        "absolute_actual_sum_inr": 18688364954.150013,
+        "WAPE_undefined_reason": null
+      },
+      "ood": {
+        "n": 400,
+        "MAE_inr": 20187297.339925267,
+        "RMSE_inr": 25564104.965577688,
+        "WAPE": 0.6403353802288764,
+        "absolute_error_sum_inr": 8074918935.970106,
+        "absolute_actual_sum_inr": 12610452561.724564,
+        "WAPE_undefined_reason": null
+      }
+    },
+    "ridge": {
+      "validation": {
+        "n": 400,
+        "MAE_inr": 8166756.999854064,
+        "RMSE_inr": 12491378.56778166,
+        "WAPE": 0.19608315166741372,
+        "absolute_error_sum_inr": 3266702799.9416256,
+        "absolute_actual_sum_inr": 16659783220.347462,
+        "WAPE_undefined_reason": null
+      },
+      "test": {
+        "n": 400,
+        "MAE_inr": 8229053.743790081,
+        "RMSE_inr": 12754632.551342199,
+        "WAPE": 0.17613212849768764,
+        "absolute_error_sum_inr": 3291621497.516032,
+        "absolute_actual_sum_inr": 18688364954.150013,
+        "WAPE_undefined_reason": null
+      },
+      "ood": {
+        "n": 400,
+        "MAE_inr": 17005124.274507876,
+        "RMSE_inr": 22945245.54253158,
+        "WAPE": 0.5393977477421259,
+        "absolute_error_sum_inr": 6802049709.803151,
+        "absolute_actual_sum_inr": 12610452561.724564,
+        "WAPE_undefined_reason": null
+      }
+    },
+    "catboost": {
+      "validation": {
+        "n": 400,
+        "MAE_inr": 11069095.349095598,
+        "RMSE_inr": 16927461.55352477,
+        "WAPE": 0.2657680523856117,
+        "absolute_error_sum_inr": 4427638139.638239,
+        "absolute_actual_sum_inr": 16659783220.347462,
+        "WAPE_undefined_reason": null
+      },
+      "test": {
+        "n": 400,
+        "MAE_inr": 7752451.688836448,
+        "RMSE_inr": 12306383.911126781,
+        "WAPE": 0.16593108509719912,
+        "absolute_error_sum_inr": 3100980675.5345793,
+        "absolute_actual_sum_inr": 18688364954.150013,
+        "WAPE_undefined_reason": null
+      },
+      "ood": {
+        "n": 400,
+        "MAE_inr": 57831672.79175943,
+        "RMSE_inr": 82164896.92243321,
+        "WAPE": 1.834404356503144,
+        "absolute_error_sum_inr": 23132669116.703773,
+        "absolute_actual_sum_inr": 12610452561.724564,
+        "WAPE_undefined_reason": null
+      }
+    },
+    "ablation_no_daypart": {
+      "validation": {
+        "n": 400,
+        "MAE_inr": 7971727.750502783,
+        "RMSE_inr": 12296679.46003441,
+        "WAPE": 0.19140051572259348,
+        "absolute_error_sum_inr": 3188691100.201113,
+        "absolute_actual_sum_inr": 16659783220.347462,
+        "WAPE_undefined_reason": null
+      },
+      "test": {
+        "n": 400,
+        "MAE_inr": 8361263.121360816,
+        "RMSE_inr": 12855511.055471128,
+        "WAPE": 0.17896189724193245,
+        "absolute_error_sum_inr": 3344505248.5443263,
+        "absolute_actual_sum_inr": 18688364954.150013,
+        "WAPE_undefined_reason": null
+      },
+      "ood": {
+        "n": 400,
+        "MAE_inr": 16330421.033891132,
+        "RMSE_inr": 22121611.339510936,
+        "WAPE": 0.5179963511684734,
+        "absolute_error_sum_inr": 6532168413.556453,
+        "absolute_actual_sum_inr": 12610452561.724564,
+        "WAPE_undefined_reason": null
+      }
+    }
+  },
+  "latency": {
+    "median": {
+      "repetitions": 50,
+      "batch_size": 1,
+      "warmups": 5,
+      "unit": "milliseconds",
+      "p50": 0.0132,
+      "p95": 0.015309999999999999,
+      "minimum": 0.0125,
+      "scope": "Fitted prediction including preprocessing; excludes artifact loading",
+      "model_mode": "model_simulated"
+    },
+    "ridge": {
+      "repetitions": 50,
+      "batch_size": 1,
+      "warmups": 5,
+      "unit": "milliseconds",
+      "p50": 3.43885,
+      "p95": 6.006764999999998,
+      "minimum": 1.7167,
+      "scope": "Fitted prediction including preprocessing; excludes artifact loading",
+      "model_mode": "model_simulated"
+    },
+    "catboost": {
+      "repetitions": 50,
+      "batch_size": 1,
+      "warmups": 5,
+      "unit": "milliseconds",
+      "p50": 3.05455,
+      "p95": 4.205645,
+      "minimum": 2.5449,
+      "scope": "Fitted prediction including preprocessing; excludes artifact loading",
+      "model_mode": "model_simulated"
+    },
+    "selected_adapter": {
+      "p50": 2.3332499999999996,
+      "p95": 4.115934999999999,
+      "repetitions": 50,
+      "warmups": 5,
+      "batch_size": 1,
+      "unit": "milliseconds",
+      "cold_artifact_load_ms": 16.5095,
+      "scope": "Local adapter validation + preprocessing + fitted prediction; warm process"
+    }
+  },
+  "selected_model": "ridge",
+  "activation_gate": {
+    "status": "PASS",
+    "relative_test_WAPE_gain": 0.7060318255996438,
+    "required_gain": 0.1
+  },
+  "ood_warning": true,
+  "ood_test_WAPE_ratio": 3.0624608488121883,
+  "catboost_issues": [],
+  "training_started_at_utc": "2026-10-24T17:30:15.742727+00:00",
+  "training_completed_at_utc": "2026-10-24T17:30:28.200601+00:00",
+  "observation_counts": {
+    "train": 1200,
+    "validation": 400,
+    "test": 400,
+    "ood": 400
+  },
+  "market_counts": {
+    "train": 60,
+    "validation": 20,
+    "test": 20,
+    "ood": 20
+  },
+  "preprocessing_fit_on": "TRAIN_MARKETS_ONLY",
+  "final_model_refit_on_validation": false,
+  "selection_lock_sha256": "e1af2997926fd05316a95886daae4dc348651f251a6e186f9e79d8f564e2e7d2",
+  "preservation_before": {
+    "files_checked": 233,
+    "files_unchanged": 233,
+    "branch": "ML",
+    "head": "569f4f52f459ed09129c04a17ac97485601d7bb7"
+  },
+  "preservation_after": {
+    "files_checked": 233,
+    "files_unchanged": 233,
+    "branch": "ML",
+    "head": "569f4f52f459ed09129c04a17ac97485601d7bb7"
+  },
+  "limitations": "Synthetic benchmark only; no real revenue validation, calibrated intervals, actual achieved sales or downstream analytical implementation."
+}

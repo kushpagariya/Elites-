@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>India - Household Consumption Expenditure Survey: 2023-24</title>
+
+    <link href="https://microdata.gov.in/nada/themes/nada52/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://microdata.gov.in/nada/themes/nada52/css/bootstrap.min.css">
+    
+
+<link rel="stylesheet" href="https://microdata.gov.in/nada/themes/nada52/css/style.css?v2023">
+<link rel="stylesheet" href="https://microdata.gov.in/nada/themes/nada52/css/custom.css?v2021">
+<link rel="stylesheet" href="https://microdata.gov.in/nada/themes/nada52/css/home.css?v03212019">
+<link rel="stylesheet" href="https://microdata.gov.in/nada/themes/nada52/css/variables.css?v07042021">
+<link rel="stylesheet" href="https://microdata.gov.in/nada/themes/nada52/css/facets.css?v062021">
+<link rel="stylesheet" href="https://microdata.gov.in/nada/themes/nada52/css/catalog-tab.css?v07052021">
+<link rel="stylesheet" href="https://microdata.gov.in/nada/themes/nada52/css/catalog-card.css?v10102021-1">
+<link rel="stylesheet" href="https://microdata.gov.in/nada/themes/nada52/css/filter-action-bar.css?v14052021-3">
+
+    <script src="https://microdata.gov.in/nada/javascript/jquery/jquery.js"></script>
+    <script src="https://microdata.gov.in/nada/themes/nada52/js/popper.min.js"></script>
+    <script src="https://microdata.gov.in/nada/themes/nada52/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    var CI = {'base_url': 'https://microdata.gov.in/nada/index.php'};
+
+    
+    if (top.frames.length!=0) {
+        top.location=self.document.location;
+    }
+
+    $(document).ready(function()  {
+        /*global ajax error handler */
+        $( document ).ajaxError(function(event, jqxhr, settings, exception) {
+            if(jqxhr.status==401){
+                window.location=CI.base_url+'/auth/login/?destination=catalog/';
+            }
+            else if (jqxhr.status>=500){
+                alert(jqxhr.responseText);
+            }
+        });
+
+    }); //end-document-ready
+
+</script>
+
+
+
+</head>
+
+<body>
+
+    <!-- site header -->
+    <style>
+.site-header .navbar-light .no-logo .navbar-brand--sitename {border:0px!important;margin-left:0px}
+.site-header .navbar-light .no-logo .nada-site-title {font-size:18px;}
+
+.site-header .navbar-dark {background-color: #08498d;color: #ffffff !important;padding: 0 !important;}
+ 
+.navbar-dark .container{
+            justify-content: center;
+        }
+       
+.site-header  .navbar-nav .nav-link:hover{
+        background: #ffffff !important;
+        color: #1f76d9  !important;
+        opacity: .8;
+
+    }
+  
+    .site-header .navbar-brand {
+        display:inline-flex !important;
+        margin-left:2%;
+    }
+    .site-header .text-muted{
+        font-size: .95rem;
+        letter-spacing: 5px;
+        color: #1f76d9 !important;
+        font-weight: 600;
+    }
+    .site-header .logo{
+        margin-top:10px;
+        max-height:80px;
+        border: none !important;
+    }
+    .site-header .headText{
+        font-size: 1.5rem;
+    }
+
+    .site-header .logo2{
+        position: relative;
+        margin-top:5px;
+        max-height:80px;
+        border: none !important;
+        margin-left:40px;
+        padding-bottom:3px;
+    }
+
+    .site-header .nav-link { 
+        background: var(--bs-secondary) !important;
+        color: #ffffff !important;
+    }
+
+    .site-header .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+        background: #ffffff !important;
+        color: #08498d !important;
+        opacity: .8;
+    }
+    .site-header .nav-item {
+        padding: 0 1px;
+    }
+    @media only screen and (max-width:767px) {
+        .site-header .logo2 {
+            margin-left: 0px;
+        }
+        .site-header .headText{
+          font-size: 14px;
+        }
+    }
+   
+</style>
+<header class="site-header">
+    
+        
+
+    <div class="container-fluid">
+
+        <div class="row align-items-center py-2">
+            <div class="col-5 col-md-3 text-left">
+                    
+                    <img src="/NADA/themes/nada52/images/logo.png" alt="Logo" class="logo img-fluid"></img>
+            </div>
+            <div class="col-4 col-md-6 text-center">
+                    
+                <a class="font-weight-bold mb-0 text-white text-decoration-none" href="https://microdata.gov.in/nada/index.php"><h4 class="headText">An Online Microdata Library</h4></a>
+            </div>
+                        
+            <div class="col-3 col-md-3 text-right">
+                <img src="/NADA/themes/nada52/images/nss_75_logo.png" alt="Logo" class="logo2 img-fluid"></img>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 px-0">
+
+                <nav class="navbar navbar-expand-md navbar-dark rounded navbar-toggleable-md wb-navbar">
+                           
+                                    <button class="navbar-toggler navbar-toggler-right collapsed wb-navbar-button-toggler" type="button" data-toggle="collapse" data-target="#containerNavbar" aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                 <!-- Start menus -->
+                <!-- Start menus -->
+<div class="collapse navbar-collapse pt-2 pt-md-0 pt-lg-0" id="containerNavbar" aria-expanded="false">
+        <ul class="navbar-nav mx-auto text-center">
+                                            <li class="nav-item">
+                <a   class="nav-link" href="https://microdata.gov.in/nada/index.php/home">Home</a>
+            </li>            
+                                            <li class="nav-item">
+                <a   class="nav-link" href="https://microdata.gov.in/nada/index.php/dissemination">Policies and Guidelines</a>
+            </li>            
+                                            <li class="nav-item">
+                <a   class="nav-link" href="/NADA/Guide_to_download_microdata.pdf">Download Manual</a>
+            </li>            
+                                            <li class="nav-item">
+                <a   class="nav-link" href="https://microdata.gov.in/nada/index.php/contact">Contact Us</a>
+            </li>            
+                                            <li class="nav-item">
+                <a target="_blank"  class="nav-link" href="/NADA/api-documentation/catalog">API Docs</a>
+            </li>            
+        
+        
+<li class="nav-item dropdown">
+            
+            <a class="nav-link dropdown-toggle" href="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle fa-lg"></i>Login            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="https://microdata.gov.in/nada/index.php/auth/login">Login</a>
+            </div>
+                </li>
+<!-- /row -->
+    </ul>
+
+</div>
+<!-- Close Menus -->                    <!-- Close Menus -->
+
+                </nav>
+
+            </div>
+
+        </div>
+    </div>
+                   
+
+</header>
+    <!-- page body -->
+    <div class="wp-page-body container-fluid page-catalog catalog-related-materials">
+
+        <div class="body-content-wrap theme-nada-2">
+
+            <!--breadcrumbs -->
+            <div class="container">
+                                                    <ol class="breadcrumb wb-breadcrumb">
+                        	    <div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
+           <span typeof="v:Breadcrumb">
+                		         <a href="https://microdata.gov.in/nada/index.php/" rel="v:url" property="v:title">Home</a> /
+                        
+       </span>
+                  <span typeof="v:Breadcrumb">
+                		         <a href="https://microdata.gov.in/nada/index.php/catalog" rel="v:url" property="v:title">Central Data Catalog</a> /
+                        
+       </span>
+                  <span typeof="v:Breadcrumb">
+                		         <a href="https://microdata.gov.in/nada/index.php/catalog/CEXP" rel="v:url" property="v:title">CEXP</a> /
+                        
+       </span>
+                  <span typeof="v:Breadcrumb">
+        	         	         <a class="active" href="https://microdata.gov.in/nada/index.php/catalog/237" rel="v:url" property="v:title">DDI-IND-MOSPI-NSS-HCES23-24</a>
+                        
+       </span>
+               </div>
+                    </ol>
+                            </div>
+            <!-- /breadcrumbs -->
+
+            <style>
+.metadata-sidebar-container .nav .active{
+	background:#e9ecef;		
+}
+.study-metadata-page .page-header .nav-tabs .active a {
+	background: white;
+	font-weight: bold;
+	border-top: 2px solid #0071bc;
+	border-left:1px solid gainsboro;
+	border-right:1px solid gainsboro;
+}
+
+.study-info-content {
+    font-size: 14px;
+}
+
+.study-subtitle{
+	font-size:.7em;
+	margin-bottom:10px;
+}
+
+.badge-outline{
+	background:transparent;
+	color:#03a9f4;
+	border:1px solid #9e9e9e;
+}
+.study-header-right-bar span{
+	display:block;
+	margin-bottom:15px;
+}
+.study-header-right-bar{
+	font-size:14px;
+	color:gray;
+}
+.get-microdata-btn{
+	font-size:14px;
+}
+
+.link-col .badge{
+	font-size:14px;
+	font-weight:normal;
+	background:transparent;
+	border:1px solid #9E9E9E;
+	color:#03a9f4;
+}
+
+.link-col .badge:hover{
+	background:#03a9f4;
+	color:#ffffff;
+}
+
+.study-header-right-bar .stat{
+	margin-bottom:10px;
+	font-size:small;
+}
+
+.study-header-right-bar .stat .stat-label{
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+.field-metadata__table_description__ref_country .field-value,
+.field-metadata__study_desc__study_info__nation .field-value{
+	max-height:350px;
+	overflow:auto;
+}
+.field-metadata__table_description__ref_country .field-value  ::-webkit-scrollbar,
+.field-metadata__study_desc__study_info__nation .field-value ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+.field-metadata__table_description__ref_country .field-value  ::-webkit-scrollbar-thumb,
+.field-metadata__study_desc__study_info__nation .field-value ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+</style>
+
+
+<div class="page-body-full study-metadata-page">
+	<span 
+		id="dataset-metadata-info" 
+		data-repositoryid="CEXP"
+		data-id="237"
+		data-idno="DDI-IND-MOSPI-NSS-HCES23-24"
+	></span>
+
+<div class="container-fluid page-header">
+<div class="container">
+
+
+<div class="row study-info">
+					<div class="col-md-2">
+			<div class="collection-thumb-container">
+				<a href="https://microdata.gov.in/nada/index.php/catalog/CEXP">
+				<img  src="https://microdata.gov.in/nada/files/hce.jpg?v=1776083335" class="mr-3 img-fluid img-thumbnail" alt="CEXP" title="Household Consumption Expenditure"/>
+				</a>
+			</div>		
+		</div>
+	
+	<div class="col">
+		
+		<div>
+		    <h1 class="mt-0 mb-1" id="dataset-title">
+                <span>Household Consumption Expenditure Survey: 2023-24</span>
+                            </h1>
+            <div class="clearfix">
+		        <h6 class="sub-title float-left" id="dataset-sub-title"><span id="dataset-country">India</span></h6>
+                                <a  
+                    href="https://microdata.gov.in/nada/index.php/catalog/237/get-microdata" 
+                    class="get-microdata-btn badge badge-primary wb-text-link-uppercase float-left ml-3" 
+                    title="Get Microdata">					
+                    <span class="fa fa-download"></span>
+                    Get Microdata                </a>
+                                
+            </div>
+		</div>
+
+		<div class="row study-info-content">
+		
+            <div class="col pr-5">
+
+                <div class="row mt-4 mb-2 pb-2  border-bottom">
+                    <div class="col-md-2">
+                        Reference ID                    </div>
+                    <div class="col">
+                        <div class="study-idno">
+                            DDI-IND-MOSPI-NSS-HCES23-24                            
+                        </div>
+                    </div>
+                </div>
+
+                		
+                                <div class="row mb-2 pb-2  border-bottom">
+                    <div class="col-md-2">
+                        Producer(s)                    </div>
+                    <div class="col">
+                        <div class="producers">
+                            NSS                        </div>
+                    </div>
+                </div>
+                                
+                
+                 
+                <div class="row  border-bottom mb-2 pb-2 mt-2">
+                    <div class="col-md-2">
+                        Collections                    </div>
+                    <div class="col">
+                        <div class="collections link-col">           
+                                                            <span class="collection">
+                                    <a href="https://microdata.gov.in/nada/index.php/collections/CEXP">
+                                        <span class="badge badge-primary">Household Consumption Expenditure</span>
+                                    </a>                                    
+                                </span>
+                                                    </div>
+                    </div>
+                </div>
+                
+                <div class="row border-bottom mb-2 pb-2 mt-2">
+                    <div class="col-md-2">
+                        Metadata                    </div>
+                    <div class="col">
+                        <div class="metadata">
+                            <!--metadata-->
+                            <span class="mr-2 link-col">
+                                                                                            
+                                                                    <a class="download" href="https://microdata.gov.in/nada/index.php/metadata/export/237/ddi" title="DDI Codebook (2.5)">
+                                        <span class="badge badge-primary"> DDI/XML</span>
+                                    </a>
+                                
+                                <a class="download" href="https://microdata.gov.in/nada/index.php/metadata/export/237/json" title="JSON">
+                                    <span class="badge badge-info">JSON</span>
+                                </a>
+                            </span>	
+                            <!--end-metadata-->
+                        </div>
+                    </div>
+                </div>
+
+                
+                	    </div>
+	
+	</div>
+
+	</div>
+
+    <div class="col-md-2 border-left">
+		<!--right-->
+		<div class="study-header-right-bar">
+				<div class="stat">
+					<div class="stat-label">Created on </div>
+					<div class="stat-value">Apr 22, 2025</div>
+				</div>
+
+				<div class="stat">
+					<div class="stat-label">Last modified </div>
+					<div class="stat-value">Apr 13, 2026</div>
+				</div>
+				
+									<div class="stat">
+						<div class="stat-label">Page views </div>
+						<div class="stat-value">525118</div>
+					</div>
+				
+									<div class="stat">
+						<div class="stat-label">Downloads </div>
+						<div class="stat-value">46069</div>
+					</div>				
+						</div>		
+		<!--end-right-->
+	</div>
+
+</div>
+
+
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs wb-nav-tab-space flex-wrap" role="tablist">
+								<li class="nav-item tab-description "  >
+				<a href="https://microdata.gov.in/nada/index.php/catalog/237/study-description" class="nav-link wb-nav-link wb-text-link-uppercase " role="tab"  data-id="related-materials" >Study Description</a>
+			</li>
+										<li class="nav-item tab-data_dictionary "  >
+				<a href="https://microdata.gov.in/nada/index.php/catalog/237/data-dictionary" class="nav-link wb-nav-link wb-text-link-uppercase " role="tab"  data-id="related-materials" >Data Dictionary</a>
+			</li>
+										<li class="nav-item tab-related_materials active"  >
+				<a href="https://microdata.gov.in/nada/index.php/catalog/237/related-materials" class="nav-link wb-nav-link wb-text-link-uppercase active" role="tab"  data-id="related-materials" >Downloads</a>
+			</li>
+										<li class="nav-item nav-item-get-microdata tab-get_microdata " >
+				<a href="https://microdata.gov.in/nada/index.php/catalog/237/get-microdata" class="nav-link wb-nav-link wb-text-link-uppercase " role="tab" data-id="related-materials" >
+					<span class="get-microdata icon-da-public"></span> Get Microdata				</a>
+			</li>                            
+										
+	<!--review-->
+	</ul>
+<!-- end nav tabs -->
+</div>
+</div>
+
+
+
+<div class="container study-metadata-body-content " >
+
+
+<!-- tabs -->
+<div id="tabs" class="study-metadata ui-tabs ui-widget ui-widget-content ui-corner-all study-tabs" >	
+  
+  <div id="tabs-1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" >
+  	
+        <div class="tab-body-no-sidebar-x">
+<style>
+.study-metadata .resource-info{padding-left:0px;}
+
+    .zip-preview .item{
+        padding:5x;
+        margin-left:10px;
+    }
+    .zip-preview .item .item{
+        padding-left:10px;
+        margin-left:10px;
+    }
+    .zip-preview .folder{
+        font-weight:normal;
+        font-size:14px;
+    }
+
+    .zip-preview .file{
+        font-size:12px;
+    }
+
+    .mouse-pointer{cursor: pointer;}
+
+</style>
+
+
+
+<div style="padding-top:20px;">
+    <h5>Download related resources</h5>
+    <!--<div class="subtext">Download the questionnaires, technical documents and reports that describe the survey process and the key results for this study.</div>-->
+    <div class="resources">
+                                            <fieldset>
+                    <legend>
+                        Technical documents                    </legend>
+                                                                                            <div class="colx resource alternate">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="2612">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    HCES_2023_24_Imputation_Rate 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://microdata.gov.in/nada/index.php/catalog/237/download/2612" 
+                                        title="HCES_2023_24_Imputation_Rate.xlsx"
+                                        data-filename="HCES_2023_24_Imputation_Rate.xlsx"
+                                        data-dctype="Document, Technical [doc/tec]"
+                                        data-isurl="0"
+                                        data-extension="xlsx"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> 
+                                            Download [XLSX, 67.49 KB]                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_2612" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="HCES_2023_24_Imputation_Rate.xlsx" href="https://microdata.gov.in/nada/index.php/catalog/237/download/2612">https://microdata.gov.in/nada/index.php/catalog/237/download/2612</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                                                                            <div class="colx resource">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="2618">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    tabulation_state_code 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://microdata.gov.in/nada/index.php/catalog/237/download/2618" 
+                                        title="tabulation_state_code.xlsx"
+                                        data-filename="tabulation_state_code.xlsx"
+                                        data-dctype="Document, Technical [doc/tec]"
+                                        data-isurl="0"
+                                        data-extension="xlsx"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> 
+                                            Download [XLSX, 10.95 KB]                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_2618" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="tabulation_state_code.xlsx" href="https://microdata.gov.in/nada/index.php/catalog/237/download/2618">https://microdata.gov.in/nada/index.php/catalog/237/download/2618</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                                                                            <div class="colx resource alternate">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="3947">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    HCES2023-24_Vol_II-2 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://microdata.gov.in/nada/index.php/catalog/237/download/3947" 
+                                        title="HCES2023-24_Vol_II-2.pdf"
+                                        data-filename="HCES2023-24_Vol_II-2.pdf"
+                                        data-dctype="Document, Technical [doc/tec]"
+                                        data-isurl="0"
+                                        data-extension="pdf"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> 
+                                            Download [PDF, 4.71 MB]                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_3947" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="HCES2023-24_Vol_II-2.pdf" href="https://microdata.gov.in/nada/index.php/catalog/237/download/3947">https://microdata.gov.in/nada/index.php/catalog/237/download/3947</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                                                                            <div class="colx resource">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="3948">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    Layout_HCES 2023-24 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://microdata.gov.in/nada/index.php/catalog/237/download/3948" 
+                                        title="Layout_HCES 2023-24.xlsx"
+                                        data-filename="Layout_HCES 2023-24.xlsx"
+                                        data-dctype="Document, Technical [doc/tec]"
+                                        data-isurl="0"
+                                        data-extension="xlsx"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> 
+                                            Download [XLSX, 38.54 KB]                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_3948" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="Layout_HCES 2023-24.xlsx" href="https://microdata.gov.in/nada/index.php/catalog/237/download/3948">https://microdata.gov.in/nada/index.php/catalog/237/download/3948</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                                                                            <div class="colx resource alternate">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="3949">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    Objective_of_HCES 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://microdata.gov.in/nada/index.php/catalog/237/download/3949" 
+                                        title="Objective_of_HCES.pdf"
+                                        data-filename="Objective_of_HCES.pdf"
+                                        data-dctype="Document, Technical [doc/tec]"
+                                        data-isurl="0"
+                                        data-extension="pdf"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> 
+                                            Download [PDF, 183.02 KB]                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_3949" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="Objective_of_HCES.pdf" href="https://microdata.gov.in/nada/index.php/catalog/237/download/3949">https://microdata.gov.in/nada/index.php/catalog/237/download/3949</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                                                                            <div class="colx resource">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="3950">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    Readme_HCES2023 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://microdata.gov.in/nada/index.php/catalog/237/download/3950" 
+                                        title="Readme_HCES2023.docx"
+                                        data-filename="Readme_HCES2023.docx"
+                                        data-dctype="Document, Technical [doc/tec]"
+                                        data-isurl="0"
+                                        data-extension="docx"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> 
+                                            Download [DOCX, 21.44 KB]                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_3950" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="Readme_HCES2023.docx" href="https://microdata.gov.in/nada/index.php/catalog/237/download/3950">https://microdata.gov.in/nada/index.php/catalog/237/download/3950</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                                                                            <div class="colx resource alternate">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="3951">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    Rider_for_users_of_unit_level_data_of_HCES 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://microdata.gov.in/nada/index.php/catalog/237/download/3951" 
+                                        title="Rider_for_users_of_unit_level_data_of_HCES.pdf"
+                                        data-filename="Rider_for_users_of_unit_level_data_of_HCES.pdf"
+                                        data-dctype="Document, Technical [doc/tec]"
+                                        data-isurl="0"
+                                        data-extension="pdf"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> 
+                                            Download [PDF, 110.83 KB]                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_3951" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="Rider_for_users_of_unit_level_data_of_HCES.pdf" href="https://microdata.gov.in/nada/index.php/catalog/237/download/3951">https://microdata.gov.in/nada/index.php/catalog/237/download/3951</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                                                                            <div class="colx resource">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="3952">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    Survey_methodology_and_Estimation_Procedure 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://microdata.gov.in/nada/index.php/catalog/237/download/3952" 
+                                        title="Survey_methodology_and_Estimation_Procedure.pdf"
+                                        data-filename="Survey_methodology_and_Estimation_Procedure.pdf"
+                                        data-dctype="Document, Technical [doc/tec]"
+                                        data-isurl="0"
+                                        data-extension="pdf"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> 
+                                            Download [PDF, 697.36 KB]                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_3952" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="Survey_methodology_and_Estimation_Procedure.pdf" href="https://microdata.gov.in/nada/index.php/catalog/237/download/3952">https://microdata.gov.in/nada/index.php/catalog/237/download/3952</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                    </fieldset>
+                                                <fieldset>
+                    <legend>
+                        Other Materials                    </legend>
+                                                                                            <div class="colx resource alternate">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="2632">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    YouTube link( For HCES (Module 1)) 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://youtu.be/UroWUbFkxGA" 
+                                        title="UroWUbFkxGA"
+                                        data-filename="UroWUbFkxGA"
+                                        data-dctype="Video [vid]"
+                                        data-isurl="1"
+                                        data-extension="be/UroWUbFkxGA"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fas fa-external-link-square-alt" aria-hidden="true"></i> 
+                                            External link                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_2632" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="UroWUbFkxGA" href="https://youtu.be/UroWUbFkxGA">https://youtu.be/UroWUbFkxGA</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                                                                            <div class="colx resource">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="2633">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    YouTube link( For HCES (Module 2)) 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://youtu.be/OOSbBZsDt0c" 
+                                        title="OOSbBZsDt0c"
+                                        data-filename="OOSbBZsDt0c"
+                                        data-dctype="Video [vid]"
+                                        data-isurl="1"
+                                        data-extension="be/OOSbBZsDt0c"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fas fa-external-link-square-alt" aria-hidden="true"></i> 
+                                            External link                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_2633" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="OOSbBZsDt0c" href="https://youtu.be/OOSbBZsDt0c">https://youtu.be/OOSbBZsDt0c</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                                                                            <div class="colx resource alternate">
+                            <div class="resource-left-colx row">
+                                <div class="col-md-8 col-lg-9">
+                                <span class="resource-info" 
+                                    title="Click to view information" 
+                                    alt="View more information" 
+                                    id="2634">
+                                    <i class="far fa-plus-square icon-expand" aria-hidden="true"></i>
+                                    <i class="far fa-minus-square icon-collapsed" aria-hidden="true"></i>
+                                    YouTube link( For HCES (Module 3)) 
+                                                                    
+                                </span>
+                                </div>
+
+                                <div class="col-md-4 col-lg-3">
+                                                                                                    <a  target="_blank" 
+                                        href="https://youtu.be/azSdAOl_W7Y" 
+                                        title="azSdAOl_W7Y"
+                                        data-filename="azSdAOl_W7Y"
+                                        data-dctype="Video [vid]"
+                                        data-isurl="1"
+                                        data-extension="be/azSdAOl_W7Y"
+                                        data-sid="237"
+                                        class="download btn btn-outline-primary btn-sm btn-block">
+                                            <i class="fas fa-external-link-square-alt" aria-hidden="true"></i> 
+                                            External link                                    </a>
+
+                                    
+                                                                    
+                                                                </div>
+                            
+                            
+                            </div>
+                                                            <div id="info_2634" class="abstract">
+
+                                    <table class="table table-striped grid-table tbl-resource-info" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <tr>
+                                            <td class="caption">Download</td>
+                                            <td><a class="download" title="azSdAOl_W7Y" href="https://youtu.be/azSdAOl_W7Y">https://youtu.be/azSdAOl_W7Y</a></td>
+                                        </tr>
+
+                                                                            </table>
+
+                                </div>
+                                                        
+
+                        </div>
+                                    </fieldset>
+                        </div>
+</div>
+
+<!--survey summary resources-->
+<script type="text/javascript">
+	function toggle_resource(element_id){
+		$("#"+element_id).parent(".resource").toggleClass("active");
+		$("#"+element_id).toggle();
+	}
+	
+	$(document).ready(function () { 
+		bind_behaviours();
+		
+		$(".show-datafiles").click(function(){
+			$(".data-files .hidden").removeClass("hidden");
+			$(".show-datafiles").hide();
+			return false;
+		});
+
+	});	
+	
+	function bind_behaviours() {
+		//show variable info by id
+		$(".resource-info").unbind('click');
+		$(".resource-info").click(function(){
+			if($(this).attr("id")!=''){
+				toggle_resource('info_'+$(this).attr("id"));
+			}
+			return false;
+		});			
+	}
+</script></div>
+    
+	<div class="mt-5">                
+            <a class="btn btn-sm btn-secondary" href="https://microdata.gov.in/nada/index.php/catalog"><i class="fas fa-arrow-circle-left"></i> Back to Catalog</a>
+        </div>
+  </div>
+</div>
+<!-- end-tabs-->    
+   </div> 
+</div>
+
+
+<!--survey summary resources-->
+<script type="text/javascript">
+	function toggle_resource(element_id){
+		$("#"+element_id).parent(".resource").toggleClass("active");
+		$("#"+element_id).toggle();
+	}
+	
+	$(document).ready(function () { 
+		bind_behaviours();
+		
+		$(".show-datafiles").click(function(){
+			$(".data-files .hidden").removeClass("hidden");
+			$(".show-datafiles").hide();
+			return false;
+		});
+
+		//setup bootstrap scrollspy
+		$("body").attr('data-spy', 'scroll');
+		$("body").attr('data-target', '#dataset-metadata-sidebar');
+		$("body").attr('data-offset', '0');
+		$("body").scrollspy('refresh');
+
+	});	
+	
+	function bind_behaviours() {
+		//show variable info by id
+		$(".resource-info").unbind('click');
+		$(".resource-info").click(function(){
+			if($(this).attr("id")!=''){
+				toggle_resource('info_'+$(this).attr("id"));
+			}
+			return false;
+		});			
+	}
+</script>        </div>
+    </div>
+
+    <!-- page footer -->
+    <footer>
+    <!-- footer top section -->
+        <!-- End footer top section -->
+  <style>
+    .text-muted{
+        color:#5c82a3 !important;
+    }
+  </style>
+<div class="modal fade" id="discModal" tabindex="-1" role="dialog" aria-labelledby="discLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="height:350px; width: 700px; overflow-y: auto; margin-right: auto;">
+            <div class="modal-header">
+                <h6 class="modal-title" id="discLabel">Disclaimer</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            Ministry of Statistics & Programme Implementation (MoSPI) disclaims any liability or responsibility arising from the use of the Microdata Portal - https://microdata[dot]gov[dot]in or the contents of the portal. The Ministry and its staff, individually and collectively, shall not be liable for any financial or other consequences whatsoever arising from the use of the content of the portal, including the inappropriate, improper, or fraudulent use of such content.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- footer bottom section -->
+    <div class="full-row-footer-black-components">
+        <div class="container">
+            <div class="footer">
+                <div class="row">
+
+                    <!-- / footer logo -->
+                    <div class="col-12 col-md-6">
+                        <p class="text-left text-white">
+                            <small>
+                                <script language="JavaScript">
+                                var time = new Date();
+                                var year = time.getYear();
+                                if (year < 2000)
+                                year = year + 1900 + ", ";
+                                //document.write('@'+year); // End -->
+                                </script> 
+                               <a tabindex="-1" href="https://mospi.gov.in/" target="_blank"> <span class="text-white m-1">MoSPI Website</span></a>
+                               <a tabindex="-1" href="https://esankhyiki.mospi.gov.in/" target="_blank"> <span class="text-white m-1">eSankhyiki Website</span></a> 
+                               <a tabindex="-1" href="https://nmds.mospi.gov.in/" target="_blank"> <span class="text-white m-1">National Metadata Structure</span></a> 
+                               <a tabindex="-1" href="https://datainnovation.mospi.gov.in/" target="_blank"> <span class="text-white m-1">DI Lab Portal</span></a> 
+                               <a tabindex="-1" href="#" data-toggle="modal" data-target="#discModal"> <span class="text-white m-1">Disclaimer</span> </a>
+                                </small>
+                        </p>
+                    </div>
+                    <!-- / footer logo -->
+
+                    <!-- Copyrights-->
+                    <div class="col-12 col-md-6">                                                 
+                        <p class="text-center text-lg-right">                                   
+                            <a href="https://www.facebook.com/GoIStats/?modal=admin_todo_tour" class="text-white pr-1" target="_blank" >
+							 <img style="border: none; outline: none;" src="/NADA/themes/nada52/images/fb.svg" alt="facebook"></img>
+							</a>
+                            <a href="https://x.com/GoIStats?s=08" class="text-white pr-2"  target="_blank">
+							 <img style="border: none;outline: none;" src="/NADA/themes/nada52/images/twitter.svg" alt="X"></img>
+							</a>
+                            <a href="https://www.youtube.com/@GoIStats" class="text-white pr-2"  target="_blank">
+							<img style="border: none;outline: none;" src="/NADA/themes/nada52/images/youtube.svg" alt="YouTube"></img>
+							</a>
+                            <a href="https://www.instagram.com/goistats/?igshid=1ea2ccd5gsb85" class="text-white" target="_blank">
+							<img style="border: none;outline: none;" src="/NADA/themes/nada52/images/instagram.svg" alt="Instagram"></img>
+							</a>    
+                                                                    
+                        </p>
+                    </div>
+                    <!-- / Copyrights  -->
+
+                </div>
+                <div class="row">
+                <div class="col-12 col-md-6">
+                        <p class="text-left text-white">
+                            <small>
+                             <span class="text-muted">Powered by NADA 5.4</span>   
+                            </small>
+                        </p> 
+                 </div>
+               <div class="col-12 col-md-6 d-flex justify-content-end">
+                        <p class="text-left text-white">
+                            <small>
+                             <span class="text-white">Nesstar is not compatible with IOS</span>   
+                            </small>
+                        </p> 
+                 </div>
+                
+                </div>  
+            </div>
+        </div>
+    </div>
+</footer></body>
+
+</html>

@@ -1,0 +1,62 @@
+{
+  "area_x1.25": {
+    "increase": 10,
+    "decrease": 0,
+    "unchanged": 0,
+    "rejected": 0
+  },
+  "competition_plus5": {
+    "increase": 0,
+    "decrease": 10,
+    "unchanged": 0,
+    "rejected": 0
+  },
+  "wallet_x0.5": {
+    "increase": 0,
+    "decrease": 10,
+    "unchanged": 0,
+    "rejected": 0
+  },
+  "wallet_x1.25": {
+    "increase": 10,
+    "decrease": 0,
+    "unchanged": 0,
+    "rejected": 0
+  },
+  "weekday_evening_raw_x1.25": {
+    "increase": 7,
+    "decrease": 0,
+    "unchanged": 3,
+    "rejected": 0
+  },
+  "weekday_lunch_raw_x1.25": {
+    "increase": 4,
+    "decrease": 5,
+    "unchanged": 1,
+    "rejected": 0
+  },
+  "weekday_morning_raw_x1.25": {
+    "increase": 8,
+    "decrease": 1,
+    "unchanged": 1,
+    "rejected": 0
+  },
+  "weekday_night_raw_x1.25": {
+    "increase": 6,
+    "decrease": 3,
+    "unchanged": 1,
+    "rejected": 0
+  },
+  "weekend_day_raw_x1.25": {
+    "increase": 7,
+    "decrease": 0,
+    "unchanged": 3,
+    "rejected": 0
+  },
+  "weekend_evening_raw_x1.25": {
+    "increase": 8,
+    "decrease": 1,
+    "unchanged": 1,
+    "rejected": 0
+  }
+}

@@ -1,4 +1,1 @@
-fastapi==0.115.14
-pydantic==2.11.7
-uvicorn==0.34.3
-httpx==0.28.1
+-r requirements-lock.txt

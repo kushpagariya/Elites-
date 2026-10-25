@@ -1,0 +1,107 @@
+{
+  "command": "python -m ml.evaluation.reference_sales_b1.finish_report",
+  "equivalent": "python -m unittest discover -s tests/unit -p test_reference_sales_b1.py -v",
+  "completed_at_utc": "2026-10-24T21:59:38.927161+00:00",
+  "tests_run": 20,
+  "passed": 20,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_01_local_selected_artifact_id_and_no_replacement",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_02_schema_and_missing_or_invalid_inputs",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_03_units_and_distinct_spending_wallet_and_store_sales",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_04_all_raw_predictions_finite_nonnegative_and_bounded",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_05_supplied_reference_bound_rejects_without_clipping",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_06_invalid_raw_never_becomes_usable",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_07_wallet_derivative_matches_finite_difference",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_08_known_negative_wallet_response_is_flagged_not_hidden",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_09_competition_probes_preserve_recorded_input_changes",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_10_each_daypart_varied_independently_and_not_forced_positive",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_11_training_inference_preprocessing_agree",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_12_bengaluru_examples_unlabelled_and_all_warned",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_13_support_warning_is_empirical_and_reproducible",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_14_original_bytes_contracts_and_current_git_preserved",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_15_validation_selection_and_original_metrics_unchanged",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_16_capacity_degenerate_targets_are_not_misrepresented",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_17_no_network_or_orchestration_implementation",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_18_explicit_fallback_and_no_fabricated_missing_features",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_19_invalid_bound_batch_and_zero_wallet",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_b1.B1SafetyTests.test_20_behavior_failures_and_probe_coverage_are_explicit",
+      "status": "PASS"
+    }
+  ],
+  "output": "test_01_local_selected_artifact_id_and_no_replacement (test_reference_sales_b1.B1SafetyTests.test_01_local_selected_artifact_id_and_no_replacement) ... ok\ntest_02_schema_and_missing_or_invalid_inputs (test_reference_sales_b1.B1SafetyTests.test_02_schema_and_missing_or_invalid_inputs) ... ok\ntest_03_units_and_distinct_spending_wallet_and_store_sales (test_reference_sales_b1.B1SafetyTests.test_03_units_and_distinct_spending_wallet_and_store_sales) ... ok\ntest_04_all_raw_predictions_finite_nonnegative_and_bounded (test_reference_sales_b1.B1SafetyTests.test_04_all_raw_predictions_finite_nonnegative_and_bounded) ... ok\ntest_05_supplied_reference_bound_rejects_without_clipping (test_reference_sales_b1.B1SafetyTests.test_05_supplied_reference_bound_rejects_without_clipping) ... ok\ntest_06_invalid_raw_never_becomes_usable (test_reference_sales_b1.B1SafetyTests.test_06_invalid_raw_never_becomes_usable) ... ok\ntest_07_wallet_derivative_matches_finite_difference (test_reference_sales_b1.B1SafetyTests.test_07_wallet_derivative_matches_finite_difference) ... ok\ntest_08_known_negative_wallet_response_is_flagged_not_hidden (test_reference_sales_b1.B1SafetyTests.test_08_known_negative_wallet_response_is_flagged_not_hidden) ... ok\ntest_09_competition_probes_preserve_recorded_input_changes (test_reference_sales_b1.B1SafetyTests.test_09_competition_probes_preserve_recorded_input_changes) ... ok\ntest_10_each_daypart_varied_independently_and_not_forced_positive (test_reference_sales_b1.B1SafetyTests.test_10_each_daypart_varied_independently_and_not_forced_positive) ... ok\ntest_11_training_inference_preprocessing_agree (test_reference_sales_b1.B1SafetyTests.test_11_training_inference_preprocessing_agree) ... ok\ntest_12_bengaluru_examples_unlabelled_and_all_warned (test_reference_sales_b1.B1SafetyTests.test_12_bengaluru_examples_unlabelled_and_all_warned) ... ok\ntest_13_support_warning_is_empirical_and_reproducible (test_reference_sales_b1.B1SafetyTests.test_13_support_warning_is_empirical_and_reproducible) ... ok\ntest_14_original_bytes_contracts_and_current_git_preserved (test_reference_sales_b1.B1SafetyTests.test_14_original_bytes_contracts_and_current_git_preserved) ... ok\ntest_15_validation_selection_and_original_metrics_unchanged (test_reference_sales_b1.B1SafetyTests.test_15_validation_selection_and_original_metrics_unchanged) ... ok\ntest_16_capacity_degenerate_targets_are_not_misrepresented (test_reference_sales_b1.B1SafetyTests.test_16_capacity_degenerate_targets_are_not_misrepresented) ... ok\ntest_17_no_network_or_orchestration_implementation (test_reference_sales_b1.B1SafetyTests.test_17_no_network_or_orchestration_implementation) ... ok\ntest_18_explicit_fallback_and_no_fabricated_missing_features (test_reference_sales_b1.B1SafetyTests.test_18_explicit_fallback_and_no_fabricated_missing_features) ... ok\ntest_19_invalid_bound_batch_and_zero_wallet (test_reference_sales_b1.B1SafetyTests.test_19_invalid_bound_batch_and_zero_wallet) ... ok\ntest_20_behavior_failures_and_probe_coverage_are_explicit (test_reference_sales_b1.B1SafetyTests.test_20_behavior_failures_and_probe_coverage_are_explicit) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 1.419s\n\nOK\n",
+  "initial_run": {
+    "passed": 19,
+    "failed": 1,
+    "reason": "Test incorrectly asserted all regular observations were capped; 3 validation observations are uncapped. Corrected scope to actual training/test/OOD findings, retaining the uncapped-validation check."
+  },
+  "warnings": [
+    "Setting the shape on a NumPy array has been deprecated in NumPy 2.5.\nAs an alternative, you can create a new view using np.reshape (with copy=False if needed)."
+  ],
+  "preservation": {
+    "existing_files_checked": 273,
+    "all_original_bytes_preserved": true,
+    "source_revised_with_original_backup": "ml/inference/reference_sales.py",
+    "head": "adcabc63a1f15911d6f10afa3c1dc2a146c1468f"
+  }
+}

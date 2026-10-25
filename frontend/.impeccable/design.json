@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-24T00:00:00Z",
+  "title": "StoreScout shared retail identity",
+  "extensions": {
+    "motion": [
+      {
+        "name": "street-motion",
+        "value": "demand when paused or offscreen",
+        "purpose": "Suspend decorative street motion; reduced motion uses a static CSS street."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stacked-marketing",
+        "value": "800px"
+      },
+      {
+        "name": "workspace-navigation",
+        "value": "1000px"
+      },
+      {
+        "name": "phone",
+        "value": "480px"
+      }
+    ]
+  },
+  "components": [],
+  "narrative": {
+    "northStar": "Local retail street",
+    "overview": "Cream, forest and terracotta with Manrope across marketing and the analytical workspace. Clear headlines, direct chart labels, relevant retail illustrations and restrained physical motion. Source labels and all saved backend identities remain visible or available in details.",
+    "keyCharacteristics": [
+      "Storefront/location brand mark",
+      "Texture-ready top-down 3D expansion pass on refresh",
+      "Forest fill and label-rollover pill navigation",
+      "Distinct neighbourhood, due diligence and network visuals",
+      "Explicitly synthetic daypart graph",
+      "Manrope typography"
+    ],
+    "rules": [
+      {
+        "name": "Illustration boundary",
+        "body": "The scene is illustrative, not geographic or analytical evidence.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Preserve routes and backend financial calculations.",
+      "Keep pause, reduced-motion and offscreen suspension behavior."
+    ],
+    "donts": [
+      "Do not interpret storefronts or SALE lettering as rankings or model output."
+    ]
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6239,
+          12.9188
+        ]
+      },
+      "properties": {
+        "site_id": "site-01",
+        "name": "Hypothetical grocery candidate 1",
+        "city": "Bengaluru",
+        "locality": "Central Silk Board",
+        "latitude": 12.9188,
+        "longitude": 77.6239,
+        "store_format": "supermarket",
+        "store_size_sqm": 575,
+        "monthly_rent_inr": 402500,
+        "capex_inr": 10350000,
+        "annual_opex_excl_rent_inr": 4140000,
+        "gross_margin_fraction": 0.22,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "price_basis_date": "2026-10-24",
+        "premises_availability_status": "UNVERIFIED_HYPOTHETICAL",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6268,
+          12.9088
+        ]
+      },
+      "properties": {
+        "site_id": "site-02",
+        "name": "Hypothetical grocery candidate 2",
+        "city": "Bengaluru",
+        "locality": "Bommanahalli",
+        "latitude": 12.9088,
+        "longitude": 77.6268,
+        "store_format": "supermarket",
+        "store_size_sqm": 400,
+        "monthly_rent_inr": 280000,
+        "capex_inr": 7200000,
+        "annual_opex_excl_rent_inr": 2880000,
+        "gross_margin_fraction": 0.22,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "price_basis_date": "2026-10-24",
+        "premises_availability_status": "UNVERIFIED_HYPOTHETICAL",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6381,
+          12.9024
+        ]
+      },
+      "properties": {
+        "site_id": "site-03",
+        "name": "Hypothetical grocery candidate 3",
+        "city": "Bengaluru",
+        "locality": "Hongasandra",
+        "latitude": 12.9024,
+        "longitude": 77.6381,
+        "store_format": "supermarket",
+        "store_size_sqm": 625,
+        "monthly_rent_inr": 437500,
+        "capex_inr": 11250000,
+        "annual_opex_excl_rent_inr": 4500000,
+        "gross_margin_fraction": 0.22,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "price_basis_date": "2026-10-24",
+        "premises_availability_status": "UNVERIFIED_HYPOTHETICAL",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6468,
+          12.8994
+        ]
+      },
+      "properties": {
+        "site_id": "site-04",
+        "name": "Hypothetical grocery candidate 4",
+        "city": "Bengaluru",
+        "locality": "Garvebhavi Palya",
+        "latitude": 12.8994,
+        "longitude": 77.6468,
+        "store_format": "supermarket",
+        "store_size_sqm": 375,
+        "monthly_rent_inr": 262500,
+        "capex_inr": 6750000,
+        "annual_opex_excl_rent_inr": 2700000,
+        "gross_margin_fraction": 0.22,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "price_basis_date": "2026-10-24",
+        "premises_availability_status": "UNVERIFIED_HYPOTHETICAL",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6419,
+          12.8898
+        ]
+      },
+      "properties": {
+        "site_id": "site-05",
+        "name": "Hypothetical grocery candidate 5",
+        "city": "Bengaluru",
+        "locality": "Kudlu Gate",
+        "latitude": 12.8898,
+        "longitude": 77.6419,
+        "store_format": "supermarket",
+        "store_size_sqm": 450,
+        "monthly_rent_inr": 315000,
+        "capex_inr": 8100000,
+        "annual_opex_excl_rent_inr": 3240000,
+        "gross_margin_fraction": 0.22,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "price_basis_date": "2026-10-24",
+        "premises_availability_status": "UNVERIFIED_HYPOTHETICAL",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6472,
+          12.8808
+        ]
+      },
+      "properties": {
+        "site_id": "site-06",
+        "name": "Hypothetical grocery candidate 6",
+        "city": "Bengaluru",
+        "locality": "Singasandra",
+        "latitude": 12.8808,
+        "longitude": 77.6472,
+        "store_format": "supermarket",
+        "store_size_sqm": 600,
+        "monthly_rent_inr": 420000,
+        "capex_inr": 10800000,
+        "annual_opex_excl_rent_inr": 4320000,
+        "gross_margin_fraction": 0.22,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "price_basis_date": "2026-10-24",
+        "premises_availability_status": "UNVERIFIED_HYPOTHETICAL",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6578,
+          12.8726
+        ]
+      },
+      "properties": {
+        "site_id": "site-07",
+        "name": "Hypothetical grocery candidate 7",
+        "city": "Bengaluru",
+        "locality": "Hosa Road",
+        "latitude": 12.8726,
+        "longitude": 77.6578,
+        "store_format": "supermarket",
+        "store_size_sqm": 350,
+        "monthly_rent_inr": 245000,
+        "capex_inr": 6300000,
+        "annual_opex_excl_rent_inr": 2520000,
+        "gross_margin_fraction": 0.22,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "price_basis_date": "2026-10-24",
+        "premises_availability_status": "UNVERIFIED_HYPOTHETICAL",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6605,
+          12.8642
+        ]
+      },
+      "properties": {
+        "site_id": "site-08",
+        "name": "Hypothetical grocery candidate 8",
+        "city": "Bengaluru",
+        "locality": "Beratena Agrahara",
+        "latitude": 12.8642,
+        "longitude": 77.6605,
+        "store_format": "supermarket",
+        "store_size_sqm": 425,
+        "monthly_rent_inr": 297500,
+        "capex_inr": 7650000,
+        "annual_opex_excl_rent_inr": 3060000,
+        "gross_margin_fraction": 0.22,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "price_basis_date": "2026-10-24",
+        "premises_availability_status": "UNVERIFIED_HYPOTHETICAL",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6607,
+          12.8516
+        ]
+      },
+      "properties": {
+        "site_id": "site-09",
+        "name": "Hypothetical grocery candidate 9",
+        "city": "Bengaluru",
+        "locality": "Electronic City Phase 1",
+        "latitude": 12.8516,
+        "longitude": 77.6607,
+        "store_format": "supermarket",
+        "store_size_sqm": 550,
+        "monthly_rent_inr": 385000,
+        "capex_inr": 9900000,
+        "annual_opex_excl_rent_inr": 3960000,
+        "gross_margin_fraction": 0.22,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "price_basis_date": "2026-10-24",
+        "premises_availability_status": "UNVERIFIED_HYPOTHETICAL",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6718,
+          12.8455
+        ]
+      },
+      "properties": {
+        "site_id": "site-10",
+        "name": "Hypothetical grocery candidate 10",
+        "city": "Bengaluru",
+        "locality": "Konappana Agrahara",
+        "latitude": 12.8455,
+        "longitude": 77.6718,
+        "store_format": "supermarket",
+        "store_size_sqm": 650,
+        "monthly_rent_inr": 455000,
+        "capex_inr": 11700000,
+        "annual_opex_excl_rent_inr": 4680000,
+        "gross_margin_fraction": 0.22,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "price_basis_date": "2026-10-24",
+        "premises_availability_status": "UNVERIFIED_HYPOTHETICAL",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    }
+  ]
+}

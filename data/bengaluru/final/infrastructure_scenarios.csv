@@ -1,0 +1,4 @@
+scenario_id,infrastructure_state,feature_snapshot_id,blue_line_active,blue_scenario_open_date,delay_months,scenario_source_status,baseline_contains_operational_yellow,future_geometry_in_baseline_features,source_id
+current,current,bengaluru-features-20261024-v1,False,,24,ASSUMED,True,False,assumptions;yellow-official;blue-official
+opens,opens,bengaluru-features-20261024-v1,,2027-07-01,24,ASSUMED,True,False,assumptions;yellow-official;blue-official
+delayed,delayed,bengaluru-features-20261024-v1,,2029-07-01,24,ASSUMED,True,False,assumptions;yellow-official;blue-official

@@ -1,0 +1,108 @@
+{
+  "selected_family": "catboost",
+  "parameters": {
+    "iterations": 450,
+    "depth": 5,
+    "learning_rate": 0.06,
+    "l2_leaf_reg": 6
+  },
+  "validation_trials": [
+    {
+      "family": "median",
+      "parameters": {},
+      "validation": {
+        "n": 400,
+        "MAE_inr": 56189122.30066723,
+        "RMSE_inr": 80736092.47243236,
+        "WAPE": 0.48594390111992786,
+        "absolute_error_sum_inr": 22475648920.26689,
+        "absolute_actual_sum_inr": 46251529998.56262,
+        "WAPE_undefined_reason": null
+      }
+    },
+    {
+      "family": "ridge",
+      "parameters": {
+        "alpha": 1
+      },
+      "validation": {
+        "n": 400,
+        "MAE_inr": 7474130.921582489,
+        "RMSE_inr": 11312858.242721023,
+        "WAPE": 0.06463899396897586,
+        "absolute_error_sum_inr": 2989652368.6329956,
+        "absolute_actual_sum_inr": 46251529998.56262,
+        "WAPE_undefined_reason": null
+      }
+    },
+    {
+      "family": "ridge",
+      "parameters": {
+        "alpha": 20
+      },
+      "validation": {
+        "n": 400,
+        "MAE_inr": 7619331.649457905,
+        "RMSE_inr": 11492266.732247312,
+        "WAPE": 0.06589474250641822,
+        "absolute_error_sum_inr": 3047732659.783162,
+        "absolute_actual_sum_inr": 46251529998.56262,
+        "WAPE_undefined_reason": null
+      }
+    },
+    {
+      "family": "ridge",
+      "parameters": {
+        "alpha": 100
+      },
+      "validation": {
+        "n": 400,
+        "MAE_inr": 8903372.318470336,
+        "RMSE_inr": 14364110.244006567,
+        "WAPE": 0.07699959174320962,
+        "absolute_error_sum_inr": 3561348927.388135,
+        "absolute_actual_sum_inr": 46251529998.56262,
+        "WAPE_undefined_reason": null
+      }
+    },
+    {
+      "family": "catboost",
+      "parameters": {
+        "iterations": 450,
+        "depth": 5,
+        "learning_rate": 0.06,
+        "l2_leaf_reg": 6
+      },
+      "validation": {
+        "n": 400,
+        "MAE_inr": 7402550.325800133,
+        "RMSE_inr": 10759234.068116363,
+        "WAPE": 0.06401993902498088,
+        "absolute_error_sum_inr": 2961020130.320053,
+        "absolute_actual_sum_inr": 46251529998.56262,
+        "WAPE_undefined_reason": null
+      }
+    },
+    {
+      "family": "catboost",
+      "parameters": {
+        "iterations": 650,
+        "depth": 6,
+        "learning_rate": 0.04,
+        "l2_leaf_reg": 10
+      },
+      "validation": {
+        "n": 400,
+        "MAE_inr": 7558052.698534765,
+        "RMSE_inr": 11209349.532523086,
+        "WAPE": 0.06536477992204495,
+        "absolute_error_sum_inr": 3023221079.413906,
+        "absolute_actual_sum_inr": 46251529998.56262,
+        "WAPE_undefined_reason": null
+      }
+    }
+  ],
+  "issues": [],
+  "final_test_ood_used_for_selection": false,
+  "selection": "Lowest validation INR WAPE among wallet-homogeneous, finite sigmoid-share estimators"
+}

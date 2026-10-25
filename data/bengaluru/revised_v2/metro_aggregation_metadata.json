@@ -1,0 +1,15 @@
+{
+  "revision": "bengaluru-integrity-v2",
+  "source_path": "../final/metro_hourly.csv",
+  "source_sha256": "356c43e232301bef604aef47474927c050e20aea5d5947959e4944efdc677af4",
+  "source_observation_period": "2025-09-01/2025-09-30",
+  "timezone": "Asia/Kolkata",
+  "valid_paired_clock_intervals": 9360,
+  "excluded_intervals": {
+    "outside_september_source_period": 2616
+  },
+  "incomplete_final_bin": "2025-09-30 weekday_night: only 20:00-24:00 observed; October intervals unavailable; excluded from rate",
+  "previous_boundary": "September 1 00:00-06:00 belongs to August 31 weekend_evening; shown as coverage, excluded from September starting-day aggregates",
+  "no_unreported_count_imputation": true,
+  "no_poi_opportunity_merged_with_transit": true
+}

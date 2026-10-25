@@ -1,0 +1,66 @@
+[
+  {
+    "osm_id": "osm-relation-9365463",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-relation-14311757",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-relation-19509699",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-40631636",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-239738396",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-290364531",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-362889167",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-442048030",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-674038060",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-766721105",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-1168771886",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-1199401120",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-1208476870",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-1302259191",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-1346537991",
+    "reason": "Element intersects AOI but centre is outside"
+  },
+  {
+    "osm_id": "osm-way-1426810494",
+    "reason": "Element intersects AOI but centre is outside"
+  }
+]

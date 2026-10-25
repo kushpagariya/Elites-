@@ -1,4 +1,1 @@
-# Logic owner freezes exact resolved versions after local training succeeds.
-numpy>=2,<3
-scikit-learn>=1.5,<2
-catboost>=1.2,<2
+-r ../ml/training/reference_sales_v2/requirements-lock.txt

@@ -1,0 +1,84 @@
+[
+  {
+    "width": 1440,
+    "overview": {
+      "overflow": false,
+      "canvas": true,
+      "shops": 8,
+      "brand": 3
+    }
+  },
+  {
+    "width": 1440,
+    "risk": {
+      "pressed": "true",
+      "heading": "Growth, or customers moving next door?"
+    }
+  },
+  {
+    "width": 1440,
+    "plan": "Choose stores that work together."
+  },
+  {
+    "width": 1440,
+    "paused": "true",
+    "errors": []
+  },
+  {
+    "width": 768,
+    "overview": {
+      "overflow": false,
+      "canvas": true,
+      "shops": 8,
+      "brand": 3
+    }
+  },
+  {
+    "width": 768,
+    "risk": {
+      "pressed": "true",
+      "heading": "Growth, or customers moving next door?"
+    }
+  },
+  {
+    "width": 768,
+    "plan": "Choose stores that work together."
+  },
+  {
+    "width": 768,
+    "paused": "true",
+    "errors": []
+  },
+  {
+    "width": 390,
+    "overview": {
+      "overflow": false,
+      "canvas": true,
+      "shops": 8,
+      "brand": 3
+    }
+  },
+  {
+    "width": 390,
+    "risk": {
+      "pressed": "true",
+      "heading": "Growth, or customers moving next door?"
+    }
+  },
+  {
+    "width": 390,
+    "plan": "Choose stores that work together."
+  },
+  {
+    "width": 390,
+    "paused": "true",
+    "errors": []
+  },
+  {
+    "reduced": {
+      "canvas": false,
+      "fallback": true,
+      "motion": "true"
+    }
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "status": "PART_B_INTEGRATION_BLOCKED",
+  "files": {
+    "ml/evaluation/reference_sales_b1/bengaluru_feature_ranges.csv": "100f4b080a2f6ef106847b6aab93dd607480f636a9ba30cf3c21594902ce3b3a",
+    "ml/evaluation/reference_sales_b1/bengaluru_support.json": "198fbaed74ce575b6ac94c25f36aadbde3ec93025d4b19b8230884d277aa48ad",
+    "ml/evaluation/reference_sales_b1/capacity_audit.json": "07b9d34eff3ed17bda90f659f584bfc07e886f68b4536799fcea7280b8af45ab",
+    "ml/evaluation/reference_sales_b1/coefficient_diagnosis.json": "89d05cff1e392d17a8d7f9dc2ab38b7491eb5ef4c63d7f7950865e91f3f48daa",
+    "ml/evaluation/reference_sales_b1/controlled_perturbations.csv": "584c9a36aec672c1f850895015c07accea9d0ad9622bfc4054b1482c08f35ea3",
+    "ml/evaluation/reference_sales_b1/diagnostic_summary.json": "8f3849a92f55b68ebc315a24ed732e32f288934ce16fa63b93ccd4eeef48bb60",
+    "ml/evaluation/reference_sales_b1/finish_report.py": "68bef125932fad0af314dc5538e689854f408b982ca7252790b26ef441a1eba0",
+    "ml/evaluation/reference_sales_b1/ood_diagnosis.csv": "1131b2386cbd4dd1a806e8fc7eb61713a0a89d44f79800f6b95988d58b61b897",
+    "ml/evaluation/reference_sales_b1/original_reference_sales.py.txt": "209e1ca8076f3c9e9c7a9d08777cb5a7b355fbaf1c8b1684d7ef3ce1a8a0f93f",
+    "ml/evaluation/reference_sales_b1/preservation.json": "4a3d8d384e291740e8d7533d66d8764f7bb69b5ca48dbe130f70d94a713f6049",
+    "ml/evaluation/reference_sales_b1/ridge_coefficients.csv": "57440e71e99c159bec852676823037177369ae505a963ef0bfd0f7c022bad5cb",
+    "ml/evaluation/reference_sales_b1/run_hardening.py": "885808cbed32dcfed9d619da37724e783e1c64f6b44b400cc515e2e9643bd236",
+    "ml/evaluation/reference_sales_b1/shift_parameters.json": "361931ffa2d8b4c7a4bf3eddaf1dfe1a1328807777617a90bb900a289e7b9ac0",
+    "ml/evaluation/reference_sales_b1/test_results.json": "b6a72d0a1c6677b41f44bf29371ce7dfe248f685292c79f62c02894271ed1425",
+    "ml/artifacts/reference_sales_b1/HARDENING_CARD.md": "529dd1126bc168e459c18d23c66811e4d7ac0fa0f8fe58a06d4ccc32876a3d5f",
+    "ml/artifacts/reference_sales_b1/manifest.json": "a1772681a6bf23948d29f1b6373cf2ac458c8de06e3db6d6f1f80ad766a0fa10",
+    "ml/artifacts/reference_sales_b1/support_policy.json": "e467e77925ab4ce64996af437b2e0343f5b2c1bd7570e4b03fd15ec0d95ba7f5",
+    "PART_B1_HARDENING_REPORT.md": "1b7eda8d8cb97f42187d07544ab02122fef7e1ecc6f15406c4f374799ac47afb",
+    "ml/inference/reference_sales.py": "d488d24bd3b9bb782d95b1d64baae84d94f8d322ff45efd545edb81689a442d2",
+    "ml/inference/reference_sales_safety.py": "4ff93560b5f76b51ff04034dd5a8edb226c311f45a81a1bcc9e8558f44648668",
+    "tests/unit/test_reference_sales_b1.py": "e8299ac6eac862b895535629d3e3a73d75e7d2a9415deb3d544f983fd7fb8310"
+  },
+  "self_excluded": true
+}

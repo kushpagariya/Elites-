@@ -1,0 +1,38 @@
+{
+  "default_unacknowledged": {
+    "selected_site_ids": [],
+    "budget_used_inr": 0.0,
+    "budget_unused_inr": 20000000.0,
+    "full_network_npv_inr": 0.0,
+    "status": "FULL_NETWORK_EXACT",
+    "evaluated_subsets": 1,
+    "total_subsets": 1
+  },
+  "illustrative_acknowledged_risk_policy": {
+    "selected_site_ids": [
+      "site-05",
+      "site-10"
+    ],
+    "budget_used_inr": 19800000.0,
+    "budget_unused_inr": 200000.0,
+    "full_network_npv_inr": 235102400.7403289,
+    "status": "FULL_NETWORK_EXACT",
+    "evaluated_subsets": 1024,
+    "total_subsets": 1024
+  },
+  "illustrative_acknowledgements": [
+    "site-01",
+    "site-02",
+    "site-03",
+    "site-04",
+    "site-05",
+    "site-06",
+    "site-07",
+    "site-08",
+    "site-09",
+    "site-10"
+  ],
+  "policy_note": "Acknowledged case is an explicit offline demonstration policy, not human investment approval",
+  "default_automatic_approval": false,
+  "portfolio_seconds": 0.3957088999450207
+}

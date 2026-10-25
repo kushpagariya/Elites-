@@ -1,0 +1,13 @@
+{
+  "source_path": "data/bengaluru/raw/hces_2023_24_full.pdf",
+  "source_sha256": "368deb9c858dcc71c3bf0e6cad096a31b5b337a724cf92a113637f3302ea268e",
+  "source_id": "hces-2023-24",
+  "locator": "PDF page 90 / printed S11 / Statement 3U / column 14 Karnataka Urban",
+  "reference_period": "2023-08-01/2024-07-31",
+  "currency": "INR",
+  "price_basis": "Nominal 2023-24 survey prices; no inflation adjustment",
+  "item24_method": "Numbered-record parser joins continuation lines before selecting the final numeric column",
+  "grocery_monthly_per_capita_inr": "2974.915",
+  "baseline_grocery_calculation_unchanged": true,
+  "original_31_records_unchanged": true
+}

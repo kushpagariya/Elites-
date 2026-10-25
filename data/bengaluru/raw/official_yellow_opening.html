@@ -1,0 +1,1237 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1"><title>
+	Press Release Page | Press Information Bureau
+</title><link href="css/style.css?v=1" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css?v=1" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css?v=1" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" /><link id="pibA11yCss" rel="stylesheet" href="/css/accessibility.css?v=7" type="text/css" />
+    <script type="text/javascript">
+        (function (d) {
+            var t = "";
+            try {
+                t = window.localStorage.getItem("pibStyle") || "";
+            } catch (e) {
+                t = "";
+            }
+            if (t === "orange") {
+                t = "yellow";
+            }
+            var c = t === "change" ? " pib-hc"
+                : t === "green" ? " pib-theme-green"
+                : t === "yellow" ? " pib-theme-yellow" : "";
+            d.documentElement.className += c + " pib-a11y-content";
+        }(document));
+    </script>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/accessibility.js?v=7"></script>
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+            });
+    </script>
+    <style type="text/css">
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        full-width {
+            width: 100%;
+        }
+
+        .logo-left, .logo-center, .countdown {
+            display: flex;
+            align-items: center;
+        }
+
+            .logo-left img, .logo-center img {
+                height: 70px;
+            }
+
+        .countdown {
+            text-align: center;
+            background-color: var(--dbim-text, #150202);
+            border-radius: 10px;
+            padding: 10px;
+            border: 2px solid grey;
+        }
+
+        .firstnumber {
+            color: #000000;
+            position: absolute;
+            top: 50px;
+            right: 90px;
+            font-size: 30px;
+        }
+
+        .secondnumber {
+            position: absolute;
+            color: #000000;
+            right: 45px;
+            top: 50px;
+            font-size: 30px;
+        }
+
+        .countdown .days {
+            font-size: 35px;
+            color: gold;
+        }
+
+        .countdown p {
+            margin: 0;
+        }
+
+        .countdown .text {
+            font-size: 16px;
+        }
+
+        a {
+            word-break: break-all;
+        }
+
+        iframe, img {
+            max-width: 100%;
+        }
+
+        /* === DBIM 3.0 Option 4 Separator Line & Reading Meta Styling === */
+        .pr-share--footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-top: 1px solid var(--dbim-border, #d1d5db);
+            padding-top: 16px;
+            margin-top: 24px;
+        }
+
+        .pr-share__left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pr-reading-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--dbim-text-secondary, #475569);
+            font-weight: 500;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .pr-reading-meta__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pr-reading-meta__divider {
+            color: var(--dbim-border, #cbd5e1);
+            font-weight: 300;
+        }
+
+        .pib-hc .pr-reading-meta,
+        .pib-hc .pr-reading-meta svg {
+            color: currentColor !important;
+        }
+
+        @media (max-width: 680px) {
+            .pr-share--footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pr-reading-meta {
+                margin-left: 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media(max-width:1199px) {
+            .firstnumber {
+                top: 40px;
+                right: 72px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 35px;
+                top: 40px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:990px) {
+            .firstnumber {
+                top: 25px;
+                right: 54px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 25px;
+                top: 25px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .countdown, .days {
+                font-size: 12px !important;
+            }
+
+            .firstnumber {
+                top: 25%;
+                right: 8%;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 4.5%;
+                top: 25%;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:475px) {
+            .countdown, .days {
+                font-size: 10px !important;
+                top: 20%;
+            }
+
+            .bannerimgdiv {
+                padding: 0 !important;
+            }
+
+            .bannerimg {
+                width: 108% !important;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+            $(function () {
+                  $("[id*=printPDF]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+            $(function () {
+                  $("[id*=printPDFEvent]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+    </script>
+
+    <link id="pibConsentCss" href="/css/consent.css?v=8" rel="stylesheet" type="text/css" /><link id="pibFontsCss" href="/css/fonts-noto.css?v=6" rel="stylesheet" type="text/css" /><link id="pibDbimCss" href="/css/dbim.css?v=1120" rel="stylesheet" type="text/css" /><meta property="og:title" content="Prime Minister Shri Narendra Modi inaugurates, lays foundation stone of metro projects worth around Rs 22,800 crore in Bengaluru, Karnataka" /><meta property="og:url" content="www.pib.gov.in/Pressreleaseshare.aspx?PRID=2154848" /><meta property="og:description" content="Prime Minister Shri Narendra Modi inaugurated the Yellow Line of Bangalore Metro worth around Rs 7,1" /><meta property="og:image" content="https:/pib.gov.in/images/indian-emblem.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="op36thrrfqzda2w4xwia-f-2e41e0368-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":21,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"c4a04360","ak.r":27201,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":63165,"ak.gh":"49.44.50.22","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1792851344","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==5olhBddpjL7Ala7SaW6KMviP+xP3fVOBOBLYNZnRB1QwhMtjv8T+FoKY0NtW7kP5FgNU90Cc9tLeQR1H2O5nwqXlGeqhRaX433XOmjmgJEYSLTMXkLAW7OMY4gqDhZgAEtXg4vUgRyD4FDx18WEUiFD41mroWHLr4ZQ8AKVNM/y5005HzcPpW2HGnsXZb68EjyW39QUPt97+c0CXKb1IHKhRSJhxS0oy0bv6nWYF9tjw3RgL6gh25fZTTzIgupg+TlOD8b+epp8Yi116fUxsr0rLSQy3Wi4bBMuJSGzdd7iJdfz7/t33+0XxdL5uaCxOSIXjZg4TQPJNPWv9uvRZ6JnJ/vdqQ0zTyD61rC9WAQzHLC+fIi7Hdfu7y5Zy4f+UsLAVfjtukbrZ7jlkBel4vPr7NJdae+mqF0qp/GoI2Gs=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+     style="position:absolute;width:0;height:0;overflow:hidden" id="dbim-icon-sprite">
+    <defs>
+        <symbol id="icon-angle-double-left" viewBox="0 0 24 24"><path d="M11.6 4.6 4.2 12l7.4 7.4 2.2-2.2L8.6 12l5.2-5.2z"/><path d="M19 4.6 11.6 12 19 19.4l2.2-2.2L16 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-angle-double-right" viewBox="0 0 24 24"><path d="M12.4 4.6 10.2 6.8 15.4 12l-5.2 5.2 2.2 2.2L19.8 12z"/><path d="M5 4.6 2.8 6.8 8 12l-5.2 5.2L5 19.4 12.4 12z"/></symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M20.8 10.6H9.6v2.8h11.2z"/><path d="M10.8 5.6 3.2 12l7.6 6.4z"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M3.2 10.6h11.2v2.8H3.2z"/><path d="M13.2 5.6 20.8 12l-7.6 6.4z"/></symbol>
+        <symbol id="icon-blogger" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.4 2.4h11.2a4 4 0 0 1 4 4v11.2a4 4 0 0 1-4 4H6.4a4 4 0 0 1-4-4V6.4a4 4 0 0 1 4-4zm2.8 5.2a2 2 0 0 0 0 4h2.4a2 2 0 0 0 0-4zm0 5.6a2 2 0 0 0 0 4h5.6a2 2 0 0 0 0-4z"/></symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M7.6 2.4H10v2.4H7.6z"/><path d="M14 2.4h2.4v2.4H14z"/><path fill-rule="evenodd" d="M4 4.8h16a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 1-1.6 1.6H4a1.6 1.6 0 0 1-1.6-1.6V6.4A1.6 1.6 0 0 1 4 4.8zm.4 5.6v8.4h15.2v-8.4z"/><path d="M6.4 12.4h3.2v3.2H6.4z"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4 2.2-2.2L12.4 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M8.6 4.6 6.4 6.8 11.6 12l-5.2 5.2 2.2 2.2L16 12z"/></symbol>
+        <symbol id="icon-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M10.8 3h2.4v7.6h3.4L12 16.6l-4.6-6h3.4z"/><path d="M4 17.2h2.4v2.4h11.2v-2.4H20v3.2a1.4 1.4 0 0 1-1.4 1.4H5.4A1.4 1.4 0 0 1 4 20.4z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M13.6 21.6v-8.4h2.8l.42-3.3h-3.22V7.8c0-.95.27-1.6 1.64-1.6h1.74V3.26a23 23 0 0 0-2.54-.13c-2.5 0-4.22 1.53-4.22 4.34v2.43H7.4v3.3h2.82v8.4z"/></symbol>
+        <symbol id="icon-fact-check" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4 3.6 5.6v6.2c0 4.6 3.4 8.6 8.4 9.8 5-1.2 8.4-5.2 8.4-9.8V5.6zm-1 13.2-3.6-3.6 1.7-1.7 1.9 1.9 4.5-4.5 1.7 1.7z"/></symbol>
+        <symbol id="icon-hashtag" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8.8 3h2.4l-1 6h3.2l1-6h2.4l-1 6h3.4v2.4h-3.8l-.6 3.2h3.6V17h-4l-1 5h-2.4l1-5h-3.2l-1 5H5.4l1-5H3V14.6h3.8l.6-3.2H3.8V9h4zm.6 8.4-.6 3.2h3.2l.6-3.2z"/></symbol>
+        <symbol id="icon-home" viewBox="0 0 24 24"><path d="M12 3.4 2.8 11.6h2.4v8.4a1 1 0 0 0 1 1h3.3v-5.4h5v5.4h3.3a1 1 0 0 0 1-1v-8.4h2.4z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.6 2.4h8.8a5.2 5.2 0 0 1 5.2 5.2v8.8a5.2 5.2 0 0 1-5.2 5.2H7.6a5.2 5.2 0 0 1-5.2-5.2V7.6a5.2 5.2 0 0 1 5.2-5.2zm0 2.4a2.8 2.8 0 0 0-2.8 2.8v8.8a2.8 2.8 0 0 0 2.8 2.8h8.8a2.8 2.8 0 0 0 2.8-2.8V7.6a2.8 2.8 0 0 0-2.8-2.8z"/><path fill-rule="evenodd" d="M12 6.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 2.4a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6z"/><circle cx="17.3" cy="6.7" r="1.3"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M4.8 8.8h3.6v12H4.8z"/><circle cx="6.6" cy="5.4" r="2.1"/><path d="M10.8 8.8h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.35 4.3 5.4v6.6h-3.6v-5.85c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1v5.95h-3.6z"/></symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M2.4 7.6v9.2a1.6 1.6 0 0 0 1.6 1.6h16a1.6 1.6 0 0 0 1.6-1.6V7.6L12 14z"/><path d="M21.2 5.4H2.8L12 11.8z"/></symbol>
+        <symbol id="icon-mail-open" viewBox="0 0 24 24"><path d="M2.4 9.8h19.2v9.6A1.6 1.6 0 0 1 20 21H4a1.6 1.6 0 0 1-1.6-1.6z"/><path d="M12 2.6 21.6 9.2h-3.8L12 5.3 6.2 9.2H2.4z"/><path d="m3.9 11.2 8.1 5.4 8.1-5.4 1.5 1.3-9.6 6.4-9.6-6.4z"/></symbol>
+        <symbol id="icon-map-marker" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a7 7 0 0 0-7 7c0 5.2 7 12.2 7 12.2s7-7 7-12.2a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"/></symbol>
+        <symbol id="icon-newspaper" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.8 4.4h14.8v15.2H2.8zm2 2v11.2h10.8V6.4z"/><path d="M6 7.6h8.4v1.6H6z"/><path d="M6 10.8h8.4v1.6H6z"/><path d="M6 14h5.2v1.6H6z"/><path d="M18.4 8.4h2.8v9.6a1.4 1.4 0 0 1-2.8 0z"/></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="7.4" y="4" width="3.6" height="16" rx="0.9"/><rect x="13" y="4" width="3.6" height="16" rx="0.9"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 4.5v15l12-7.5z"/></symbol>
+        <symbol id="icon-picture" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.4 5.2h19.2v13.6H2.4zm2 2v9.6h15.2V7.2z"/><path d="M5.6 16.4 10 11l2.6 3 2-2.2 4 4.6z"/><circle cx="8" cy="10.4" r="1.5"/></symbol>
+        <symbol id="icon-press-conference" viewBox="0 0 24 24"><circle cx="12" cy="5.2" r="2.6"/><path d="M7.6 12.2a4.4 4.4 0 0 1 8.8 0z"/><circle cx="4.9" cy="9.6" r="2.2"/><path d="M1.8 15.2a3.1 3.1 0 0 1 6.2 0z"/><circle cx="19.1" cy="9.6" r="2.2"/><path d="M16 15.2a3.1 3.1 0 0 1 6.2 0z"/><path d="M6.6 13.6h10.8l2.2 7.8H4.4z"/></symbol>
+        <symbol id="icon-print" viewBox="0 0 24 24"><path d="M6.4 2.8h11.2v4.4H6.4z"/><path d="M4 8.4h16a1.6 1.6 0 0 1 1.6 1.6v5.6a1.6 1.6 0 0 1-1.6 1.6h-1.6v-2.8H6v2.8H4a1.6 1.6 0 0 1-1.6-1.6V10A1.6 1.6 0 0 1 4 8.4z"/><path d="M7.2 15.6h9.6v5.6H7.2z"/></symbol>
+        <symbol id="icon-rss" viewBox="0 0 24 24"><circle cx="4.8" cy="19.2" r="2.4"/><path d="M2.4 11.2v3.2a6.4 6.4 0 0 1 6.4 6.4H12A9.6 9.6 0 0 0 2.4 11.2z"/><path d="M2.4 4.8V8A13.6 13.6 0 0 1 16 21.6h3.2A16.8 16.8 0 0 0 2.4 4.8z"/></symbol>
+        <symbol id="icon-search-plus" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 2.8a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4zm0 2.4a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6z"/><path d="M15.3 14.6 21.2 20.5l-1.5 1.5-5.9-5.9z"/><path d="M9.2 6.8h1.6v2.4h2.4v1.6h-2.4v2.4H9.2v-2.4H6.8V9.2h2.4z"/></symbol>
+        <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18.4" r="3"/><path d="M8.3 10.9 15.7 7.2l.9 1.8-7.4 3.7z"/><path d="M9.2 13.1 16.6 16.8l-.9 1.8-7.4-3.7z"/></symbol>
+        <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M4.2 3h4.3l11.3 18h-4.3z"/><path d="M19.3 3h-2.6L4.2 21h2.6z"/></symbol>
+        <symbol id="icon-university" viewBox="0 0 24 24"><path d="M12 2.4 21.6 7.2v1.6H2.4V7.2z"/><path d="M4.8 10.4h2.4v8H4.8z"/><path d="M9.2 10.4h2.4v8H9.2z"/><path d="M13.4 10.4h2.4v8h-2.4z"/><path d="M17.6 10.4H20v8h-2.4z"/><path d="M3.2 19.8h17.6v1.8H3.2z"/></symbol>
+        <symbol id="icon-volume-up" viewBox="0 0 24 24"><path d="M3.2 9.2h3.3l5-4.2v14l-5-4.2H3.2z"/><path d="M14.6 8.4a5 5 0 0 1 0 7.2l1.6 1.6a7.2 7.2 0 0 0 0-10.4z"/><path d="M17.4 5.6a8.8 8.8 0 0 1 0 12.8l1.5 1.5a10.9 10.9 0 0 0 0-15.8z"/></symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a9.5 9.5 0 0 0-8.1 14.5L2.4 21.6l4.8-1.4A9.5 9.5 0 1 0 12 2.4zm0 2.2a7.3 7.3 0 1 1-3.8 13.5l-.4-.2-2.6.7.7-2.5-.3-.4A7.3 7.3 0 0 1 12 4.6z"/><path d="M9.4 7.8c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.6-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.6c-.1-.2 0-.4.1-.5l.4-.5.3-.5v-.5z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10.2 15.1V8.9l5.1 3.1z"/></symbol>
+    </defs>
+</svg>
+
+    <form method="post" action="./PressReleasePage.aspx?PRID=2154848&amp;reg=48&amp;lang=2" id="form1">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdIxBJXt0U_WW5GWfJqHAqo6frgCmGRfEywglicTersO2OKrFhK1gAIp0Wk2al2YrpdR3uWqH6f4nfjBsCyRUfTUUVmb0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleasePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a8613aea7%3af9cec9bc%3a3202a5a2%3aab09e3fe%3a87104b7c%3a720a52bf%3a589eaa30%3aa67c2700%3abe6fb298" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="59B53027" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="rZQiF2/0bIbpXb4xZXENDq+Sp+8YTTeH7vvd/xBM7ldFu+QVbED1tT2eCYlHWSyBYF/UkO9Zq08LhelP5rgV31tqjMh+hqIurV407UTR95RIS6B+OkJfiENfP/j9ChqnleO7wEoTbzIKH/QAJEqqY1GVlL0ZssZYlO25fnB/mDnzCMW7AJxVePwVskrLGbWMm6tyZRZG20NRlZE3CcxG8yN51ExSGQCn2KBYRLaU+rtJ27QLv9sFWU4AeViVgOSx/7WNWYinrjevCWMtMega/Ga4AtE=" />
+        
+        <div id="templateCss"></div>
+        
+        <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+        <div class="container" style='margin-bottom: 50px;'>
+            <div id="accessories">
+                
+                <div class="pull-right" style="display: flex">
+                    <div id="voll"></div>
+                    <div id="vollDT"></div>
+                    
+
+<span class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</span>
+                </div>
+            </div>
+            <input type="hidden" name="hydpermid" id="hydpermid" value="2154848" />
+            
+
+            <div class="innner-page-main-about-us-content-right-part">
+                <div id="MinistryName" class="MinistryNameSubhead text-center">
+                    Prime Minister's Office
+                </div>
+                <div id="lg_g"><div class='log_oo'>  <img src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2026/sep/ph_9768_20260902_10000501.png' alt='azadi ka amrit mahotsav' /> </div></div>
+
+                <div class="text-center event-heading-background">
+                    
+                    <h1 id="Titleh2">
+                        Prime Minister Shri Narendra Modi inaugurates, lays foundation stone of metro projects worth around Rs 22,800 crore in Bengaluru, Karnataka
+                    </h1>
+                    <h3 id="Subtitleh3">
+                        <span id="ltrSubtitle"><br/>The success of Operation Sindoor, the strength to destroy terrorist hideouts deep across the border, and the ability to bring Pakistan, which came to defend the terrorists, to its knees within hours, the whole world has witnessed this new face of India: PM<br/><br/>Today, India is the fastest-growing major economy in the world: PM<br/><br/>In the last 11 years, our economy has risen from 10th place to the top five. We are now moving rapidly towards becoming one of the top three economies: PM<br/><br/>The journey to a Viksit Bharat will move forward hand in hand with Digital India: PM<br/><br/>Our next big priority should be becoming self-reliant in tech: PM<br/></span>
+                    </h3>
+                </div>
+
+                <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                    Posted On:
+                              10 AUG 2025 3:31PM by PIB Delhi
+                </div>
+                
+                <div class='pt20'>
+                </div>
+                <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                
+
+                <!-- Release content wrapper for client-side zero-reflow word count -->
+                <div id="pibReleaseBody">
+                    <p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Prime Minister Shri Narendra Modi inaugurated the Yellow Line of Bangalore Metro worth around Rs 7,160 crore and laid the foundation stone of Bangalore Metro Phase-3 project worth over Rs 15,610 crore in Bengaluru, Karnataka today. He also flagged off three Vande Bharat Express trains at KSR Railway Station, Bengaluru. Addressing the gathering on the occasion, he remarked that upon setting foot on the land of Karnataka, he felt a sense of belonging. Highlighting the richness of Karnataka&rsquo;s culture, the affection of its people, and the sweetness of the Kannada language, which deeply touches the heart, Shri Modi began by paying respects at the feet of Bengaluru&rsquo;s presiding deity, Annamma Thayi. Recalling that centuries ago, Nadaprabhu Kempegowda laid the foundation of Bengaluru city, the Prime Minister noted that Kempegowda envisioned a city rooted in tradition while also reaching new heights of progress. &ldquo;Bengaluru has always lived that spirit and preserved it and today, Bengaluru is realizing that very dream&rdquo;, stated the PM.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;Today, Bengaluru is emerging as a city that has become a symbol of New India&#39;s rise&rdquo;, stated Shri Modi, describing it as a city whose soul embodies philosophical wisdom, and whose actions reflect technological expertise. He highlighted that Bengaluru is a city which has proudly placed India on the global IT map, crediting the success story of Bengaluru to the hard work and talent of its people.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;In the 21st century, urban planning and urban infrastructure are critical needs for our cities&rdquo;, emphasised the Prime Minister, stating that cities like Bengaluru must be prepared for the future. He highlighted that in recent years, the Government of India has launched projects worth thousands of crores for Bengaluru and today, this campaign is gaining new momentum. Shri Modi inaugurated the Bangalore Metro Yellow Line and laid the foundation stone for Metro Phase-Three. He also flagged off three new Vande Bharat trains connecting different parts of the country.&nbsp; He added that the commencement of Vande Bharat service between Bengaluru and Belagavi will boost trade and tourism in Belagavi. Additionally, Vande Bharat Express trains were launched between Nagpur and Pune, and between Shri Mata Vaishno Devi Katra and Amritsar. The Prime Minister noted that these services will benefit lakhs of devotees and promote tourism. He congratulated the people of Bengaluru, Karnataka, and the entire nation for these projects and the new Vande Bharat trains.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Mentioning that this is his first visit to Bengaluru following Operation Sindoor, Shri Modi highlighted the success of Indian forces in Operation Sindoor, noting their capability to destroy terrorist hideouts deep across the border. He emphasized India&rsquo;s strength in forcing Pakistan, who came to defend the terrorists, to its knees within hours. &ldquo;The entire world has witnessed this new face of New India&rdquo;, remarked the Prime Minister, attributing the success of Operation Sindoor to the power of technology and the strength of Make in India in the defence sector. He acknowledged the significant contribution of the youth of Bengaluru and Karnataka in this achievement, and extended his congratulations to all for their role in this success.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Noting that Bengaluru is now recognized alongside major global cities, the Prime Minister emphasized that India must not only compete globally but also lead. He remarked that progress will come only when our cities are smart, fast, and efficient, underscoring the government&rsquo;s strong focus on completing modern infrastructure projects. Shri Modi announced the commencement of the Yellow Line of Bangalore Metro from RV Road to Bommasandra, which will connect several key areas of Bengaluru.&nbsp; He noted that travel time between Basavanagudi and Electronic City will now be significantly reduced. This, he said, will enhance ease of living and ease of working for lakhs of people.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">The Prime Minister announced that alongside the inauguration of the Yellow Line, the foundation stone for Bangalore Metro&rsquo;s Phase Three &mdash;namely, the Orange Line&mdash;has also been laid. He stated that once operational, the Orange Line, in conjunction with the Yellow Line, will facilitate daily travel for 25 lakh passengers. This, he said, will empower Bengaluru&rsquo;s transport system and elevate it to new heights. Shri Modi further remarked that Bangalore Metro has introduced a new model for public infrastructure development in the country. He highlighted that companies like Infosys Foundation, Biocon, and Delta Electronics have provided part-funding for several key metro stations. He praised this innovative use of CSR as a source of inspiration and extended congratulations to the corporate sector for their contribution.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;India is currently the fastest-growing major economy in the world. In the past eleven years, India&rsquo;s economy has risen from the 10th position to the top five globally, and is rapidly progressing toward becoming one of the top three economies&rdquo;, highlighted Shri Modi. He attributed this momentum to the spirit of &ldquo;Reform, Perform and Transform,&rdquo; driven by clear intent and honest efforts. Reflecting on infrastructure growth, the Prime Minister recalled that in 2014, metro services were limited to just five cities. Today, he added, metro networks span over 1,000 kilometers across 24 cities, making India the third-largest metro network globally. Shri Modi also pointed out that prior to 2014, only about 20,000 kilometers of railway routes had been electrified. In the last eleven years alone, more than 40,000 kilometers of railway routes have been electrified, marking a significant leap in sustainable transport development.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Emphasising that India&rsquo;s achievements are soaring not just on land but also in the skies, the Prime Minister highlighted that in 2014, India had only 74 airports, and today, the number has increased to over 160. He also pointed out the remarkable progress in waterway infrastructure stating that in 2014, only three national waterways were operational; this number has now risen to thirty.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Discussing the significant leap made by India in the health and education sectors, Shri Modi highlighted that until 2014, the country had only 7 AIIMS and 387 medical colleges, while today, 22 AIIMS and 704 medical colleges are serving the people. The Prime Minister stated that in the past 11 years, over one lakh new medical seats have been added across the country. He emphasized the impact of this expansion, noting how middle-class children have greatly benefited from the increased opportunities. Shri Modi further highlighted that in the last 11 years, the number of IITs has increased from 16 to 23, IIITs from 9 to 25, and IIMs from 13 to 21. He stated that today, students have access to significantly more opportunities in higher education.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Affirming that today as the nation progresses rapidly, the lives of the poor and marginalized are transforming at the same pace, the Prime Minister&nbsp; highlighted that under the Pradhan Mantri Awas Yojana, over 4 crore pucca houses have been provided. He announced that the government is now set to construct 3 crore more houses. Shri Modi remarked that in just 11 years, more than 12 crore toilets have been built across the country. He emphasized that this initiative has granted dignity, cleanliness, and safety to crores of mothers and sisters.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;The rapid pace of development in the country is strongly driven by India&rsquo;s economic growth&rdquo;, underlined Shri Modi, highlighting that before 2014, India&rsquo;s total exports had reached only $468 billion whereas today, that figure has risen to $824 billion. The Prime Minister remarked that earlier, India used to import mobile phones, but now, the country is among the top five exporters of mobile handsets. He noted that Bengaluru has played a significant role in this transformation. Shri Modi further highlighted that before 2014, India&rsquo;s electronics exports stood at approximately $6 billion, which has now increased to nearly $38 billion.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Highlighting that eleven years ago, India&rsquo;s automobile exports stood at approximately $16 billion, the Prime Minister cited that today, that figure has more than doubled, making India the fourth-largest automobile exporter globally. He stated that these achievements strengthen the resolve of Aatmanirbhar Bharat and affirmed that together, the nation will move forward and build a&nbsp; developed India.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;The journey to a Viksit Bharat will move forward hand in hand with Digital India&rdquo;, exclaimed Shri Modi, noting that through initiatives like the India AI Mission, India is advancing toward global AI leadership. He added that the Semiconductor Mission is also gaining momentum, and India will soon have its own Made-in-India chip. The Prime Minister stated that India has become a global example of low-cost, high-tech space missions. He emphasized that India is progressing in all areas of futuristic technology, and the most remarkable aspect of this advancement is the empowerment of the poor. Pointing out that digitization has now reached every village in the country, the Prime Minister said through UPI, India accounts for over 50% of the world&rsquo;s real-time transactions. He remarked that technology is helping bridge the gap between government and citizens, mentioning that today, over 2,200 government services are available on mobile platforms. He added that through the UMANG app, citizens can complete government tasks from home, while with DigiLocker, the hassle of managing government certificates has been eliminated. The Prime Minister stated that India is now investing in technologies like AI-powered threat detection. He emphasized that the goal is to ensure the benefits of the digital revolution reach the last person in society. He acknowledged that Bengaluru is actively contributing to this national effort.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;Our next big priority should be becoming self-reliant in technology&rdquo;, declared the Prime Minister, highlighting that Indian tech companies have made a mark globally, developing software and products for the entire world. He stressed that it is now time to prioritize India&rsquo;s own needs more strongly and must accelerate the development of new products, especially as software and apps are now being used across every domain. Shri Modi stated that it is essential for India to reach new heights in this space. Calling for focused efforts to lead in emerging fields, the Prime Minister stressed the need to strengthen Bengaluru and Karnataka&rsquo;s presence in Make in India and the manufacturing sector. He urged that India&rsquo;s products must adhere to the Zero Defect, Zero Effect standard, meaning they should be flawless in quality and have no negative impact on the environment. He expressed confidence that Karnataka&rsquo;s talent will lead the vision of Aatmanirbhar Bharat.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Shri Modi stated that whether it is the central government or state governments, all are committed to serving the people, emphasizing the need for collaborative efforts to improve the lives of citizens. He highlighted that a key responsibility in this direction is the implementation of new reforms. The Prime Minister noted that over the past decade, the central government has consistently advanced reforms. As an example, he cited the passage of the Jan Vishwas Bill to decriminalize laws, and announced that Jan Vishwas 2.0 is also being introduced. He encouraged state governments to identify laws with unnecessary criminal provisions and work toward eliminating them. Shri Modi mentioned the Mission Karmayogi initiative, aimed at providing competency-based training to government employees. He suggested that states can adopt this learning framework for their officials as well. Highlighting the focus on the Aspirational Districts Programme and the Aspirational Block Programme, the Prime Minister urged states to similarly identify regions that require special attention. He concluded by calling for continuous reform efforts at the state level, expressing confidence that these joint initiatives will take Karnataka to new heights of development and affirmed that together, we will fulfill the vision of Viksit Bharat.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Governor of Karnataka, Shri Thaawarchand Gehlot, Chief Minister of Karnataka, Shri Siddaramaiah, Union Ministers Shri Manohar Lal, Shri H.D. Kumaraswamy, Shri Ashwini Vaishnaw, Shri V. Somanna, Sushri Shobha Karandlaje were present among other dignitaries at the event.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Background</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Prime Minister Shri Narendra Modi inaugurated the Yellow line from RV Road (Ragigudda) to Bommasandra of Bangalore Metro Phase-2 project having a route length of over 19 km with 16 stations worth around Rs 7,160 crore. With the opening of this yellow line, the operational metro network in Bengaluru will increase to over 96 km serving a large population in the region.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Prime Minister also laid the foundation stone of Bangalore Metro Phase-3 project worth over Rs 15,610 crore. The total route length of the project will be more than 44 km with 31 elevated stations. This infrastructure project will address the growing transportation needs of the city catering to residential, industrial, commercial and educational areas.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Prime Minister also flagged off 3 Vande Bharat Express trains from Bengaluru. It includes trains from Bengaluru to Belagavi, Amritsar to Sri Mata Vaishno Devi Katra and Nagpur (Ajni) to Pune. These high-speed trains will significantly enhance regional connectivity, reduce travel time and provide a world-class travel experience to the passengers.</span></span></p>
+
+<p dir="ltr" style="text-align:justify">&nbsp;</p>
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Connectivity projects being launched in Bengaluru today will make travel smoother, faster and more convenient, while also boosting economic growth. <a href="https://t.co/UQgtiBfwqA">https://t.co/UQgtiBfwqA</a></p>&mdash; Narendra Modi (@narendramodi) <a href="https://twitter.com/narendramodi/status/1954463218958553492?ref_src=twsrc%5Etfw">August 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">The success of Operation Sindoor… the strength to destroy terrorist hideouts deep across the border… and the ability to bring Pakistan, which came to defend the terrorists, to its knees within hours…<br><br>The whole world has witnessed this new face of India: PM <a href="https://twitter.com/narendramodi?ref_src=twsrc%5Etfw">@narendramodi</a> <a href="https://t.co/XvIqhUDAWk">pic.twitter.com/XvIqhUDAWk</a></p>&mdash; PMO India (@PMOIndia) <a href="https://twitter.com/PMOIndia/status/1954465206035157346?ref_src=twsrc%5Etfw">August 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Today, India is the fastest-growing major economy in the world.<br><br>In the last 11 years, our economy has risen from 10th place to the top five.<br><br>We are now moving rapidly towards becoming one of the top three economies: PM <a href="https://twitter.com/narendramodi?ref_src=twsrc%5Etfw">@narendramodi</a> <a href="https://t.co/r2Vk2v7yVD">pic.twitter.com/r2Vk2v7yVD</a></p>&mdash; PMO India (@PMOIndia) <a href="https://twitter.com/PMOIndia/status/1954466076806328572?ref_src=twsrc%5Etfw">August 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">The journey to a Viksit Bharat will move forward hand in hand with Digital India. <a href="https://t.co/X2A5SvxgmS">pic.twitter.com/X2A5SvxgmS</a></p>&mdash; PMO India (@PMOIndia) <a href="https://twitter.com/PMOIndia/status/1954467858236244334?ref_src=twsrc%5Etfw">August 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Our next big priority should be becoming self-reliant in tech. <a href="https://t.co/vTodl7SVeh">pic.twitter.com/vTodl7SVeh</a></p>&mdash; PMO India (@PMOIndia) <a href="https://twitter.com/PMOIndia/status/1954468372445335941?ref_src=twsrc%5Etfw">August 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/uUyLlYCz0qY?si=OoLEHq4Uic_kYvrg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
+
+
+<p dir="ltr" style="text-align:center">&nbsp;</p>
+
+<p dir="ltr" style="text-align:center"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">***</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">MJPS/SR</span></span></p>
+
+                </div>
+
+                <div id="reel_pic">
+                </div>
+
+                <br />
+                <span id="ReleaseId">(Release ID: 2154848)</span>
+                <span id="lblViews">Visitor Counter : 616</span>
+                <div>
+                    
+                </div>
+                
+
+                <span id="lblRefPhoto"></span>
+
+                <div class="BackgroundRelease">
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <div class="ReleaseLang">Read this release in: 
+                
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154900' target="_blank">
+                            Urdu </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154887' target="_blank">
+                            Marathi </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154890' target="_blank">
+                            हिन्दी </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154928' target="_blank">
+                            Manipuri </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154981' target="_blank">
+                            Bengali </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154944' target="_blank">
+                            Assamese </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154941' target="_blank">
+                            Punjabi </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154874' target="_blank">
+                            Gujarati </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154912' target="_blank">
+                            Odia </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154883' target="_blank">
+                            Tamil </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154932' target="_blank">
+                            Telugu </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154872' target="_blank">
+                            Kannada </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2154882' target="_blank">
+                            Malayalam </a>
+                    
+                </div>
+
+                <div class="RelTag">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+
+                <!-- DBIM 3.0 Option 4: Separator Line with Left Share Rail & Right Reading Metrics -->
+                <div class="pr-share pr-share--footer" role="region" aria-label="Share and reading details">
+                    <div class="pr-share__left">
+                        <span class="pr-share__label" aria-hidden="true">Share</span>
+                        <ul class="pr-share__list">
+                            <li><a class="pr-share__btn pr-share__btn--facebook"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2154848"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on Facebook">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-facebook" xlink:href="#icon-facebook"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--twitter"
+                                href="https://twitter.com/intent/tweet?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2154848"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on X">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-twitter" xlink:href="#icon-twitter"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--whatsapp"
+                                href="https://api.whatsapp.com/send?text=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2154848"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on WhatsApp">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-whatsapp" xlink:href="#icon-whatsapp"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--linkedin"
+                                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2154848"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on LinkedIn">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-linkedin" xlink:href="#icon-linkedin"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--mail"
+                                href="mailto:?subject=Press+release+from+PIB&amp;body=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2154848"
+                                aria-label="Share by email">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-mail" xlink:href="#icon-mail"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="pr-reading-meta" id="prReadingMeta" aria-label="Reading statistics">
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Document / Word Count Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                            </svg>
+                            <span id="prWordCount">-- words</span>
+                        </span>
+
+                        <span class="pr-reading-meta__divider" aria-hidden="true">|</span>
+
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Precision Clock / Read Time Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                            </svg>
+                            <span id="prReadTime">-- min read</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="RelLink" class="RelLink">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <center>
+                    
+                </center>
+            </div>
+
+            <div id="update12">
+	
+                    
+                    <input type="hidden" name="Hidden" id="Hidden" />
+                    <div id="P_CategoryManagement" class="ModalWindow" style="display: none">
+		
+                        <div>
+                            <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                        </div>
+                        <div id="description">
+                        </div>
+                        <div class="text-center">
+                            <h2>
+                                
+                                <br>
+                                
+                            </h2>
+                        </div>
+                        <br />
+                        <div class="clear">
+                        </div>
+                        
+                    
+	</div>
+                
+</div>
+        </div>
+
+        <div id="PdfDiv" style="display: none;">
+            <table width="100%">
+                <tr>
+                    <td style="font-weight: 200; text-align: center">
+                        Prime Minister's Office
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            Prime Minister Shri Narendra Modi inaugurates, lays foundation stone of metro projects worth around Rs 22,800 crore in Bengaluru, Karnataka
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            <div style='height:30px;width:100%;'></div>The success of Operation Sindoor, the strength to destroy terrorist hideouts deep across the border, and the ability to bring Pakistan, which came to defend the terrorists, to its knees within hours, the whole world has witnessed this new face of India: PM<div style='height:30px;width:100%;'></div><div style='height:30px;width:100%;'></div>Today, India is the fastest-growing major economy in the world: PM<div style='height:30px;width:100%;'></div><div style='height:30px;width:100%;'></div>In the last 11 years, our economy has risen from 10th place to the top five. We are now moving rapidly towards becoming one of the top three economies: PM<div style='height:30px;width:100%;'></div><div style='height:30px;width:100%;'></div>The journey to a Viksit Bharat will move forward hand in hand with Digital India: PM<div style='height:30px;width:100%;'></div><div style='height:30px;width:100%;'></div>Our next big priority should be becoming self-reliant in tech: PM<div style='height:30px;width:100%;'></div>
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="text-align: center; font-size: 14px;">
+                            Posted On:
+                                          10 AUG 2025 3:31PM by PIB Delhi
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                            <p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Prime Minister Shri Narendra Modi inaugurated the Yellow Line of Bangalore Metro worth around Rs 7,160 crore and laid the foundation stone of Bangalore Metro Phase-3 project worth over Rs 15,610 crore in Bengaluru, Karnataka today. He also flagged off three Vande Bharat Express trains at KSR Railway Station, Bengaluru. Addressing the gathering on the occasion, he remarked that upon setting foot on the land of Karnataka, he felt a sense of belonging. Highlighting the richness of Karnataka&rsquo;s culture, the affection of its people, and the sweetness of the Kannada language, which deeply touches the heart, Shri Modi began by paying respects at the feet of Bengaluru&rsquo;s presiding deity, Annamma Thayi. Recalling that centuries ago, Nadaprabhu Kempegowda laid the foundation of Bengaluru city, the Prime Minister noted that Kempegowda envisioned a city rooted in tradition while also reaching new heights of progress. &ldquo;Bengaluru has always lived that spirit and preserved it and today, Bengaluru is realizing that very dream&rdquo;, stated the PM.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;Today, Bengaluru is emerging as a city that has become a symbol of New India&#39;s rise&rdquo;, stated Shri Modi, describing it as a city whose soul embodies philosophical wisdom, and whose actions reflect technological expertise. He highlighted that Bengaluru is a city which has proudly placed India on the global IT map, crediting the success story of Bengaluru to the hard work and talent of its people.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;In the 21st century, urban planning and urban infrastructure are critical needs for our cities&rdquo;, emphasised the Prime Minister, stating that cities like Bengaluru must be prepared for the future. He highlighted that in recent years, the Government of India has launched projects worth thousands of crores for Bengaluru and today, this campaign is gaining new momentum. Shri Modi inaugurated the Bangalore Metro Yellow Line and laid the foundation stone for Metro Phase-Three. He also flagged off three new Vande Bharat trains connecting different parts of the country.&nbsp; He added that the commencement of Vande Bharat service between Bengaluru and Belagavi will boost trade and tourism in Belagavi. Additionally, Vande Bharat Express trains were launched between Nagpur and Pune, and between Shri Mata Vaishno Devi Katra and Amritsar. The Prime Minister noted that these services will benefit lakhs of devotees and promote tourism. He congratulated the people of Bengaluru, Karnataka, and the entire nation for these projects and the new Vande Bharat trains.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Mentioning that this is his first visit to Bengaluru following Operation Sindoor, Shri Modi highlighted the success of Indian forces in Operation Sindoor, noting their capability to destroy terrorist hideouts deep across the border. He emphasized India&rsquo;s strength in forcing Pakistan, who came to defend the terrorists, to its knees within hours. &ldquo;The entire world has witnessed this new face of New India&rdquo;, remarked the Prime Minister, attributing the success of Operation Sindoor to the power of technology and the strength of Make in India in the defence sector. He acknowledged the significant contribution of the youth of Bengaluru and Karnataka in this achievement, and extended his congratulations to all for their role in this success.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Noting that Bengaluru is now recognized alongside major global cities, the Prime Minister emphasized that India must not only compete globally but also lead. He remarked that progress will come only when our cities are smart, fast, and efficient, underscoring the government&rsquo;s strong focus on completing modern infrastructure projects. Shri Modi announced the commencement of the Yellow Line of Bangalore Metro from RV Road to Bommasandra, which will connect several key areas of Bengaluru.&nbsp; He noted that travel time between Basavanagudi and Electronic City will now be significantly reduced. This, he said, will enhance ease of living and ease of working for lakhs of people.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">The Prime Minister announced that alongside the inauguration of the Yellow Line, the foundation stone for Bangalore Metro&rsquo;s Phase Three &mdash;namely, the Orange Line&mdash;has also been laid. He stated that once operational, the Orange Line, in conjunction with the Yellow Line, will facilitate daily travel for 25 lakh passengers. This, he said, will empower Bengaluru&rsquo;s transport system and elevate it to new heights. Shri Modi further remarked that Bangalore Metro has introduced a new model for public infrastructure development in the country. He highlighted that companies like Infosys Foundation, Biocon, and Delta Electronics have provided part-funding for several key metro stations. He praised this innovative use of CSR as a source of inspiration and extended congratulations to the corporate sector for their contribution.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;India is currently the fastest-growing major economy in the world. In the past eleven years, India&rsquo;s economy has risen from the 10th position to the top five globally, and is rapidly progressing toward becoming one of the top three economies&rdquo;, highlighted Shri Modi. He attributed this momentum to the spirit of &ldquo;Reform, Perform and Transform,&rdquo; driven by clear intent and honest efforts. Reflecting on infrastructure growth, the Prime Minister recalled that in 2014, metro services were limited to just five cities. Today, he added, metro networks span over 1,000 kilometers across 24 cities, making India the third-largest metro network globally. Shri Modi also pointed out that prior to 2014, only about 20,000 kilometers of railway routes had been electrified. In the last eleven years alone, more than 40,000 kilometers of railway routes have been electrified, marking a significant leap in sustainable transport development.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Emphasising that India&rsquo;s achievements are soaring not just on land but also in the skies, the Prime Minister highlighted that in 2014, India had only 74 airports, and today, the number has increased to over 160. He also pointed out the remarkable progress in waterway infrastructure stating that in 2014, only three national waterways were operational; this number has now risen to thirty.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Discussing the significant leap made by India in the health and education sectors, Shri Modi highlighted that until 2014, the country had only 7 AIIMS and 387 medical colleges, while today, 22 AIIMS and 704 medical colleges are serving the people. The Prime Minister stated that in the past 11 years, over one lakh new medical seats have been added across the country. He emphasized the impact of this expansion, noting how middle-class children have greatly benefited from the increased opportunities. Shri Modi further highlighted that in the last 11 years, the number of IITs has increased from 16 to 23, IIITs from 9 to 25, and IIMs from 13 to 21. He stated that today, students have access to significantly more opportunities in higher education.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Affirming that today as the nation progresses rapidly, the lives of the poor and marginalized are transforming at the same pace, the Prime Minister&nbsp; highlighted that under the Pradhan Mantri Awas Yojana, over 4 crore pucca houses have been provided. He announced that the government is now set to construct 3 crore more houses. Shri Modi remarked that in just 11 years, more than 12 crore toilets have been built across the country. He emphasized that this initiative has granted dignity, cleanliness, and safety to crores of mothers and sisters.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;The rapid pace of development in the country is strongly driven by India&rsquo;s economic growth&rdquo;, underlined Shri Modi, highlighting that before 2014, India&rsquo;s total exports had reached only $468 billion whereas today, that figure has risen to $824 billion. The Prime Minister remarked that earlier, India used to import mobile phones, but now, the country is among the top five exporters of mobile handsets. He noted that Bengaluru has played a significant role in this transformation. Shri Modi further highlighted that before 2014, India&rsquo;s electronics exports stood at approximately $6 billion, which has now increased to nearly $38 billion.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Highlighting that eleven years ago, India&rsquo;s automobile exports stood at approximately $16 billion, the Prime Minister cited that today, that figure has more than doubled, making India the fourth-largest automobile exporter globally. He stated that these achievements strengthen the resolve of Aatmanirbhar Bharat and affirmed that together, the nation will move forward and build a&nbsp; developed India.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;The journey to a Viksit Bharat will move forward hand in hand with Digital India&rdquo;, exclaimed Shri Modi, noting that through initiatives like the India AI Mission, India is advancing toward global AI leadership. He added that the Semiconductor Mission is also gaining momentum, and India will soon have its own Made-in-India chip. The Prime Minister stated that India has become a global example of low-cost, high-tech space missions. He emphasized that India is progressing in all areas of futuristic technology, and the most remarkable aspect of this advancement is the empowerment of the poor. Pointing out that digitization has now reached every village in the country, the Prime Minister said through UPI, India accounts for over 50% of the world&rsquo;s real-time transactions. He remarked that technology is helping bridge the gap between government and citizens, mentioning that today, over 2,200 government services are available on mobile platforms. He added that through the UMANG app, citizens can complete government tasks from home, while with DigiLocker, the hassle of managing government certificates has been eliminated. The Prime Minister stated that India is now investing in technologies like AI-powered threat detection. He emphasized that the goal is to ensure the benefits of the digital revolution reach the last person in society. He acknowledged that Bengaluru is actively contributing to this national effort.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">&ldquo;Our next big priority should be becoming self-reliant in technology&rdquo;, declared the Prime Minister, highlighting that Indian tech companies have made a mark globally, developing software and products for the entire world. He stressed that it is now time to prioritize India&rsquo;s own needs more strongly and must accelerate the development of new products, especially as software and apps are now being used across every domain. Shri Modi stated that it is essential for India to reach new heights in this space. Calling for focused efforts to lead in emerging fields, the Prime Minister stressed the need to strengthen Bengaluru and Karnataka&rsquo;s presence in Make in India and the manufacturing sector. He urged that India&rsquo;s products must adhere to the Zero Defect, Zero Effect standard, meaning they should be flawless in quality and have no negative impact on the environment. He expressed confidence that Karnataka&rsquo;s talent will lead the vision of Aatmanirbhar Bharat.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Shri Modi stated that whether it is the central government or state governments, all are committed to serving the people, emphasizing the need for collaborative efforts to improve the lives of citizens. He highlighted that a key responsibility in this direction is the implementation of new reforms. The Prime Minister noted that over the past decade, the central government has consistently advanced reforms. As an example, he cited the passage of the Jan Vishwas Bill to decriminalize laws, and announced that Jan Vishwas 2.0 is also being introduced. He encouraged state governments to identify laws with unnecessary criminal provisions and work toward eliminating them. Shri Modi mentioned the Mission Karmayogi initiative, aimed at providing competency-based training to government employees. He suggested that states can adopt this learning framework for their officials as well. Highlighting the focus on the Aspirational Districts Programme and the Aspirational Block Programme, the Prime Minister urged states to similarly identify regions that require special attention. He concluded by calling for continuous reform efforts at the state level, expressing confidence that these joint initiatives will take Karnataka to new heights of development and affirmed that together, we will fulfill the vision of Viksit Bharat.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Governor of Karnataka, Shri Thaawarchand Gehlot, Chief Minister of Karnataka, Shri Siddaramaiah, Union Ministers Shri Manohar Lal, Shri H.D. Kumaraswamy, Shri Ashwini Vaishnaw, Shri V. Somanna, Sushri Shobha Karandlaje were present among other dignitaries at the event.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Background</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Prime Minister Shri Narendra Modi inaugurated the Yellow line from RV Road (Ragigudda) to Bommasandra of Bangalore Metro Phase-2 project having a route length of over 19 km with 16 stations worth around Rs 7,160 crore. With the opening of this yellow line, the operational metro network in Bengaluru will increase to over 96 km serving a large population in the region.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Prime Minister also laid the foundation stone of Bangalore Metro Phase-3 project worth over Rs 15,610 crore. The total route length of the project will be more than 44 km with 31 elevated stations. This infrastructure project will address the growing transportation needs of the city catering to residential, industrial, commercial and educational areas.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">Prime Minister also flagged off 3 Vande Bharat Express trains from Bengaluru. It includes trains from Bengaluru to Belagavi, Amritsar to Sri Mata Vaishno Devi Katra and Nagpur (Ajni) to Pune. These high-speed trains will significantly enhance regional connectivity, reduce travel time and provide a world-class travel experience to the passengers.</span></span></p>
+
+<p dir="ltr" style="text-align:justify">&nbsp;</p>
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Connectivity projects being launched in Bengaluru today will make travel smoother, faster and more convenient, while also boosting economic growth. <a href="https://t.co/UQgtiBfwqA">https://t.co/UQgtiBfwqA</a></p>&mdash; Narendra Modi (@narendramodi) <a href="https://twitter.com/narendramodi/status/1954463218958553492?ref_src=twsrc%5Etfw">August 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">The success of Operation Sindoor… the strength to destroy terrorist hideouts deep across the border… and the ability to bring Pakistan, which came to defend the terrorists, to its knees within hours…<br><br>The whole world has witnessed this new face of India: PM <a href="https://twitter.com/narendramodi?ref_src=twsrc%5Etfw">@narendramodi</a> <a href="https://t.co/XvIqhUDAWk">pic.twitter.com/XvIqhUDAWk</a></p>&mdash; PMO India (@PMOIndia) <a href="https://twitter.com/PMOIndia/status/1954465206035157346?ref_src=twsrc%5Etfw">August 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Today, India is the fastest-growing major economy in the world.<br><br>In the last 11 years, our economy has risen from 10th place to the top five.<br><br>We are now moving rapidly towards becoming one of the top three economies: PM <a href="https://twitter.com/narendramodi?ref_src=twsrc%5Etfw">@narendramodi</a> <a href="https://t.co/r2Vk2v7yVD">pic.twitter.com/r2Vk2v7yVD</a></p>&mdash; PMO India (@PMOIndia) <a href="https://twitter.com/PMOIndia/status/1954466076806328572?ref_src=twsrc%5Etfw">August 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">The journey to a Viksit Bharat will move forward hand in hand with Digital India. <a href="https://t.co/X2A5SvxgmS">pic.twitter.com/X2A5SvxgmS</a></p>&mdash; PMO India (@PMOIndia) <a href="https://twitter.com/PMOIndia/status/1954467858236244334?ref_src=twsrc%5Etfw">August 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Our next big priority should be becoming self-reliant in tech. <a href="https://t.co/vTodl7SVeh">pic.twitter.com/vTodl7SVeh</a></p>&mdash; PMO India (@PMOIndia) <a href="https://twitter.com/PMOIndia/status/1954468372445335941?ref_src=twsrc%5Etfw">August 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/uUyLlYCz0qY?si=OoLEHq4Uic_kYvrg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
+
+
+<p dir="ltr" style="text-align:center">&nbsp;</p>
+
+<p dir="ltr" style="text-align:center"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">***</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif">MJPS/SR</span></span></p>
+
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                            (Release ID: 2154848)
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="section1">
+            <div id="frst_t">
+                <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2154848' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2154848&text=Prime Minister Shri Narendra Modi inaugurates, lays foundation stone of metro projects worth around Rs 22,800 crore in Bengaluru, Karnataka' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2154848' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Prime Minister Shri Narendra Modi inaugurates, lays foundation stone of metro projects worth around Rs 22,800 crore in Bengaluru, Karnataka&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2154848&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2154848&title=Prime Minister Shri Narendra Modi inaugurates, lays foundation stone of metro projects worth around Rs 22,800 crore in Bengaluru, Karnataka&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+            <div id="second_t">
+                <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2154848' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2154848&text=Prime Minister Shri Narendra Modi inaugurates, lays foundation stone of metro projects worth around Rs 22,800 crore in Bengaluru, Karnataka' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2154848' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Prime Minister Shri Narendra Modi inaugurates, lays foundation stone of metro projects worth around Rs 22,800 crore in Bengaluru, Karnataka&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2154848&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2154848&title=Prime Minister Shri Narendra Modi inaugurates, lays foundation stone of metro projects worth around Rs 22,800 crore in Bengaluru, Karnataka&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+        </div>
+        <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="Prime Minister Shri Narendra Modi inaugurates, lays foundation stone of metro projects worth around Rs 22,800 crore in Bengaluru, Karnataka" />
+        <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" value="&lt;br/>The success of Operation Sindoor, the strength to destroy terrorist hideouts deep across the border, and the ability to bring Pakistan, which came to defend the terrorists, to its knees within hours, the whole world has witnessed this new face of India: PM&lt;br/>&lt;br/>Today, India is the fastest-growing major economy in the world: PM&lt;br/>&lt;br/>In the last 11 years, our economy has risen from 10th place to the top five. We are now moving rapidly towards becoming one of the top three economies: PM&lt;br/>&lt;br/>The journey to a Viksit Bharat will move forward hand in hand with Digital India: PM&lt;br/>&lt;br/>Our next big priority should be becoming self-reliant in tech: PM&lt;br/>" />
+        <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Prime Minister Shri Narendra Modi inaugurated the Yellow Line of Bangalore Metro worth around Rs 7,160 crore and laid the foundation stone of Bangalore Metro Phase-3 project worth over Rs 15,610 crore in Bengaluru, Karnataka today. He also flagged off three Vande Bharat Express trains at KSR Railway Station, Bengaluru. Addressing the gathering on the occasion, he remarked that upon setting foot on the land of Karnataka, he felt a sense of belonging. Highlighting the richness of Karnataka&amp;rsquo;s culture, the affection of its people, and the sweetness of the Kannada language, which deeply touches the heart, Shri Modi began by paying respects at the feet of Bengaluru&amp;rsquo;s presiding deity, Annamma Thayi. Recalling that centuries ago, Nadaprabhu Kempegowda laid the foundation of Bengaluru city, the Prime Minister noted that Kempegowda envisioned a city rooted in tradition while also reaching new heights of progress. &amp;ldquo;Bengaluru has always lived that spirit and preserved it and today, Bengaluru is realizing that very dream&amp;rdquo;, stated the PM.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&amp;ldquo;Today, Bengaluru is emerging as a city that has become a symbol of New India&amp;#39;s rise&amp;rdquo;, stated Shri Modi, describing it as a city whose soul embodies philosophical wisdom, and whose actions reflect technological expertise. He highlighted that Bengaluru is a city which has proudly placed India on the global IT map, crediting the success story of Bengaluru to the hard work and talent of its people.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&amp;ldquo;In the 21st century, urban planning and urban infrastructure are critical needs for our cities&amp;rdquo;, emphasised the Prime Minister, stating that cities like Bengaluru must be prepared for the future. He highlighted that in recent years, the Government of India has launched projects worth thousands of crores for Bengaluru and today, this campaign is gaining new momentum. Shri Modi inaugurated the Bangalore Metro Yellow Line and laid the foundation stone for Metro Phase-Three. He also flagged off three new Vande Bharat trains connecting different parts of the country.&amp;nbsp; He added that the commencement of Vande Bharat service between Bengaluru and Belagavi will boost trade and tourism in Belagavi. Additionally, Vande Bharat Express trains were launched between Nagpur and Pune, and between Shri Mata Vaishno Devi Katra and Amritsar. The Prime Minister noted that these services will benefit lakhs of devotees and promote tourism. He congratulated the people of Bengaluru, Karnataka, and the entire nation for these projects and the new Vande Bharat trains.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Mentioning that this is his first visit to Bengaluru following Operation Sindoor, Shri Modi highlighted the success of Indian forces in Operation Sindoor, noting their capability to destroy terrorist hideouts deep across the border. He emphasized India&amp;rsquo;s strength in forcing Pakistan, who came to defend the terrorists, to its knees within hours. &amp;ldquo;The entire world has witnessed this new face of New India&amp;rdquo;, remarked the Prime Minister, attributing the success of Operation Sindoor to the power of technology and the strength of Make in India in the defence sector. He acknowledged the significant contribution of the youth of Bengaluru and Karnataka in this achievement, and extended his congratulations to all for their role in this success.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Noting that Bengaluru is now recognized alongside major global cities, the Prime Minister emphasized that India must not only compete globally but also lead. He remarked that progress will come only when our cities are smart, fast, and efficient, underscoring the government&amp;rsquo;s strong focus on completing modern infrastructure projects. Shri Modi announced the commencement of the Yellow Line of Bangalore Metro from RV Road to Bommasandra, which will connect several key areas of Bengaluru.&amp;nbsp; He noted that travel time between Basavanagudi and Electronic City will now be significantly reduced. This, he said, will enhance ease of living and ease of working for lakhs of people.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>The Prime Minister announced that alongside the inauguration of the Yellow Line, the foundation stone for Bangalore Metro&amp;rsquo;s Phase Three &amp;mdash;namely, the Orange Line&amp;mdash;has also been laid. He stated that once operational, the Orange Line, in conjunction with the Yellow Line, will facilitate daily travel for 25 lakh passengers. This, he said, will empower Bengaluru&amp;rsquo;s transport system and elevate it to new heights. Shri Modi further remarked that Bangalore Metro has introduced a new model for public infrastructure development in the country. He highlighted that companies like Infosys Foundation, Biocon, and Delta Electronics have provided part-funding for several key metro stations. He praised this innovative use of CSR as a source of inspiration and extended congratulations to the corporate sector for their contribution.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&amp;ldquo;India is currently the fastest-growing major economy in the world. In the past eleven years, India&amp;rsquo;s economy has risen from the 10th position to the top five globally, and is rapidly progressing toward becoming one of the top three economies&amp;rdquo;, highlighted Shri Modi. He attributed this momentum to the spirit of &amp;ldquo;Reform, Perform and Transform,&amp;rdquo; driven by clear intent and honest efforts. Reflecting on infrastructure growth, the Prime Minister recalled that in 2014, metro services were limited to just five cities. Today, he added, metro networks span over 1,000 kilometers across 24 cities, making India the third-largest metro network globally. Shri Modi also pointed out that prior to 2014, only about 20,000 kilometers of railway routes had been electrified. In the last eleven years alone, more than 40,000 kilometers of railway routes have been electrified, marking a significant leap in sustainable transport development.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Emphasising that India&amp;rsquo;s achievements are soaring not just on land but also in the skies, the Prime Minister highlighted that in 2014, India had only 74 airports, and today, the number has increased to over 160. He also pointed out the remarkable progress in waterway infrastructure stating that in 2014, only three national waterways were operational; this number has now risen to thirty.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Discussing the significant leap made by India in the health and education sectors, Shri Modi highlighted that until 2014, the country had only 7 AIIMS and 387 medical colleges, while today, 22 AIIMS and 704 medical colleges are serving the people. The Prime Minister stated that in the past 11 years, over one lakh new medical seats have been added across the country. He emphasized the impact of this expansion, noting how middle-class children have greatly benefited from the increased opportunities. Shri Modi further highlighted that in the last 11 years, the number of IITs has increased from 16 to 23, IIITs from 9 to 25, and IIMs from 13 to 21. He stated that today, students have access to significantly more opportunities in higher education.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Affirming that today as the nation progresses rapidly, the lives of the poor and marginalized are transforming at the same pace, the Prime Minister&amp;nbsp; highlighted that under the Pradhan Mantri Awas Yojana, over 4 crore pucca houses have been provided. He announced that the government is now set to construct 3 crore more houses. Shri Modi remarked that in just 11 years, more than 12 crore toilets have been built across the country. He emphasized that this initiative has granted dignity, cleanliness, and safety to crores of mothers and sisters.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&amp;ldquo;The rapid pace of development in the country is strongly driven by India&amp;rsquo;s economic growth&amp;rdquo;, underlined Shri Modi, highlighting that before 2014, India&amp;rsquo;s total exports had reached only $468 billion whereas today, that figure has risen to $824 billion. The Prime Minister remarked that earlier, India used to import mobile phones, but now, the country is among the top five exporters of mobile handsets. He noted that Bengaluru has played a significant role in this transformation. Shri Modi further highlighted that before 2014, India&amp;rsquo;s electronics exports stood at approximately $6 billion, which has now increased to nearly $38 billion.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Highlighting that eleven years ago, India&amp;rsquo;s automobile exports stood at approximately $16 billion, the Prime Minister cited that today, that figure has more than doubled, making India the fourth-largest automobile exporter globally. He stated that these achievements strengthen the resolve of Aatmanirbhar Bharat and affirmed that together, the nation will move forward and build a&amp;nbsp; developed India.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&amp;ldquo;The journey to a Viksit Bharat will move forward hand in hand with Digital India&amp;rdquo;, exclaimed Shri Modi, noting that through initiatives like the India AI Mission, India is advancing toward global AI leadership. He added that the Semiconductor Mission is also gaining momentum, and India will soon have its own Made-in-India chip. The Prime Minister stated that India has become a global example of low-cost, high-tech space missions. He emphasized that India is progressing in all areas of futuristic technology, and the most remarkable aspect of this advancement is the empowerment of the poor. Pointing out that digitization has now reached every village in the country, the Prime Minister said through UPI, India accounts for over 50% of the world&amp;rsquo;s real-time transactions. He remarked that technology is helping bridge the gap between government and citizens, mentioning that today, over 2,200 government services are available on mobile platforms. He added that through the UMANG app, citizens can complete government tasks from home, while with DigiLocker, the hassle of managing government certificates has been eliminated. The Prime Minister stated that India is now investing in technologies like AI-powered threat detection. He emphasized that the goal is to ensure the benefits of the digital revolution reach the last person in society. He acknowledged that Bengaluru is actively contributing to this national effort.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&amp;ldquo;Our next big priority should be becoming self-reliant in technology&amp;rdquo;, declared the Prime Minister, highlighting that Indian tech companies have made a mark globally, developing software and products for the entire world. He stressed that it is now time to prioritize India&amp;rsquo;s own needs more strongly and must accelerate the development of new products, especially as software and apps are now being used across every domain. Shri Modi stated that it is essential for India to reach new heights in this space. Calling for focused efforts to lead in emerging fields, the Prime Minister stressed the need to strengthen Bengaluru and Karnataka&amp;rsquo;s presence in Make in India and the manufacturing sector. He urged that India&amp;rsquo;s products must adhere to the Zero Defect, Zero Effect standard, meaning they should be flawless in quality and have no negative impact on the environment. He expressed confidence that Karnataka&amp;rsquo;s talent will lead the vision of Aatmanirbhar Bharat.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Shri Modi stated that whether it is the central government or state governments, all are committed to serving the people, emphasizing the need for collaborative efforts to improve the lives of citizens. He highlighted that a key responsibility in this direction is the implementation of new reforms. The Prime Minister noted that over the past decade, the central government has consistently advanced reforms. As an example, he cited the passage of the Jan Vishwas Bill to decriminalize laws, and announced that Jan Vishwas 2.0 is also being introduced. He encouraged state governments to identify laws with unnecessary criminal provisions and work toward eliminating them. Shri Modi mentioned the Mission Karmayogi initiative, aimed at providing competency-based training to government employees. He suggested that states can adopt this learning framework for their officials as well. Highlighting the focus on the Aspirational Districts Programme and the Aspirational Block Programme, the Prime Minister urged states to similarly identify regions that require special attention. He concluded by calling for continuous reform efforts at the state level, expressing confidence that these joint initiatives will take Karnataka to new heights of development and affirmed that together, we will fulfill the vision of Viksit Bharat.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Governor of Karnataka, Shri Thaawarchand Gehlot, Chief Minister of Karnataka, Shri Siddaramaiah, Union Ministers Shri Manohar Lal, Shri H.D. Kumaraswamy, Shri Ashwini Vaishnaw, Shri V. Somanna, Sushri Shobha Karandlaje were present among other dignitaries at the event.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Background&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Prime Minister Shri Narendra Modi inaugurated the Yellow line from RV Road (Ragigudda) to Bommasandra of Bangalore Metro Phase-2 project having a route length of over 19 km with 16 stations worth around Rs 7,160 crore. With the opening of this yellow line, the operational metro network in Bengaluru will increase to over 96 km serving a large population in the region.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Prime Minister also laid the foundation stone of Bangalore Metro Phase-3 project worth over Rs 15,610 crore. The total route length of the project will be more than 44 km with 31 elevated stations. This infrastructure project will address the growing transportation needs of the city catering to residential, industrial, commercial and educational areas.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>Prime Minister also flagged off 3 Vande Bharat Express trains from Bengaluru. It includes trains from Bengaluru to Belagavi, Amritsar to Sri Mata Vaishno Devi Katra and Nagpur (Ajni) to Pune. These high-speed trains will significantly enhance regional connectivity, reduce travel time and provide a world-class travel experience to the passengers.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;>Connectivity projects being launched in Bengaluru today will make travel smoother, faster and more convenient, while also boosting economic growth. &lt;a href=&quot;https://t.co/UQgtiBfwqA&quot;>https://t.co/UQgtiBfwqA&lt;/a>&lt;/p>&amp;mdash; Narendra Modi (@narendramodi) &lt;a href=&quot;https://twitter.com/narendramodi/status/1954463218958553492?ref_src=twsrc%5Etfw&quot;>August 10, 2025&lt;/a> 
+
+&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;>The success of Operation Sindoor… the strength to destroy terrorist hideouts deep across the border… and the ability to bring Pakistan, which came to defend the terrorists, to its knees within hours…&lt;br>&lt;br>The whole world has witnessed this new face of India: PM &lt;a href=&quot;https://twitter.com/narendramodi?ref_src=twsrc%5Etfw&quot;>@narendramodi&lt;/a> &lt;a href=&quot;https://t.co/XvIqhUDAWk&quot;>pic.twitter.com/XvIqhUDAWk&lt;/a>&lt;/p>&amp;mdash; PMO India (@PMOIndia) &lt;a href=&quot;https://twitter.com/PMOIndia/status/1954465206035157346?ref_src=twsrc%5Etfw&quot;>August 10, 2025&lt;/a> 
+
+&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;>Today, India is the fastest-growing major economy in the world.&lt;br>&lt;br>In the last 11 years, our economy has risen from 10th place to the top five.&lt;br>&lt;br>We are now moving rapidly towards becoming one of the top three economies: PM &lt;a href=&quot;https://twitter.com/narendramodi?ref_src=twsrc%5Etfw&quot;>@narendramodi&lt;/a> &lt;a href=&quot;https://t.co/r2Vk2v7yVD&quot;>pic.twitter.com/r2Vk2v7yVD&lt;/a>&lt;/p>&amp;mdash; PMO India (@PMOIndia) &lt;a href=&quot;https://twitter.com/PMOIndia/status/1954466076806328572?ref_src=twsrc%5Etfw&quot;>August 10, 2025&lt;/a> 
+
+&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;>The journey to a Viksit Bharat will move forward hand in hand with Digital India. &lt;a href=&quot;https://t.co/X2A5SvxgmS&quot;>pic.twitter.com/X2A5SvxgmS&lt;/a>&lt;/p>&amp;mdash; PMO India (@PMOIndia) &lt;a href=&quot;https://twitter.com/PMOIndia/status/1954467858236244334?ref_src=twsrc%5Etfw&quot;>August 10, 2025&lt;/a> 
+
+&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;>Our next big priority should be becoming self-reliant in tech. &lt;a href=&quot;https://t.co/vTodl7SVeh&quot;>pic.twitter.com/vTodl7SVeh&lt;/a>&lt;/p>&amp;mdash; PMO India (@PMOIndia) &lt;a href=&quot;https://twitter.com/PMOIndia/status/1954468372445335941?ref_src=twsrc%5Etfw&quot;>August 10, 2025&lt;/a> 
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/uUyLlYCz0qY?si=OoLEHq4Uic_kYvrg&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen>&lt;/iframe>
+
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:center&quot;>&amp;nbsp;&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:center&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>***&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>MJPS/SR&lt;/span>&lt;/span>&lt;/p>
+" />
+        <script type="text/javascript">
+                  var mPlayer = document.getElementById("background_music");
+                  var mPlayAction = document.getElementById("playbutton");
+                  var isPlaying = false;
+
+                  function playAudio() {
+                        mPlayer.play();
+                        isPlaying = true;
+                        document.getElementById('stopA').style.display = "block";
+                        document.getElementById('playA').style.display = "none";
+                  }
+
+                  function pauseAudio() {
+                        mPlayer.pause();
+                        isPlaying = false;
+                        document.getElementById('playA').style.display = "block";
+                        document.getElementById('stopA').style.display = "none";
+                  }
+        </script>
+        <script type="text/javascript">
+                  var synth = window.speechSynthesis;
+
+                  function CleanHtml(html) {
+                        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+                        return html;
+                  }
+                  function stripHtml(html) {
+                        let tmp = document.createElement("DIV");
+                        tmp.innerHTML = CleanHtml(html);
+                        return tmp.textContent || tmp.innerText || "";
+                  }
+        </script>
+        <script type="text/javascript">
+                  $(document).ready(function () {
+                        $("table").each(function () {
+                              if (!$(this).closest(".table-responsive").length) {
+                                    $(this).wrap("<div class='table-responsive'></div>");
+                              }
+                        });
+
+                        var width = $(window).width();
+                        if (width < 768) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        }
+                  });
+        </script>
+        <style type="text/css">
+            @media print {
+                .sticky-social, .sticky-social_mb, .pull-right, #printPDF {
+                    display: none !important;
+                }
+            }
+
+            .f_vl {
+                padding-right: 30px;
+                font-size: 17px;
+                cursor: pointer;
+            }
+
+            .log_oo {
+                display: flex;
+                justify-content: space-between;
+            }
+
+                .log_oo img {
+                    width: 150px;
+                }
+
+            .sticky-social_mb {
+                position: fixed;
+                bottom: 0px;
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+            }
+
+            .social_mb {
+                list-style: none;
+                display: flex;
+                width: 100%;
+                margin-bottom: -8px;
+            }
+
+                .social_mb a {
+                    padding: 8px 0px;
+                    font-size: 30px;
+                    transition: all 0.8s ease-in-out;
+                    width: 20% !important;
+                    text-align: center;
+                }
+        </style>
+        <style type="text/css">
+            .section1 {
+                position: relative;
+                padding: 10px 0px;
+                width: 100%;
+            }
+
+            .sticky-social {
+                position: fixed;
+                top: 20px;
+                left: 0px;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .social {
+                list-style: none;
+            }
+
+                .social a li {
+                    padding: 8px 12px;
+                    font-size: 25px;
+                    transition: all 0.8s ease-in-out;
+                }
+
+                    .social a li:hover {
+                        margin-right: -30px;
+                        box-shadow: 2px 5px 10px grey;
+                    }
+
+                        .social a li:hover .fa {
+                            margin-left: 20px;
+                        }
+
+            .fb_b {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .twitter_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .whatsapp_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-envelope_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-linkedin_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+        </style>
+        <style type="text/css">
+            @media only screen and (max-device-width: 767px) {
+                p span img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                p img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                h2 {
+                    font-size: var(--dbim-h2, 20px);
+                    font-weight: 600 !important;
+                }
+
+                h3 {
+                    font-size: var(--dbim-h3, 16px);
+                    font-weight: 600 !important;
+                }
+            }
+        </style>
+        <style type="text/css">
+            .film-roll-badge {
+                position: absolute;
+                top: 82%;
+                right: 20px;
+                width: 230px;
+                height: 70px;
+                background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 18px, var(--dbim-text, #150202) 18px, var(--dbim-text, #150202) 36px );
+                border-top: 8px solid var(--dbim-green-key, #0F5757);
+                border-bottom: 8px solid var(--dbim-green-key, #0F5757);
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                animation: moveFilm 8s linear infinite;
+                z-index: 10;
+            }
+
+                .film-roll-badge::before,
+                .film-roll-badge::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 10px;
+                    background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 10px, #fff 10px, #fff 20px );
+                    left: 0;
+                    z-index: 2;
+                }
+
+                .film-roll-badge::before {
+                    top: -4px;
+                }
+
+                .film-roll-badge::after {
+                    bottom: -4px;
+                }
+
+            .film-roll-inner {
+                position: relative;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: flicker 2s infinite ease-in-out;
+            }
+
+            .countdown-text {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #fff;
+                text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px #000;
+                white-space: nowrap;
+            }
+
+            @keyframes moveFilm {
+                0% {
+                    background-position: 0 0;
+                }
+
+                100% {
+                    background-position: 120px 0;
+                }
+            }
+
+            @keyframes flicker {
+                0%, 100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.9;
+                }
+
+                25% {
+                    opacity: 0.95;
+                }
+
+                75% {
+                    opacity: 0.85;
+                }
+            }
+
+            @media (max-width: 1500px) {
+                .film-roll-badge {
+                    top: 68%;
+                    right: 18px;
+                    height: 65px;
+                    font-size: 0.85rem;
+                }
+
+                .press-section {
+                    margin-top: 35px;
+                }
+            }
+
+            @media (max-width: 992px) {
+                .film-roll-badge {
+                    top: 52%;
+                    right: 10px;
+                    width: 200px;
+                    height: 60px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .film-roll-badge {
+                    top: 56%;
+                    right: 10px;
+                    width: 124px;
+                    height: 55px;
+                }
+
+                .countdown-text {
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .film-roll-badge {
+                    top: 59%;
+                    right: 5px;
+                    height: 50px;
+                }
+
+                .countdown-text {
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+        <script type="text/javascript">
+                  const festivalStart = new Date("2025-11-20T00:00:00").getTime();
+                  const festivalEnd = new Date("2025-11-28T23:59:59").getTime();
+                  const countdownElement = document.getElementById("countdown");
+
+                  if (countdownElement) {
+                        const interval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < festivalStart) {
+                                    const diff = festivalStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                                    countdownElement.innerHTML = `${days} Day${days !== 1 ? 's' : ''} ${hours} Hour${hours !== 1 ? 's' : ''} to go`;
+                              } else if (now >= festivalStart && now <= festivalEnd) {
+                                    const dayNumber = Math.floor((now - festivalStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    countdownElement.innerHTML = `56th IFFI - Day ${dayNumber}`;
+                              } else {
+                                    countdownElement.innerHTML = `✨ IFFI closes but never ends…`;
+                                    const elements = document.querySelectorAll('.film-roll-badge');
+                                    elements.forEach(el => el.style.width = "350px");
+                                    clearInterval(interval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+        <script type="text/javascript">
+                  const miffStart = new Date("2026-06-15T00:00:00").getTime();
+                  const miffEnd = new Date("2026-06-15T23:59:59").getTime();
+                  const miffElement = document.getElementById("miff");
+
+                  if (miffElement) {
+                        const miffInterval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < miffStart) {
+                                    const diff = miffStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    miffElement.innerHTML = `${days} Day${days === 1 ? '' : 's'} to MIFF ...`;
+                              } else if (now >= miffStart && now <= miffEnd) {
+                                    const dayNumber = Math.floor((now - miffStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    miffElement.innerHTML = `19th MIFF - Day ${dayNumber}`;
+                              } else {
+                                    miffElement.innerHTML = `✨ MIFF concludes, cinema lives on...`;
+                                    document.querySelectorAll('.film-roll-badge').forEach(el => el.style.width = "350px");
+                                    clearInterval(miffInterval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("sc_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"P_CategoryManagement","dynamicServicePath":"/PressReleasePage.aspx","id":"mpe"}, null, null, $get("Hidden"));
+});
+//]]>
+</script>
+<input type="hidden" name="__ncforminfo" value="nKQ3dF_Pf2brLjRfaRwBrxA8iP1cJpqL9UsxVcnP7UP7Et80lqGKulFBIyYUj_OUUZK8o1up3nvUVxvpB6PqxQ5JVWtfmXjs"/></form>
+    
+
+<script type="application/json" id="pibConsentConfig">{"ga4Id":"G-Q414Y0X6EE,G-QJJ6LZ8LHV","policyUrl":"/CookiePolicy.aspx","text":{"bannerLabel":"Cookie consent","title":"Cookies on this website","body":"We use essential cookies to make this website work. We also set analytics cookies when you arrive, so we can see how the site is used and improve it - you can switch these off below or at any time from the Cookie Policy page. Cookies from embedded social media content are set only if you allow them.","policyLink":"Read our Cookie Policy","accept":"Accept all","reject":"Reject optional","customize":"Customise","prefsTitle":"Cookie preferences","prefsIntro":"Choose which cookies this website may set. Essential cookies cannot be switched off because the site does not work without them. Analytics cookies are on unless you turn them off. Social media cookies stay off until you allow them. You can change these choices at any time from the Cookie Policy page.","essentialName":"Essential cookies","essentialDesc":"Needed for the site to function. These remember your session, your language and region, your text size and colour theme, and verify the security check on forms. They are always on.","analyticsName":"Analytics cookies","analyticsDesc":"Help us understand how visitors use the site - which pages are read and how long people stay - so it can be improved. The information is collected in a form that does not directly identify you. These are on when you arrive; switching them off here stops them and deletes the ones already set.","socialName":"Social media cookies","socialDesc":"Set by content embedded from X, Facebook and YouTube, such as timelines and videos. These platforms may use them to track you across websites. They stay off until you allow them.","save":"Save preferences","cancel":"Cancel"}}</script>
+<script type="text/javascript" src='/js/consent.js?v=10'></script>
+
+<script type="text/javascript" src='/js/consent-embeds.js?v=10'></script>
+
+
+    <!-- Minimal O(N) Time and O(1) Auxiliary Space Word Count & Read Time Calculation -->
+    <script type="text/javascript">
+            (function () {
+                  function calculateReadingStats() {
+                        var bodyEl = document.getElementById("pibReleaseBody");
+                        if (!bodyEl) return;
+
+                        // textContent extracts text without triggering expensive layout/reflow computations
+                        var text = bodyEl.textContent || "";
+                        var words = 0;
+                        var inWord = false;
+
+                        // O(N) single pass character code scan: achieves O(1) space with zero array allocations
+                        for (var i = 0, len = text.length; i < len; i++) {
+                              var code = text.charCodeAt(i);
+                              // Delimits on ASCII whitespace, control characters, tabs, newlines, and non-breaking spaces (160)
+                              if (code <= 32 || code === 160) {
+                                    inWord = false;
+                              } else if (!inWord) {
+                                    inWord = true;
+                                    words++;
+                              }
+                        }
+
+                        // Standard 250 WPM reading speed (e.g., 612 words yields 2 min read)
+                        var minutes = Math.max(1, Math.round(words / 250));
+
+                        var elWords = document.getElementById("prWordCount");
+                        var elTime = document.getElementById("prReadTime");
+
+                        if (elWords) elWords.textContent = words + (words === 1 ? " word" : " words");
+                        if (elTime) elTime.textContent = minutes + " min read";
+                  }
+
+                  if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", calculateReadingStats);
+                  } else {
+                        calculateReadingStats();
+                  }
+            })();
+    </script>
+
+    <script type="text/javascript">
+            (function () {
+                  try {
+                        if (window.self === window.top) { return; }
+                  } catch (e) { return; }
+                  var s = document.createElement("style");
+                  s.textContent = ".sticky-social, .sticky-social_mb { display: none !important; }";
+                  (document.head || document.documentElement).appendChild(s);
+            }());
+    </script>
+</body>
+</html>

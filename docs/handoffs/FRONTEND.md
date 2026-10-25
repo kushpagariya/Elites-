@@ -1,5 +1,7 @@
 # Frontend implementation prompt
 
+Integration update: read `docs/BACKEND_INTEGRATION_WORKFLOW.md`, current `docs/CONTRACT.md` and `docs/STATUS.md` first. Backend orchestration and saved-result routes now exist; missing domain functions return 503 ENGINE_UNAVAILABLE. Typed helpers are in `frontend/src/lib/api.ts`. Detailed DaypartDNA/sensitivity DTOs and the connected workspace still require implementation. The original four-hour plan below does not establish current endpoint readiness.
+
 Copy this prompt to the frontend teammate or coding agent.
 
 You own StoreScout's browser application. Read `docs/PRD.md`, `docs/ARCHITECTURE.md`, `docs/CONTRACT.md` and the four-hour plan before changing code. Deliver the smallest connected prototype demonstrating the PRD's investment journey in four hours. The current screen is a connectivity diagnostic; analytical capabilities still require implementation. The four-hour demonstration is an integration checkpoint, not evidence that all PRD acceptance criteria or research targets passed.
@@ -41,3 +43,7 @@ Keep one active context containing project/scenario/evaluation, source snapshot 
 - **3–4 hours:** Connect portfolio/report, verify empty budget and risk acknowledgement, exercise rapid scenario switching, restart/reopen, keyboard flow and one backend failure. Rehearse the complete three-screen journey with the team. Cut animation, optional map layers and extra page layouts before cutting required outcomes.
 
 Use restrained light styling, visible focus, labelled units, readable text and responsive layouts. INR belongs in labels; fractions become percentages only at presentation. Null means unknown/not applicable with its reason; null is never zero. Do not claim calibrated prediction intervals, real footfall, user validation or measured speed without evidence. Finish with the changed files, exact commands run, remaining acceptance gaps and one known-good commit for the integrator.
+
+## Implementation handoff
+
+The browser workspace now has /app, /app/scenarios and /app/portfolio with shared scenario/evaluation context, real demo/scenario requests and explicit unavailable computation. See ../../frontend/docs/FRONTEND_HANDOFF.md for the changed-file map, exact checks, PDF source identity, real API verification and remaining backend/contract dependencies. The authoritative user-supplied PDF confirms the three-screen investment flow; wire fields continue to follow backend schemas. The complete H4 analytical journey remains blocked by the unconnected computation and report endpoints.
