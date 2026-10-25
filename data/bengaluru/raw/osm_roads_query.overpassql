@@ -1,0 +1,1 @@
+[out:json][timeout:90];(way[highway~"motorway|trunk|primary|secondary|tertiary|residential|unclassified|service|footway|pedestrian|path"](12.815,77.600,12.940,77.725);way[railway~"subway|construction"](12.815,77.600,12.940,77.725););out tags geom;

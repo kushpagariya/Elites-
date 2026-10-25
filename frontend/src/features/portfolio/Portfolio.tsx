@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useWorkspace } from "@/lib/workspace";
 import { money } from "@/lib/format";
-import { compactMoney } from "@/lib/presentation";
+import { compactMoney, reasonLabel } from "@/lib/presentation";
 import StatusBadge from "@/components/StatusBadge";
 import LocationMap from "@/features/explore/LocationMap";
 import { Unavailable } from "@/components/Feedback";
@@ -23,6 +23,7 @@ export default function Portfolio() {
   const risks = w.current
     ? (e?.site_analyses.filter((s) => s.failfast.status === "AT_RISK") ?? [])
     : [];
+  const sharedReasons = risks[0]?.failfast.reasons.filter(r => risks.every(site => site.failfast.reasons.includes(r))) ?? [];
   const stateText = {
     OPTIMAL: "Best combination found",
     FEASIBLE: "Feasible plan · optimality unproven",
@@ -84,6 +85,8 @@ export default function Portfolio() {
             </p>
             <fieldset>
               <legend>Review investment risks</legend>
+              {sharedReasons.length > 0 && <details><summary>Shared model and data risks</summary><ul>{sharedReasons.map(r => <li key={r}>{reasonLabel(r)}</li>)}</ul></details>}
+              {risks.length > 0 && <p className="helper">Include only locations whose risks you have reviewed. This does not approve an investment automatically.</p>}
               {risks.length ? (
                 risks.map((s) => (
                   <label className="check-label risk-ack" key={s.site_id}>
@@ -100,11 +103,8 @@ export default function Portfolio() {
                       }
                     />
                     <span>
-                      I accept the downside risk for {siteName(s.site_id)}.
-                      <small>
-                        {s.failfast.reasons.join(" ") ||
-                          "Review the saved risk assessment before including this location."}
-                      </small>
+                      I have reviewed the risks for {siteName(s.site_id)}.
+                      {s.failfast.reasons.some(r => !sharedReasons.includes(r)) && <small>{s.failfast.reasons.filter(r => !sharedReasons.includes(r)).map(reasonLabel).join(" ")}</small>}
                     </span>
                   </label>
                 ))
@@ -186,15 +186,11 @@ export default function Portfolio() {
                           <StatusBadge status={a?.failfast.status} />
                         </div>
                         <p>
-                          {a?.drivers[0] ??
-                            "Selected in the saved network-aware investment plan."}
-                        </p>
-                        <small>
-                          Standalone year-one sales{" "}
+                          Year-one sales if opened alone:{" "}
                           {money(a?.annual_revenue_inr)} · existing-store
                           contribution lost{" "}
                           {money(a?.lost_existing_contribution_inr)}.
-                        </small>
+                        </p>
                       </article>
                     );
                   })}
@@ -227,7 +223,7 @@ export default function Portfolio() {
                   p.exclusions.map((x) => (
                     <div className="excluded-site" key={x.site_id}>
                       <strong>{siteName(x.site_id)}</strong>
-                      <p>{x.reasons.join(" ")}</p>
+                      <p>{x.reasons.map(reasonLabel).join(" ")}</p>
                     </div>
                   ))
                 ) : (

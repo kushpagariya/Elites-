@@ -1,0 +1,92 @@
+{
+  "command": "python -m ml.training.reference_sales_v2.report",
+  "equivalent": "python -m unittest discover -s tests/unit -p test_reference_sales_v2.py -v",
+  "tests": 19,
+  "passed": 19,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_01_counts_new_identity_and_no_split_overlap",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_02_all_targets_feasible_conserved_and_uncapped",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_03_simulator_wallet_scaling_and_competition",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_04_fitted_wallet_scaling_structural_all_candidates",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_05_candidate_usable_scaling_and_support_invariance",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_06_no_candidate_or_own_branch_label_leakage",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_07_train_only_preprocessing_and_fixed_support",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_08_validation_only_selection_and_actual_metrics",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_09_all_models_bounds_and_same_saved_transform",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_10_invalid_features_and_wrong_schema_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_11_unknown_joint_geometry_never_silently_usable",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_12_candidate_support_and_reference_endpoints",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_13_bad_reference_bracket_rejects_without_adjustment",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_14_full_generator_reproducibility",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_15_ablation_is_real_and_same_family_parameters",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_16_original_versions_and_public_contracts_unchanged",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_17_offline_local_artifact_and_no_orchestration",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_18_demand_shape_competition_and_daypart_probe_records",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales_v2.V2Acceptance.test_19_selected_fit_reproducible_with_training_seed",
+      "status": "PASS"
+    }
+  ],
+  "output": "test_01_counts_new_identity_and_no_split_overlap (test_reference_sales_v2.V2Acceptance.test_01_counts_new_identity_and_no_split_overlap) ... ok\ntest_02_all_targets_feasible_conserved_and_uncapped (test_reference_sales_v2.V2Acceptance.test_02_all_targets_feasible_conserved_and_uncapped) ... ok\ntest_03_simulator_wallet_scaling_and_competition (test_reference_sales_v2.V2Acceptance.test_03_simulator_wallet_scaling_and_competition) ... ok\ntest_04_fitted_wallet_scaling_structural_all_candidates (test_reference_sales_v2.V2Acceptance.test_04_fitted_wallet_scaling_structural_all_candidates) ... ok\ntest_05_candidate_usable_scaling_and_support_invariance (test_reference_sales_v2.V2Acceptance.test_05_candidate_usable_scaling_and_support_invariance) ... ok\ntest_06_no_candidate_or_own_branch_label_leakage (test_reference_sales_v2.V2Acceptance.test_06_no_candidate_or_own_branch_label_leakage) ... ok\ntest_07_train_only_preprocessing_and_fixed_support (test_reference_sales_v2.V2Acceptance.test_07_train_only_preprocessing_and_fixed_support) ... ok\ntest_08_validation_only_selection_and_actual_metrics (test_reference_sales_v2.V2Acceptance.test_08_validation_only_selection_and_actual_metrics) ... ok\ntest_09_all_models_bounds_and_same_saved_transform (test_reference_sales_v2.V2Acceptance.test_09_all_models_bounds_and_same_saved_transform) ... ok\ntest_10_invalid_features_and_wrong_schema_rejected (test_reference_sales_v2.V2Acceptance.test_10_invalid_features_and_wrong_schema_rejected) ... ok\ntest_11_unknown_joint_geometry_never_silently_usable (test_reference_sales_v2.V2Acceptance.test_11_unknown_joint_geometry_never_silently_usable) ... ok\ntest_12_candidate_support_and_reference_endpoints (test_reference_sales_v2.V2Acceptance.test_12_candidate_support_and_reference_endpoints) ... ok\ntest_13_bad_reference_bracket_rejects_without_adjustment (test_reference_sales_v2.V2Acceptance.test_13_bad_reference_bracket_rejects_without_adjustment) ... ok\ntest_14_full_generator_reproducibility (test_reference_sales_v2.V2Acceptance.test_14_full_generator_reproducibility) ... ok\ntest_15_ablation_is_real_and_same_family_parameters (test_reference_sales_v2.V2Acceptance.test_15_ablation_is_real_and_same_family_parameters) ... ok\ntest_16_original_versions_and_public_contracts_unchanged (test_reference_sales_v2.V2Acceptance.test_16_original_versions_and_public_contracts_unchanged) ... ok\ntest_17_offline_local_artifact_and_no_orchestration (test_reference_sales_v2.V2Acceptance.test_17_offline_local_artifact_and_no_orchestration) ... ok\ntest_18_demand_shape_competition_and_daypart_probe_records (test_reference_sales_v2.V2Acceptance.test_18_demand_shape_competition_and_daypart_probe_records) ... ok\ntest_19_selected_fit_reproducible_with_training_seed (test_reference_sales_v2.V2Acceptance.test_19_selected_fit_reproducible_with_training_seed) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 5.023s\n\nOK\n",
+  "warnings": [
+    "Setting the shape on a NumPy array has been deprecated in NumPy 2.5.\nAs an alternative, you can create a new view using np.reshape (with copy=False if needed)."
+  ],
+  "completed_at_utc": "2026-10-24T22:20:49.937543+00:00"
+}

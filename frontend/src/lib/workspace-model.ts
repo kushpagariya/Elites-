@@ -6,7 +6,7 @@ import type {
   ScenarioCreate,
 } from "./types";
 
-export const FEATURE_SNAPSHOT_ID = "features-demo-1";
+export const FEATURE_SNAPSHOT_ID = "bengaluru-features-20261024-v1";
 export function scenarioDraft(s: Scenario): ScenarioCreate {
   return {
     base_scenario_id: s.scenario_id,

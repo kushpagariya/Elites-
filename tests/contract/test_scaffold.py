@@ -43,7 +43,7 @@ class ScaffoldContractTests(unittest.TestCase):
         self.assertEqual(self.client.get("/api/v1/health").json()["data"]["status"], "ok")
         value = self.client.get("/api/v1/projects/demo").json()["data"]
         self.assertEqual((len(value["sites"]), len(value["stores"])), (10, 4))
-        self.assertEqual(value["source_status"], "SYNTHETIC")
+        self.assertEqual(value["source_status"], "ASSUMED")
 
     def test_scenario_save_is_immutable_and_persists(self):
         body = {"name": "Rent case", "assumptions": {"rent_multiplier": 0.8}}
@@ -56,19 +56,19 @@ class ScaffoldContractTests(unittest.TestCase):
         self.assertEqual(values[0]["assumptions"]["rent_multiplier"], 1)
         self.assertEqual(values[1]["assumptions"]["rent_multiplier"], 0.8)
 
-    def test_saved_evaluation_is_explicit_assumption_mode(self):
+    def test_saved_evaluation_is_explicit_synthetic_trained_mode(self):
         response = self.client.post("/api/v1/projects/demo/evaluate", json={"scenario_id": "baseline"})
         self.assertEqual(response.status_code, 200, response.text[:300])
         value=response.json()["data"]
-        self.assertEqual(value["method_mode"],"scenario_assumptions")
-        self.assertIsNone(value["model_artifact_id"])
+        self.assertEqual(value["method_mode"],"model_simulated")
+        self.assertTrue(value["model_artifact_id"])
         self.assertEqual(len(value["site_analyses"]),10)
         for resource in ["features","dayparts","rankings"]:
             result=self.client.get(f"/api/v1/projects/demo/{resource}?evaluation_id={value['evaluation_id']}")
             self.assertEqual(result.status_code,200,result.text[:150])
             self.assertEqual(result.json()["data"]["evaluation_id"],value["evaluation_id"])
         model=self.client.get("/api/v1/projects/demo/model").json()["data"]
-        self.assertFalse(model["trained_model_available"]);self.assertIsNone(model["metrics"])
+        self.assertTrue(model["trained_model_available"]);self.assertIsNone(model["metrics"])
         self.assertEqual(self.client.get("/api/v1/projects/demo/evaluations/"+value["evaluation_id"]).json()["data"],value)
 
     def test_atomic_snapshot_rollback(self):

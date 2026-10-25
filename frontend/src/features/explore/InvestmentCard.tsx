@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { CandidateSite, SiteAnalysis } from "@/lib/types";
 import { money, percent, years } from "@/lib/format";
-import { compactMoney } from "@/lib/presentation";
+import { compactMoney, reasonLabel, riskSummary } from "@/lib/presentation";
 import StatusBadge from "@/components/StatusBadge";
 export default function InvestmentCard({
   site,
@@ -69,8 +69,7 @@ export default function InvestmentCard({
             ))}
           </div>
           <p className="risk-reason">
-            {analysis.failfast.reasons[0] ??
-              "No rules failed in the evaluated cases."}
+            {riskSummary(analysis.failfast.reasons)}
           </p>
           {analysis.failfast.status !== "VIABLE" && (
             <Link className="text-link" href="/app/scenarios">
@@ -89,7 +88,7 @@ export default function InvestmentCard({
                 <h4>All risk reasons</h4>
                 <ul>
                   {analysis.failfast.reasons.map((r, i) => (
-                    <li key={i}>{r}</li>
+                    <li key={i}>{reasonLabel(r)}</li>
                   ))}
                 </ul>
               </>

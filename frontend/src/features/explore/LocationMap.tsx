@@ -49,6 +49,7 @@ export default function LocationMap({
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [pois, setPois] = useState(true);
+  const [competitors, setCompetitors] = useState(true);
   const [catchments, setCatchments] = useState(true);
   const [opportunity, setOpportunity] = useState(false);
   const [infrastructure, setInfrastructure] = useState(true);
@@ -195,6 +196,8 @@ export default function LocationMap({
                   "circle-radius": 4,
                   "circle-color": [
                     "case",
+                    ["==", ["get", "category"], "competitor"],
+                    "#77503b",
                     ["get", "relevant"],
                     "#297f79",
                     "#9ca996",
@@ -411,7 +414,7 @@ export default function LocationMap({
     );
     (instance.getSource("destinations") as GeoJSONSource).setData({
       type: "FeatureCollection",
-      features: (pois ? (geo?.pois ?? []) : []).map((p) => ({
+      features: (geo?.pois ?? []).filter(p => p.category === "competitor" ? competitors : pois).map((p) => ({
         type: "Feature",
         geometry: { type: "Point", coordinates: [p.longitude, p.latitude] },
         properties: {
@@ -471,6 +474,7 @@ export default function LocationMap({
     w.evaluation,
     geo,
     pois,
+    competitors,
     catchments,
     opportunity,
     infrastructure,
@@ -588,10 +592,11 @@ export default function LocationMap({
             POI categories
           </span>
         )}
+        {geo && competitors && <span><i className="legend-dot" style={{background: "#77503b"}}/>Mapped competitors</span>}
         {infrastructure && w.infrastructure.some(hasMapGeometry) && (
           <span>
             <i className="legend-dot amber" />
-            Infrastructure · proposed / hypothetical
+            Infrastructure · assumed opening
           </span>
         )}
         <span className="map-data-label">
@@ -603,6 +608,7 @@ export default function LocationMap({
         <div className="layer-options">
           {[
             ["Destinations", pois, setPois, !geo],
+            ["Mapped competitor POIs", competitors, setCompetitors, !geo],
             ["Location catchments", catchments, setCatchments, !geo],
             ["DaypartDNA opportunity", opportunity, setOpportunity, !w.current],
             [
@@ -624,10 +630,6 @@ export default function LocationMap({
               {String(name)}
             </label>
           ))}
-          <label className="check-label">
-            <input type="checkbox" disabled />
-            Observed competitors <small>No verified inventory supplied</small>
-          </label>
         </div>
         <p className="helper">
           {geo

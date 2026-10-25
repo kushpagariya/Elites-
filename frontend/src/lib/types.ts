@@ -37,7 +37,8 @@ export interface Project {
 
 export interface ResponseMeta {
   contract_version: "1";
-  fixture_id: "demo-1";
+  fixture_id: string;
+  feature_snapshot_id?: string;
   scenario_id?: string;
   evaluation_id?: string;
   schema_revision?: string;
@@ -48,13 +49,19 @@ export interface ApiEnvelope<T> {
   meta: ResponseMeta;
 }
 
+export interface WorkspaceState {
+  scenario_id: string;
+  evaluation_id: string | null;
+  portfolio_run_id: string | null;
+}
+
 export type DemoProject = Project & {
   project_id: "demo";
-  source_status: "SYNTHETIC";
+  source_status: Provenance;
 };
 export type HealthResponse = ApiEnvelope<{
   status: "ok";
-  implementation_status: "scaffold" | "integration" | "assumption_based_analytics";
+  implementation_status: "scaffold" | "integration" | "assumption_based_analytics" | "fitted_model_integration";
   analytics_readiness?: string;
 }>;
 export type DemoProjectResponse = ApiEnvelope<DemoProject>;
@@ -71,16 +78,9 @@ export interface ApiErrorResponse {
 export interface SiteOverride {
   monthly_rent_inr?: number | null;
   sales_multiplier?: number | null;
-  gross_margin_fraction?: number | null;
-  annual_opex_inr?: number | null;
-  competition_multiplier?: number | null;
 }
 
 export interface Assumptions {
-  gross_margin_fraction?: number | null;
-  operating_cost_multiplier?: number;
-  competition_multiplier?: number;
-  valuation_date?: string;
   demand_multiplier: number;
   rent_multiplier: number;
   site_overrides: Record<string, SiteOverride>;
@@ -226,6 +226,8 @@ export interface InfrastructureEvent {
   name: string;
   status: string;
   hypothetical_demo: boolean;
+  assumed_effect_fraction?: number;
+  geometry_note?: string;
   source_status: Provenance;
   source_id: string;
   expected_open_date: string | null;
@@ -293,7 +295,7 @@ export interface Evidence {
   estimator_version: string;
   valuation_date: string;
   limitations: string[];
-  assumed_parameters: Record<string, number>;
+  assumed_parameters: Record<string, unknown>;
 }
 export interface RescueResult {
   rescue_id?: string;
@@ -309,6 +311,14 @@ export interface RescueResult {
   verification_npv_inr?: number | null;
   reasons: string[];
   remaining_failed_rule_ids: string[];
+  threshold_kind: "BREAK_EVEN" | "VIABLE_BOUND" | null;
+  threshold_coordinates: "CANONICAL_SITE_OVERRIDE";
+  application_status: string;
+  actionable_site_override: SiteOverride | null;
+  requires_risk_acknowledgement: boolean;
+  search_lower_bound: number;
+  search_upper_bound: number;
+  diagnostics: Record<string, unknown>;
 }
 export interface GeoContext {
   evaluation_id: string;

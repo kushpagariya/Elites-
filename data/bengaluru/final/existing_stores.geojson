@@ -1,0 +1,93 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.639,
+          12.914
+        ]
+      },
+      "properties": {
+        "store_id": "store-01",
+        "name": "Fictional branch 1",
+        "latitude": 12.914,
+        "longitude": 77.639,
+        "store_size_sqm": 500,
+        "theta": 0.2,
+        "variable_contribution_margin": 0.18,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.632,
+          12.896
+        ]
+      },
+      "properties": {
+        "store_id": "store-02",
+        "name": "Fictional branch 2",
+        "latitude": 12.896,
+        "longitude": 77.632,
+        "store_size_sqm": 500,
+        "theta": 0.2,
+        "variable_contribution_margin": 0.18,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.661,
+          12.877
+        ]
+      },
+      "properties": {
+        "store_id": "store-03",
+        "name": "Fictional branch 3",
+        "latitude": 12.877,
+        "longitude": 77.661,
+        "store_size_sqm": 500,
+        "theta": 0.2,
+        "variable_contribution_margin": 0.18,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.655,
+          12.847
+        ]
+      },
+      "properties": {
+        "store_id": "store-04",
+        "name": "Fictional branch 4",
+        "latitude": 12.847,
+        "longitude": 77.655,
+        "store_size_sqm": 500,
+        "theta": 0.2,
+        "variable_contribution_margin": 0.18,
+        "source_status": "SYNTHETIC_DEMO",
+        "source_id": "assumptions",
+        "feature_snapshot_id": "bengaluru-features-20261024-v1"
+      }
+    }
+  ]
+}

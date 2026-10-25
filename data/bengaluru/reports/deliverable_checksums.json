@@ -1,0 +1,557 @@
+[
+  {
+    "path": "data/bengaluru/acquisition_log.json",
+    "sha256": "b9d02715d6368b9725c4d5f44093b00a5b86b1e9ad5bd79bd6aca53251107f81",
+    "bytes": 27837
+  },
+  {
+    "path": "data/bengaluru/final/acquisition_files.csv",
+    "sha256": "a6f0fd9f52541bbf4efdea4ffc449affc22aec66ed7576482d9422e7b639ec1f",
+    "bytes": 19001
+  },
+  {
+    "path": "data/bengaluru/final/boundary.geojson",
+    "sha256": "c0c1db1ff092a71acf7977228d3fce42bfa137740a5dec63824dc695feccceb6",
+    "bytes": 951
+  },
+  {
+    "path": "data/bengaluru/final/candidate_sites.csv",
+    "sha256": "fd2c8ddd23de5eb8c93501d6e2857a36cc5878e2a17d3e10a5eefa08a42067c2",
+    "bytes": 2450
+  },
+  {
+    "path": "data/bengaluru/final/candidate_sites.geojson",
+    "sha256": "e4b78c6c56f5f2b8449d6f2a91799a633c6f7f7b41e8b345224eb9ce5e514e44",
+    "bytes": 9107
+  },
+  {
+    "path": "data/bengaluru/final/census_2011_wards.csv",
+    "sha256": "1b14772e421fc339772bf840f656efef5b670adc1370d60e7f9b9d2134b12dc6",
+    "bytes": 23612
+  },
+  {
+    "path": "data/bengaluru/final/data_quality_report.json",
+    "sha256": "8c6db33276f43adeb62759cdf1082fc59fb910c45497dcb40fc912a1ab088bf1",
+    "bytes": 23246
+  },
+  {
+    "path": "data/bengaluru/final/daypart_profiles.csv",
+    "sha256": "f451362c4a9499c8c41d577a4c0b17d37992e34c4dfea5931f32363d828fe3ee",
+    "bytes": 13847
+  },
+  {
+    "path": "data/bengaluru/final/daypart_weights.csv",
+    "sha256": "1b5b1e769c42196a17ab12b11e4e5e805645702e3542bbdcf8f3c79ce7b92d45",
+    "bytes": 5440
+  },
+  {
+    "path": "data/bengaluru/final/existing_stores.csv",
+    "sha256": "c72492a95e9c70bcee1d4382260d29add6d05a0b8b3522d54f77d8496561bb59",
+    "bytes": 584
+  },
+  {
+    "path": "data/bengaluru/final/existing_stores.geojson",
+    "sha256": "4af24a9ea8d85c013bb2ff40e88d2468be561ca02bdacc0e722fff149970d497",
+    "bytes": 2389
+  },
+  {
+    "path": "data/bengaluru/final/expenditure_inputs.csv",
+    "sha256": "a64d5682843917d335e32135bbe5864ba6f58c3df1a1f4b81c7562ebfb4eb96a",
+    "bytes": 7818
+  },
+  {
+    "path": "data/bengaluru/final/field_lineage.csv",
+    "sha256": "0e8ef72665501dfd7b58b5a08d0a8e8ac354911e465bd6e10a0c67d82cb831fc",
+    "bytes": 247059
+  },
+  {
+    "path": "data/bengaluru/final/infrastructure.csv",
+    "sha256": "e3443010e47547bfda7fe8b3370b0e4b860e9bc101196d46ce62c29678b9f15f",
+    "bytes": 1296
+  },
+  {
+    "path": "data/bengaluru/final/infrastructure_geometry.geojson",
+    "sha256": "8abe50ede43af3a2024805352730ea3b61588f375a626fc9b40629b22c97a5d9",
+    "bytes": 42753
+  },
+  {
+    "path": "data/bengaluru/final/infrastructure_scenarios.csv",
+    "sha256": "4dd3f8cdfb383868dc4766906e0ee49ac9f292930574a347f4068252a29270a0",
+    "bytes": 578
+  },
+  {
+    "path": "data/bengaluru/final/metro_activity_averages.csv",
+    "sha256": "ff39a91718c15adb27d844a26cb21e3642936adb71f110763498395909ef51be",
+    "bytes": 5781
+  },
+  {
+    "path": "data/bengaluru/final/metro_date_coverage.csv",
+    "sha256": "e97dc468ea80a35b06eb8354feba600b6405d5fddc6ff9b83410b9d95057a280",
+    "bytes": 42173
+  },
+  {
+    "path": "data/bengaluru/final/metro_daypart_coverage.csv",
+    "sha256": "9365cfd87e6c16197cc62385688b653c15f8c5a07d962fa273909559853edee0",
+    "bytes": 327079
+  },
+  {
+    "path": "data/bengaluru/final/metro_hourly.csv",
+    "sha256": "356c43e232301bef604aef47474927c050e20aea5d5947959e4944efdc677af4",
+    "bytes": 4137927
+  },
+  {
+    "path": "data/bengaluru/final/metro_station_lookup.csv",
+    "sha256": "2c6b12b42d599076cfbd6185a4fcfe599f498eec6af44fb47cc1e4a2bc49c0a8",
+    "bytes": 2846
+  },
+  {
+    "path": "data/bengaluru/final/missing_fields.csv",
+    "sha256": "22eeff20e42af29684c84ca2175f1e5bce9b0d3a126ac86c20510c02d1cb6245",
+    "bytes": 14241630
+  },
+  {
+    "path": "data/bengaluru/final/poi_daypart_availability.csv",
+    "sha256": "9437febc21b74e809f40b991636006df349f0c759a8a2e16e3308096328fd46d",
+    "bytes": 3720689
+  },
+  {
+    "path": "data/bengaluru/final/poi_deduplication.csv",
+    "sha256": "ab1ee1a74299ab87688dfbe80a0be6358891b09737d4a87ff8c8c7fc9a03067c",
+    "bytes": 26669
+  },
+  {
+    "path": "data/bengaluru/final/pois.csv",
+    "sha256": "fe539e76f029647bd5d8834c9a9a1e01d8779333cd4b35696950d1fc31554a81",
+    "bytes": 1863374
+  },
+  {
+    "path": "data/bengaluru/final/project_assumptions.csv",
+    "sha256": "a421f99978ec83a2775cc1eba0bcee910ce4b654e70339e1c1516425da7cb137",
+    "bytes": 3505
+  },
+  {
+    "path": "data/bengaluru/final/schema_mapping.csv",
+    "sha256": "3b7bfc0473229d0d39c1d2755c993a146937782571804162d78e8671428e2da5",
+    "bytes": 11598
+  },
+  {
+    "path": "data/bengaluru/final/site_features.csv",
+    "sha256": "766ba60f599277b70a810993088a27317154b5b10b561b7516d0cff602584868",
+    "bytes": 8759
+  },
+  {
+    "path": "data/bengaluru/final/site_ward_lookup.csv",
+    "sha256": "850664226ae9ce613072761b3d629d3007ef00db412c16ea973779e00eadaeee",
+    "bytes": 1624
+  },
+  {
+    "path": "data/bengaluru/final/source_manifest.csv",
+    "sha256": "6ced1c0f853517a2ccaf9f2b24cec0b6fd481f3670f0b0df50534bdf3e13be5a",
+    "bytes": 5578
+  },
+  {
+    "path": "data/bengaluru/final/spending_cells.csv",
+    "sha256": "524c333e7c2a4e450e6b05d04ef1a288424903b0d182e5dca7f4240c13189442",
+    "bytes": 36387
+  },
+  {
+    "path": "data/bengaluru/final/spending_cells.geojson",
+    "sha256": "f43ba946bbdcfd318b7b00d4cdd45eff6f35d2e569f9d5af30632a162ebb11a5",
+    "bytes": 64197
+  },
+  {
+    "path": "data/bengaluru/final/synthetic_assumptions.csv",
+    "sha256": "3a1011fca44910e53b7e21a9666bdcbae8180065b39b83bc92e6bd5f633d17bb",
+    "bytes": 14963545
+  },
+  {
+    "path": "data/bengaluru/final/transport_connections.geojson",
+    "sha256": "5a04811f6ae2eee86aced8cd9abde8d49f7a30470ae8db8bf3a219d9e722cbb4",
+    "bytes": 20248151
+  },
+  {
+    "path": "data/bengaluru/final/ward_crosswalk.csv",
+    "sha256": "1ad327dc7f025b7181b99ab97e4199a9aa32cf00245d71e79acbedbff877a422",
+    "bytes": 42400
+  },
+  {
+    "path": "data/bengaluru/final/wards_2025.geojson",
+    "sha256": "0b1b181e8d4de7492085c3f0f9e377cbdd0ff764cc80c91303a8896b13f6b5ec",
+    "bytes": 1358898
+  },
+  {
+    "path": "data/bengaluru/final/wards_historical_2012.geojson",
+    "sha256": "b1a5573600847b480460173dc90ee170a6ed16a20635924dac1e2292e2e01f2a",
+    "bytes": 612353
+  },
+  {
+    "path": "data/bengaluru/processed/build_config.json",
+    "sha256": "96bc0128d63b7f7a1e955e4f107fa49486626cf98f3227b022c11cf744ce86eb",
+    "bytes": 2782
+  },
+  {
+    "path": "data/bengaluru/processed/build_metrics.json",
+    "sha256": "4545eb44d753f2d2738920456bd026f427549b594613094006357a37b1a080ec",
+    "bytes": 985
+  },
+  {
+    "path": "data/bengaluru/processed/hces_2023_24_full_extracted.txt",
+    "sha256": "3af5a3ada6949d2f8ab2b260e753fac9c8855853aebebac6291d4895a067f526",
+    "bytes": 442561
+  },
+  {
+    "path": "data/bengaluru/processed/hces_factsheet_extracted.txt",
+    "sha256": "9a81a392cbfb05c52051ed71ae607addbb2f887fca2b52724cb8148a7cf9f686",
+    "bytes": 41178
+  },
+  {
+    "path": "data/bengaluru/processed/metro_all_stations_hourly.csv",
+    "sha256": "afac276d5fcc3dde4fb3b2c773e3d992fa077e744391f33ac08f2d147dfad95e",
+    "bytes": 31053781
+  },
+  {
+    "path": "data/bengaluru/processed/official_economic_survey_2025_26_extracted.txt",
+    "sha256": "406990e46da59e738bf9f1a944d67d4fc92ca4346161e76307c378c5b7978898",
+    "bytes": 1946214
+  },
+  {
+    "path": "data/bengaluru/processed/poi_exclusions.json",
+    "sha256": "72f8cfc96c62dc73a11fa1dc2daf5d50725c368593f34d27fbcd18c78fecec21",
+    "bytes": 1763
+  },
+  {
+    "path": "data/bengaluru/processed/population_metadata.json",
+    "sha256": "f4addb80264bc74526b1c8d43125a3956a259f2a319b944e51f73c3ebd409278",
+    "bytes": 727
+  },
+  {
+    "path": "data/bengaluru/processed/worldpop_2020_corridor_window.tif",
+    "sha256": "20cf2f01ccfe32f58fcda0afd6e87c831cf9d92893574653a6ae654a1595bd34",
+    "bytes": 1554
+  },
+  {
+    "path": "data/bengaluru/raw/blue_dpr_metadata.json",
+    "sha256": "dd37fa93cba74419c3eaff5a0b57b73631cc5e100227bbff4e6933c8323de144",
+    "bytes": 20416
+  },
+  {
+    "path": "data/bengaluru/raw/bmrcl_home_alternative.html",
+    "sha256": "2a043134cac6a9f30b202168427be901adaac807b5df12c57a3c951d6310bd16",
+    "bytes": 52097
+  },
+  {
+    "path": "data/bengaluru/raw/bmrcl_progress.html",
+    "sha256": "bcaeef5cff04ff0a239ba224c5a6e6d77c4b85cbf49518d2a649a784ff91890f",
+    "bytes": 22562
+  },
+  {
+    "path": "data/bengaluru/raw/bmrcl_upcoming.html",
+    "sha256": "11d76454eed45e30ede90045a3a603ca6bc962fe4b28756b2cd3b39463c4f852",
+    "bytes": 23353
+  },
+  {
+    "path": "data/bengaluru/raw/census/269cdf01-dae5-4736-8f4d-72a8e57fa3a9.csv",
+    "sha256": "06a1b1d6c4641c79373fa29c812f7e0746e626bd8b7c0249c97dc7ac7b1e0116",
+    "bytes": 16236
+  },
+  {
+    "path": "data/bengaluru/raw/census/4bd82527-84a1-45ae-b695-5ed0c0ecbd85.csv",
+    "sha256": "6317a242be7c597fd9faed09d3915185ff5d080a4521a5ada5a27858ce5a1a07",
+    "bytes": 495686
+  },
+  {
+    "path": "data/bengaluru/raw/census/4efdf9f5-5790-41ca-ac68-13691b31f364.csv",
+    "sha256": "96778fa2f33be95dcb52ab6d5fa4ae0f700bf6670be0939c6557e0dda4cda0cf",
+    "bytes": 87969
+  },
+  {
+    "path": "data/bengaluru/raw/github_tree.json",
+    "sha256": "585195053caf4f79127c4992652f4d9668b958a22c54e318dcfb20b7af20a458",
+    "bytes": 6206
+  },
+  {
+    "path": "data/bengaluru/raw/hces_2022_23.pdf",
+    "sha256": "e17d43c092043b466711b2bfc2f8e0f42af6dcddd1da57897db91845747fecaf",
+    "bytes": 7521404
+  },
+  {
+    "path": "data/bengaluru/raw/hces_2023_24_factsheet.pdf",
+    "sha256": "31d4ce93ce9396b4042d226408b6d12e4be2006e0b716a0d63995d913b13f76e",
+    "bytes": 2615083
+  },
+  {
+    "path": "data/bengaluru/raw/hces_2023_24_full.pdf",
+    "sha256": "368deb9c858dcc71c3bf0e6cad096a31b5b337a724cf92a113637f3302ea268e",
+    "bytes": 11737505
+  },
+  {
+    "path": "data/bengaluru/raw/hces_catalogue.html",
+    "sha256": "dda9116ce6ae2ba5c8db9a4b8ac23e396ed93c261777f14ac302ea2dd321b6dd",
+    "bytes": 1198
+  },
+  {
+    "path": "data/bengaluru/raw/hces_portal.html",
+    "sha256": "dda9116ce6ae2ba5c8db9a4b8ac23e396ed93c261777f14ac302ea2dd321b6dd",
+    "bytes": 1198
+  },
+  {
+    "path": "data/bengaluru/raw/hces_related_materials.html",
+    "sha256": "6ca1dddbfeece860997674531e5d5501cbf3467f0a8b5fe170d4c55b57832e6a",
+    "bytes": 88802
+  },
+  {
+    "path": "data/bengaluru/raw/hces_statement_4.xlsx",
+    "sha256": "dda9116ce6ae2ba5c8db9a4b8ac23e396ed93c261777f14ac302ea2dd321b6dd",
+    "bytes": 1198
+  },
+  {
+    "path": "data/bengaluru/raw/metro/CITATION.cff",
+    "sha256": "ff4c13a0ea72d596061243a85ed16fbcc4ae8154b239551326858f5338a9a352",
+    "bytes": 587
+  },
+  {
+    "path": "data/bengaluru/raw/metro/data_station-hourly-exits.csv.zip",
+    "sha256": "8d5257d7005624820fe50d2c52034702270258ff54b100168efed7bef623409d",
+    "bytes": 454867
+  },
+  {
+    "path": "data/bengaluru/raw/metro/data_station-hourly.csv.zip",
+    "sha256": "a0469f3365c53ca25d9aed5396775fc1c6018cfc0b93e245e8bc3e1c9524bd81",
+    "bytes": 441150
+  },
+  {
+    "path": "data/bengaluru/raw/metro/parse.py",
+    "sha256": "8bf825d625c01ccf06a4364f0f1229276b700de65f463b2e48715cd7a2ba3d75",
+    "bytes": 27155
+  },
+  {
+    "path": "data/bengaluru/raw/metro/raw_august_station-hourly.xlsx",
+    "sha256": "e97b5eeed01d8c558485764952ee37ce45c154ae05cb58e7cc14a1291b3a5129",
+    "bytes": 244975
+  },
+  {
+    "path": "data/bengaluru/raw/metro/raw_september_station-hourly.xlsx",
+    "sha256": "59538a9a3766d7dd25622f296cba5bffb255bc966f7033f55dc64aa5f1f3aa4a",
+    "bytes": 714604
+  },
+  {
+    "path": "data/bengaluru/raw/metro/raw_station-codes.csv",
+    "sha256": "2ca166aa8abd8457a26e21c1f67cb3fc689a81dd70f462ed24697ecd77ae4f0b",
+    "bytes": 2069
+  },
+  {
+    "path": "data/bengaluru/raw/metro/raw_station-names.csv",
+    "sha256": "f2b4a3180767e11496bee208cbe2f5146a353c0f4cdd8c293cffafac89ef33bf",
+    "bytes": 864
+  },
+  {
+    "path": "data/bengaluru/raw/official_economic_survey_2025_26.pdf",
+    "sha256": "feb50ab82a5a6d5007f3f3a1749f5953d6aa7bfe27f40cec2f28a0acc32130f9",
+    "bytes": 15118530
+  },
+  {
+    "path": "data/bengaluru/raw/official_yellow_opening.html",
+    "sha256": "7ab2804fcca52acb22a174c46983dfebf6b3bf2797c9b8889a45ade1bd12094a",
+    "bytes": 189166
+  },
+  {
+    "path": "data/bengaluru/raw/old_ward_github.json",
+    "sha256": "9bb470fe6e9e845bbe58cf5466602cb2bb0f2a8a1a031501adde5bbded7c8681",
+    "bytes": 3758
+  },
+  {
+    "path": "data/bengaluru/raw/old_ward_search.json",
+    "sha256": "12cf388a6dc3f20fedf3c5e18bcc7251e106031d321cefaa1d7fae2858254571",
+    "bytes": 105607
+  },
+  {
+    "path": "data/bengaluru/raw/opencity_census_metadata.json",
+    "sha256": "21522b7753b20e806d0672e47b4270ec74ba8bf660b279ea9d59f09b565d8d48",
+    "bytes": 9360
+  },
+  {
+    "path": "data/bengaluru/raw/opencity_metro_metadata.json",
+    "sha256": "ae5172744aa093814c77b6f824b5687c2185f2d28cccf7bbf6d1c781d0c026b5",
+    "bytes": 6703
+  },
+  {
+    "path": "data/bengaluru/raw/opencity_wards_metadata.json",
+    "sha256": "88899515efa8354231e3db5975c29bf9aca0940554b8544833401579f497b0b5",
+    "bytes": 22787
+  },
+  {
+    "path": "data/bengaluru/raw/osm_copyright.html",
+    "sha256": "356cca38d5f71404c161935c19f377eae707ce97efc3702e8705a79e66823ffa",
+    "bytes": 21314
+  },
+  {
+    "path": "data/bengaluru/raw/osm_pois_alternative.json",
+    "sha256": "14ad48c1e873174f914ad24ccac9da250005a58a0a4f04af78abb6009d7ba09a",
+    "bytes": 1424360
+  },
+  {
+    "path": "data/bengaluru/raw/osm_pois_query.overpassql",
+    "sha256": "f2d0f65f539d40bb2f548c275dee4cf1a9aa961861392e47f431d14f8e95bdc5",
+    "bytes": 608
+  },
+  {
+    "path": "data/bengaluru/raw/osm_query.overpassql",
+    "sha256": "9615b33512e9707bdc4e1f3df9a0f4212f70f25d844bd1880dc91fe9fd723eac",
+    "bytes": 821
+  },
+  {
+    "path": "data/bengaluru/raw/osm_roads.json",
+    "sha256": "2fffaa2d13cce660b1259540368d6f401f2f8742cbe00eb5e061d99edf17b7ab",
+    "bytes": 14210526
+  },
+  {
+    "path": "data/bengaluru/raw/osm_roads_query.overpassql",
+    "sha256": "66a09cb20e4b4010ee0af017044dffdecda893523144f51cdc2baeb2644ae76c",
+    "bytes": 247
+  },
+  {
+    "path": "data/bengaluru/raw/osm_shops.json",
+    "sha256": "dd8039ed177c0732a4a870b87f652b4e02cf368435de80b6acf670dbd1e33596",
+    "bytes": 407463
+  },
+  {
+    "path": "data/bengaluru/raw/population/ind_ppp_2020_1km_Aggregated_UNadj.tif",
+    "sha256": "27d08e3eabf59f63a2147901c25c046d584c3295f9ceb4c4cf08a902a5bec911",
+    "bytes": 18313124
+  },
+  {
+    "path": "data/bengaluru/raw/ridership_DATA.md",
+    "sha256": "553c66e900107865ede76da49222da5c76c6619b832350631305904b908c54cc",
+    "bytes": 5596
+  },
+  {
+    "path": "data/bengaluru/raw/ridership_LICENSE.txt",
+    "sha256": "1d553feead201a7619788171b43cca12675e82d70b197aa45795986bb8603e72",
+    "bytes": 25279
+  },
+  {
+    "path": "data/bengaluru/raw/ridership_README.md",
+    "sha256": "ff1ba0fd24f832d06223448b13f8928f885968c76b53467460b0c70d609ac42d",
+    "bytes": 3906
+  },
+  {
+    "path": "data/bengaluru/raw/wards/9013d656-8051-4e2d-9648-46efd0d86d3d.kml",
+    "sha256": "b61575248b0492a65d7fb06773c11a21b0e46539f4dff46f1b3021894c146c28",
+    "bytes": 4054904
+  },
+  {
+    "path": "data/bengaluru/raw/wards/BBMP_198.geojson",
+    "sha256": "4a1186d15da9396c259a2c01b135ee5e903948d45de6e91c49e0ddd72f359a7b",
+    "bytes": 2103364
+  },
+  {
+    "path": "data/bengaluru/raw/wards/BBMP_2012_198.geojson",
+    "sha256": "06263e1a1e72fc58844a635c0b95e490962321e8489b476f2379771ce5128633",
+    "bytes": 1881095
+  },
+  {
+    "path": "data/bengaluru/raw/wards/datameet_Readme.md",
+    "sha256": "1aab13f8a484f307846ee67128ac7757ee3cde560fae25d4037866f1a7021791",
+    "bytes": 580
+  },
+  {
+    "path": "data/bengaluru/raw/wards/dbe57ae6-a72f-426e-917b-e55b3b22a87b.kml",
+    "sha256": "83ef157474a60708df41a3b97e3a2b06d8356313485b90a8c7f6bf107833474f",
+    "bytes": 3745694
+  },
+  {
+    "path": "data/bengaluru/raw/worldpop_1km_metadata.html",
+    "sha256": "af571bc7ba1b34e7f316bf73d0a12550b1406ae3c25f39c10586d58c3adda9d9",
+    "bytes": 21087
+  },
+  {
+    "path": "data/bengaluru/raw/worldpop_licence.txt",
+    "sha256": "cb0b6ac8fb7d24e900d3bcba5474cf022a6fef3646fa5b94e6019b54f63be25f",
+    "bytes": 19271
+  },
+  {
+    "path": "data/bengaluru/raw/worldpop_metadata.json",
+    "sha256": "052735663ccd3ceb71c9e87462f8301d59afd383777829d2c29996dd21efdc5c",
+    "bytes": 38419
+  },
+  {
+    "path": "data/bengaluru/README.md",
+    "sha256": "ecf561e60f6ce7bd530fe8d77d0160e21b4d7968be710783d72193ba83ac6eca",
+    "bytes": 1262
+  },
+  {
+    "path": "data/bengaluru/reports/acquisition_report.md",
+    "sha256": "da2d8ca71b518a955ce0867a3f38eb2f0e2d999742d2184a6cc8ee7661ddd77a",
+    "bytes": 13779
+  },
+  {
+    "path": "data/bengaluru/reports/ATTRIBUTION_AND_LICENCES.md",
+    "sha256": "65b2f77be96f279bb7da30956582262ac7f7415393a149d0905ebeccb4e80d92",
+    "bytes": 2074
+  },
+  {
+    "path": "data/bengaluru/reports/completion_report.md",
+    "sha256": "a47b66db73f35a6b063826c92f618825910be1e79783ae58af94d18bf8ad66fb",
+    "bytes": 11265
+  },
+  {
+    "path": "data/bengaluru/reports/data_quality_report.json",
+    "sha256": "8c6db33276f43adeb62759cdf1082fc59fb910c45497dcb40fc912a1ab088bf1",
+    "bytes": 23246
+  },
+  {
+    "path": "data/bengaluru/reports/missing_data_report.md",
+    "sha256": "eeed70dd4ee9d9c48e42c59ba0deca76f6a15989005f3caf2a5fdee645b59bb8",
+    "bytes": 3941
+  },
+  {
+    "path": "data/bengaluru/reports/schema_mapping.csv",
+    "sha256": "3b7bfc0473229d0d39c1d2755c993a146937782571804162d78e8671428e2da5",
+    "bytes": 11598
+  },
+  {
+    "path": "data/bengaluru/reports/table_dimensions.csv",
+    "sha256": "c8062d3a7b741e801ae9e3d972214df00330ef1002197e71ea6676975c646967",
+    "bytes": 3378
+  },
+  {
+    "path": "data/bengaluru/reports/temporal_alignment_report.md",
+    "sha256": "7ed1c3abdd903bcc4bfb4ad97cdb2dafc6625559069b90f3e3ee15cc520988ac",
+    "bytes": 4615
+  },
+  {
+    "path": "ml/bengaluru/acquire.py",
+    "sha256": "79241908db504629d7c054c9cfa261fb525d587727508d8104821e5843e4ac2d",
+    "bytes": 3947
+  },
+  {
+    "path": "ml/bengaluru/acquire_detail.py",
+    "sha256": "6a4b231335e98df8e56d96a8f76dd2d9ad0a0b783a253cfe6bc01302f98834e5",
+    "bytes": 2925
+  },
+  {
+    "path": "ml/bengaluru/acquire_final.py",
+    "sha256": "aec5bfc3e3fa924f81acaa740a3dcbe5c1e9aba6e5a2251a75502add83378023",
+    "bytes": 1111
+  },
+  {
+    "path": "ml/bengaluru/acquire_retry.py",
+    "sha256": "bde96754cf9d078481337f594476fb94409b4904ad895e33e31119adfd777793",
+    "bytes": 2069
+  },
+  {
+    "path": "ml/bengaluru/build.py",
+    "sha256": "69b9b7aab714c35d8f19f9fe19cbca9931cc7a3ddeb76854e655884da91883c9",
+    "bytes": 66751
+  },
+  {
+    "path": "ml/bengaluru/inspect_data.py",
+    "sha256": "0fba970aba55f1c2143dedbfb54e0a8fce62e9a11aca800bc7ec6d020349baf1",
+    "bytes": 861
+  },
+  {
+    "path": "ml/bengaluru/validate.py",
+    "sha256": "673d0e6b9a85d6c1d24511f0fbfa78c9b3f5103085d752aad1d324c50f429a26",
+    "bytes": 39076
+  }
+]

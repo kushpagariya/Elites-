@@ -143,7 +143,7 @@ test("comparison renders saved financials and six daypart controls; supported ze
   setup();
   let html = renderToStaticMarkup(React.createElement(Explore));
   assert.match(html, /Operating profit/);
-  assert.match(html, /0\.0 \/ 100/);
+  assert.match(html, /0\.0%/);
   assert.match(html, /Supported evidence indicates zero/);
   assert.equal((html.match(/aria-pressed=/g) || []).length, 16);
   assert.match(html, /Detailed Comparison/);
@@ -159,10 +159,10 @@ test("comparison renders saved financials and six daypart controls; supported ze
 test("advanced scenario fields are enabled with labelled ranges and immutable save action", () => {
   setup();
   const html = renderToStaticMarkup(React.createElement(Scenarios));
-  assert.match(html, /Operating cost change/);
-  assert.match(html, /Competition adjustment/);
-  assert.match(html, /Gross margin/);
-  assert.match(html, /max="100"/);
+  assert.match(html, /Monthly rent \(INR\)/);
+  assert.match(html, /Customer demand change/);
+  assert.doesNotMatch(html, /Operating cost change|Competition adjustment|Gross margin \(%\)/);
+  assert.match(html, /max="200"/);
   assert.doesNotMatch(html, /<fieldset disabled/);
   assert.match(html, /Save &amp; analyse changes/);
   assert.doesNotMatch(html, /awaiting agreement|contract support|TODO/);
@@ -206,9 +206,14 @@ test("rescue guard rejects unverified, foreign-shape or out-of-bounds thresholds
     npv_at_threshold: 0,
     reasons: [],
     remaining_failed_rule_ids: ["CAPEX_OVER_BUDGET"],
+    threshold_kind: "BREAK_EVEN", threshold_coordinates: "CANONICAL_SITE_OVERRIDE",
+    application_status: "VERIFIED_FRESH_SCENARIO_COPY", actionable_site_override: {monthly_rent_inr: 20},
+    search_lower_bound: 0, search_upper_bound: 100, requires_risk_acknowledgement: true, diagnostics: {},
   };
   assert.equal(guards.isRescue(valid), true);
   assert.equal(guards.isRescue({ ...valid, verified: false }), false);
+  assert.equal(guards.isRescue({ ...valid, actionable_site_override: {monthly_rent_inr: 21} }), false);
+  assert.equal(guards.isRescue({ ...valid, threshold_kind: "VIABLE_BOUND", npv_at_threshold: 1000 }), true);
   assert.equal(guards.isRescue({ ...valid, threshold: 101 }), false);
   assert.equal(guards.isRescue({ ...valid, npv_at_threshold: NaN }), false);
 });

@@ -2,6 +2,7 @@
 import logging
 import os
 import sqlite3
+from contextlib import asynccontextmanager
 from typing import Annotated, Literal
 
 from fastapi import FastAPI, Header, Request
@@ -13,12 +14,21 @@ from starlette.concurrency import run_in_threadpool
 
 from .repositories import store
 from . import auth
-from .schemas import Project, Scenario, ScenarioCreate, EvaluateRequest, PortfolioRequest, RescueRequest, EvaluationData, PortfolioResult, RescueResult, SiteAnalysis, Envelope, ErrorEnvelope, GeographicContext, DaypartsData
-from .domain import pipeline
-from .services import analytics, catalogue, reports, sources
+from .schemas import Project, Scenario, ScenarioCreate, EvaluateRequest, PortfolioRequest, RescueRequest, EvaluationData, PortfolioResult, RescueResult, SiteAnalysis, Envelope, ErrorEnvelope, GeographicContext, DaypartsData, WorkspaceState, WorkspaceView
+from .services import analytics, catalogue, reports, sources, presentation, showcase
 from .services.errors import ServiceError
 
-app = FastAPI(title="StoreScout API", version="1", responses={status: {"model": ErrorEnvelope} for status in (404, 409, 422, 500, 502, 503)})
+@asynccontextmanager
+async def lifespan(app):
+    # Load native model dependencies once, before users reach the website.
+    try:
+        await run_in_threadpool(showcase.load)
+    except ServiceError:
+        logging.getLogger(__name__).warning("Model preview is unavailable; accounts and saved records remain accessible.")
+    yield
+
+
+app = FastAPI(title="StoreScout API", version="1", lifespan=lifespan, responses={status: {"model": ErrorEnvelope} for status in (404, 409, 422, 500, 502, 503)})
 app.include_router(auth.router)
 
 
@@ -65,7 +75,7 @@ Token = Annotated[str | None, Header(alias="Idempotency-Key", min_length=1, max_
 
 
 def envelope(data, **meta):
-    return {"data": data, "meta": {"contract_version": "1", "schema_revision": "analytical-2", "fixture_id": "demo-1", **meta}}
+    return {"data": data, "meta": {"contract_version": "1", "schema_revision": "bengaluru-1", "fixture_id": "bengaluru-20261024", "feature_snapshot_id": sources.FEATURE_SNAPSHOT_ID, **meta}}
 
 
 def error(status, code, message, details=None):
@@ -113,7 +123,12 @@ def api_index():
 @app.get("/api/v1/health")
 def health():
     # Liveness is deliberately distinct from model/analytical readiness.
-    return envelope({"status": "ok", "implementation_status": "assumption_based_analytics", "analytics_readiness": "Assumption-based engine connected; no trained model is active."})
+    return envelope({"status": "ok", "implementation_status": "fitted_model_integration", "analytics_readiness": "Synthetic-trained CatBoost connected; dataset and model readiness are verified when analysis runs."})
+
+
+@app.get("/api/v1/showcase")
+def product_showcase():
+    return envelope(showcase.load())
 
 
 @app.get("/api/v1/projects/{project_id}", response_model=Envelope[Project])
@@ -124,6 +139,36 @@ def read_project(project_id: str):
 @app.get("/api/v1/projects/{project_id}/scenarios", response_model=Envelope[list[Scenario]])
 def read_scenarios(project_id: str):
     return envelope([catalogue.scenario(project_id, "baseline"), *store.list_objects("scenario", project_id)])
+
+
+@app.get("/api/v1/projects/{project_id}/workspace", response_model=Envelope[WorkspaceView])
+def read_workspace(project_id: str):
+    catalogue.project(project_id)
+    value = store.get("workspace", project_id, "current") or WorkspaceState().model_dump(mode="json")
+    fresh = False
+    if value["evaluation_id"]:
+        try:
+            analytics.context_for(project_id, value["evaluation_id"])
+            fresh = True
+        except ServiceError:
+            pass
+    return envelope({**value, "analysis_current": fresh})
+
+
+@app.post("/api/v1/projects/{project_id}/workspace", response_model=Envelope[WorkspaceState])
+def save_workspace(project_id: str, body: WorkspaceState):
+    catalogue.scenario(project_id, body.scenario_id)
+    if body.evaluation_id:
+        evaluation = analytics.saved(project_id, "evaluation", body.evaluation_id)
+        if evaluation["scenario_id"] != body.scenario_id:
+            raise ServiceError(409, "CONTEXT_MISMATCH", "The saved analysis belongs to a different scenario.")
+    if body.portfolio_run_id:
+        portfolio = analytics.saved(project_id, "portfolio", body.portfolio_run_id)
+        if portfolio["evaluation_id"] != body.evaluation_id:
+            raise ServiceError(409, "CONTEXT_MISMATCH", "The saved plan belongs to a different analysis.")
+    value = body.model_dump(mode="json")
+    store.save_workspace(project_id, value)
+    return envelope(value)
 
 
 @app.get("/api/v1/projects/{project_id}/scenarios/{scenario_id}", response_model=Envelope[Scenario])
@@ -149,21 +194,14 @@ def features(project_id: str, evaluation_id: str | None = None):
     if evaluation_id is not None:
         analytics.saved(project_id, "evaluation", evaluation_id)
         context = analytics.saved(project_id, "evaluation_context", evaluation_id)
-        frozen = context["project"]["inputs"]
-        radius = frozen["weights"]["catchment_radius_m"]
-        catchments = [{"site_id": site["site_id"], "geometry": pipeline.catchment_ring(site["latitude"], site["longitude"], radius)} for site in context["project"]["sites"]]
-        return envelope({"evaluation_id": evaluation_id, "pois": frozen["pois"], "cells": frozen["cells"], "roads": [], "competitors": [], "catchments": catchments, "catchment_radius_m": radius, "limitations": ["Road and observed competitor inventories are unavailable.", "SYNTHETIC points and assumed straight-line catchments; not travel-time isochrones."]}, evaluation_id=evaluation_id)
-    snapshot = sources.installed_snapshot()
-    return envelope({**snapshot, "prepared": False, "note": "Frozen source inputs; derived spatial features require the ML implementation."})
+        return envelope(presentation.geographic(context, evaluation_id), evaluation_id=evaluation_id)
+    return envelope({"feature_snapshot_id": sources.FEATURE_SNAPSHOT_ID, "prepared": True, "note": "Bengaluru fitted-model inputs; run a saved scenario for computed geographic evidence."})
 
 
 @app.get("/api/v1/projects/{project_id}/model")
 def model_card(project_id: str):
     catalogue.project(project_id)
-    bundle = sources.model_bundle()
-    if bundle is None:
-        return envelope({"method_mode": "scenario_assumptions", "model_artifact_id": None, "estimator_version": pipeline.ENGINE_VERSION, "feature_schema": "wallet-reference-v1", "trained_model_available": False, "metrics": None, "limitations": ["No approved trained model is installed. The connected wallet-share estimator is assumption-based."]})
-    return envelope({key: value for key, value in bundle.items() if key != "artifact_path"})
+    return envelope(sources.model_bundle()["card"])
 
 
 @app.post("/api/v1/projects/{project_id}/evaluate", response_model=Envelope[EvaluationData])

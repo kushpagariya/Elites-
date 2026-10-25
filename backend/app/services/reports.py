@@ -2,6 +2,7 @@ import html
 import json
 
 from .analytics import saved
+from .sources import LIMITATIONS
 from .errors import ServiceError
 
 
@@ -25,12 +26,7 @@ def report_data(project_id, evaluation_id, portfolio_run_id=None):
         "snapshot": context["snapshot"],
         "sources": inputs["source_manifest"],
         "model_card": model["card"] if model else None,
-        "limitations": [
-            "Demo geographic and business inputs are synthetic; infrastructure event is hypothetical.",
-            "POI-derived opportunity is not measured footfall. Sensitivity is not a calibrated forecast interval.",
-            "Synthetic model evaluation does not establish real-world retail accuracy.",
-            "A report records saved scenario assumptions, not guaranteed investment returns.",
-        ],
+        "limitations": [*LIMITATIONS, "A report records saved scenario assumptions, not guaranteed investment returns."],
     }
 
 

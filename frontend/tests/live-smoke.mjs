@@ -8,12 +8,14 @@ if (target.protocol !== "http:" || !["127.0.0.1", "localhost"].includes(target.h
   throw Error("Use a local verification API.");
 process.env.NEXT_PUBLIC_API_BASE_URL = base;
 const originalFetch = globalThis.fetch;
+const smokeEmail = `smoke-${crypto.randomUUID()}@example.test`;
+const smokePassword = crypto.randomUUID();
 const registration = await originalFetch(base + '/auth/register', {
   method: 'POST', headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify({name: 'Smoke account', email: `smoke-${crypto.randomUUID()}@example.test`, password: crypto.randomUUID()}),
+  body: JSON.stringify({name: 'Smoke account', email: smokeEmail, password: smokePassword}),
 });
 assert.equal(registration.status, 201);
-const sessionCookie = registration.headers.get('set-cookie').split(';')[0];
+let sessionCookie = registration.headers.get('set-cookie').split(';')[0];
 globalThis.fetch = (input, init = {}) => {
   const headers = new Headers(init.headers);
   if (new URL(String(input)).origin === target.origin) headers.set('Cookie', sessionCookie);
@@ -30,7 +32,7 @@ const { isEvaluation, isRescue, isPortfolio } = require("../src/lib/guards.ts");
 const project = await api.loadProject();
 assert.equal(project.data.sites.length, 10);
 assert.equal(project.data.stores.length, 4);
-assert.equal(project.data.source_status, "SYNTHETIC");
+assert.equal(project.data.source_status, "ASSUMED");
 const initial = await api.getScenarios();
 const baseline = initial.data.find(item => item.scenario_id === "baseline");
 assert.ok(baseline);
@@ -49,8 +51,8 @@ for (const state of ["current", "opens", "delayed"]) {
   const evaluation = await api.evaluateScenario(scenario.data.scenario_id);
   assert.ok(isEvaluation(evaluation.data));
   assert.equal(evaluation.data.scenario_id, scenario.data.scenario_id);
-  assert.equal(evaluation.data.method_mode, "scenario_assumptions");
-  assert.equal(evaluation.data.model_artifact_id, null);
+  assert.equal(evaluation.data.method_mode, "model_simulated");
+  assert.ok(evaluation.data.model_artifact_id);
   const geo = await api.getGeoContext(evaluation.data.evaluation_id);
   assert.equal(geo.data.evaluation_id, evaluation.data.evaluation_id);
   assert.equal(geo.data.catchments.length, 10);
@@ -68,7 +70,7 @@ for (const state of ["current", "opens", "delayed"]) {
 const commercial = await api.createScenario({
   base_scenario_id: "baseline", name: "Integration smoke viable case " + Date.now(),
   assumptions: { ...structuredClone(baseline.assumptions),
-    demand_multiplier: 3, rent_multiplier: 0.3, operating_cost_multiplier: 0.3 },
+    demand_multiplier: 3, rent_multiplier: 0.3 },
 });
 const evaluated = await api.evaluateScenario(commercial.data.scenario_id);
 const repeated = await api.evaluateScenario(commercial.data.scenario_id);
@@ -79,12 +81,25 @@ const portfolio = await api.optimisePortfolio({
 });
 assert.ok(isPortfolio(portfolio.data));
 assert.equal(portfolio.data.status, "FULL_NETWORK_EXACT");
-assert.equal(portfolio.data.evaluated_subsets, 1024);
+assert.equal(portfolio.data.evaluated_subsets, portfolio.data.total_subsets);
 assert.ok(portfolio.data.selected_site_ids.length > 0);
 assert.ok(portfolio.data.budget_used_inr <= commercial.data.budget_inr);
 const report = await api.getSavedReport(evaluated.data.evaluation_id, portfolio.data.portfolio_run_id);
 assert.ok(report.text.includes("SYNTHETIC"));
 assert.ok(report.text.includes("ASSUMED"));
+const workspaceState = {scenario_id: commercial.data.scenario_id, evaluation_id: evaluated.data.evaluation_id, portfolio_run_id: portfolio.data.portfolio_run_id};
+await api.saveWorkspace(workspaceState);
+await api.saveWorkspace({scenario_id:'baseline', evaluation_id:null, portfolio_run_id:null});
+await api.saveWorkspace(workspaceState);
+const signedOut = await originalFetch(base + '/auth/logout', {method:'POST', headers:{Cookie:sessionCookie}});
+assert.equal(signedOut.status, 200);
+assert.equal((await originalFetch(base + '/auth/me', {headers:{Cookie:sessionCookie}})).status, 401);
+const signedIn = await originalFetch(base + '/auth/login', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email:smokeEmail,password:smokePassword})});
+assert.equal(signedIn.status, 200);
+sessionCookie = signedIn.headers.get('set-cookie').split(';')[0];
+const restoredWorkspace = await api.getWorkspace();
+for (const [key,value] of Object.entries(workspaceState)) assert.equal(restoredWorkspace.data[key], value);
+assert.equal(restoredWorkspace.data.analysis_current, true);
 const rescueScenario = await api.createScenario({
   base_scenario_id: "baseline", name: "Integration smoke rescue " + Date.now(),
   assumptions: { ...structuredClone(baseline.assumptions), demand_multiplier: 2 },
@@ -102,7 +117,7 @@ const applied = await api.createScenario({
       "site-02": { monthly_rent_inr: rescue.data.threshold } } },
 });
 const rescued = await api.evaluateScenario(applied.data.scenario_id);
-assert.ok(Math.abs(rescued.data.site_analyses.find(row => row.site_id === "site-02").npv_inr) <= 1);
+assert.ok(Math.abs(rescued.data.site_analyses.find(row => row.site_id === "site-02").npv_inr - rescue.data.npv_at_threshold) <= 1);
 const reopened = await api.getScenarios();
 assert.deepEqual(reopened.data.find(item => item.scenario_id === "baseline"), original);
 for (const item of saved) assert.deepEqual(reopened.data.find(row => row.scenario_id === item.scenario_id), item);
@@ -116,4 +131,5 @@ console.log(JSON.stringify({
   geo_and_dayparts: "passed", rescue_and_apply: "passed", baseline_unchanged: true,
   selected_sites: portfolio.data.selected_site_ids, subset_count: portfolio.data.evaluated_subsets,
   portfolio_and_saved_report: "passed", invalid_budget: 422,
+  sign_in_and_workspace_restore: "passed",
 }, null, 2));

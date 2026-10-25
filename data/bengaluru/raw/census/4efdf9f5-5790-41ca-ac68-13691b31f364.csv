@@ -1,0 +1,839 @@
+District Name,Tehsil Name,Area Name,"Urban/Rural
+Urban",Households having Radio/Transistor (%),Households having Television (%)  ,Households having Computer/Laptop with Internet (%),Households having Computer/Laptop without Internet (%),Households having Telephone/Mobile Phone - Landline only (%),Households having Telephone/Mobile Phone - Mobile only (%),Households having both Landline & Mobile (%),Households having Bicycle (%)  ,Households having Scooter/ Motorcycle/Moped (%),Households having Car/ Jeep/Van (%),"Households with TV, Computer/Laptop, Telephone/mobile phone and Scooter/ Car (%)",Households having none of the assets specified (%)
+Bangalore,Bangalore,District - Bangalore,Total,42.4,85.9,18.1,15.1,8.9,67.7,15.1,22.9,44.3,17.5,23.6,2.6
+Bangalore,Bangalore,District - Bangalore,Rural,30.6,73.6,3,7.9,5.3,72.8,3.6,27.5,30.7,6.5,4.8,7.3
+Bangalore,Bangalore,District - Bangalore,Urban,43.5,87.1,19.6,15.8,9.3,67.2,16.2,22.5,45.6,18.5,25.4,2.2
+Bangalore,Bangalore North,Sub-Dist - Bangalore North,Total,39.7,76.9,2.5,8,6.2,73.5,3.2,30.6,32,6.2,4.9,6.1
+Bangalore,Bangalore North,Sub-Dist - Bangalore North,Rural,40.2,76.2,2.3,7,6.5,71.8,3.4,32.4,32.7,6.5,4.1,6.4
+Bangalore,Bangalore North,Sub-Dist - Bangalore North,Urban,37.6,79.9,3.6,12.2,4.9,81,2.5,22.5,29,5.1,8.2,4.9
+Bangalore,Bangalore North,Gopalapura,Rural,55.2,72.2,0.9,0,0,63,2.6,34.8,34.8,4.3,0.9,12.2
+Bangalore,Bangalore North,Kukkanahalli,Rural,38,73.1,0,2.4,1.9,60.6,1.4,46.6,29.8,1.4,0.5,12.5
+Bangalore,Bangalore North,Shamabhattara Palya,Rural,56.7,75,0,1.7,0,85,0,63.3,46.7,3.3,1.7,8.3
+Bangalore,Bangalore North,Totagere,Rural,25.6,57.7,0,0.4,0.9,64.5,3.8,40.2,30.3,2.6,0.4,13.2
+Bangalore,Bangalore North,Bommasettihalli,Rural,20.5,56.4,0,2.6,1.3,70.5,3.8,39.7,28.2,1.3,1.3,17.9
+Bangalore,Bangalore North,Syadamipalya,Rural,44.1,61.8,0,0,0,70.6,0,32.4,38.2,0,0,11.8
+Bangalore,Bangalore North,Bethanagere,Rural,30.2,61.3,0.5,0.5,2.8,56.1,0.9,42.9,40.6,3.3,0.5,9.9
+Bangalore,Bangalore North,Rampalya,Rural,19.6,85.7,1.8,0,7.1,76.8,0,48.2,55.4,0,1.8,0
+Bangalore,Bangalore North,Huskur,Rural,34.8,83.5,0.3,2.4,3,65.5,7,33.2,32.3,2.4,2.4,9.5
+Bangalore,Bangalore North,Agrahara Palya,Rural,9.1,84.1,0,2.3,0,61.4,0,43.2,34.1,0,0,9.1
+Bangalore,Bangalore North,Hosahalli Palya,Rural,30.8,67,0,2.2,2.2,78,3.3,51.6,45.1,11,0,5.5
+Bangalore,Bangalore North,Govindapura,Rural,19.4,68.1,1.4,2.8,0,37.5,1.4,41.7,23.6,2.8,1.4,18.1
+Bangalore,Bangalore North,Honnasandra,Rural,32,66.2,2.7,89.2,3.2,77,0,41,31.5,1.8,24.3,0
+Bangalore,Bangalore North,Huchana Palya,Rural,15.5,82.8,0,3.4,5.2,74.1,0,39.7,36.2,3.4,3.4,6.9
+Bangalore,Bangalore North,Pillahalli,Rural,42.4,82.3,0.4,1.6,2.9,79.8,2.9,46.1,45.3,6.6,1.2,4.5
+Bangalore,Bangalore North,Nagarur,Rural,24.8,73.8,0.6,3.6,1.6,78.8,3,25.8,30.4,3.8,1.8,7
+Bangalore,Bangalore North,Kodipalya,Rural,10.5,68.4,0,2.6,2.6,76.3,2.6,15.8,18.4,0,0,7.9
+Bangalore,Bangalore North,Mathahalli,Rural,34.2,79.5,0,0.9,11.4,73.1,4.1,34.2,43.8,5.5,0.5,3.7
+Bangalore,Bangalore North,Narasipura,Rural,24.4,82.1,0,12.2,2.4,79.7,2.4,49.6,55.3,0,4.9,4.9
+Bangalore,Bangalore North,Torenagasandra,Rural,18.4,84,1,5.3,8.3,68.9,2.9,41.3,42.2,3.9,5.3,3.9
+Bangalore,Bangalore North,Muniyanapalya,Rural,45.5,95.5,0,13.6,0,77.3,13.6,63.6,63.6,13.6,9.1,0
+Bangalore,Bangalore North,Vaderahalli,Rural,52.3,77.3,2.8,17,0.6,75.6,6.8,42.6,38.6,8.5,11.9,2.3
+Bangalore,Bangalore North,Alur,Rural,30.6,72.5,1.1,5,2,66.6,4.4,34.5,34.7,3.7,3.1,10.3
+Bangalore,Bangalore North,Kuduragere,Rural,32.6,76.6,2.1,1.4,1,73.8,1.7,29.7,24.1,5.6,1.6,6.6
+Bangalore,Bangalore North,Thammenahalli,Rural,10.1,77.9,0.6,4.3,0.9,73.9,2.8,23.3,31.9,5.5,2.8,8.9
+Bangalore,Bangalore North,Hanumantha Sagara,Rural,25.7,81.4,0,4.2,3,85,2.4,25.1,34.1,10.2,2.4,1.2
+Bangalore,Bangalore North,Heggadadevanapura,Rural,31.5,66.4,0.8,3.2,0.9,77.4,1.5,13.7,16.4,4.1,2.3,7.4
+Bangalore,Bangalore North,Makali,Rural,28.5,80.9,1.3,3.6,2.7,89.3,0.7,5.4,15,3.8,1.5,2.1
+Bangalore,Bangalore North,Adakamaranahalli,Rural,42.4,82.1,0.8,5.9,4.3,79.3,2.4,15.3,21.7,4.3,2.7,4.6
+Bangalore,Bangalore North,Dasanapura,Rural,54.9,84.3,3.1,7.5,3.8,82.5,1.8,36.6,19.4,4.6,4.4,6.2
+Bangalore,Bangalore North,Gejjagadahalli,Rural,22.4,87.4,0,2.4,9.1,85.4,2.4,33.5,39.8,8.3,1.6,1.2
+Bangalore,Bangalore North,Hullegowdanahalli,Rural,46.6,75.6,1,9.4,4.9,82.7,2,45.3,46.6,4.6,2,3.6
+Bangalore,Bangalore North,Byregowdanahalli,Rural,25.6,65.5,0,25.6,2.4,76.2,1.2,31,25.6,4.2,3.6,6.5
+Bangalore,Bangalore North,Venkatapura,Rural,31.7,70.7,0,0,0,87.8,0,34.1,36.6,9.8,0,4.9
+Bangalore,Bangalore North,Lakkenahalli,Rural,23.7,61.3,0.5,10.3,2.6,66,12.9,29.9,25.8,2.6,1.5,7.7
+Bangalore,Bangalore North,Kenganahalli,Rural,98.9,96.6,1.1,2.3,0,96.6,1.1,87.5,79.5,6.8,3.4,1.1
+Bangalore,Bangalore North,Shivanapura,Rural,90.9,88.3,0.7,0.7,3,91.9,0.3,72.5,57.4,4.7,1,0.3
+Bangalore,Bangalore North,Gowdahalli,Rural,17.9,82.1,0,0,4.8,68.3,0,38.6,35.2,5.5,0,8.3
+Bangalore,Bangalore North,Harokyathanahalli,Rural,47,80.3,1.9,1.9,2.1,86.4,1.6,23.7,24.2,3.6,2.7,3.6
+Bangalore,Bangalore North,Narayanappana Palya,Rural,25,42.1,1.3,2.6,2.6,60.5,1.3,22.4,17.1,2.6,0,22.4
+Bangalore,Bangalore North,Madavara,Rural,43.5,76.6,3,8.2,3.9,81.6,1.6,14.6,17.9,4.1,2.4,3.6
+Bangalore,Bangalore North,Siddanahosahalli,Rural,27.9,74.5,1.3,3.6,2.4,81.4,1.3,8.2,12,2.4,1.6,6.3
+Bangalore,Bangalore North,Dombarahalli,Rural,72.1,72.4,1.1,4.8,2,77.9,1.7,15.6,20.4,4.5,2.6,7
+Bangalore,Bangalore North,Kadaranahalli,Rural,72.3,80.7,0,6,2.4,71.1,4.8,39.8,31.3,6,0,8.4
+Bangalore,Bangalore North,Avverahalli,Rural,41.3,89,4.6,3.7,0,61.5,23.9,26.6,49.5,3.7,3.7,5.5
+Bangalore,Bangalore North,Hunnigere,Rural,38.6,80,2.1,0.7,4.1,69.7,9,46.9,34.5,6.2,2.1,3.4
+Bangalore,Bangalore North,Sondekoppa,Rural,26.7,69,0.7,3.1,8.3,45.3,11.6,29.8,20.3,2.9,1.6,14.5
+Bangalore,Bangalore North,Nagasandra,Rural,29.8,52.6,0,5.3,3.5,38.6,3.5,28.1,10.5,1.8,1.8,22.8
+Bangalore,Bangalore North,Mallasandra,Rural,20.8,75,0,3.6,3.1,53.1,13,19.3,30.2,6.2,2.1,13.5
+Bangalore,Bangalore North,Gollarapalya,Rural,30,90,0,0,20,50,30,70,70,0,0,0
+Bangalore,Bangalore North,Ravuthanahalli,Rural,22.2,70.9,1.5,0.5,4.9,65,9.9,27.6,33.5,9.4,0.5,7.9
+Bangalore,Bangalore North,Kammasandra,Rural,22.1,79.9,0.7,14.1,2.7,67.1,7.4,36.2,43.6,8.1,4.7,6.7
+Bangalore,Bangalore North,Lakshmipura,Rural,54.2,69,1.4,4.1,5,65.2,5.3,26.7,25.3,5,3.6,14.3
+Bangalore,Bangalore North,K.G.Srikantapura,Rural,81.2,84.4,1.6,1.6,0,56.2,1.6,34.4,17.2,6.2,0,9.4
+Bangalore,Bangalore North,Gangondanahalli,Rural,66.4,84.6,0.9,2.8,2.3,87.5,0.4,30.9,35.9,5.9,2.4,2.9
+Bangalore,Bangalore North,K.G. Lakkenahalli,Rural,66.1,79,1.6,6.5,4.3,73.7,0.5,48.9,38.2,3.8,2.2,9.7
+Bangalore,Bangalore North,Vaddarahalli,Rural,10.5,59.3,0,3.5,1.2,40.7,1.2,29.1,30.2,5.8,0,23.3
+Bangalore,Bangalore North,Bettahalli,Rural,40.8,65.5,0,5.2,5.2,58,3.4,31,32.8,2.9,0.6,14.4
+Bangalore,Bangalore North,Kittana Halli,Rural,28.1,62,0.2,5.1,7.3,65,2.1,22.4,28.3,2.9,1.1,13.4
+Bangalore,Bangalore North,Gattisiddanahalli,Rural,25,25,0,0,0,50,0,0,0,0,0,50
+Bangalore,Bangalore North,Giddenahalli,Rural,36.8,68.4,0,0,1.8,84.2,0,26.3,49.1,10.5,0,6.1
+Bangalore,Bangalore North,Kadabagere,Rural,41.8,85.2,13.7,22.7,26.2,59.8,3.5,15.6,41.2,10.4,20.9,2.2
+Bangalore,Bangalore North,Byandahalli,Rural,47.4,90.6,2.9,4.1,21.6,53.8,12.9,31.6,46.2,13.5,5.3,1.8
+Bangalore,Bangalore North,Bylakonenahalli,Rural,27.4,79.5,0.9,8.5,6.8,56.4,1.7,19.7,35.9,9.4,4.3,8.5
+Bangalore,Bangalore North,Machohalli,Rural,42.1,72.4,1,6.4,7.3,56.7,2.5,16.1,22.4,4.3,2.4,9.8
+Bangalore,Bangalore North,Kachohalli,Rural,32.1,74.1,1.1,8.5,1.8,81.2,2.1,14.3,23.3,3.3,2.3,5.7
+Bangalore,Bangalore North,Ganigarahalli,Rural,31.4,76.2,2.2,3.6,1,76.4,5.8,28.5,27,4.6,4.1,4.6
+Bangalore,Bangalore North,Somashetti Halli,Rural,50.2,66.7,9.5,32.2,28,50,3.7,47.4,41.4,6.6,19.6,7
+Bangalore,Bangalore North,Lakshmipura,Rural,23.1,78.2,1.7,9.3,14.2,70.8,4,31.7,37.5,5.4,5.2,4.7
+Bangalore,Bangalore North,Kodigehalli(Part),Rural,79.5,97.4,0,0,0,92.3,0,74.4,66.7,12.8,0,0
+Bangalore,Bangalore North,Seegehalli,Rural,27.5,65.6,0.3,4.2,19.8,71.7,2.9,21.7,24.1,6.6,1.1,1.6
+Bangalore,Bangalore North,Kannahalli,Rural,77.5,83.2,2.4,2.2,1.6,55.8,2.4,21.7,36,4.6,2.2,1.6
+Bangalore,Bangalore North,Manganahalli,Rural,18.8,72.2,0.5,2.8,1.6,72.6,1.1,15.2,26.9,5.1,1.6,10.4
+Bangalore,Bangalore North,Sonnenahalli,Rural,53.1,70.8,1.7,1.4,1.7,55.6,8.3,46.9,34.7,1.7,1.4,10.4
+Bangalore,Bangalore North,Challahalli,Rural,63.1,78.2,3.9,6.1,36.3,44.7,7.8,62,35.2,6.7,3.4,1.7
+Bangalore,Bangalore North,Haniyur,Rural,29.1,73.5,0,0.9,37.6,6.8,1.3,44.9,28.6,3,0.4,12.8
+Bangalore,Bangalore North,Kakkehalli,Rural,30.8,75.4,1.5,4.6,10.8,75.4,10.8,66.2,32.3,0,0,0
+Bangalore,Bangalore North,Nellukunte,Rural,52.1,78.9,2.8,33.8,33.8,56.3,7,46.5,42.3,11.3,14.1,0
+Bangalore,Bangalore North,Kadathanamale,Rural,84.7,94.4,4.8,0,20.2,77.4,0,57.3,58.1,8.1,2.4,0.8
+Bangalore,Bangalore North,Marasandra Amanikere,Rural,31.7,78.1,4,4.6,4.1,70.3,4.8,33.2,33.2,6.8,5.5,8.8
+Bangalore,Bangalore North,Suradenpura,Rural,13.6,71.9,1.8,4.4,3.6,78.1,1.8,35.2,36.7,6.8,1.2,6.5
+Bangalore,Bangalore North,Adde Vishwanathapura,Rural,13.9,91.3,4.9,4.1,25.1,65.4,4.9,36.8,49.3,13.4,6.3,1.4
+Bangalore,Bangalore North,Arakere,Rural,65.1,87.7,1.5,1,9.7,75.4,3.1,55.4,35.4,3.1,1.5,2.6
+Bangalore,Bangalore North,Byrapura,Rural,22.8,67.7,0.8,0,7.1,31.5,0,38.6,20.5,1.6,0,21.3
+Bangalore,Bangalore North,Channasandra,Rural,48.7,61.5,0,2.6,10.3,69.2,0,41,10.3,2.6,0,5.1
+Bangalore,Bangalore North,Kamakshipura,Rural,99.3,97.1,0.7,0.7,2.2,96.4,0.7,73.4,31.7,4.3,0.7,0
+Bangalore,Bangalore North,Seeresandra,Rural,46.7,79.5,0.8,0.8,13.1,40.2,23.8,66.4,47.5,0.8,0.8,7.4
+Bangalore,Bangalore North,Byatha,Rural,69.1,72.8,1,2.1,6.3,74.3,16.8,59.2,45,3.1,1,1.6
+Bangalore,Bangalore North,Kakolu,Rural,38.6,84.5,5.2,3.4,18.6,62.8,8.6,53.4,37.2,6.9,3.4,2.8
+Bangalore,Bangalore North,Budumanahalli,Rural,18.9,66,0.9,0,1.9,66,0,47.2,37.7,7.5,0.9,9.4
+Bangalore,Bangalore North,Shanubhoganahalli,Rural,20.1,67.7,0.8,0.8,4.3,58.7,2,37,28.7,5.9,0.4,15.7
+Bangalore,Bangalore North,Chokkanahalli,Rural,45.2,77.4,0,6,1.2,85.7,2.4,57.1,52.4,3.6,1.2,2.4
+Bangalore,Bangalore North,Sreeramanahalli,Rural,26.3,60.5,0,7.1,4.5,62,2.3,18.8,22.6,6,1.9,15
+Bangalore,Bangalore North,Sadenahalli,Rural,49.3,88.8,0.5,1.9,6.4,81.6,0,22.4,36,4.5,1.1,2.4
+Bangalore,Bangalore North,Adiganahalli,Rural,63.8,82.7,1.7,6,30.1,65,1.7,35.6,31.5,4.9,2.6,1.5
+Bangalore,Bangalore North,Rajanukunte,Rural,42.2,81.6,4.3,9.5,1.9,86.4,5.1,25.5,32.8,7.5,7.7,2.9
+Bangalore,Bangalore North,Ittagallpura,Rural,51,80.8,0,7.7,2.9,68.3,6.7,35.6,42.3,10.6,1,2.9
+Bangalore,Bangalore North,Dibburu,Rural,13.5,78.8,3.8,6.4,17.3,71.2,4.5,41.7,50.6,18.6,8.3,5.8
+Bangalore,Bangalore North,Koluvarayanahalli,Rural,15.7,95.7,7.1,0,0,90,0,60,78.6,7.1,7.1,2.9
+Bangalore,Bangalore North,Seethakempanahalli,Rural,16.7,71.8,1.7,19,1.1,81.6,8.6,57.5,40.2,2.3,9.8,3.4
+Bangalore,Bangalore North,Hesaraghatta Grass Farm,Rural,100,100,0,0,14.3,85.7,0,85.7,85.7,0,0,0
+Bangalore,Bangalore North,Dasenahalli,Rural,37.1,84.5,6.1,4.9,38,42.4,6.5,62,51.4,8.2,11,2.9
+Bangalore,Bangalore North,Kalenahalli,Rural,51.7,81,1.7,5.2,0,91.4,0,51.7,62.1,19,5.2,5.2
+Bangalore,Bangalore North,Mathkur,Rural,56.8,70.1,0.4,3.8,5.1,52.1,6.4,44,38,6,2.6,14.5
+Bangalore,Bangalore North,Linganahalli,Rural,83,82.2,1.5,2.2,0.7,74.1,0,59.3,51.1,11.1,3,3.7
+Bangalore,Bangalore North,Muthagada Halli,Rural,63.3,72.2,1.3,16.5,3.8,77.2,2.5,57,39.2,6.3,10.1,6.3
+Bangalore,Bangalore North,Madappanahalli,Rural,37.5,54.8,4,94.9,8.8,88.2,1.1,34.6,27.9,8.8,28.3,0
+Bangalore,Bangalore North,Krishnarajapura,Rural,57.1,50,0,0,0,78.6,7.1,35.7,7.1,0,0,14.3
+Bangalore,Bangalore North,Mylappanahalli,Rural,45.9,72,1.4,3.9,3.4,64.3,1.4,44.9,38.6,6.8,2.4,3.4
+Bangalore,Bangalore North,Lingarajapura,Rural,19.6,32.1,0,3.6,1.8,37.5,0,32.1,21.4,8.9,0,44.6
+Bangalore,Bangalore North,Shivakote,Rural,45.8,80,1.4,6.4,5.4,73.1,4,61.8,47.9,9.4,3.8,7.1
+Bangalore,Bangalore North,Ivar Kandapura,Rural,36.7,76.7,2.8,5.9,3.5,69.4,4.5,47.3,33.6,4.2,3.3,7.1
+Bangalore,Bangalore North,Hesaraghatta,Rural,53.6,83.1,2,3.9,24.2,57.8,2.3,60.7,38.7,3.9,3.3,3.2
+Bangalore,Bangalore North,Guddadahalli,Rural,23.3,69.9,0.6,6.8,2.3,64.8,2.3,46.6,31.2,6.2,5.1,9.7
+Bangalore,Bangalore North,Bilijaji,Rural,13.2,74.6,0,1.5,1.5,79,0,65.9,31.7,2.4,0.5,4.4
+Bangalore,Bangalore North,Kodagi Thirumalapura,Rural,70.9,78.3,0.4,2.2,4.3,68.1,2.2,58.7,39.4,4.7,2.2,5.7
+Bangalore,Bangalore North,Thammarasanahalli,Rural,61.4,80.7,8,14.8,23.9,73.9,0,83,60.2,5.7,14.8,1.1
+Bangalore,Bangalore North,Madhugirihalli,Rural,23.5,88.2,0,4.4,0,95.6,1.5,51.5,63.2,0,4.4,1.5
+Bangalore,Bangalore North,Mavallipura,Rural,31,82.4,4.8,1.4,2.9,85.7,0.5,61.4,56.2,8.1,3.3,3.8
+Bangalore,Bangalore North,Bylakere,Rural,39,68.4,1.7,9.7,4.1,74.3,4.9,30,36.3,8,3.6,5.8
+Bangalore,Bangalore North,Kondashetti Halli,Rural,100,100,20,6.7,1.7,80,18.3,80,100,1.7,26.7,0
+Bangalore,Bangalore North,Kasagattapura,Rural,31.7,75.8,3.6,4.7,3.4,62,5.8,43,38.6,7,4.2,8.9
+Bangalore,Bangalore North,Hurali Chikkanahalli,Rural,66.8,84.4,0.8,0,1.9,80.5,0.6,28.5,38.1,6.1,0.6,6.8
+Bangalore,Bangalore North,Tharabana Halli,Rural,20.5,81.6,1.5,9.3,1.4,78.3,2.3,20.9,25.1,5.8,4.6,5.8
+Bangalore,Bangalore North,Sasiveghatta,Rural,16.3,67.9,1.6,21.1,1.1,79.5,1.1,23.7,42.6,4.2,6.8,4.7
+Bangalore,Bangalore North,Soladevanahalli,Rural,66.2,72.2,4.2,10.3,9.9,73.8,4.2,30.2,25.3,5.1,3.8,3.8
+Bangalore,Bangalore North,Kumbarahalli,Rural,21.1,78,0.8,3.7,1.7,69.6,5.1,29.9,27.6,1.7,2.5,3.9
+Bangalore,Bangalore North,Kempapura,Rural,78.4,82.4,0.8,57.6,20.8,69.6,4.8,41.6,34.4,4.8,23.2,1.6
+Bangalore,Bangalore North,Kalathammanahalli,Rural,13.2,49.3,0,2.1,0,72.2,0,24.3,25,2.1,0,18.1
+Bangalore,Bangalore North,Guniagrahara,Rural,55.8,88.8,3,14.7,2.8,85.8,4.1,34.5,45.2,8.1,10.7,2
+Bangalore,Bangalore North,Tarahunase,Rural,23.9,79,1.2,4,1.7,79.2,0.9,61.5,44.7,7.8,4,8
+Bangalore,Bangalore North,Kuduragere,Rural,22.3,84,0,3.7,4.8,61.2,4.8,38.3,42,12.8,2.7,6.9
+Bangalore,Bangalore North,Gadenahalli,Rural,8.3,100,0,0,0,87.6,0.8,16.5,33.9,10.7,0,0
+Bangalore,Bangalore North,Tharabanahalli,Rural,11.1,73.2,4.5,8.7,1.2,81.6,0.6,23.8,33.7,11.4,6.6,9.3
+Bangalore,Bangalore North,Navarathna Agrahara,Rural,21.9,55.8,0.6,5,0.9,78.1,3.8,27,31.3,11.9,3.1,8.5
+Bangalore,Bangalore North,Meenakunte,Rural,13,81.5,1.5,4,2.1,90.6,2.3,13,20.6,6.2,0.8,2.3
+Bangalore,Bangalore North,Channahalli,Rural,15.7,67.4,0.4,3.7,5.2,77.2,1.5,30.7,22.8,3,0.7,6.4
+Bangalore,Bangalore North,Byanahalli,Rural,44.1,77.5,1,0,1,68.6,2,49,45.1,5.9,1,11.8
+Bangalore,Bangalore North,Papanahalli,Rural,100,100,0,0,0,60,0,100,20,0,0,0
+Bangalore,Bangalore North,Thimmasandra,Rural,68.8,94.8,2.9,2.3,6.4,45.7,0,78,59.5,12.1,4.6,0
+Bangalore,Bangalore North,Nellukunte,Rural,81.8,81.8,15.2,4,34.3,59.6,2,24.2,31.3,4,8.1,3
+Bangalore,Bangalore North,Bettahalasur,Rural,41,74.3,1.9,7,6.7,66.3,1.9,34.8,32.3,9.3,4.1,10
+Bangalore,Bangalore North,Chokkanahalli,Rural,26.7,46.7,0,6.7,0,73.3,0,53.3,6.7,0,0,13.3
+Bangalore,Bangalore North,Chikkajala,Rural,39,70.7,4.5,9.7,1.4,80.6,2.9,21.9,24.4,6.3,4.2,6.9
+Bangalore,Bangalore North,Maranayakana Halli,Rural,26.7,64.5,0.3,2.6,0.6,71.2,3.5,25.9,23.3,2.3,0.6,12.2
+Bangalore,Bangalore North,Doddajala,Rural,41.5,92.6,4,4.6,2.6,85.4,5.4,39.3,58.5,16.9,8,2.3
+Bangalore,Bangalore North,Settigere,Rural,37.5,64.2,1.3,2.6,1.7,71.1,3.4,35.3,31.9,7.8,3,12.5
+Bangalore,Bangalore North,Muthugada Halli,Rural,40.8,87.3,0,7,0,90.1,2.8,59.2,66.2,18.3,7,4.2
+Bangalore,Bangalore North,Begur,Rural,43.7,81.6,3.4,6.9,0,79.3,14.9,48.3,55.2,20.7,9.2,2.3
+Bangalore,Bangalore North,Mylanahalli,Rural,85.1,77.7,0.3,4.6,7.7,79.2,1.4,38.5,33.7,9.8,2.9,4.3
+Bangalore,Bangalore North,Chikkanahalli,Rural,39,72.9,0,3.4,1.7,64.4,1.7,44.1,25.4,5.1,1.7,10.2
+Bangalore,Bangalore North,Boilahalli,Rural,0,78.1,0,2.7,4.1,82.2,0,35.6,52.1,16.4,0,5.5
+Bangalore,Bangalore North,Meesaganahalli,Rural,14.9,89.6,3,1.5,0,86.6,1.5,43.3,68.7,25.4,4.5,1.5
+Bangalore,Bangalore North,Huttanahalli,Rural,42.5,79.2,3.6,1.9,9.1,68.2,2.9,38,47.1,19.8,4.5,9.1
+Bangalore,Bangalore North,Hosahalli,Rural,63.6,81.8,1.3,2.8,4.7,72.1,8.2,55.2,61.1,14.1,3.4,4.7
+Bangalore,Bangalore North,Bilmaranahalli,Rural,0,100,0,1.1,11.8,81.7,1.1,95.7,78.5,2.2,1.1,0
+Bangalore,Bangalore North,Sonnappanahalli,Rural,29.5,61.1,1.1,2.6,1.6,70.3,4.8,24.1,23.5,7.9,2.7,15.2
+Bangalore,Bangalore North,Sathnur,Rural,20.1,82.4,6.9,11.2,2,76.8,10,33.5,35.5,21.4,13.8,3.1
+Bangalore,Bangalore North,Byappanahalli,Rural,33.7,58.9,0.6,0.6,0.6,62,6.1,42.9,27,5.5,1.2,19.6
+Bangalore,Bangalore North,Chagalahatti,Rural,10.8,83.3,2.5,28.1,3.4,89.2,4.9,32.5,36.5,6.9,9.4,0.5
+Bangalore,Bangalore North,Bagalur,Rural,56,77,3.2,2.5,3.9,69.3,4.1,35.5,35.1,6.6,3.4,8.2
+Bangalore,Bangalore North,Huvinayakanahalli,Rural,18.6,69,0,0.7,40.7,52.4,4.1,40,55.9,15.2,0.7,0.7
+Bangalore,Bangalore North,Bandi Kodige Halli,Rural,18.3,83.1,0.4,0.7,4.6,89.4,0.7,36.3,43.7,13.7,1.1,0.7
+Bangalore,Bangalore North,Bandi Kodigehalli Palya,Rural,4.2,56.7,0,3.3,0,70.8,10.8,45.8,50,6.7,0,10.8
+Bangalore,Bangalore North,Hunachur,Rural,16.2,91.6,0.6,2.6,0,94.8,3.2,50.6,50.6,11.7,1.3,0.6
+Bangalore,Bangalore North,Singahalli,Rural,29.1,84.4,2.2,4.5,19.6,68.2,1.7,46.9,48.6,21.8,3.4,0.6
+Bangalore,Bangalore North,Gollahalli,Rural,26.7,73.3,0,6.7,0,73.3,0,26.7,40,13.3,6.7,20
+Bangalore,Bangalore North,Arebinnamangala,Rural,23,76.3,0,5,6.5,87.1,0.7,62.6,62.6,18.7,0,2.2
+Bangalore,Bangalore North,Mahadevakodigehalli,Rural,52.2,72.7,1.7,4.4,1.3,72.7,1.7,36,51.2,9.4,3,9.4
+Bangalore,Bangalore North,Manchappanahosahalli,Rural,69.2,77.9,1,2.3,14.7,59.5,0,46.8,50.2,7.4,1.3,7.7
+Bangalore,Bangalore North,Maralakunte,Rural,83.5,70,0.4,0.8,2.5,79.8,4.9,37.9,46.5,5.8,0.4,4.9
+Bangalore,Bangalore North,Dasanayakanahalli,Rural,84,70.7,0,0,1.3,74.7,6.7,40,36,22.7,0,5.3
+Bangalore,Bangalore North,Marenahalli,Rural,63.9,70.3,1.1,3.8,1.3,54.5,6.6,39.4,33.8,7.7,1.7,9.6
+Bangalore,Bangalore North,Marasandra,Rural,74,78.5,2,3,1.5,76,5.5,51.5,45.5,12,2.5,6
+Bangalore,Bangalore North,Challamakunte,Rural,0,100,0,0,0,100,0,100,100,0,0,0
+Bangalore,Bangalore North,Honnenahalli,Rural,24.9,69.9,2.3,2.9,2.9,33.7,3.9,16.5,20.1,6.5,2.6,20.4
+Bangalore,Bangalore North,Nagadasanahalli,Rural,24.6,83.3,8.7,2.4,81.7,15.9,0,55.6,65.1,26.2,9.5,0
+Bangalore,Bangalore North,Lakshmisagara,Rural,0,0,0,100,0,100,0,0,0,0,0,0
+Bangalore,Bangalore North,Muddanahalli,Rural,17.5,81,0,6.3,90.5,9.5,0,68.3,49.2,25.4,1.6,0
+Bangalore,Bangalore North,Singanayakanahalli,Rural,17.6,69.9,1.4,4.1,1.4,70.6,5.1,23.3,24,9.9,3.3,8.9
+Bangalore,Bangalore North,Avalahalli,Rural,24.7,71.1,9.6,44.7,1.6,79.3,9.1,21.5,24.9,10.4,14.7,3.8
+Bangalore,Bangalore North,Gantiganahalli,Rural,26.2,76,4.1,2.3,1.4,81.9,4.1,49.3,53.8,7.7,3.2,5
+Bangalore,Bangalore North,Ramagondanahalli,Rural,24.3,80.8,3.3,9,3.4,85.2,1.8,34.4,38.9,7.3,6,2
+Bangalore,Bangalore North,Jarakbandekaval,Rural,92.3,53.8,0,0,23.1,46.2,7.7,61.5,61.5,23.1,0,0
+Bangalore,Bangalore North,Shamarajpura,Rural,59.3,79.6,0,13,1.9,81.5,0,33.3,83.3,16.7,13,1.9
+Bangalore,Bangalore North,Medi  Agrahara,Rural,95.7,93.6,0.7,3.6,0.7,81.4,0.7,64.3,67.1,14.3,3.6,0.7
+Bangalore,Bangalore North,Vaderahalli,Rural,67.1,84.7,8.9,19.9,7.5,71.6,2.3,21,36.4,9.9,18.4,5.2
+Bangalore,Bangalore North,Veerasagara,Rural,55.3,83.4,1.3,0.9,6.8,75.7,5.1,41.7,46,11.1,1.7,3.8
+Bangalore,Bangalore North,Kempanahalli,Rural,48.1,70.8,3.8,2.8,1.9,90.6,2.8,60.4,49.1,16,6.6,2.8
+Bangalore,Bangalore North,Kadigenahalli (CT),Urban,32.4,66.7,2.3,12.3,11.7,56.1,2,19.7,20.6,5.9,6.7,15
+Bangalore,Bangalore North,Kadigenahalli (CT) - Ward No.1,Urban,32.4,66.7,2.3,12.3,11.7,56.1,2,19.7,20.6,5.9,6.7,15
+Bangalore,Bangalore North,Hunasamaranahalli (CT),Urban,41,78.4,6.3,22.3,3.9,83.2,2.6,36.5,42.5,6.5,16.9,4.6
+Bangalore,Bangalore North,Hunasamaranahalli (CT) - Ward No.1,Urban,41,78.4,6.3,22.3,3.9,83.2,2.6,36.5,42.5,6.5,16.9,4.6
+Bangalore,Bangalore North,Chikkabanavara (CT),Urban,47.7,82.9,2.8,9.9,7.3,81.4,2.9,28.9,37.4,5,7.3,3.4
+Bangalore,Bangalore North,Chikkabanavara (CT) - Ward No.1,Urban,47.7,82.9,2.8,9.9,7.3,81.4,2.9,28.9,37.4,5,7.3,3.4
+Bangalore,Bangalore North,Madanaiyakanahalli (CT),Urban,28.5,79.5,1.2,7.2,2.2,84.6,1.9,12.6,14.8,2.2,1.8,3.5
+Bangalore,Bangalore North,Madanaiyakanahalli (CT) - Ward No.1,Urban,28.5,79.5,1.2,7.2,2.2,84.6,1.9,12.6,14.8,2.2,1.8,3.5
+Bangalore,Bangalore North,Chikkabidarakallu (CT),Urban,36.9,85.9,5.6,11,2.6,88.4,3.1,15.3,28.3,6.8,9.2,2.5
+Bangalore,Bangalore North,Chikkabidarakallu (CT) - Ward No.1,Urban,36.9,85.9,5.6,11,2.6,88.4,3.1,15.3,28.3,6.8,9.2,2.5
+Bangalore,Bangalore South,Sub-Dist - Bangalore South,Total,29.8,71.8,2.8,9.3,4.2,74.3,3.1,19.7,26.3,5,3.7,8.4
+Bangalore,Bangalore South,Sub-Dist - Bangalore South,Rural,29.6,70.9,1.9,8,3.8,72.5,3.2,20.7,27.6,5.3,3.2,9.1
+Bangalore,Bangalore South,Sub-Dist - Bangalore South,Urban,30.2,75.3,6.2,14.6,5.8,81.6,2.5,15.9,21.1,3.9,5.8,5.5
+Bangalore,Bangalore South,Naganahalli,Rural,64.9,75.7,2.7,8.1,0,85.1,5.4,31.1,27,8.1,2.7,2.7
+Bangalore,Bangalore South,Jogerahalli,Rural,7.1,54,0,0,1.8,61.9,0,22.1,15.9,0,0,23.9
+Bangalore,Bangalore South,Gangenahalli,Rural,20.4,71.6,2.5,3.7,0.6,76.5,6.2,32.1,26.5,1.9,1.2,4.3
+Bangalore,Bangalore South,Varthur,Rural,14,67.3,0.4,2.2,11.8,71,0.7,16.5,22.4,1.5,0.7,4.8
+Bangalore,Bangalore South,Honniganahatti,Rural,27.6,77.7,0.5,2.1,2.1,72.3,1.9,26.4,21.5,3.7,0.5,8.2
+Bangalore,Bangalore South,Channenahalli,Rural,38.2,82.3,5.8,22.9,13.5,69.8,5.7,22.5,28.7,7,8.2,4
+Bangalore,Bangalore South,Kurubarahalli,Rural,35.2,71,1.6,5.5,1.9,68.7,2.9,25.8,30,4.8,3.5,10.3
+Bangalore,Bangalore South,Bychaguppe,Rural,98.5,98.5,24.6,13.4,18.7,74.6,6.7,97.8,98.5,77.6,38.1,0
+Bangalore,Bangalore South,Devamachahalli Narayanapura,Rural,37.5,43.8,0,0,0,43.8,0,43.8,31.2,6.2,0,37.5
+Bangalore,Bangalore South,Devamachohalli,Rural,27.9,60.7,0,1.4,1.4,60.7,6.4,18.6,30,8.6,0.7,18.6
+Bangalore,Bangalore South,Marenahalli,Rural,80.7,66.7,0,0,14,21.1,0,22.8,15.8,0,0,10.5
+Bangalore,Bangalore South,Gangappanahalli,Rural,90.2,60.8,0,0,0,43.1,0,52.9,25.5,0,0,3.9
+Bangalore,Bangalore South,Thippagondanahalli,Rural,19.5,80.5,2.6,2.6,1.3,70.1,13,16.9,31.2,6.5,0,6.5
+Bangalore,Bangalore South,Kempagondanahalli,Rural,20.4,43.6,0.6,1.1,0.6,48.1,1.1,18.8,22.1,5,0.6,38.1
+Bangalore,Bangalore South,Madapatna,Rural,12.5,39.4,0,0.3,0,73.7,2.8,7.6,11.9,1.4,0.3,18.7
+Bangalore,Bangalore South,Cholanaikanahalli,Rural,22.6,65.2,0.3,2,1.5,61.2,1.8,21.1,22.6,3.6,0.5,20.6
+Bangalore,Bangalore South,Ganukal,Rural,26,71.4,2.6,1.3,1.3,50.6,3.9,22.1,31.2,2.6,1.3,16.9
+Bangalore,Bangalore South,Peddanapalya,Rural,30.4,79.3,0,2.2,3.3,64.1,2.2,16.3,38,8.7,1.1,14.1
+Bangalore,Bangalore South,Tavarekere ,Rural,34.1,85.8,3,12.8,3.6,80.9,6.8,22,30.2,7.4,4.6,2.9
+Bangalore,Bangalore South,Yalachaguppe Ramapura,Rural,8.1,64.9,0,2.7,0,83.8,0,48.6,45.9,13.5,0,8.1
+Bangalore,Bangalore South,Yelachaguppe,Rural,38.8,64.9,0.8,5.1,3.1,56.5,6.7,30.6,32.6,3.7,2,9.6
+Bangalore,Bangalore South,Puradapalya,Rural,31.5,66.7,0,0,0,70.4,0,20.4,35.2,7.4,0,18.5
+Bangalore,Bangalore South,Doddamaranahalli,Rural,34.7,80.8,0.5,4.1,2.1,77.2,6.2,20.7,40.4,7.3,3.1,4.7
+Bangalore,Bangalore South,Ajjanahalli,Rural,26.6,74.1,1.2,4.1,3.8,71.7,5.4,23.5,29,4.7,1.9,8.6
+Bangalore,Bangalore South,Huluvenahalli,Rural,34.4,52.2,1.2,2.4,4,62.3,4.5,17.8,26.3,7.3,1.6,18.6
+Bangalore,Bangalore South,Sulivara,Rural,21.5,69,0,0.9,0.9,58,5.5,27.6,30.1,3.1,0.6,9.8
+Bangalore,Bangalore South,Sulivara Ramapura,Rural,20,20,0,0,0,0,0,20,20,0,0,60
+Bangalore,Bangalore South,Chikkanahalli,Rural,36.4,61.6,0.3,1.3,1,68.4,3,24.9,18.5,2,1,19.2
+Bangalore,Bangalore South,Vadahalli,Rural,37.5,12.5,0,0,0,37.5,12.5,12.5,12.5,0,0,37.5
+Bangalore,Bangalore South,Kurubarapalya,Rural,29.3,80.5,2.4,2.4,0,80.5,12.2,34.1,43.9,9.8,4.9,4.9
+Bangalore,Bangalore South,Donnenahalli,Rural,20.1,63.9,2.1,1.4,1.4,77.8,6.2,28.5,25.7,8.3,0.7,4.9
+Bangalore,Bangalore South,Byalalu,Rural,33.3,71.5,0.4,2.2,1.3,74.1,6.1,28.5,34.2,6.1,0.4,11
+Bangalore,Bangalore South,Chunchanakuppe,Rural,31.6,77.9,1.3,6.2,2.3,63.8,7.5,27.5,35.5,5.9,3.6,8
+Bangalore,Bangalore South,Ganapathihalli,Rural,37.5,67.4,2.8,17.7,3.6,75.8,7.2,38.3,40.6,4.9,3.1,3.6
+Bangalore,Bangalore South,Muddaiahnapalya,Rural,17,57.5,0,0,0.9,59.4,0.9,19.8,38.7,0.9,0,31.1
+Bangalore,Bangalore South,Punagumaranahalli,Rural,37.7,58,1.4,4.3,0,63.8,17.4,36.2,34.8,8.7,5.8,10.1
+Bangalore,Bangalore South,Kethohalli,Rural,77.3,83.9,2.4,6.7,6.7,81.2,5.9,44.7,48.2,8.6,4.7,4.3
+Bangalore,Bangalore South,Kethohalli Narasimhapura,Rural,0,100,0,0,0,0,0,0,0,0,0,0
+Bangalore,Bangalore South,Kethohalli Ramapura,Rural,100,100,0,0,0,100,0,52.6,0,0,0,0
+Bangalore,Bangalore South,Kolur Gururayanapura,Rural,28.6,0,0,100,0,100,0,14.3,0,0,0,0
+Bangalore,Bangalore South,Dodderi,Rural,23.9,51.5,1.4,1.8,2.4,69.6,2.6,12.3,18.7,3.6,1.2,19.9
+Bangalore,Bangalore South,Kolur Nanjundapura,Rural,33.3,33.3,0,0,0,11.1,0,33.3,0,11.1,0,22.2
+Bangalore,Bangalore South,Kolur,Rural,23.8,61.6,1,30.7,6.1,63.5,5.6,20.7,23,3.8,4.2,8.8
+Bangalore,Bangalore South,Seshagiripura,Rural,16.4,77.6,0,76.1,1.5,65.7,3,10.4,22.4,7.5,9,0
+Bangalore,Bangalore South,Chikkellur,Rural,28.1,67.5,0.4,32.1,2.6,59.5,2.2,25.5,26.3,4,15,12.8
+Bangalore,Bangalore South,Chikkellur Venkatapura,Rural,80,40,0,20,40,40,20,40,60,20,20,0
+Bangalore,Bangalore South,Chikkellur Ramapura,Rural,21.4,57.1,0,0,0,57.1,0,28.6,50,0,0,28.6
+Bangalore,Bangalore South,M.Krishnasagara,Rural,21.8,67.3,0,4,0,73.3,5.9,14.9,33.7,4,1,6.9
+Bangalore,Bangalore South,Kenchanapura,Rural,16.2,74,0,2.9,3.5,70.5,1.2,12.1,47.4,6.9,0.6,12.1
+Bangalore,Bangalore South,Kommaghatta,Rural,45.9,61.8,1.2,2.8,1.6,71.1,2.6,18.3,27.5,3.1,1.6,13
+Bangalore,Bangalore South,Sulikere,Rural,36.4,73.6,0.5,5.4,1.4,76.9,3.5,26.4,36.4,6.2,3.5,8.7
+Bangalore,Bangalore South,Maragondanahalli,Rural,20.3,63.3,0.8,5.5,2.3,80.5,3.5,21.1,30.5,4.3,2.3,10.2
+Bangalore,Bangalore South,Maligondanahalli,Rural,34.5,78.3,0.5,1.5,0,71.4,2.5,36,26.1,5.9,0.5,6.9
+Bangalore,Bangalore South,Ramohalli,Rural,22.8,77.6,1.3,4,2.5,76,3.3,18.3,20.3,5.1,1.5,6.9
+Bangalore,Bangalore South,Bheemanakuppe,Rural,10.4,29.2,1.1,9.4,1.6,84,0.6,6.2,14.9,2.8,0.6,10.4
+Bangalore,Bangalore South,Kommaghatta - Krishnasagara,Rural,4.3,80.9,2.1,8.5,4.3,74.5,10.6,21.3,44.7,19.1,4.3,4.3
+Bangalore,Bangalore South,Chalaghatta,Rural,29.2,75.4,1.1,12.2,5.1,82,0.8,9.6,29.5,2.7,2.9,3.4
+Bangalore,Bangalore South,Kaniminike,Rural,36.3,61.9,2.3,17.4,2,75.5,2.4,8.7,12,3,3.2,11.3
+Bangalore,Bangalore South,Thagachaguppe,Rural,34.9,67.7,1.7,11.1,2.4,79.7,0.9,21.7,25,4,5,6.6
+Bangalore,Bangalore South,Kambipura,Rural,33.4,81.9,2.1,2.6,15,73.1,1.5,13.7,24.2,4,2.6,4
+Bangalore,Bangalore South,Venkatapura,Rural,0,0,0,0,0,33.3,0,0,0,0,0,66.7
+Bangalore,Bangalore South,Doddabele,Rural,39.4,76,1,2.6,2.6,74.1,3.5,24.2,27.5,4.1,2.1,6.4
+Bangalore,Bangalore South,Kengeri Gollahalli,Rural,19.6,74,1.1,21.3,1.6,82.4,0.2,11.3,25.6,4.2,4.9,5.1
+Bangalore,Bangalore South,Gudimavu,Rural,34.4,60.4,1,3.1,0,64.6,6.2,22.9,25,2.1,3.1,14.6
+Bangalore,Bangalore South,Kumbalagodu Gollahalli,Rural,26.3,71.3,3.5,15.7,13.2,66.8,8.2,25.2,19.2,4,4.2,4.2
+Bangalore,Bangalore South,Hampapura,Rural,31.6,77.8,0,3.2,0.6,87.3,1.9,26.6,29.7,4.4,0.6,2.5
+Bangalore,Bangalore South,Thippur,Rural,45.2,72,0.5,4.3,0.5,75.8,1.6,31.7,26.9,4.3,2.7,10.2
+Bangalore,Bangalore South,Gonipura,Rural,32.3,76.9,3.9,0.4,1.7,63.3,3.1,21.4,36.2,4.4,2.6,9.6
+Bangalore,Bangalore South,Gangasandra,Rural,31.4,83.4,0,9.7,0,78.9,1.7,21.1,32.6,5.1,2.9,8.6
+Bangalore,Bangalore South,Devagere,Rural,57.8,78.1,4.4,31.4,8.6,85.7,0.3,22.5,30.5,7.3,13.3,1
+Bangalore,Bangalore South,Rachanamadu,Rural,24.3,79.9,0,0.5,0.9,45.3,0.9,27.1,47.2,2.3,0.5,14
+Bangalore,Bangalore South,Badamanavarthekaval,Rural,40.1,50.4,1.3,2.8,1.3,60.7,1.9,21.4,15.8,3.7,1.3,21.4
+Bangalore,Bangalore South,Chinnakurchi,Rural,35.5,80.3,1,1.5,1.5,75.9,2,26.6,38.4,6.4,1.5,7.4
+Bangalore,Bangalore South,Seegehalli,Rural,47.5,70,0,27.5,5,67.5,5,57.5,25,5,7.5,5
+Bangalore,Bangalore South,Agara,Rural,27.9,74.1,5,11.6,4.6,75.5,4.9,22.2,33,9.9,7.1,5.8
+Bangalore,Bangalore South,Mallasandra,Rural,35.3,73.5,26.5,8.8,5.9,55.9,29.4,29.4,50,32.4,35.3,5.9
+Bangalore,Bangalore South,O.B.Chudahalli,Rural,14.8,66.9,1.9,7.1,0.3,73,1.9,15.4,29.3,4.2,5.8,13.8
+Bangalore,Bangalore South,Kaggalipura,Rural,29.1,73.2,1.1,5.7,1.5,73.7,2.9,18.1,23.5,4.8,2.4,8
+Bangalore,Bangalore South,Uttari,Rural,20.6,67.9,1.2,6.4,7,62.7,3,24.2,31.2,7.3,1.8,14.8
+Bangalore,Bangalore South,Naganayakanahalli,Rural,27.4,67.7,1.6,2.7,9.1,59.1,0,36,28.5,1.6,1.1,17.7
+Bangalore,Bangalore South,Nelaguli,Rural,50.2,67.9,0.8,2.6,3,73.2,1.9,36.2,23,6,0.4,7.2
+Bangalore,Bangalore South,K.  Chudahalli,Rural,36.3,68,1.1,6.8,1.4,83.1,1.4,24.5,24.8,4.7,1.8,9.4
+Bangalore,Bangalore South,Tharalu,Rural,30.1,60.4,1.1,7.9,1.4,52.3,2.2,17.3,19.2,4.9,2.7,23.8
+Bangalore,Bangalore South,Gulakamale,Rural,36,66.1,0.8,3.4,0.9,70.2,1.7,14.3,27.3,5.6,1.5,13.9
+Bangalore,Bangalore South,Alakabelalu,Rural,7.7,53.8,0,15.4,0,61.5,0,23.1,7.7,0,7.7,23.1
+Bangalore,Bangalore South,Somanahalli,Rural,20.6,77.9,4.3,6.3,3.9,76.6,2.4,19.4,30.5,5.4,3.8,7.7
+Bangalore,Bangalore South,Nettigere,Rural,34.1,73.4,0.7,5.7,3.4,71.4,5.5,11.6,24.5,4.1,2,8.6
+Bangalore,Bangalore South,Ravugodlu,Rural,80.8,75.7,0,0.9,0.9,58.1,1.2,41.3,38.3,4.5,0,12.3
+Bangalore,Bangalore South,Sunkadakatte ,Rural,1,99,4.8,0,1.9,93.3,0,17.1,48.6,1.9,4.8,1
+Bangalore,Bangalore South,Thattaguppe,Rural,24.7,72.7,1.2,4.2,2.8,65.6,1.2,11.4,18.2,1.7,1.2,11.2
+Bangalore,Bangalore South,Vaddarapalya,Rural,23.9,77.2,1.3,17.8,13.5,74.4,5.8,22.6,26.6,3,2.5,4.3
+Bangalore,Bangalore South,Doddanagamangala,Rural,15.3,72.6,1.6,14.3,4.4,74.5,1.6,23.1,28.2,4,4.3,4.9
+Bangalore,Bangalore South,Vittasandra,Rural,14.1,56,0.9,3.2,2.3,55.5,1.1,29.6,22.7,5.2,1.4,22.4
+Bangalore,Bangalore South,Mylasandra,Rural,30.7,67.3,1,3.2,0.8,68.4,2.7,13.4,29.7,6.1,1.6,13.3
+Bangalore,Bangalore South,Hommadevanahalli,Rural,12,75.3,1.8,6.4,1,88.2,1.1,12,36.3,5.4,3.6,4.2
+Bangalore,Bangalore South,Bettadasanapura,Rural,27.6,65.3,0.5,1.7,1,78.2,1.5,20,36.2,10.8,0.7,15.9
+Bangalore,Bangalore South,Uttarahalli -Manavarthekaval,Rural,46.3,89.6,20.9,14.9,1.5,85.1,9,23.9,46.3,7.5,19.4,1.5
+Bangalore,Bangalore South,Kumbalagodu (CT),Urban,31,68,3.1,4.4,1.1,76.3,2.3,17.2,16.2,2.8,1.8,13.4
+Bangalore,Bangalore South,Kumbalagodu (CT) - Ward No.1,Urban,31,68,3.1,4.4,1.1,76.3,2.3,17.2,16.2,2.8,1.8,13.4
+Bangalore,Bangalore South,Konappana Agrahara (CT),Urban,29.9,78.7,7.7,19.4,8,84.1,2.6,15.3,23.4,4.5,7.7,1.8
+Bangalore,Bangalore South,Konappana Agrahara (CT) - Ward No.1,Urban,29.9,78.7,7.7,19.4,8,84.1,2.6,15.3,23.4,4.5,7.7,1.8
+Bangalore,Bangalore East,Sub-Dist - Bangalore East,Total,27.4,76,3.6,10.1,5.1,75.4,4.7,32.8,34.7,9,6.7,6
+Bangalore,Bangalore East,Sub-Dist - Bangalore East,Rural,27.4,76,3.6,10.1,5.1,75.4,4.7,32.8,34.7,9,6.7,6
+Bangalore,Bangalore East,Mittaganahalli,Rural,25.4,32.4,0.7,2.1,4.2,47,6.3,29.3,17.4,2.4,2.1,37.3
+Bangalore,Bangalore East,Kadusonnappanahalli,Rural,19.6,66.8,1.6,29.3,2.8,62.4,2.8,31.8,30.9,12,12.7,15.9
+Bangalore,Bangalore East,Yerappanahalli,Rural,18.8,69,1.3,6.6,3,60.7,11.9,33.7,37,15.5,1.7,13.9
+Bangalore,Bangalore East,Chikkasandra,Rural,40,80,40,0,0,40,40,20,40,40,20,20
+Bangalore,Bangalore East,Gundur,Rural,57.2,75.3,1.6,0.3,14.5,58.2,7.2,48.4,49.3,25.7,1.6,4.3
+Bangalore,Bangalore East,Kada Agrahara,Rural,19.4,41.7,0.5,7.4,0.5,59.3,0,15.3,21.8,6.9,0.9,32.4
+Bangalore,Bangalore East,Bandebommasandra,Rural,29.3,76.1,3.3,7.1,0.5,78.3,9.2,35.3,35.3,14.7,6.5,5.4
+Bangalore,Bangalore East,Anagalapura,Rural,46.7,82.5,0.8,0,15.8,77.5,0,35,35.8,9.2,0.8,0.8
+Bangalore,Bangalore East,Nadagowdagollahalli,Rural,24.4,67.4,0.7,7.4,3,68.9,0,25.2,30.4,10.4,2.2,10.4
+Bangalore,Bangalore East,Rampura,Rural,27.4,77.6,3.2,6.2,4.4,71.8,8.5,32.3,42.5,12.6,5.7,6.2
+Bangalore,Bangalore East,Adur,Rural,26.6,78.9,0,4.6,2.3,75.7,6.4,50.5,48.6,11.5,4.6,6.9
+Bangalore,Bangalore East,Maragondanahalli,Rural,28.8,82.6,13.9,4,5.1,79.3,7.9,39.8,58.8,15,14.2,3
+Bangalore,Bangalore East,Halehalli,Rural,70.3,78.8,6.1,5.5,1.2,83.6,4.2,55.2,41.2,15.2,11.5,3
+Bangalore,Bangalore East,Kithiganur,Rural,18.1,83,6.4,9.7,1.2,66.3,8.6,30.8,42.8,11.5,12.3,6.9
+Bangalore,Bangalore East,Hirandahalli,Rural,27.5,67.7,2.4,34.5,18.5,68.1,1.5,28.4,35.4,5.4,9.9,2.1
+Bangalore,Bangalore East,Bidarahalli,Rural,15.5,78.4,1.9,5.3,3.4,81.3,5.1,34.3,35.3,13.4,4.8,3
+Bangalore,Bangalore East,Byappanahalli,Rural,31.5,85.1,1,7.6,8.3,76.1,3.1,44.6,42.2,9.7,2.4,2.8
+Bangalore,Bangalore East,Kammasandra,Rural,44.9,68.1,0,1.4,4.3,79.7,4.3,47.8,18.8,2.9,1.4,7.2
+Bangalore,Bangalore East,Kattugollahalli,Rural,59.5,69.8,0.5,5.1,8.8,74.9,5.6,51.6,31.2,6.5,0.9,3.3
+Bangalore,Bangalore East,Shringaripura,Rural,100,100,0,50,0,100,0,100,50,50,50,0
+Bangalore,Bangalore East,Jothipura,Rural,29.4,76.9,1.2,4.7,5.1,61.6,15.7,57.3,42,9.4,3.1,7.5
+Bangalore,Bangalore East,Thirumenahalli,Rural,35.8,82.6,0,12.8,14.7,67,6.4,37.6,40.4,11,11,5.5
+Bangalore,Bangalore East,Hancharahalli,Rural,22,77.2,0.8,1.6,8.1,62.6,7.3,53.3,41.1,7.3,2,8.1
+Bangalore,Bangalore East,Raghuvanahalli,Rural,20.7,55.2,0,0,0,34.5,10.3,44.8,17.2,10.3,0,27.6
+Bangalore,Bangalore East,Kodigehalli,Rural,73,75.7,0,0,5.4,0,0,81.1,8.1,0,0,13.5
+Bangalore,Bangalore East,Mandur,Rural,31.1,78.8,1.7,4.5,5.5,67.8,11.7,38.6,30.5,7.2,3.8,5.7
+Bangalore,Bangalore East,Bendiganahalli,Rural,9.3,93,0,0,0,100,0,65.1,53.5,7,0,0
+Bangalore,Bangalore East,Lagumenahalli,Rural,16.7,98.1,0,0,1.9,77.8,20.4,59.3,50,24.1,0,0
+Bangalore,Bangalore East,Bommenahalli,Rural,27.6,78,1.4,8,2.4,53.1,13.6,43.7,45.1,11.9,4.2,11.5
+Bangalore,Bangalore East,Huskur,Rural,11.9,75.2,1.2,7.2,1.2,74.6,1.5,32.5,26.3,6.6,3.9,9.3
+Bangalore,Bangalore East,Nimbekaipura,Rural,26,77.5,1.2,4.7,0.6,80.5,4.1,41.4,31.4,5.9,5.3,7.7
+Bangalore,Bangalore East,Cheemasandra,Rural,41.5,70.9,5.5,22.1,8.3,73.2,2.7,23.9,26.9,8.8,10,4.2
+Bangalore,Bangalore East,Avalahalli,Rural,22.6,76.3,4.2,7.6,4.4,83.7,2.6,16,26.4,6.7,4.1,5.2
+Bangalore,Bangalore East,Veerenahalli,Rural,21,75.7,1,4.5,1.9,84.7,1.4,24.3,17.7,2.3,1.7,4.9
+Bangalore,Bangalore East,Kurudusonnenahalli,Rural,81,88.6,2.1,5.9,4.6,84.8,0.4,32.9,35.9,8.4,7.2,3.8
+Bangalore,Bangalore East,Dommasandra,Rural,25.3,70.5,9.4,3.2,1.6,58.1,5.8,41.9,27.3,11.4,10.1,12.7
+Bangalore,Bangalore East,Doddabanahalli,Rural,70,83.3,0.7,4.7,1.3,86.3,0.3,44.3,41,5,4,6.3
+Bangalore,Bangalore East,Bidare Agrahara,Rural,24.7,78.6,1.1,6.2,1.1,84.1,2,31.8,31.6,5.3,2.6,6.4
+Bangalore,Bangalore East,Bandapura,Rural,16,77.5,1.2,4.1,12.3,73.8,0,20.9,25,3.3,4.1,9
+Bangalore,Bangalore East,Konadasapura,Rural,10.9,76.7,1.1,3.6,0.4,83.6,0.8,18.5,18.5,3.3,2.9,6
+Bangalore,Bangalore East,Katamnallur,Rural,37.1,88.3,1.3,8,5.7,82.8,2.7,15.4,27.4,6.8,2.6,3.3
+Bangalore,Bangalore East,Goravigere,Rural,10.8,80.7,3.6,71.8,2.6,94.1,0.7,36.7,32.1,7.9,25.2,0.3
+Bangalore,Bangalore East,Khaji Sonnenahalli,Rural,24.5,80.9,0.7,4.1,10,70.7,0.5,49.1,43,7.5,3.4,5.9
+Bangalore,Bangalore East,Kannamangala,Rural,25.1,68.5,8.3,3.5,2.1,72.5,9.9,46.6,26.2,12.1,9.7,4.8
+Bangalore,Bangalore East,Chikkabanahalli,Rural,19.9,75.1,0.7,6.4,3.7,80.1,8.1,45.1,43.8,8.8,3.7,4.4
+Bangalore,Bangalore East,Seegehalli,Rural,30.8,82.5,12.4,27.8,13.5,67.3,8.5,32.7,45.3,12.8,22.6,3.4
+Bangalore,Bangalore East,Halanayakanahalli,Rural,30,72.7,4.2,10.9,9.9,75.9,3.6,21.1,36.8,8,5.2,3.4
+Bangalore,Bangalore East,Chikkakannalli,Rural,12,80,0,8,0,88,12,24,40,24,8,0
+Bangalore,Bangalore East,Valepura,Rural,35.2,87.7,0.3,0.9,4.4,81.8,1.9,66.7,43.1,6.6,1.3,5.7
+Bangalore,Bangalore East,Kachamaranahalli,Rural,4.3,79.1,0,2.1,0,51.9,0,13.6,39.1,5.5,1.3,15.3
+Bangalore,Bangalore East,Mulluru,Rural,31.2,78,1.7,5.4,3,90,2,32.3,36.5,8,4.3,1.7
+Bangalore,Bangalore East,Hadosiddapura,Rural,20.8,83,7.1,11.3,7.1,73.6,15.6,39.6,43.9,21.2,13.2,1.9
+Bangalore,Bangalore East,Chikkanayakanahalli,Rural,21.6,47.6,1.6,32.6,0.3,84.6,5,25.7,23.2,6,3.8,6
+Bangalore,Bangalore East,Kodathi,Rural,11.8,79.6,2.1,7.6,0.8,85.9,3.1,20.7,40.1,8.9,7.5,3.7
+Bangalore,Bangalore East,Sulikunte,Rural,50.6,91.2,3.2,3.8,6.5,86.5,1.5,58.6,60.5,7.1,4.4,0.8
+Bangalore,Anekal,Sub-Dist - Anekal,Total,25.6,74.9,3.8,8,5.4,74.7,3.6,24.9,28.8,6.1,5.3,6.2
+Bangalore,Anekal,Sub-Dist - Anekal,Rural,24.9,72.1,3.9,7.9,5.2,73,3.6,25.5,29.5,6.4,5.4,7.5
+Bangalore,Anekal,Sub-Dist - Anekal,Urban,27,80.8,3.6,8.2,6,78.5,3.4,23.8,27.3,5.3,5.1,3.5
+Bangalore,Anekal,Kannaikana Agrahara,Rural,16.5,58.4,1.1,3.7,0.4,62.8,2,7.1,13.2,2.2,1.1,24.9
+Bangalore,Anekal,Bilwaradahalli,Rural,52.3,78,4.5,11.1,5,70.4,4.1,14.4,27.3,6.6,5.4,5.2
+Bangalore,Anekal,Bhoothanahalli,Rural,7.2,62.5,0.4,5.1,1.4,63.3,1.2,12.3,25.2,2.9,0.6,20.7
+Bangalore,Anekal,Bannerughatta Kaval,Rural,31.3,84.7,5.1,3.1,3.1,73.8,11.3,30.2,26.6,12.4,7.1,6.2
+Bangalore,Anekal,Byrappanahalli,Rural,25.4,73.4,0,1.1,0,96,0.6,29.9,41.2,2.8,1.1,1.1
+Bangalore,Anekal,Bannerughatta,Rural,33.9,80.2,5.6,6.3,2.8,79.8,6,18.9,29.1,9.5,5.1,4.5
+Bangalore,Anekal,Gollahalli,Rural,76.6,42.6,21.3,10.6,0,25.5,25.5,27.7,19.1,21.3,21.3,0
+Bangalore,Anekal,Kalkere,Rural,12.5,79.5,7.5,15.6,3.4,82.2,1.1,9.5,9.4,4.3,1.7,2.6
+Bangalore,Anekal,Vaderahalli,Rural,52.4,61.9,0,0,71.4,0,0,33.3,14.3,0,0,14.3
+Bangalore,Anekal,Laxmipura,Rural,33.2,65.9,0.8,3.4,1.1,71.5,0.8,30.2,39.7,5.3,2,17.6
+Bangalore,Anekal,Halesampigehalli,Rural,17,67.2,0.4,4.2,0.8,80.3,0.8,12.4,23.2,3.9,2.3,7.3
+Bangalore,Anekal,Mantapa,Rural,31.7,79.1,12.1,12.9,9.4,58.4,8.5,38.3,37.5,15.2,7.2,2.8
+Bangalore,Anekal,Jangal Palya,Rural,89.9,97.7,10.9,0,27.9,24,1.6,85.3,76.7,57.4,7.8,0
+Bangalore,Anekal,Begihalli,Rural,30.5,70.4,4.6,10.3,7.7,69.5,6,24.8,27.9,7.7,7.1,11.1
+Bangalore,Anekal,Nallasandra,Rural,26.9,69.9,0,1.6,1.1,69.9,1.6,35.5,32.3,9.7,0.5,15.6
+Bangalore,Anekal,Hullukasavanahalli,Rural,7.7,48.7,0,2.6,5.1,33.3,2.6,12.8,15.4,2.6,0,43.6
+Bangalore,Anekal,Sakalawara,Rural,64.1,67.5,5.3,2.9,8.7,68,6.8,28.6,28.6,5.3,3.9,12.1
+Bangalore,Anekal,Hullahalli,Rural,32.6,61.3,1.3,5.5,10.3,65.7,1.8,16.3,15.4,1.8,1.3,9.1
+Bangalore,Anekal,Ramasandra,Rural,20.3,76.6,1.6,4.7,3.1,76.6,4.7,48.4,39.1,9.4,0,6.2
+Bangalore,Anekal,Harapanahalli,Rural,43.3,81.5,12.3,6.6,7.5,85.3,2.3,42,56.5,20.3,18.2,4.6
+Bangalore,Anekal,Bukkasagara,Rural,31.4,83.2,10.2,6.1,0.7,70.7,10.2,31.9,46.6,18.2,12.3,7.6
+Bangalore,Anekal,Kalbalu,Rural,20.1,60.7,1.2,2.1,0.2,65.2,2.3,35.5,18.9,2.5,1,11.1
+Bangalore,Anekal,Mahanthalingapura,Rural,22.7,61.1,0.6,2.3,1.1,73,0.8,23.2,32.3,6.2,0.2,15
+Bangalore,Anekal,Ragihalli,Rural,19.1,53.2,0,0.7,1.9,43.2,3.3,13.8,18.1,5,0,27.7
+Bangalore,Anekal,Shivanahalli,Rural,17.5,40.3,0.3,1.5,1.2,28.6,4,8.9,12.9,0.6,0.3,42.8
+Bangalore,Anekal,Kadajakkanahalli,Rural,21.3,82.8,0.8,6.6,3.3,78.7,6.6,48.4,51.6,3.3,4.1,1.6
+Bangalore,Anekal,Giddenahalli,Rural,17.8,73.3,1,0,1,76.2,1,35.6,42.6,8.9,0,13.9
+Bangalore,Anekal,J.Bingipura,Rural,100,100,0,8.3,0,83.3,0,0,66.7,0,0,0
+Bangalore,Anekal,Vaderamanchanahalli,Rural,20.9,53.2,0.8,7.5,2.3,68.2,2.2,16.3,12.8,2.2,1.2,12.2
+Bangalore,Anekal,Koppa,Rural,60.2,85.4,0.9,4,1.5,72.9,0.9,32.2,57.4,7.3,4,8.5
+Bangalore,Anekal,Koppa Gate,Rural,29.2,59.7,2.1,1.6,4.2,83.6,0.8,20.2,19.1,6.4,2.1,6.1
+Bangalore,Anekal,S.Bingipura,Rural,35.6,58.6,1.4,17.9,12,54.8,0.5,29.4,29.4,3.1,3.8,11.2
+Bangalore,Anekal,Hulimangala,Rural,34.7,71.6,2.8,14.9,1,70.7,4,29.1,37.7,5.3,6.4,8.8
+Bangalore,Anekal,Thirupalya,Rural,21.7,65.2,1.2,4.2,2,85.2,1.1,10.9,10.3,1.6,0.9,6.5
+Bangalore,Anekal,Yarandahalli,Rural,16.8,80.6,3.3,6.7,3.3,89.9,2,14.3,27.4,3.5,4,1.7
+Bangalore,Anekal,Vabasandra,Rural,29.3,56.8,1.3,5.2,3.1,64.2,2.6,32.3,24,1.7,0.4,15.3
+Bangalore,Anekal,Nanjapura,Rural,59,74.3,1,1,1.9,72.4,2.9,56.2,49.5,11.4,0,14.3
+Bangalore,Anekal,Kyalasanahalli,Rural,17.9,59.5,0.7,7.7,1.7,62,1.7,21.4,26.1,5,1.7,14.9
+Bangalore,Anekal,Bande Nalla Sandra,Rural,76.1,64.7,4.4,6.4,1.2,85.3,1.4,8,21.5,6.2,1.2,4.8
+Bangalore,Anekal,Haragadde,Rural,24.3,57.6,1.1,3.3,3.3,76.2,4,16.5,17.7,4.4,1.4,8.5
+Bangalore,Anekal,Mada Patna,Rural,54.7,68.4,1.9,2.7,3.6,76.3,2,17.5,19.9,5,2,9.5
+Bangalore,Anekal,Konasandra,Rural,17.3,75.3,1.3,2.7,2.7,83.3,0.7,36.7,45.3,10,1.3,4
+Bangalore,Anekal,Bommandahalli,Rural,19.5,77.6,2.3,2.9,0,77,0.6,46.6,39.7,2.9,3.4,11.5
+Bangalore,Anekal,Nosenur Gollahalli,Rural,100,100,0,0,0.9,98.2,0,25,43.8,4.5,0,0
+Bangalore,Anekal,Nosenur,Rural,44.2,85.7,1.6,3.1,2.3,71.7,4.7,36.8,46.1,11.2,3.5,5.8
+Bangalore,Anekal,Dyavasandra,Rural,99.2,92.3,3.8,0,6.9,14.6,0,39.2,31.5,7.7,3.1,0.8
+Bangalore,Anekal,Seethanaikana Halli,Rural,19.3,84.3,0,1.2,3.6,77.1,4.8,39.8,48.2,9.6,0,6
+Bangalore,Anekal,Rajapura,Rural,18.3,75.9,0,2.6,2.1,88,2.6,38.7,36.6,4.2,0.5,1.6
+Bangalore,Anekal,Masthena Halli,Rural,28.8,74.2,1.6,4.7,1.4,83,2.5,25.8,41.2,4.1,3,4.1
+Bangalore,Anekal,Hinnakki,Rural,36.2,82.6,2.4,2.1,2.1,88.9,0.3,29.6,57.5,11.1,2.8,3.5
+Bangalore,Anekal,Hennagara,Rural,22.1,83.3,3.1,6.7,1.1,87.7,1.6,29.5,25.2,6.2,3.8,2.3
+Bangalore,Anekal,Hosahalli,Rural,20.4,74,0,2.2,0,75.1,2.2,39.2,39.2,6.1,2.2,8.8
+Bangalore,Anekal,Kachanaikanahalli,Rural,22.8,54.5,6.4,44.4,36.3,52.9,5,20.6,16.3,4.8,6.6,2.6
+Bangalore,Anekal,Ramakrishnapura,Rural,33.3,90.9,3,0,0,75.8,12.1,42.4,54.5,6.1,3,3
+Bangalore,Anekal,Choodasandra,Rural,47.6,91.1,1.7,7.9,27.2,70.5,0.6,37.6,63.2,12.9,6.9,0.4
+Bangalore,Anekal,Rayasandra,Rural,24.4,79.2,5.9,9.9,7.2,56,3.2,23,38.4,12,6.5,6.1
+Bangalore,Anekal,Sriramapura,Rural,25.4,75.9,9.9,3,11.6,59.1,1.7,14.2,45.7,9.1,9.1,9.9
+Bangalore,Anekal,Gattahalli,Rural,22.6,62.6,1.1,6.3,4.7,65.8,1.6,32.1,38.4,7.4,3.7,12.6
+Bangalore,Anekal,Janatha Colony,Rural,17.2,80.5,0,4.1,1.8,82.8,1.2,37.9,49.1,12.4,1.2,4.1
+Bangalore,Anekal,Chikkanagamangala,Rural,7.1,67.6,0.5,1.6,0.5,68.1,2.2,27.5,34.6,5.5,1.1,8.8
+Bangalore,Anekal,Bhovi Palya (Shanthi Pur),Rural,16.2,66.5,5.8,3.9,0.3,87.4,0.7,18.4,21.5,4.1,3.9,5.6
+Bangalore,Anekal,Gulimangala,Rural,25,82.4,13.6,5.7,6.2,60.8,17,39.8,34.7,23.9,10.8,4.5
+Bangalore,Anekal,Huskur,Rural,32,83.8,2.6,6.2,1.9,76.2,5.6,33.8,31.6,6.7,4.1,3.6
+Bangalore,Anekal,Avalahalli,Rural,90.6,90.6,0,0,1.9,84,8.5,73.6,44.3,7.5,0,2.8
+Bangalore,Anekal,Chokkasandra,Rural,99,99,60.4,0,96.9,0,0,100,100,96.9,60.4,0
+Bangalore,Anekal,Harohalli,Rural,20.4,82.5,1,3.9,1,86.4,1,56.3,68.9,8.7,1.9,1
+Bangalore,Anekal,Kaggalipura,Rural,13.8,76.7,0,6.9,5.2,78.4,6.9,45.7,51.7,5.2,5.2,3.4
+Bangalore,Anekal,Chintalmadivala,Rural,94.9,98.6,2.8,37.9,10.7,88.3,0.9,56.1,60.7,3.7,25.7,0
+Bangalore,Anekal,Gottamaranahalli,Rural,87.5,87.5,0,0,0,100,0,50,75,0,0,0
+Bangalore,Anekal,Singena Agrahara,Rural,83.3,95.2,2.7,2.7,24.1,72.4,1.4,53.7,23.1,3.7,4.4,1
+Bangalore,Anekal,Narayanaghatta,Rural,30.6,82.1,3.2,4.8,2.8,61.5,21.4,40.9,44.8,9.1,6.7,4.8
+Bangalore,Anekal,Muthanallur,Rural,16.6,82,7.7,8.2,15.3,27.1,11.8,44,40.5,14.1,11.8,9.3
+Bangalore,Anekal,Ali Bommasandra,Rural,99.4,86.7,4.6,4.6,1.7,80.3,8.7,20.2,48,9.8,8.1,0
+Bangalore,Anekal,Muthanallur Amanikere,Rural,64,98.9,0,3.4,3.4,61.8,22.5,37.1,57.3,9,3.4,1.1
+Bangalore,Anekal,Samanahalli,Rural,13.9,76.4,4.9,0,0.7,59,0,38.2,47.2,4.9,2.8,13.2
+Bangalore,Anekal,Chikkathimmasandra,Rural,11.6,58.9,3.2,3.2,4.2,46.3,1.1,30.5,37.9,5.3,5.3,30.5
+Bangalore,Anekal,Gopasandra,Rural,9.8,64.6,8.5,3.7,14,9.8,1.8,40.9,42.7,14,6.7,22
+Bangalore,Anekal,Kommasandra,Rural,18.2,74.5,1,2.1,1.6,75,18.8,38,35.9,5.7,0.5,1.6
+Bangalore,Anekal,Thigala Chowdadenahalli,Rural,16,85.2,4.6,6.2,1.5,78.8,3.6,35.9,36.6,6.8,6.3,2.8
+Bangalore,Anekal,Chikkavaderapura,Rural,56.2,18.8,0,6.2,0,75,0,0,0,0,0,25
+Bangalore,Anekal,Heggondahalli,Rural,60.9,71.5,2,2.6,0.7,83.4,3.3,43.7,41.1,7.3,1.3,4
+Bangalore,Anekal,Halasahalli Thippasandra,Rural,67.6,64,0.9,4.5,1.4,51.8,8.6,50.9,41.9,7.7,4.1,19.8
+Bangalore,Anekal,Chikkanekkundi,Rural,21.2,77.9,0,3.2,1.8,75.6,4.6,37.8,30,3.7,1.8,6.5
+Bangalore,Anekal,Nekkundi Dommasandra,Rural,23.5,80.4,0.9,2.4,8.9,52.3,5.8,65.4,48.6,7,2.4,4.9
+Bangalore,Anekal,Kathriguppe,Rural,19,57,10.6,7.8,14.5,46.9,8.9,45.8,34.6,7.8,5,11.2
+Bangalore,Anekal,Ramnaikanahalli,Rural,18.1,83.1,1.2,12,10.8,74.7,0,61.4,42.2,10.8,8.4,2.4
+Bangalore,Anekal,Chambenahalli,Rural,17.1,82.9,0.4,3.8,3,74.9,3,30.8,39.2,8,2.3,3.4
+Bangalore,Anekal,Yamare,Rural,31.9,82.4,13.9,5.8,6.5,61.9,9.5,31.9,36.5,21.2,17.8,9.2
+Bangalore,Anekal,Sompura,Rural,14.7,83.3,8,12,34.7,60.2,2.4,25.9,37.8,15.9,10.8,2.8
+Bangalore,Anekal,Kadagrahara,Rural,6.6,70.9,0.9,14.1,16,82.6,1.4,21.1,24.9,18.8,8.9,0
+Bangalore,Anekal,B.Hosahalli,Rural,13.2,77.6,0,4.7,0.7,80.3,2.7,41.4,57.3,9.8,3.1,5.8
+Bangalore,Anekal,Bikkanahalli,Rural,22.6,66.5,0,5.2,15.6,48.6,12.3,48.6,39.6,4.2,3.8,7.5
+Bangalore,Anekal,Sollepura,Rural,24.5,74.8,1.9,3.1,4.4,73,3.8,57.9,62.3,3.1,1.3,8.8
+Bangalore,Anekal,Handenahalli,Rural,17.4,81.6,2.4,5.5,1.1,80,7.1,43.2,58.2,11.3,7.1,6.8
+Bangalore,Anekal,Kotiganahalli,Rural,36.5,68.3,1.6,1.6,1.6,61.9,6.3,54,38.1,3.2,1.6,20.6
+Bangalore,Anekal,S.Medihalli,Rural,9.7,69.9,1.6,5.4,4.8,60.8,2.7,35.5,33.3,9.1,1.6,11.8
+Bangalore,Anekal,Tyayakana Halli,Rural,19.3,70.2,4.8,16.2,25.4,46.5,1.8,21.1,31.1,9.2,6.1,7.5
+Bangalore,Anekal,Adigarakallahalli,Rural,37.3,77.5,0.6,3.2,6.6,68.1,1,49.4,40,7,2.4,5.4
+Bangalore,Anekal,Billapura,Rural,15.4,69.8,2.4,25.4,20.4,71.4,0.5,19.9,21.8,5.1,6.3,4
+Bangalore,Anekal,Buragunte,Rural,16.6,71.7,2.7,3.2,0.5,81.8,1.6,27.3,36.4,7,4.8,10.2
+Bangalore,Anekal,Ittangur,Rural,33.1,75,1.4,2,0,77.7,2.7,46.6,42.6,3.4,1.4,6.1
+Bangalore,Anekal,Volagerekallahalli,Rural,46.2,74,0.7,4.2,1,70.8,2.1,34.7,41.7,4.9,3.8,14.2
+Bangalore,Anekal,Chikkadasarahalli,Rural,19.3,75.6,0.8,0,2.5,84,0.8,28.6,58.8,11.8,0.8,5
+Bangalore,Anekal,Gonighattapura,Rural,55.4,75.8,1.9,2.5,3.8,77.7,12.1,63.7,49,11.5,3.8,0.6
+Bangalore,Anekal,Neriga,Rural,19.4,76.7,6.2,3.5,9.4,40.6,13.5,43.4,44.4,13.2,5.6,8.7
+Bangalore,Anekal,Janthagondanahalli,Rural,12.7,75.3,0,0,4.7,46.7,8.7,50.7,45.3,7.3,0,8
+Bangalore,Anekal,Nagen Agrahara,Rural,0,66.7,0,0,0,66.7,0,33.3,83.3,0,0,0
+Bangalore,Anekal,Seeganaikanahalli,Rural,14.3,85.7,0,100,0,42.9,21.4,57.1,42.9,7.1,35.7,0
+Bangalore,Anekal,Madappanahalli,Rural,13,77.9,2.6,18.2,1.3,66.2,18.2,54.5,50.6,6.5,7.8,5.2
+Bangalore,Anekal,Deshapande Guttahalli,Rural,15.4,30.8,0,100,0,84.6,15.4,38.5,23.1,0,23.1,0
+Bangalore,Anekal,Banahalli,Rural,38.2,76.5,0,1,16.7,54.9,0,57.8,46.1,5.9,1,10.8
+Bangalore,Anekal,Mugalur,Rural,17,89.3,1.3,4.4,4.7,80.4,4.7,47.3,47.9,8.5,3.2,2.5
+Bangalore,Anekal,Kugur,Rural,20.5,78.9,1.1,62.6,14.2,69.5,3.2,52.6,47.9,6.8,27.9,3.2
+Bangalore,Anekal,Kamanahalli,Rural,17.5,69.2,5.6,1.4,0.7,70.6,16.1,29.4,50.3,9.1,2.1,6.3
+Bangalore,Anekal,Kuthaganahalli,Rural,11.1,81.7,1.3,0.9,2.6,71.9,8.9,43,40.4,5.5,2.1,7.2
+Bangalore,Anekal,Doddathimmasandra,Rural,12.7,80.9,0,15.3,3.8,89.2,0,56.1,36.9,5.1,7,2.5
+Bangalore,Anekal,Thindlu,Rural,45.7,88.3,3.6,3.6,7.3,77.7,3.2,55.1,42.5,10.1,6.1,4
+Bangalore,Anekal,Mahal Chowdadenahalli,Rural,32.5,82.5,0.8,10,1.7,80,1.7,47.5,50.8,11.7,5.8,2.5
+Bangalore,Anekal,Gudighattanahalli,Rural,33.3,41.7,0,0,0,66.7,0,8.3,8.3,8.3,0,33.3
+Bangalore,Anekal,Panditana Agrahara,Rural,6,70.7,0.5,1.1,5.4,71.2,1.1,37,32.1,3.8,0.5,8.7
+Bangalore,Anekal,Mattanahalli,Rural,21.6,83.6,1.5,4.5,1.5,76.9,3,41,56.7,5.2,3.7,3.7
+Bangalore,Anekal,Gollahalli,Rural,17.7,76.1,1,2.1,1.2,93.4,0.7,16.7,15.1,2.4,1.1,2.2
+Bangalore,Anekal,Veerasandra,Rural,19.5,61.8,3.3,3.8,3.8,81.8,1.1,9,13.2,3.4,2.9,6.4
+Bangalore,Anekal,Kammasandra,Rural,20.7,81.4,17.9,11.7,4.3,79.1,9.7,14.5,36.8,15.8,20.9,2.5
+Bangalore,Anekal,Vaddara Palya,Rural,14,74.4,7,5.4,2.3,77.9,5.1,14.3,18.7,9,8.1,7.3
+Bangalore,Anekal,Andapura,Rural,8.7,92.9,60.8,26.6,19.1,55.7,25,13.8,59.6,38.3,64.3,0
+Bangalore,Anekal,Ramasagara,Rural,22,69.4,8.8,28.9,20.5,48.9,10.1,28.3,39.4,9.6,18,13.4
+Bangalore,Anekal,Heelalige,Rural,15.2,61.2,4.7,9.3,1.8,79.9,3.9,28.4,23.6,3.2,2.5,8.4
+Bangalore,Anekal,Chandapura,Rural,21,80.1,1.9,9.7,0.3,82.5,3,17.4,27.1,5.6,6.3,5.4
+Bangalore,Anekal,Chandrapura  -Chatrakane,Rural,28.4,77.8,8.3,22.5,4.6,84.2,5.7,19.5,39.2,11.8,14.8,2.6
+Bangalore,Anekal,Kittaganahalli,Rural,15.7,78.2,3.7,10.4,1.8,83.7,2.6,11.9,22.5,4.7,6.3,4.5
+Bangalore,Anekal,Banahalli,Rural,34.1,73.6,9.1,22.2,3.9,85.6,3.8,17.8,30.9,8.4,10.9,2.2
+Bangalore,Anekal,Iggalur,Rural,14.6,67.1,9.5,8.5,13.5,63.6,2.6,22.9,30.2,12.6,11.6,13.2
+Bangalore,Anekal,Thirumagondanahalli,Rural,11.7,81.3,0.7,3.1,9.3,76.9,3.1,12.6,20.6,2.3,0.7,3.8
+Bangalore,Anekal,Balagaranahalli,Rural,32.2,66.6,1.1,1.7,1.4,89.9,0.6,7.5,11.2,2.4,1.5,5.7
+Bangalore,Anekal,Neralur,Rural,21.8,73.6,1,3.6,2.7,84.7,1.6,10.9,22,4.3,1,6.8
+Bangalore,Anekal,Laxmi Sagara,Rural,6.9,64.5,1.2,4.4,0.8,48.8,3.2,16.5,27.8,6.9,4.4,26.2
+Bangalore,Anekal,Bendiganahalli,Rural,0.6,74,1.1,0,1.7,92.3,1.1,22.7,29.8,3.9,1.1,2.2
+Bangalore,Anekal,Adigondanahalli,Rural,9,74.5,2.5,4,1.2,73.5,3.1,38.3,53.6,10.6,3.1,10.6
+Bangalore,Anekal,Guddahatti,Rural,2.9,59.8,0.7,1.2,0.7,67.1,1,11.6,23.2,3.6,1.2,17.4
+Bangalore,Anekal,Yadavanahalli,Rural,19.6,71.6,0.8,3.7,4.9,80.6,2.7,12.2,12.7,1.7,1,3.1
+Bangalore,Anekal,Krishnasagara,Rural,6.5,58.8,0.6,4.1,1.2,85.9,4.7,0.6,2.4,0.6,1.2,4.1
+Bangalore,Anekal,Itchangur,Rural,9.4,64.9,0,1.1,6,81.1,1.1,7.1,30.6,2.9,1.1,8
+Bangalore,Anekal,Muthasandra,Rural,20.9,67.4,0.8,3.1,3.1,68.2,3.9,30.2,30.2,5.4,2.3,15.5
+Bangalore,Anekal,Kamblipura,Rural,4.5,82.8,0,3,2.2,70.9,2.2,33.6,42.5,6,2.2,11.9
+Bangalore,Anekal,Mayasandra,Rural,24.5,70.9,0.7,17.2,5,67.9,3.2,45.1,32.2,1.8,5.7,8.3
+Bangalore,Anekal,M.Medihalli,Rural,15.6,78.9,0,0,3.9,72.7,0.8,42.2,44.5,3.9,0,7.8
+Bangalore,Anekal,Halehalli,Rural,16.3,76.5,0,2.6,1.5,69.9,0,42.3,43.9,2.6,2,9.2
+Bangalore,Anekal,Kodlipura,Rural,20.5,50.5,0.5,5.8,1.6,71.6,0,49.5,32.6,1.1,1.6,12.6
+Bangalore,Anekal,Dasanapura,Rural,10.7,68.1,0,0.3,10.5,57.6,0.8,25.1,29.9,1.7,0,12.7
+Bangalore,Anekal,Bhaktipura,Rural,30.5,70.7,0,3.7,1.2,75.6,7.3,56.1,46.3,2.4,1.2,4.9
+Bangalore,Anekal,Arehalli,Rural,21.5,76.1,0,2.9,1,80.9,1,35.4,35.4,4.8,1,4.8
+Bangalore,Anekal,Manchanahalli,Rural,27.8,87.2,2.2,12.5,4.1,89.7,1.9,57.8,37.5,5,8.8,0.6
+Bangalore,Anekal,Jigala,Rural,26.3,79.3,3.4,3.1,0.8,73.5,5.6,42.5,50,7,5.3,10.3
+Bangalore,Anekal,Arenur,Rural,12.3,87,0.6,1.2,6.8,71.6,1.9,53.1,46.3,3.7,0.6,6.2
+Bangalore,Anekal,Bidaraguppe,Rural,21.7,83.7,1.5,2,2.6,81.2,2.1,52,43.1,9.3,1.5,3.7
+Bangalore,Anekal,Chikkanahalli,Rural,23.7,73.7,0,6.6,2.6,77.6,5.3,52.6,44.7,6.6,3.9,5.3
+Bangalore,Anekal,Indlabele,Rural,35.8,89.4,11.6,40,8.4,80.6,3,46,52.3,10.2,31.3,2.3
+Bangalore,Anekal,Ballur,Rural,27.8,53.8,1,0.5,2.1,67.7,0.3,18.4,15.4,2.8,0.8,14.2
+Bangalore,Anekal,Maranaikanahalli,Rural,5,80.7,1.2,3.1,0.6,65.2,8.1,47.8,55.9,3.7,2.5,9.3
+Bangalore,Anekal,Lingapura,Rural,7.9,60.4,0,1.2,15.9,68.9,1.2,28,31.1,6.1,0,6.7
+Bangalore,Anekal,Soppahalli,Rural,24.6,80.5,0,0,0,84.7,0,1.7,61,3.4,0,10.2
+Bangalore,Anekal,Kumbaranahalli,Rural,21.3,71.8,0.6,2.3,1.1,58,1.1,24.1,41.4,12.1,2.3,17.8
+Bangalore,Anekal,Suragajakkanahalli ,Rural,24.1,75.6,1.6,4.8,1.3,82.6,3.5,21.2,34.4,4.8,2.6,2.9
+Bangalore,Anekal,Sonnanayakanapura,Rural,29,70,1.4,7.8,3.1,70,7.8,33.1,28.7,2.4,1.4,6.1
+Bangalore,Anekal,Adur,Rural,25.5,67.5,1.3,7.6,0.6,75.2,3.8,40.8,35.7,6.4,4.5,10.2
+Bangalore,Anekal,Thimmasandra,Rural,2.5,42.5,0,7.5,0,15,0,2.5,7.5,0,0,47.5
+Bangalore,Anekal,Chikkanahalli,Rural,0,49.3,0,0,1.4,0,0,1.4,14.5,0,0,44.9
+Bangalore,Anekal,Indlawadi,Rural,16.7,75.8,1.3,4.9,5.6,55.6,14.2,38.4,36.2,4,2.4,9.1
+Bangalore,Anekal,Bagganadoddi,Rural,18.8,43.6,0,12.9,3,29.7,4,12.9,15.8,0,0,28.7
+Bangalore,Anekal,Indlawadipura,Rural,16.7,63.9,0,1.9,1.9,36.1,0,38,22.2,1.9,0,19.4
+Bangalore,Anekal,Thammanaikanahalli,Rural,22.6,63.7,0.4,3.5,3.1,58.9,1.3,31.1,24.1,2.2,0.2,13.1
+Bangalore,Anekal,Chikka Hosahalli,Rural,21.5,71.9,0,1.5,1.1,77,0.4,40.1,32.5,5.5,1.1,8.8
+Bangalore,Anekal,Agasa Thimmanahalli,Rural,0,60,0,0,0,60,0,80,20,0,0,0
+Bangalore,Anekal,A Medihalli,Rural,8.7,75,0,4.8,2.9,77.9,0,49,41.3,1,0,1
+Bangalore,Anekal,Gowrenahalli,Rural,11.4,71.9,0.9,3.7,0.7,18.2,1.1,37.4,31,2,0.9,12.1
+Bangalore,Anekal,Honnakalasapura,Rural,11.5,56.7,2.9,1,1,57.7,0,26.9,23.1,2.9,2.9,27.9
+Bangalore,Anekal,Sidihosakote,Rural,53,88.3,0,1.7,1.7,80.4,3,67.4,48.7,4.3,1.7,4.3
+Bangalore,Anekal,Kempavaderahalli,Rural,64.1,74.4,0,0,1.3,75.6,0,10.3,57.7,7.7,0,6.4
+Bangalore,Anekal,Dodda Hagade,Rural,5,62.2,0,1.5,0.4,62.6,3.1,28.6,32.8,5.3,1.1,17.9
+Bangalore,Anekal,Kunmadivala,Rural,6.1,83.8,0,0,0,91.9,1,22.2,44.4,10.1,0,5.1
+Bangalore,Anekal,Byagadadenahalli,Rural,11.8,62.6,2.1,7,10.7,82.9,2.1,21.4,28.3,4.3,3.7,3.7
+Bangalore,Anekal,Marasur,Rural,40.8,75.7,2.5,4.3,6.2,71.3,10.2,18.8,28.6,7.7,4.4,5.3
+Bangalore,Anekal,Naganaikanahalli,Rural,6.8,69.3,1,1.6,2.9,53.4,1.3,23,33.3,6.5,1.9,18.4
+Bangalore,Anekal,Madivala,Rural,25.1,70,0,3.9,2.4,44.7,3.3,32.9,34,3.5,2.1,18.3
+Bangalore,Anekal,Bandapura,Rural,51.9,78.5,2.6,33.9,19.3,70.8,5.6,35.6,41.6,13.7,12.9,0.4
+Bangalore,Anekal,Marasur Agrahara,Rural,0,100,3.8,96.2,0,100,0,65.4,65.4,0,65.4,0
+Bangalore,Anekal,Thattanahalli,Rural,17.7,65,4.1,64.2,4.5,72.4,7,38.3,37,3.3,26.7,6.6
+Bangalore,Anekal,Avadadenahalli,Rural,12.3,60.7,0,4.9,1.2,63.8,6.1,19,23.9,4.9,2.5,14.7
+Bangalore,Anekal,Kammasandra Agrahara,Rural,5,63.3,0,1.4,2.9,55.4,5,21.6,26.6,2.2,0.7,28.8
+Bangalore,Anekal,Amani Doddakere,Rural,26.5,60.8,0,2,7.8,63.7,2.9,59.8,55.9,13.7,1,4.9
+Bangalore,Anekal,Hasaruvani,Rural,0,50,0,0,0,75,0,100,100,0,0,0
+Bangalore,Anekal,Anekal (Rural),Rural,5.9,51.7,2.2,9.8,9.6,60,4.1,28.4,20.5,3.1,5.2,14.2
+Bangalore,Anekal,Chudenahalli,Rural,13.1,62.6,0,0,0,64.5,1.9,29,21.5,0.9,0,17.8
+Bangalore,Anekal,Sunavara,Rural,13.6,62.8,0,0.8,3.2,44.8,0,35.2,20,4.4,0,18
+Bangalore,Anekal,Patnagere Gollahalli,Rural,6,74,0,0,2,70,0,20,10,2,0,12
+Bangalore,Anekal,Bidarakadahalli,Rural,0,0,0,0,0,100,0,0,0,0,0,0
+Bangalore,Anekal,Kalanaikanahalli,Rural,15.7,49.4,0,1.1,0,52.8,2.2,27,16.9,4.5,0,23.6
+Bangalore,Anekal,Solur,Rural,9.8,69.6,0,0,2,41.2,2,23.5,30.4,1,0,22.5
+Bangalore,Anekal,Menasiganahalli,Rural,17.2,72.8,0,1.1,1.1,55,2.2,35.6,41.7,3.3,1.1,12.2
+Bangalore,Anekal,Vanakanahalli,Rural,10.8,70.8,0.9,1.8,2.5,57.5,5.2,24.9,32,4.3,0.9,12.9
+Bangalore,Anekal,Singasandra,Rural,5.7,73.3,1.9,1,1.9,58.1,0,36.2,35.2,1,1.9,17.1
+Bangalore,Anekal,Telagarahalli,Rural,18.1,71.8,1.3,0,2,71.8,2,50.3,47,2,0,12.8
+Bangalore,Anekal,Hompalaghatta,Rural,8.4,70.2,0,1.5,0,67.9,2.3,42,37.4,3.8,1.5,17.6
+Bangalore,Anekal,Gudnahalli,Rural,12.6,73,2.3,7.5,5.7,83.3,6.3,33.9,41.4,2.9,2.3,2.3
+Bangalore,Anekal,Geratiganabele,Rural,14.1,69.1,1.4,3.6,4.5,48.2,4.5,30.9,19.1,0.9,2.3,12.7
+Bangalore,Anekal,Submangala,Rural,22.4,74.1,0,6.3,1,58,1.5,37.6,40,2.9,1.5,9.8
+Bangalore,Anekal,Muthagatti,Rural,19.8,72.6,0.3,1.3,0.8,61.4,1.6,42.3,25.2,0.6,0.8,11
+Bangalore,Anekal,Kurubarahatti,Rural,0,75,0,0,0,75,0,37.5,0,0,0,25
+Bangalore,Anekal,Haldenahalli,Rural,20.2,83.6,0.6,4.3,10.4,66.6,2.3,36,32.9,4,0.9,3.7
+Bangalore,Anekal,Kaval Hosahalli,Rural,33.8,75.9,7,20.1,30.8,58.1,2.8,47.1,27.6,5.8,8.8,3.3
+Bangalore,Anekal,Chikka Hagade,Rural,19.3,79.3,3.3,0,0,86,4,42.7,46.7,7.3,3.3,4
+Bangalore,Anekal,Aravantigepura,Rural,14.5,74.5,0,14.5,3.6,72.7,0,29.1,36.4,0,1.8,3.6
+Bangalore,Anekal,Bestammanahalli,Rural,5.5,69.2,0,0.5,0.5,62.2,1.5,24.4,38.3,3,0.5,23.9
+Bangalore,Anekal,Karpur,Rural,96.5,99.4,0,1.6,0.6,99.4,0,74.1,63.9,0,0.3,0
+Bangalore,Anekal,Bidaragere,Rural,7.9,68,0.5,5.4,3.4,37.9,2.5,35,35,0,2,14.8
+Bangalore,Anekal,Rachamanahalli,Rural,33.7,56.5,6.5,4.3,4.3,44,1.1,44,28.8,3.8,5.4,24.5
+Bangalore,Anekal,Channena Agrahara,Rural,16.1,43.7,2.3,1.1,1.1,48.3,0,29.9,19.5,2.3,2.3,35.6
+Bangalore,Anekal,Samandur,Rural,29,70,8.4,6.9,13,40.8,4.6,40.6,33.6,2.7,2.3,6.7
+Bangalore,Anekal,Dommasandra (CT),Urban,24.5,79.1,1.8,6.4,2.5,72.5,4.3,34.4,25.1,4.8,4.2,5.4
+Bangalore,Anekal,Dommasandra (CT) - Ward No.1,Urban,24.5,79.1,1.8,6.4,2.5,72.5,4.3,34.4,25.1,4.8,4.2,5.4
+Bangalore,Anekal,Hebbagodi (CT),Urban,21.1,77.4,2.4,7.6,5.8,84.2,2.7,11.1,17.5,3,3.2,1.9
+Bangalore,Anekal,Hebbagodi (CT) - Ward No.1,Urban,21.1,77.4,2.4,7.6,5.8,84.2,2.7,11.1,17.5,3,3.2,1.9
+Bangalore,Anekal,Maragondahalli (CT),Urban,45,69.3,1.5,4.3,8.4,72.7,2.9,13.6,17,2.7,2.1,7.1
+Bangalore,Anekal,Maragondahalli (CT) - Ward No.1,Urban,45,69.3,1.5,4.3,8.4,72.7,2.9,13.6,17,2.7,2.1,7.1
+Bangalore,Anekal,Bommasandra (CT),Urban,19.4,83.1,8.4,6.6,7.1,77.4,5.7,17.7,26.9,7.4,8.8,2.8
+Bangalore,Anekal,Bommasandra (CT) - Ward No.1,Urban,19.4,83.1,8.4,6.6,7.1,77.4,5.7,17.7,26.9,7.4,8.8,2.8
+Bangalore,Anekal,Sarjapura (CT),Urban,34,85.8,5.5,16.2,4.2,77,4.4,27.9,32.8,8.8,7.2,3
+Bangalore,Anekal,Sarjapura (CT) - Ward No.1,Urban,34,85.8,5.5,16.2,4.2,77,4.4,27.9,32.8,8.8,7.2,3
+Bangalore,Anekal,Attibele (CT),Urban,17.8,86.2,4.3,8.5,3.5,81,2.9,20.7,33.6,6.8,6.1,3
+Bangalore,Anekal,Attibele (CT) - Ward No.1,Urban,17.8,86.2,4.3,8.5,3.5,81,2.9,20.7,33.6,6.8,6.1,3
+Bangalore,Anekal,Jigani (CT),Urban,40.8,77.4,3,6.9,9,81.5,2.2,24,28.5,6.3,4.4,2.9
+Bangalore,Anekal,Jigani (CT) - Ward No.1,Urban,40.8,77.4,3,6.9,9,81.5,2.2,24,28.5,6.3,4.4,2.9
+Bangalore,Anekal,Anekal (TMC),Urban,29.1,83.2,3.2,9,6.5,74.7,3.5,37.2,34,5.2,5.5,4.6
+Bangalore,Anekal,Anekal (TMC) - Ward No.1,Urban,33.9,77.6,4.7,17.2,19.8,70.8,0.5,28.1,23.4,4.2,5.7,1.6
+Bangalore,Anekal,Anekal (TMC) - Ward No.2,Urban,81.5,92.6,3.2,2,5.4,89.6,0.2,76.8,54.6,2.7,4,0.7
+Bangalore,Anekal,Anekal (TMC) - Ward No.3,Urban,22.5,83.8,3.3,6,1.5,78.1,7.2,52.4,47.3,6.3,7.8,5.4
+Bangalore,Anekal,Anekal (TMC) - Ward No.4,Urban,52.7,91.5,6.4,7.3,4.9,81,5.8,29.6,39.9,6.7,8.5,1.5
+Bangalore,Anekal,Anekal (TMC) - Ward No.5,Urban,34.8,88.9,2.6,13.4,5.1,83,3.6,37.4,36,3.6,8.7,1.2
+Bangalore,Anekal,Anekal (TMC) - Ward No.6,Urban,2.6,91.4,1.2,8,0.6,97.2,0.4,42.4,40.6,7.6,5.4,0.2
+Bangalore,Anekal,Anekal (TMC) - Ward No.7,Urban,6.1,89.2,7.4,5.3,1.5,93.9,3.2,34.1,55.1,8.7,8.3,0.2
+Bangalore,Anekal,Anekal (TMC) - Ward No.8,Urban,29.5,82.1,2.1,6.7,5.6,70.5,2.4,39.9,21.8,2.1,1.9,4.7
+Bangalore,Anekal,Anekal (TMC) - Ward No.9,Urban,37.2,82.8,3.6,6.1,12.6,69.8,7,35,48.4,6.2,6.3,7.3
+Bangalore,Anekal,Anekal (TMC) - Ward No.10,Urban,71.6,89.1,7.3,26.5,22.7,62.9,10.2,44.4,43.8,9.9,18.2,0.6
+Bangalore,Anekal,Anekal (TMC) - Ward No.11,Urban,26.4,79.7,6.9,13.4,5.7,78,12.6,30.1,24.8,3.3,4.9,2.4
+Bangalore,Anekal,Anekal (TMC) - Ward No.12,Urban,17.1,76.6,2.8,5.3,5.7,72.9,0.9,23.2,16.8,3.7,2.2,8.1
+Bangalore,Anekal,Anekal (TMC) - Ward No.13,Urban,29.1,90.1,3.4,11.2,11,85.8,2.1,37.2,47,8.9,10.1,0
+Bangalore,Anekal,Anekal (TMC) - Ward No.14,Urban,11,80.4,2,6,6.6,79.4,2,26.6,28.9,4.7,5,4
+Bangalore,Anekal,Anekal (TMC) - Ward No.15,Urban,25.9,85.9,2.6,6.7,1.3,66.8,9.6,37.1,31,5.4,4.8,6.1
+Bangalore,Anekal,Anekal (TMC) - Ward No.16,Urban,30.6,84.7,2.7,15.9,3.3,74.8,2,45.8,41.2,14,4,7
+Bangalore,Anekal,Anekal (TMC) - Ward No.17,Urban,25.6,84.4,3.5,3.8,15.6,31.5,1.3,23.7,19.4,3.8,4.3,9.7
+Bangalore,Anekal,Anekal (TMC) - Ward No.18,Urban,25.3,74.9,0.5,4.3,1.3,73.7,1.8,43.9,24.6,2,2.3,6.8
+Bangalore,Anekal,Anekal (TMC) - Ward No.19,Urban,21.5,67.7,6.5,45.5,23.7,60.9,1.8,33,17.6,3.6,7.5,2.9
+Bangalore,Anekal,Anekal (TMC) - Ward No.20,Urban,19.8,64.2,0.4,4,2.1,59.4,2.3,35.5,13.4,0.8,0.4,13
+Bangalore,Anekal,Anekal (TMC) - Ward No.21,Urban,22.1,88.6,2.3,8,2.5,80.3,5.5,32.2,40.1,5,5.8,2.3
+Bangalore,Anekal,Anekal (TMC) - Ward No.22,Urban,26.9,69.5,0.5,3.3,2.6,60.2,1.7,40.5,18.1,1.9,0.7,14.3
+Bangalore,Anekal,Anekal (TMC) - Ward No.23,Urban,19.4,85.5,1.1,9.8,4.4,78.5,0.5,32.8,29.6,5.8,3.7,4.4
+Bangalore,Area not under any Sub-district,Sub-Dist - Area not under any Sub-district,Total,44,87.4,20,16,9.4,66.9,16.6,22.5,46.2,18.9,25.9,2.1
+Bangalore,Area not under any Sub-district,Sub-Dist - Area not under any Sub-district,Urban,44,87.4,20,16,9.4,66.9,16.6,22.5,46.2,18.9,25.9,2.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG),Urban,44,87.4,20,16,9.4,66.9,16.6,22.5,46.2,18.9,25.9,2.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.1,Urban,48.5,85.8,13.5,17.6,11.1,73.8,10.3,29.3,41.3,13.7,18.5,1.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.2,Urban,28.8,79.4,11.4,11.1,5.1,76,9.7,28.5,27.6,10.8,13.6,4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.3,Urban,39.2,83.2,19.2,21.8,8.1,69.6,16.5,33.9,49.3,19.1,28.7,2.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.4,Urban,56.4,87.1,23.6,21.1,11.8,62.9,18,35.6,52.2,23.6,33,2.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.5,Urban,33.4,77.5,5.6,14.1,7.3,74.9,3.8,27.8,34.4,11.3,10.5,5.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.6,Urban,37,82.4,11,18.1,6.4,78.4,8.9,24.3,39.7,13.2,16.1,1.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.7,Urban,48.8,87,26.9,13.1,7.7,64.3,21.8,25.1,46.4,27.9,32.2,2.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.8,Urban,39.5,86.9,18.3,13.5,7.5,69.3,17.9,27.4,50.1,22,24.7,1.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.9,Urban,64.2,92.5,32.5,19.8,9.5,56.6,30.2,28.9,63.3,33.4,44,1.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.10,Urban,62,93.4,25.6,23.5,14.1,54.7,28.4,33.1,64.3,27.7,40.6,0.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.11,Urban,47.6,85.2,10.3,10.7,4.6,68.9,12.8,26.3,40,11.3,16.1,3.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.12,Urban,32.9,82.1,10.2,15,6.6,75.5,9.3,27.8,38.7,9.8,15.7,2.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.13,Urban,60.5,85.9,4,9.4,3.9,83.4,5.1,29.1,34.1,5.8,8.1,2.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.14,Urban,51.8,86.8,8,12.7,3.2,82.9,6.5,22.3,40.1,11.7,14.9,2.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.15,Urban,35.7,83.9,10.2,19.6,8.5,77.1,8.9,17,35,9.9,15.9,1.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.16,Urban,40.3,88.2,17,20.2,8,65.6,17.3,34,49.5,14.5,25,2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.17,Urban,51.3,89.1,26.6,20.7,11.6,61.6,21.6,30.7,57.6,23.4,35.9,1.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.18,Urban,55.4,89.7,35.3,18.5,10.8,57.9,27.3,27.8,52.3,34.2,42.4,1.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.19,Urban,51.1,89.3,38.3,20.6,15.5,48.6,32.1,33,58.5,35.9,45.7,1.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.20,Urban,71.1,90.8,25,16.9,9.4,63.8,22.7,24.7,52.8,24.3,32.2,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.21,Urban,77.5,91.7,26.9,16.7,12.4,65,17.9,26.1,51.2,24.5,33.3,1.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.22,Urban,52.6,89,20,18.6,17.9,68.1,9.9,25.2,57.7,15.7,27.2,1.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.23,Urban,32.1,84.9,6,13.3,8.6,82,3.4,23.5,42.5,5.8,9.5,1.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.24,Urban,48.9,86.8,22,17.2,7.4,66.9,17,27.7,54.1,21.9,29.6,2.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.25,Urban,54.7,87.2,30.3,19.1,12.8,60.7,21.8,25.8,56.7,28.7,37.6,1.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.26,Urban,42.4,89.1,18.9,21.2,11.3,70.9,11.2,30.4,56.2,18,29.7,2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.27,Urban,47,93.1,34,20.8,13.4,55.4,28,32,63.4,32.3,42.9,0.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.28,Urban,32.2,92,14,20.8,6.4,71.9,15.5,29.8,51.4,11,22.3,1.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.29,Urban,39.1,93.3,36,18.8,8.2,56.6,31.8,25.2,58.5,34.4,43.5,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.30,Urban,27.8,88.7,5.8,13.2,6.8,80,5.8,21.8,41.5,6.2,10.9,1.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.31,Urban,31.9,89,6,13,10.4,80.5,4.8,27.5,46.5,5.6,10.6,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.32,Urban,74,92.3,29.3,17.8,18.2,56.5,21.7,31,60,26.8,37.6,0.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.33,Urban,33.1,87.1,13.6,17.1,8.3,77.1,8.3,23.1,50.9,12.8,18.8,1.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.34,Urban,51.7,92.9,28.4,21.4,12.4,62.5,22.4,29.7,59,24,38.9,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.35,Urban,66.7,91.6,43.5,19.7,19.9,40.4,37.1,29.1,56.7,38,50.5,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.36,Urban,47.2,88.1,20.9,24.7,10.5,64.4,20.3,24.9,50.9,16.7,29.8,1.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.37,Urban,34.5,85.1,10.9,18.7,10.9,73.9,8.5,22.3,41.1,9.3,15.7,1.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.38,Urban,35.3,71.7,13.5,13.5,10.6,72.5,9.6,15.8,28.4,13.2,16.4,4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.39,Urban,39.2,77.5,5.6,11.8,7,77.5,3.9,18.8,24.5,6.5,7.6,4.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.40,Urban,30.6,77.2,2.4,7.1,2.6,78.9,3.2,18,24.9,4.6,4,5.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.41,Urban,38.4,74.7,2.6,6.7,3.2,83.4,3.5,14.5,20.6,3.9,4.4,3.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.42,Urban,29.9,77.7,4,15.6,8.4,72.9,2.8,14.1,22.8,5.4,7.3,6.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.43,Urban,56.1,82.9,10.9,15.8,7.1,74.4,8.9,18.8,35.7,11.1,15.2,2.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.44,Urban,46.2,87.3,12.2,12.9,5,71.9,13.4,17.1,38,12.9,18.1,2.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.45,Urban,52.3,90.5,23.6,20.3,11.8,62.6,20.4,24.4,49.6,23.8,30.9,1.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.46,Urban,42.3,91.6,28.1,18.4,9.6,62.7,23.4,27.9,56.1,26.3,35.4,0.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.47,Urban,31.2,84.6,3.7,13.6,7.3,68.3,2.8,32.5,22.3,2.7,5.8,4.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.48,Urban,35.7,90,2.4,7.1,8.9,79.5,3.1,25.5,34.7,2.5,3.9,1.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.49,Urban,53.5,88.9,15.7,15.9,11.9,65.4,12.6,32,54.2,15.2,23.1,2.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.50,Urban,47.4,86.6,22.1,13.8,11.5,65.5,14.6,30.5,45.9,23.1,27.7,2.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.51,Urban,44.6,89.5,15.7,18.4,8.7,72,11.5,25.7,46.8,12.5,22.5,2.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.52,Urban,40.6,89.4,15.9,18.5,9.2,72.2,13.2,31.8,53.8,13.9,23.6,1.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.53,Urban,29.1,86.3,11.7,18.6,6,80.4,6.1,26.2,44.5,12.4,19.9,2.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.54,Urban,27,80.5,12.1,15.3,3.9,79.4,8.2,29.2,39.2,12.6,16.1,3.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.55,Urban,26.2,81.7,6.9,14,3.9,80.6,6.2,20.8,31.2,5.4,10.8,3.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.56,Urban,35,89.8,18,16.8,9,73.1,10.6,22.6,47.9,14.6,24.9,1.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.57,Urban,38.9,89.5,44.7,20.3,12.8,50.2,33.2,23.6,60.6,37.7,52.6,1.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.58,Urban,39.8,88.3,44.4,18.9,9.5,49.6,36.7,23.9,59.9,35.4,48.2,1.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.59,Urban,49.4,92.1,29.6,17.3,12,54.2,25.5,25.7,47.8,27,36.3,2.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.60,Urban,41.4,85.5,12.6,16,9.6,64.8,9.2,23.9,36.7,12.1,17.6,4.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.61,Urban,35.8,89,8.4,10.3,8.1,70.4,8.7,29.4,44.3,9.6,13.5,2.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.62,Urban,37.2,90,18.4,22,13.9,61.5,15.2,27.5,52.3,17,28.4,2.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.63,Urban,51.1,90.9,29.4,23.4,12.6,54,29.9,25,51.4,31.8,41.6,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.64,Urban,45.8,94.7,19.9,24.7,10.9,60.8,23.8,20,55.7,20.4,31.3,0.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.65,Urban,71.9,94.8,37.2,19.9,8,43,46.7,25.4,57.2,36.2,44.9,0.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.66,Urban,57.9,93.8,27.1,21.4,8.3,57.8,30.6,25.1,60.7,25,37.2,0.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.67,Urban,66.2,93.4,38.1,24.4,14.4,44.3,38.5,28.8,62.7,38.9,50,0.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.68,Urban,51.5,91.5,16.8,17.3,9.7,70.5,15.3,18.8,53.4,17.7,25.7,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.69,Urban,32,80.7,2.6,5.7,2.4,82.5,2.4,16.1,26.2,4.3,4.3,3.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.70,Urban,41.2,77.1,1.9,5.6,7.1,78,2.6,15.5,19,2.9,2.3,3.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.71,Urban,47.7,77.5,2.8,6.8,3.7,83.2,2.3,13.2,20.7,3.9,4,4.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.72,Urban,33.3,83.6,5.5,9.7,5.1,79.3,5.4,15.3,32.4,8.6,8.6,3.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.73,Urban,45.3,84.5,11.5,14.5,9.2,71,12.3,18.7,39,16.2,17.5,2.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.74,Urban,38.5,85.3,14.2,17.2,9.8,70.9,11,19,36.8,12.8,19,2.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.75,Urban,37.8,88.9,18.5,17.9,7.4,67.3,18.7,21.8,50.8,19.5,27.2,2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.76,Urban,48.5,92.4,22.7,21.8,11.3,62.6,22.7,17.8,55.2,17.4,30.2,0.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.77,Urban,52.1,90.9,20,21.5,12.5,63,19.1,21.1,46.6,16.5,26.4,1.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.78,Urban,52.1,94.3,37.3,23.6,15.5,48.3,31.9,28.2,65.2,37.6,49.5,0.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.79,Urban,37.4,88.3,14.5,14.8,14.5,61.7,11.2,30.4,39.8,12.1,18.6,2.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.80,Urban,51.3,91.6,32.6,17.5,10.8,53.7,28.8,23.6,49.1,29.3,38.4,1.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.81,Urban,50.3,91.9,36.4,18.9,15.5,55.7,25.5,28.2,65.2,31.7,45.3,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.82,Urban,48,77.6,16.5,11.1,5.9,74.4,9.8,24.2,30.2,14.4,17.3,3.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.83,Urban,33,82.6,14.8,12,6.6,78,4.7,23.5,35.2,11.9,16,3.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.84,Urban,31.9,84.8,17.4,12.1,8.3,72.7,9.3,26.1,42.6,17.6,21.4,3.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.85,Urban,45.3,91,56,13.6,11.7,45.7,39.9,34.2,58,49,59.8,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.86,Urban,21.3,85,26.1,18.8,7.5,76.8,9.4,15,44.1,13.3,27,1.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.87,Urban,54.4,87.7,17,18.1,10.2,68.6,15.8,32.4,53.4,14.2,25.7,1.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.88,Urban,43,90.1,35.3,19.3,14.2,57.5,23.4,22.9,48.7,27,39,1.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.89,Urban,57.4,95.6,30.9,16,13.6,59.2,24.7,29.5,62.2,24.9,37.8,0.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.90,Urban,38,93.4,23,21.2,7.5,63.4,23.5,22.1,49.5,18.9,32.2,0.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.91,Urban,29.9,92.6,12.7,16.4,8.2,72.3,14.9,22.3,56,8.3,20.5,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.92,Urban,34.8,91.2,5.5,11.4,7.9,81,6.9,17.6,53.2,5.3,10.5,1.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.93,Urban,62,94.1,44.2,17.6,13.6,35.8,47.9,28.2,58.3,49.8,54.2,1.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.94,Urban,42.6,89.1,20.3,19.7,10.5,57.9,23.1,20.3,44.2,19.7,27.7,2.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.95,Urban,21.3,85.9,7.3,9.1,4.1,70.2,8.1,11.5,24.1,6.2,8.9,5.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.96,Urban,23.3,88.9,6.5,11.5,4.2,76.2,7.6,11,33.8,5.5,10.1,3.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.97,Urban,33.8,91.8,9.1,14.8,8.9,69.6,9.4,13.5,40,6.5,13.5,2.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.98,Urban,58.4,92.9,10.5,14.1,3.6,77,14.4,16.8,48.3,9.2,16.6,0.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.99,Urban,47.3,90.8,17.8,24.2,8,67.7,20.2,19.1,52.4,18.9,28.5,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.100,Urban,51.9,93.3,26.5,20.1,6.3,59.9,30,24.8,61.9,29.2,38.5,0.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.101,Urban,56.9,91,25.1,20.3,9,60.5,23.8,20.8,52.6,25.6,33.8,1.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.102,Urban,36.9,85.5,6.4,15.2,6,80.8,5.5,13.2,30.5,7.3,9.9,2.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.103,Urban,55.5,84,6.6,11.4,3.3,80.6,7.7,15.1,33.2,9.7,10.8,2.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.104,Urban,47.4,91.5,22.2,19.7,6.5,62.8,24.3,18.5,51.5,24.8,31.5,1.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.105,Urban,55.6,91.5,22,15.3,10,65.5,19.4,20.8,52.4,19,28.7,1.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.106,Urban,45.7,90.4,16.1,20.4,18.4,68.7,8.5,19.2,50.2,14.8,23.3,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.107,Urban,46.8,92,25.4,23.8,14.9,66.1,15.4,23.7,56.2,19.6,33,0.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.108,Urban,56.7,93.7,28,20,10.8,49.4,34.2,23.5,59.2,28.5,37.5,1.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.109,Urban,51.5,94.3,15.5,20.9,7.1,54.9,34.7,18.9,54.7,9.9,24.6,0.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.110,Urban,61.7,92.9,25,17.9,14.9,57.3,23.6,26.5,52.9,22.6,32.1,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.111,Urban,50.2,95,43.8,17.6,19.7,46.3,31.6,30.9,53.9,45.4,51.6,0.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.112,Urban,57.2,93.5,39.9,17.4,17.8,47.5,30.2,29.7,55.3,33.7,45.9,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.113,Urban,42.2,90.5,52.4,17.5,19.1,45.5,32.5,22.1,58.8,36.5,53,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.114,Urban,33.2,95.2,16.2,18.9,14.2,64.7,11.5,26.3,48.1,13.7,25.9,1.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.115,Urban,39.8,87.9,13,14.3,7.8,73.1,10.3,24.1,46.2,10,19.5,2.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.116,Urban,22.5,84.7,4.9,13,9.3,72,3.8,24,33.9,3.8,8.1,3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.117,Urban,49.3,91.9,24.2,17.6,15.7,58.6,20.3,28.9,49.7,25,30.6,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.118,Urban,19.2,82.2,8.8,16.2,7.1,74.9,6,11.4,26.5,8.8,11.3,3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.119,Urban,43.7,91,15,15.4,10.7,63.2,21.8,17.9,52.2,10.8,21,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.120,Urban,23.7,90.3,6.8,11.2,7.4,70.6,9.6,15.1,34.6,6.2,10.3,2.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.121,Urban,29.2,87.6,4.7,10.7,5.5,76.4,5.9,14.9,30,4.5,6.9,2.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.122,Urban,37.7,86.8,2.5,7.5,5.8,75.4,2.2,11.3,20.5,2.8,4,3.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.123,Urban,48.1,90.9,12.7,17.6,6,71.4,18.4,19.1,48.7,14.1,20.4,0.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.124,Urban,48.4,88.6,18.5,19.3,11.2,60,20,20.9,48.6,19.9,28.2,2.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.125,Urban,70.1,94.5,39.2,26.8,18.1,44.1,35.5,28.5,65.4,35.4,50.1,0.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.126,Urban,48,91,25.4,25.3,10.2,63.2,22.5,22.9,57.1,23.7,36.4,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.127,Urban,39.4,88.3,11.2,17.3,3.9,80.4,10.4,18.5,48.2,13.1,19.8,1.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.128,Urban,43.3,85.4,21.1,18.2,6.6,63.5,21.4,21.2,48,22.9,29.8,3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.129,Urban,55.6,86.4,14.6,15.7,5.4,74.6,12.6,16.9,47.3,19,22.6,2.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.130,Urban,36.8,80.6,8.3,15.2,4.9,74.1,6.4,18,36.3,11.4,15.3,5.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.131,Urban,24,78.4,4.2,6.8,2.7,76.8,4,12.9,25.6,4.9,6,7.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.132,Urban,61.8,91.5,31.6,18.8,16.2,57.9,22.7,22.1,62.5,30.2,40,1.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.133,Urban,52.6,90.3,30.1,18.4,14.3,56.6,23.6,24.6,59.3,29,38.3,2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.134,Urban,36.6,84.7,4.2,9.9,4.4,82.8,4.8,9.9,33.1,4.7,6.8,2.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.135,Urban,35,83.8,2.3,7.6,4.6,81.7,2.6,6.4,23,2.6,2.7,2.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.136,Urban,22.7,80.4,2.8,11.8,6.2,73.5,2.6,10.6,23.5,2.7,3.2,5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.137,Urban,38.4,89.5,3.5,8.4,7.1,78.1,3.4,11.6,29.7,2.9,5.2,2.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.138,Urban,21.8,84.3,2.4,7,3.3,77.8,3.4,13.3,23.6,1.5,3.9,3.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.139,Urban,22.8,84.1,5.6,13.5,9.4,73.3,4.7,10.6,29.6,4.5,10,2.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.140,Urban,48.4,91,14.9,22.1,9.3,66,19.5,16.6,52.1,16.3,25.1,1.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.141,Urban,35.9,86.5,7,14.3,8,73.7,6.8,15.6,36.5,7.4,11.9,2.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.142,Urban,66.1,91.8,29.9,16.8,11.5,50.2,32.5,27.9,57,27.5,36.4,1.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.143,Urban,49.9,93.4,29.5,19.2,12.4,49.8,34,24.5,62.3,32.1,39.2,0.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.144,Urban,26.4,86.8,8.7,15.6,8.9,71.4,8.8,14.3,37,10.6,12.3,2.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.145,Urban,58,91.2,22.2,17.6,17,61.2,17.5,23.8,56.5,22,29.9,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.146,Urban,39.2,91.3,16.8,18.7,6.4,72.2,16.3,18.3,47.7,16.4,25.2,0.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.147,Urban,35.9,88.6,15.9,17.5,7.5,69.5,10.8,25.3,42.2,12.2,20.7,2.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.148,Urban,45,93.1,36.5,19.2,12.8,59.8,25.2,25.8,58.4,26.7,41.2,0.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.149,Urban,24.4,86.1,23,13.9,6.4,75.6,10,25.1,49.4,18,26.1,2.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.150,Urban,45.1,83.8,43.6,11.9,13.9,56.5,24.4,26.5,45,38.1,44.1,2.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.151,Urban,57.3,89,43.1,14.9,9.6,45.7,39.1,26.2,46.9,40.5,46.9,1.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.152,Urban,30.2,88.9,26.7,18.1,5,69.3,21.3,16.7,52.5,16.7,29.8,1.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.153,Urban,50.7,89,28.9,18.2,13.7,53.6,24.9,26.5,56.4,31.7,37.8,2.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.154,Urban,55.3,91.8,35.6,23.3,25.1,50.3,22,26.1,63.3,28.6,44.1,0.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.155,Urban,48.1,92.3,16.8,17.4,9.8,65.2,18.2,20.1,56.4,16.9,25.8,1.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.156,Urban,65.4,92.4,18,18.6,13.6,63.1,17.6,20.7,56.5,14.7,26.6,1.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.157,Urban,38.8,84.4,6.1,15.4,5.1,75.6,7.1,13.9,38.4,7.7,12.2,3.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.158,Urban,39.3,81.3,11.6,12.5,7.1,68.3,11.1,16.1,41.4,11.7,16.5,7.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.159,Urban,34.3,86.7,15.8,17.7,9.7,68.1,11.3,21.5,43.1,15.2,20.4,3.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.160,Urban,44,87.6,24.7,21,15.6,59.3,18.3,23.7,52.2,28.9,34.6,2.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.161,Urban,44.2,86.8,14.7,16.9,6.3,73,14.8,17.4,50.1,13.9,21.8,1.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.162,Urban,65.5,93.8,37.8,21.8,12.9,45.9,37.6,25.8,69.2,35.8,50.1,0.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.163,Urban,53.6,94.1,29.5,19,15.1,58.9,23.5,21.7,66.1,25.7,39.2,0.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.164,Urban,57.1,91.6,28.3,23.4,14.7,53.9,26.1,21.3,63.2,25.4,40.8,1.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.165,Urban,74.2,94.4,48.2,17,21.8,32.8,42.8,27.1,70.6,48.5,57.4,0.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.166,Urban,45.4,85.4,25.4,15.6,24.2,53.1,13.2,23.4,41.9,24.7,30.2,2.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.167,Urban,55.2,93.3,28.4,20.6,12.3,53.4,31.9,27.6,63.4,27.4,38,0.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.168,Urban,57.7,94.5,43.6,19.1,15.2,43.8,38.7,30.1,61.5,43.9,51.1,0.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.169,Urban,42.9,90.3,24,14.9,9.6,57.2,26.7,22.8,52.2,24.2,30.2,1.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.170,Urban,41.1,90.2,32,18.8,15.9,56.7,21.6,22.9,53.4,25.7,37.9,1.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.171,Urban,38.7,87.8,14.3,18.7,9.5,79.2,7.9,19,51.4,11.8,21.1,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.172,Urban,33.4,89.5,29.9,16.6,6.5,73.7,16.8,15.4,52.1,15,31.6,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.173,Urban,38.8,90,21.6,21.4,8.9,77.3,11.6,31,47.9,14.9,27.8,0.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.174,Urban,47.9,91.5,46.4,14.4,14.1,53.1,29.3,30.6,57,44.3,52.6,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.175,Urban,23.5,86.8,14.6,11.2,8.7,76.5,8.8,17.3,41.8,14.5,16.7,1.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.176,Urban,44.7,89.1,45.1,20.8,11.5,53.3,31.6,23.7,62.2,32.3,50.9,1.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.177,Urban,64.5,89.4,45.9,19.9,13,39.8,41.6,21.6,56.6,41.5,52.6,2.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.178,Urban,69.3,93.2,40.9,17.8,15.9,47.9,33.3,24.1,63.6,35.8,47.8,0.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.179,Urban,70.5,92,46.5,18.1,17.2,37.8,43.7,32.1,62.7,48.1,55.7,0.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.180,Urban,22.1,81.4,5.7,11.8,5.1,74.9,5.1,12.6,27.1,5.5,8.6,4.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.181,Urban,44.8,89.3,24.8,22,7.8,66.1,21.6,22.8,56.1,22.2,33.7,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.182,Urban,49.7,92.3,35.8,17.3,12.4,54.9,28.7,21.4,61.7,32.1,43.3,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.183,Urban,43.9,90.6,23.9,19.4,11.7,65.9,19,18.9,60.4,21.2,32.4,0.9
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.184,Urban,55.9,87.8,12.6,11.4,6.1,72.2,11.6,22.4,43.8,15.2,17.5,2.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.185,Urban,41.3,87.8,18.6,18.1,12.3,70.1,13.4,21.5,46.4,16.2,22.9,1.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.186,Urban,67.9,93.5,16.3,15.9,6.7,79.4,10.6,24.3,54.9,16.4,24.3,0.7
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.187,Urban,60.9,89.6,40.5,13.4,9.1,56.3,31.3,21.4,54.7,36.2,44,1.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.188,Urban,45.5,88.6,35.3,14.3,10.1,58.4,27.7,25.3,52,33.1,40.1,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.189,Urban,21.8,82.5,7.4,12.5,4.9,85.7,5.2,12.8,27.6,7.3,9,1.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.190,Urban,24.2,82.3,8.2,9.7,4.7,83.5,5.2,17.9,29.5,8.5,9.8,2.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.191,Urban,35.1,79.4,6.1,11.6,7.6,76.2,7.2,17.1,27.6,8.4,10.3,3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.192,Urban,39.9,81.5,18.3,12.4,5.1,70.3,14.8,16.5,38.1,18.5,21.8,3.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.193,Urban,59.5,86.1,25.9,17.4,10.5,64.2,18.7,24.9,50.7,24.5,32.8,2.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.194,Urban,37.3,81.9,15,9.7,6.5,69.7,10.9,17.7,35.3,14.6,17.9,5.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.195,Urban,52,90,31.5,16.1,8.1,58.1,30.4,26.5,54.5,34.4,40.5,1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.196,Urban,39,78.8,12.4,11,10.5,68.5,8.4,19.1,35.9,14.6,16.3,5.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.197,Urban,53.5,88.7,23.6,13.5,6.2,65.8,22.6,23.5,52.5,24.5,30.9,2.1
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.198,Urban,33,81.5,8.6,12.8,4.1,74.9,8,19.4,37.5,13.5,13.8,4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.199,Urban,37.8,74.4,6.7,11.5,3.9,71.3,8.3,25.8,38.3,9.8,11.2,6.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.200,Urban,33.1,75.5,4,28.4,20.7,62.2,2.3,19.3,28,6.2,10.9,6.2
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.202,Urban,31.7,74.8,0.9,4,0.8,78,1.5,10.7,20,3.9,2.2,5.3
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.203,Urban,36,82.2,1.1,4.4,6.5,84.2,1.6,12.9,28,5,2,2.6
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.204,Urban,18.2,77,14.3,13.6,4.7,84.9,3.5,11.3,29.8,11.6,14.7,2.5
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.205,Urban,18.7,80.8,7.1,22,22,68.9,3.5,32.4,43.6,13.4,14.8,2.4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.206,Urban,28.6,68,27.4,72.6,66.9,33.1,0,26.3,42.3,18.3,43.4,0
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.207,Urban,17.7,77.9,1.5,14.8,3.1,72.2,3.3,22.6,37.2,10.4,5.2,4
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.208,Urban,40.3,78.5,1.7,0.6,6.6,46.4,0,54.1,49.2,12.2,1.7,8.8
+Bangalore,Area not under any Sub-district,BBMP (M Corp. + OG) - Ward No.209,Urban,100,100,47.4,21.1,42.1,57.9,0,68.4,94.7,21.1,68.4,0

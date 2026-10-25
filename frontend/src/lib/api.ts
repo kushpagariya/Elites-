@@ -96,6 +96,7 @@ import type {
   InfrastructureEvent,
   GeoContext,
   RescueResult,
+  WorkspaceState,
 } from "./types";
 import {
   record,
@@ -137,15 +138,26 @@ export const getScenarios = (signal?: AbortSignal) =>
   );
 export const createScenario = (body: ScenarioCreate, signal?: AbortSignal) =>
   checked("/projects/demo/scenarios", isScenario, post(body, signal));
-export const evaluateScenario = (scenarioId: string, signal?: AbortSignal) =>
+export const evaluateScenario = (scenarioId: string, signal?: AbortSignal, snapshotId = FEATURE_SNAPSHOT_ID) =>
   checked(
     "/projects/demo/evaluate",
     isEvaluation,
     post(
-      { scenario_id: scenarioId, feature_snapshot_id: FEATURE_SNAPSHOT_ID },
+      { scenario_id: scenarioId, feature_snapshot_id: snapshotId },
       signal,
     ),
   );
+export const getWorkspace = (signal?: AbortSignal) => checked(
+  "/projects/demo/workspace",
+  (x): x is WorkspaceState & {analysis_current: boolean} => record(x) && typeof x.scenario_id === "string" && typeof x.analysis_current === "boolean" &&
+    (x.evaluation_id === null || typeof x.evaluation_id === "string") &&
+    (x.portfolio_run_id === null || typeof x.portfolio_run_id === "string"), {signal});
+export const saveWorkspace = (body: WorkspaceState) =>
+  apiRequest("/projects/demo/workspace", post(body));
+export const getEvaluation = (id: string, signal?: AbortSignal) => checked(
+  "/projects/demo/evaluations/" + encodeURIComponent(id), isEvaluation, {signal});
+export const getPortfolio = (id: string, signal?: AbortSignal) => checked(
+  "/projects/demo/portfolios/" + encodeURIComponent(id), isPortfolio, {signal});
 export const optimisePortfolio = (
   body: PortfolioRequest,
   signal?: AbortSignal,

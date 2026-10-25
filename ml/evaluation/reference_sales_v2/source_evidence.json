@@ -1,0 +1,14 @@
+{
+  "source_files": {
+    "pois.csv": "fe539e76f029647bd5d8834c9a9a1e01d8779333cd4b35696950d1fc31554a81",
+    "spending_cells.csv": "524c333e7c2a4e450e6b05d04ef1a288424903b0d182e5dca7f4240c13189442",
+    "poi_daypart_availability.csv": "9437febc21b74e809f40b991636006df349f0c759a8a2e16e3308096328fd46d",
+    "daypart_weights.csv": "1b5b1e769c42196a17ab12b11e4e5e805645702e3542bbdcf8f3c79ce7b92d45"
+  },
+  "population": "WorldPop 2020 modelled 1km, historical; population-cell distribution derived with assumptions",
+  "spending": "HCES 2023-24 nominal state urban proxy, transferred locally; no inflation conversion",
+  "pois": "OSM partial mapped POIs and recorded/assumed schedules; resampled records are synthetic, not new observations",
+  "store_area": "Synthetic approved demonstration area, not observed premises; ranges expanded as explicit simulation assumptions",
+  "candidate_use": "Ten unlabelled rows are schema/range/support diagnostics only; no coordinate/feature row is copied into labels",
+  "limitations": "All markets reuse a perturbed empirical regional template; grouped synthetic tests do not establish independent-city generalisation."
+}

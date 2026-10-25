@@ -19,6 +19,10 @@ import {
   requestRescue,
   getSavedReport,
   getGeoContext,
+  getWorkspace,
+  saveWorkspace,
+  getEvaluation,
+  getPortfolio,
 } from "./api";
 import type {
   ApiEnvelope,
@@ -32,6 +36,7 @@ import type {
   RescueRequest,
   RescueResult,
   GeoContext,
+  WorkspaceState,
 } from "./types";
 import {
   FEATURE_SNAPSHOT_ID,
@@ -145,6 +150,12 @@ function useWorkspaceState() {
   const geoRequest = useRef<AbortController | null>(null);
   const loadClock = useRef(new RequestClock());
   const loadRequest = useRef<AbortController | null>(null);
+  const saveQueue = useRef<Promise<unknown>>(Promise.resolve());
+  const persistWorkspace = (state: WorkspaceState) => {
+    saveQueue.current = saveQueue.current.catch(() => {}).then(() => saveWorkspace(state)).catch(() => {
+      setNotice("Your scenarios and calculations are saved. The last-open view could not be remembered; please check your connection.");
+    });
+  };
   const scenario = scenarios.find((s) => s.scenario_id === scenarioId) ?? null;
   const current = isCurrentEvaluation(
     evaluation?.data ?? null,
@@ -189,10 +200,11 @@ function useWorkspaceState() {
     setLoading(true);
     setLoadError(null);
     invalidate();
-    const [p, s, infra] = await Promise.allSettled([
+    const [p, s, infra, preference] = await Promise.allSettled([
       loadProject(controller.signal),
       getScenarios(controller.signal),
       getInfrastructure(controller.signal),
+      getWorkspace(controller.signal),
     ]);
     if (controller.signal.aborted || !loadClock.current.accepts(token)) return;
     if (p.status === "fulfilled") {
@@ -203,7 +215,7 @@ function useWorkspaceState() {
     if (s.status === "fulfilled") {
       setScenarios(s.value.data);
       setScenarioId((old) => {
-        const preferred = rememberedScenario() ?? old;
+        const preferred = preference.status === "fulfilled" ? preference.value.data.scenario_id : rememberedScenario() ?? old;
         return s.value.data.some((v) => v.scenario_id === preferred)
           ? preferred
           : (s.value.data[0]?.scenario_id ?? "baseline");
@@ -223,6 +235,36 @@ function useWorkspaceState() {
       setInfrastructure(infra.value.data);
       setInfrastructureError(null);
     } else setInfrastructureError(failure(infra.reason));
+    if (p.status === "fulfilled" && s.status === "fulfilled" && preference.status === "fulfilled") {
+      const state = preference.value.data;
+      const savedScenario = s.value.data.find(value => value.scenario_id === state.scenario_id);
+      if (savedScenario && state.evaluation_id) {
+        try {
+          const restored = await getEvaluation(state.evaluation_id, controller.signal);
+          if (controller.signal.aborted || !loadClock.current.accepts(token)) return;
+          if (matchesEvaluation(restored.data, savedScenario.scenario_id, p.value.data) &&
+              restored.meta.fixture_id === p.value.meta.fixture_id &&
+              restored.data.evidence?.feature_snapshot_id === p.value.meta.feature_snapshot_id) {
+            setEvaluation(restored);
+            setEvaluatedScenario(savedScenario);
+            setEvaluationFresh(state.analysis_current);
+            const [geo, plan] = await Promise.allSettled([
+              getGeoContext(state.evaluation_id, controller.signal),
+              state.portfolio_run_id ? getPortfolio(state.portfolio_run_id, controller.signal) : Promise.resolve(null),
+            ]);
+            if (controller.signal.aborted || !loadClock.current.accepts(token)) return;
+            if (geo.status === "fulfilled") setGeoContext(geo.value.data);
+            if (state.analysis_current && plan.status === "fulfilled" && plan.value && plan.value.data.evaluation_id === restored.data.evaluation_id) {
+              setPortfolio(plan.value.data);
+              setMaxStores(plan.value.data.max_stores ?? 2);
+              setAcknowledged(plan.value.data.acknowledged_risk_site_ids ?? []);
+            }
+          }
+        } catch {
+          if (!controller.signal.aborted) setNotice("Your saved scenarios are available. Run analysis to refresh this view.");
+        }
+      }
+    }
     setLoading(false);
   }, [invalidate]);
   useEffect(() => {
@@ -246,6 +288,7 @@ function useWorkspaceState() {
     setScenarioId(id);
     const next = scenarios.find((s) => s.scenario_id === id);
     if (next) setDraft(scenarioDraft(next));
+    persistWorkspace({scenario_id: id, evaluation_id: null, portfolio_run_id: null});
   };
   const edit = (patch: Partial<ScenarioCreate>) => {
     invalidate();
@@ -297,6 +340,7 @@ function useWorkspaceState() {
     setPortfolio(null);
     setReport(null);
     setAcknowledged([]);
+    persistWorkspace({scenario_id: s.scenario_id, evaluation_id: response.data.evaluation_id, portfolio_run_id: null});
     setNotice(
       "Analysis ready. Locations and insights now use this saved scenario.",
     );
@@ -314,6 +358,7 @@ function useWorkspaceState() {
       const result = await evaluateScenario(
         scenario.scenario_id,
         controller.signal,
+        project?.meta.feature_snapshot_id,
       );
       commitEvaluation(result, scenario, token);
     } catch (e) {
@@ -344,6 +389,7 @@ function useWorkspaceState() {
         );
       savedIdentity = saved.data.scenario_id;
       rememberScenario(saved.data.scenario_id);
+      persistWorkspace({scenario_id: saved.data.scenario_id, evaluation_id: null, portfolio_run_id: null});
       setScenarios((old) => [
         ...old.filter((s) => s.scenario_id !== saved.data.scenario_id),
         saved.data,
@@ -356,6 +402,7 @@ function useWorkspaceState() {
       const result = await evaluateScenario(
         saved.data.scenario_id,
         controller.signal,
+        project.meta.feature_snapshot_id,
       );
       commitEvaluation(result, saved.data, token);
     } catch (e) {
@@ -416,6 +463,7 @@ function useWorkspaceState() {
           409,
         );
       setPortfolio(result.data);
+      persistWorkspace({scenario_id: scenario.scenario_id, evaluation_id: e.evaluation_id, portfolio_run_id: result.data.portfolio_run_id});
       setNotice("Your investment plan is ready.");
     } catch (e) {
       if (clock.current.accepts(token) && !controller.signal.aborted)
@@ -470,7 +518,9 @@ function useWorkspaceState() {
       !result.verified ||
       result.evaluation_id !== evaluation.data.evaluation_id ||
       result.site_id !== siteId ||
-      result.lever !== lever
+      result.lever !== lever ||
+      result.application_status !== "VERIFIED_FRESH_SCENARIO_COPY" ||
+      !result.actionable_site_override
     )
       return;
     const threshold = result.threshold;
@@ -483,9 +533,7 @@ function useWorkspaceState() {
       return;
     const override = {
       ...scenario.assumptions.site_overrides[siteId],
-      ...(lever === "rent"
-        ? { monthly_rent_inr: threshold }
-        : { sales_multiplier: threshold }),
+      ...Object.fromEntries(Object.entries(result.actionable_site_override).filter(([, value]) => value !== null)),
     };
     void saveAndEvaluate({
       base_scenario_id: scenario.scenario_id,
@@ -566,7 +614,7 @@ function useWorkspaceState() {
     notice,
     report,
     current,
-    featureSnapshotId: FEATURE_SNAPSHOT_ID,
+    featureSnapshotId: project?.meta.feature_snapshot_id ?? FEATURE_SNAPSHOT_ID,
     load,
     selectScenario,
     edit,

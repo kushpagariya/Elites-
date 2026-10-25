@@ -9,7 +9,7 @@ Preserve the established retail identity: Manrope, cream #f5f0e6, forest #203c32
 ## Three tasks
 
 - **Explore Locations:** a real city map alongside a compact shortlist; focus a location, select exactly two for comparison, then read backend financial results. Keep the full financial table inside Detailed Comparison.
-- **Test Changes:** budget, demand change, rental change and infrastructure first. Advanced Assumptions contains margin, operating costs, competition and location overrides. Display before/after saved results and all remaining failure reasons. A rescue action creates an immutable scenario and requests evaluation.
+- **Test Changes:** budget, demand change, rental change and infrastructure first. Advanced Assumptions contains the supported base-rent and absolute reference-sales overrides and infrastructure timing. Fixed margins and OPEX remain dataset assumptions. Display before/after saved results and all remaining failure reasons. A rescue action creates an immutable scenario and requests evaluation.
 - **Investment Plan:** show saved network value, investment, remaining budget and selected stores before solver details. Retain risk review, store-count cap, empty/partial/unavailable outcomes and backend-generated reports.
 
 ## Real map and evidence
@@ -18,7 +18,7 @@ Retain MapLibre GL JS with OpenFreeMap Positron: https://tiles.openfreemap.org/s
 
 Project coordinates place terracotta candidates and forest existing stores. Current demo locations remain explicitly SYNTHETIC; streets do not validate those businesses. Selection is shared with accessible cards and comparisons. Zoom, pan, fit selection and reset are available. Loading, WebGL and tile errors expose retry while the shortlist remains usable; no artificial geographic fallback is displayed.
 
-POIs, catchments and DaypartDNA halos use only matching current backend evidence. Missing scores have no halo; supported zero is distinct from unknown. Infrastructure renders only supplied, validated Point/LineString/Polygon geometry and retains hypothetical/source labels. Competitor inventory is unavailable and its layer stays disabled. Changing the saved scenario or shared period refreshes supported analytical layers.
+POIs, catchments and DaypartDNA halos use only matching current backend evidence. Missing scores have no halo; supported zero is distinct from unknown. Infrastructure renders only supplied, validated Point/LineString/Polygon geometry and retains hypothetical/source labels. Mapped OSM competitor POIs have their own working toggle; their attraction is assumed. Changing the saved scenario or shared period refreshes supported analytical layers.
 
 ## Hierarchy and accessibility
 
@@ -32,7 +32,7 @@ Formatting and percentage/multiplier input conversion are presentation only. Fin
 
 ## Verification scope
 
-The visual refresh passed 30 frontend tests and the production build with TypeScript. Browser review covered 1440px, 768px and 390px with no page overflow, including live local backend evaluation, two-site charts, scenario controls and portfolio optimisation. Taste source checks had zero failures; intentional control-border and analytical-shadow warnings remain. The standalone browser inspector was not run. See docs/FRONTEND_VISUAL_REFRESH.md for the exact scope and limitations. No trained ML model is active.
+The visual refresh passed 30 frontend tests and the production build with TypeScript. Browser review covered 1440px, 768px and 390px with no page overflow, including live local backend evaluation, two-site charts, scenario controls and portfolio optimisation. Taste source checks had zero failures; intentional control-border and analytical-shadow warnings remain. The standalone browser inspector was not run. See docs/FRONTEND_VISUAL_REFRESH.md for the exact scope and limitations. The delivered synthetic-trained CatBoost model is connected; real-store accuracy is unvalidated.
 
 ## Workspace feature navigation
 

@@ -1,0 +1,12 @@
+{
+  "bundle_sha256": "daeb226f25d1c8b156cd8b753af550fcd4b01db3b0e8d71265123a27aeec50ab",
+  "files": {
+    "MODEL_CARD.md": "88c6dfb3629a13367b57e340826c535cc02a778ee52c57168a63e419b95b5e41",
+    "catboost.joblib": "438774e0a585de6ae4ed8a80cd3b1cf396d698bb811f1079a37c68f627bf4998",
+    "feature_schema.json": "a4de657d927f22d9f44db34a829f7d9f6d7a02fa38937ba9125cf5946986059a",
+    "manifest.json": "48a508d26a64397af1b42ac5a9c14b756ee97fdb6d43dac230d6ee8ff57e85e8",
+    "support.json": "12a404bafdf9c36b8f27af05b2cf1bf2661a05486a700e3fed2818bc79b5e11f"
+  },
+  "purpose": "Selected fitted model only; excludes restricted raw workbooks, source snapshots and personal data",
+  "model_artifact_id": "reference-sales-sim-v2-438774e0a585"
+}

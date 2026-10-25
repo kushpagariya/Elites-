@@ -1,8 +1,6 @@
-"""Transport tests with explicit test doubles, never production model evidence."""
+"""Real fitted-model/API integration, persistence and failure boundaries."""
 import copy
-import json
 import os
-import shutil
 import sqlite3
 import tempfile
 import threading
@@ -10,261 +8,234 @@ import unittest
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from unittest.mock import patch
-
 from fastapi.testclient import TestClient
-
 from backend.app.main import app
 from backend.app.repositories import store
 from backend.app.services import gateway, sources
+from backend.app.domain.engine import prepare_evaluation
 
-BASE = "/api/v1/projects/demo"
-
-
-def test_engine(project, scenario):
-    """Only a contract fixture. No claim of numerical/model validity."""
-    rows = []
-    for index, site in enumerate(project["sites"]):
-        status = "AT_RISK" if index == 1 else "REJECTED" if index == 2 else "VIABLE"
-        rows.append({"site_id": site["site_id"], "annual_revenue_inr": 100, "lost_existing_contribution_inr": 0, "annual_cashflows_inr": [1] * project["projection_years"], "npv_inr": 1000 - index, "roi_fraction": None, "payback_years": None, "failfast": {"status": status, "failed_rule_ids": [], "reasons": ["TEST FIXTURE ONLY"]}, "drivers": ["<script>alert('test')</script>"], "source_ids": ["synthetic-cells"]})
-    return {"method_mode": "scenario_assumptions", "site_analyses": rows, "rankings": [r["site_id"] for r in rows if r["failfast"]["status"] in {"VIABLE", "AT_RISK"}], "model_artifact_id": None, "_context": {"test_only": True}}
-
-
-def test_portfolio(project, context, max_stores, acknowledgements):
-    """Contract output only; backend checks its budget, not its economics."""
-    selected = [project["sites"][0]] if max_stores and project["budget_inr"] >= project["sites"][0]["capex_inr"] else []
-    used = sum(site["capex_inr"] for site in selected)
-    return {"selected_site_ids": [site["site_id"] for site in selected], "budget_used_inr": used, "budget_unused_inr": project["budget_inr"] - used, "full_network_npv_inr": 100 if selected else 0, "status": "FULL_NETWORK_EXACT", "evaluated_subsets": 1024, "total_subsets": 1024}
+BASE = '/api/v1/projects/demo'
 
 
 class IntegrationTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
-        self.directory = Path(self.tmp.name)
-        self.data = self.directory / "data"
-        shutil.copytree(sources.DATA_ROOT, self.data)
-        self.env = patch.dict(os.environ, {"STORESCOUT_DB_PATH": str(self.directory / "state.sqlite3"), "STORESCOUT_MODEL_DIR": str(self.directory / "model")})
+        self.env = patch.dict(os.environ, {'STORESCOUT_DB_PATH': str(Path(self.tmp.name)/'state.sqlite3')})
         self.env.start()
-        self.source_patch = patch.object(sources, "DATA_ROOT", self.data)
-        self.source_patch.start()
-        self.engine = patch.object(gateway.pipeline, "run_evaluation", side_effect=test_engine)
-        self.engine_mock = self.engine.start()
         self.client = TestClient(app)
-        account = self.client.post("/api/v1/auth/register", json={"name": "Contract account", "email": "contract@example.test", "password": "contract-passphrase-2026"})
+        account = self.client.post('/api/v1/auth/register', json=dict(name='Contract account', email='contract@example.test', password='contract-passphrase-2026'))
         self.assertEqual(account.status_code, 201, account.text)
-        self.user_context = store.current_user.set(account.json()["data"]["id"])
+        self.user_context = store.current_user.set(account.json()['data']['id'])
 
     def tearDown(self):
         store.current_user.reset(self.user_context)
         self.client.close()
-        self.engine.stop()
-        self.source_patch.stop()
         self.env.stop()
         self.tmp.cleanup()
 
-    def evaluate(self, scenario_id="baseline", **kwargs):
-        result = self.client.post(BASE + "/evaluate", json={"scenario_id": scenario_id}, **kwargs)
-        self.assertEqual(result.status_code, 200, result.text)
-        return result.json()["data"]
+    def evaluate(self, scenario_id='baseline', **kwargs):
+        response = self.client.post(BASE+'/evaluate', json={'scenario_id':scenario_id}, **kwargs)
+        self.assertEqual(response.status_code, 200, response.text)
+        return response.json()['data']
 
     def scenario(self, **kwargs):
-        response = self.client.post(BASE + "/scenarios", json={"name": "Test case", "assumptions": {}, **kwargs})
+        response = self.client.post(BASE+'/scenarios', json={'name':'Saved conditions','assumptions':{}, **kwargs})
         self.assertEqual(response.status_code, 201, response.text)
-        return response.json()["data"]
+        return response.json()['data']
 
-    def test_evaluation_cache_restart_and_saved_reads(self):
-        first = self.evaluate()
-        second = self.evaluate(headers={"Idempotency-Key": "eval-1"})
-        self.assertEqual(first, second)
-        self.assertEqual(self.engine_mock.call_count, 1)
+    def test_fitted_model_matches_delivered_baseline_without_revaluing(self):
+        result = self.evaluate()
+        original = sources.read_json(sources.ROOT/'ml/evaluation/decision_engine_v1/baseline.json')['evaluation']
+        self.assertEqual(result['method_mode'], 'model_simulated')
+        self.assertEqual(result['model_artifact_id'], original['model_artifact_id'])
+        self.assertEqual(result['rankings'], original['rankings'])
+        for actual, expected in zip(result['site_analyses'], original['site_analyses']):
+            for field in ('annual_revenue_inr','npv_inr','annual_cashflows_inr','lost_existing_contribution_inr','roi_fraction','payback_years'):
+                self.assertEqual(actual[field], expected[field])
+            self.assertEqual(len(actual['dayparts']), 6)
+            self.assertAlmostEqual(sum(p['opportunity_index'] for p in actual['dayparts']), 100.)
+            self.assertEqual(actual['failfast']['status'], 'AT_RISK')
+
+    def test_cache_restart_saved_results_and_idempotency(self):
+        with patch.object(gateway.pipeline, 'prepare_evaluation', wraps=prepare_evaluation) as worker:
+            first = self.evaluate(headers={'Idempotency-Key':'same'})
+            self.assertEqual(first, self.evaluate(headers={'Idempotency-Key':'same'}))
+            self.assertEqual(worker.call_count, 1)
         with TestClient(app) as fresh:
             fresh.cookies.update(self.client.cookies)
-            self.assertEqual(fresh.get(BASE + "/evaluations/" + first["evaluation_id"]).json()["data"], first)
-        identity = first["evaluation_id"]
-        row = self.client.get(BASE + f"/sites/site-01/analysis?evaluation_id={identity}")
-        self.assertEqual(row.json()["meta"]["evaluation_id"], identity)
-        ranks = self.client.get(BASE + f"/rankings?evaluation_id={identity}").json()["data"]
-        self.assertEqual(ranks["rankings"], first["rankings"])
-        self.assertEqual(len(ranks["diagnoses"]), 10)
-        self.assertEqual(len(store.list_objects("evaluation_context", "demo")), 1)
-
-    def test_idempotency_conflict_and_changed_scenario(self):
-        first = self.evaluate(headers={"Idempotency-Key": "same-key"})
-        changed = self.scenario(assumptions={"rent_multiplier": 0.8})
-        response = self.client.post(BASE + "/evaluate", headers={"Idempotency-Key": "same-key"}, json={"scenario_id": changed["scenario_id"]})
+            self.assertEqual(fresh.get(BASE+'/evaluations/'+first['evaluation_id']).json()['data'], first)
+        changed = self.scenario(assumptions={'rent_multiplier':.8})
+        response = self.client.post(BASE+'/evaluate',json={'scenario_id':changed['scenario_id']},headers={'Idempotency-Key':'same'})
         self.assertEqual(response.status_code, 409)
-        self.assertEqual(response.json()["error"]["code"], "IDEMPOTENCY_CONFLICT")
-        self.assertNotEqual(first["evaluation_id"], self.evaluate(changed["scenario_id"])["evaluation_id"])
-        self.assertEqual(self.engine_mock.call_count, 2)
+        self.assertNotEqual(self.evaluate(changed['scenario_id'])['evaluation_id'], first['evaluation_id'])
 
-    def test_source_change_invalidates_cache_and_old_report_is_frozen(self):
-        first = self.evaluate()
-        cells = json.loads((self.data / "cells.json").read_text())
-        cells[0]["annual_wallet_inr"] += 1
-        (self.data / "cells.json").write_text(json.dumps(cells))
-        second = self.evaluate()
-        self.assertNotEqual(first["evaluation_id"], second["evaluation_id"])
-        report = self.client.get(BASE + f"/reports/{first['evaluation_id']}?format=json").json()["data"]
-        self.assertNotEqual(report["snapshot"]["source_snapshot_hash"], sources.installed_snapshot()["snapshot_hash"])
-        self.assertNotIn("prepared_network", report)
-        self.assertNotIn("inputs", report["project"])
-
-    def test_invalid_output_does_not_commit_partial_state(self):
-        broken = test_engine(sources.installed_snapshot()["project"], {})
-        broken["site_analyses"].pop()
-        self.engine_mock.side_effect = None
-        self.engine_mock.return_value = broken
-        response = self.client.post(BASE + "/evaluate", json={})
-        self.assertEqual(response.status_code, 502)
-        self.assertEqual(store.list_objects("evaluation", "demo"), [])
-        self.assertEqual(store.list_objects("evaluation_context", "demo"), [])
-        broken["_context"] = {"bad": float("nan")}
-        broken["site_analyses"] = test_engine(sources.installed_snapshot()["project"], {})["site_analyses"]
-        self.assertEqual(self.client.post(BASE + "/evaluate", json={}).status_code, 502)
-
-    def test_model_claim_requires_actual_matching_bundle(self):
-        broken = test_engine(sources.installed_snapshot()["project"], {})
-        broken.update(method_mode="model_simulated", model_artifact_id="invented")
-        self.engine_mock.side_effect = None
-        self.engine_mock.return_value = broken
-        self.assertEqual(self.client.post(BASE + "/evaluate", json={}).status_code, 502)
-        model = self.client.get(BASE + "/model")
-        self.assertEqual(model.status_code, 200)
-        self.assertFalse(model.json()["data"]["trained_model_available"])
-        model_dir = self.directory / "model"
-        model_dir.mkdir()
-        (model_dir / "test.bin").write_bytes(b"TEST ARTIFACT: NOT A TRAINED MODEL")
-        (model_dir / "model_card.json").write_text(json.dumps({"artifact_file": "test.bin", "model_artifact_id": "invented", "method_mode": "model_simulated"}))
-        result = self.evaluate()
-        self.assertEqual(result["method_mode"], "model_simulated")
-        model = self.client.get(BASE + "/model").json()["data"]
-        self.assertEqual(len(model["artifact_sha256"]), 64)
-        self.assertNotIn("artifact_path", model)
-        (model_dir / "test.bin").write_bytes(b"CHANGED TEST ARTIFACT")
-        response = self.client.post(BASE + "/portfolios", json={"evaluation_id": result["evaluation_id"]})
-        self.assertEqual(response.status_code, 409)
-
-    def test_artifact_cannot_escape_bundle_directory(self):
-        model_dir = self.directory / "model"
-        model_dir.mkdir()
-        (self.directory / "outside.bin").write_bytes(b"outside")
-        (model_dir / "model_card.json").write_text(json.dumps({"artifact_file": "../outside.bin", "model_artifact_id": "x", "method_mode": "model_simulated"}))
-        self.assertEqual(self.client.get(BASE + "/model").status_code, 503)
-
-    def test_unknown_ids_dates_and_bounds(self):
-        self.assertEqual(self.client.post(BASE + "/evaluate", json={"scenario_id": "missing"}).status_code, 404)
-        self.assertEqual(self.client.post(BASE + "/evaluate", json={"feature_snapshot_id": "stale"}).status_code, 409)
-        for value in ["2026-02-30", "20261024", "2026-10-24T00:00:00"]:
-            response = self.client.post(BASE + "/scenarios", json={"name": "bad", "assumptions": {"opening_date": value}})
-            self.assertEqual(response.status_code, 422, response.text)
-        self.assertEqual(self.client.post(BASE + "/sites/site-01/rescue", json={"evaluation_id": "missing", "lower_bound": 10, "upper_bound": 1}).status_code, 422)
-        self.assertEqual(self.client.get(BASE + "/evaluations/missing").status_code, 404)
-        self.assertEqual(self.client.get("/api/v1/projects/other/evaluations/anything").status_code, 404)
-
-    def test_portfolio_budget_and_empty_plan_use_saved_scenario(self):
-        scenario = self.scenario(budget_inr=0)
-        evaluation = self.evaluate(scenario["scenario_id"])
-        with patch.object(gateway.pipeline, "run_portfolio", side_effect=test_portfolio) as engine:
-            first = self.client.post(BASE + "/portfolios", json={"evaluation_id": evaluation["evaluation_id"]})
-            self.assertEqual(first.status_code, 200, first.text)
-            self.assertEqual(first.json()["data"]["selected_site_ids"], [])
-            self.assertEqual(engine.call_args.args[0]["budget_inr"], 0)
-            second = self.client.post(BASE + "/portfolios", json={"evaluation_id": evaluation["evaluation_id"]})
-            self.assertEqual(first.json(), second.json())
-            self.assertEqual(engine.call_count, 1)
-
-    def test_portfolio_rejects_unacknowledged_risk_and_false_exactness(self):
+    def test_source_or_engine_changes_block_reuse_but_preserve_saved_reports(self):
         evaluation = self.evaluate()
-        output = test_portfolio(sources.installed_snapshot()["project"], {}, 2, [])
-        output.update(selected_site_ids=["site-02"], budget_used_inr=6250000, budget_unused_inr=13750000)
-        with patch.object(gateway.pipeline, "run_portfolio", return_value=output):
-            response = self.client.post(BASE + "/portfolios", json={"evaluation_id": evaluation["evaluation_id"]})
-            self.assertEqual(response.status_code, 502)
-            good = self.client.post(BASE + "/portfolios", json={"evaluation_id": evaluation["evaluation_id"], "acknowledged_risk_site_ids": ["site-02"]})
-            self.assertEqual(good.status_code, 200, good.text)
-            output["evaluated_subsets"] = 10
-            response = self.client.post(BASE + "/portfolios", json={"evaluation_id": evaluation["evaluation_id"], "max_stores": 3, "acknowledged_risk_site_ids": ["site-02"]})
-            self.assertEqual(response.status_code, 502)
-        self.assertEqual(len(store.list_objects("portfolio", "demo")), 1)
+        for target, value in [('engine_identity','changed-engine'), ('snapshot_hashes',{'changed-source':'digest'})]:
+            with patch.object(sources, target, return_value=value):
+                self.assertEqual(self.client.post(BASE+'/portfolios',json={'evaluation_id':evaluation['evaluation_id']}).status_code,409)
+                self.assertEqual(self.client.get(BASE+'/evaluations/'+evaluation['evaluation_id']).status_code,200)
+                self.assertEqual(self.client.get(BASE+'/reports/'+evaluation['evaluation_id']+'?format=json').status_code,200)
 
-    def test_report_escapes_content_and_requires_matching_portfolio(self):
-        first = self.evaluate()
-        second = self.evaluate(self.scenario()["scenario_id"])
-        with patch.object(gateway.pipeline, "run_portfolio", side_effect=test_portfolio):
-            run = self.client.post(BASE + "/portfolios", json={"evaluation_id": first["evaluation_id"]}).json()["data"]
-        url = BASE + f"/reports/{first['evaluation_id']}?portfolio_run_id={run['portfolio_run_id']}"
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertNotIn("<script>", response.text)
-        self.assertIn("&lt;script&gt;", response.text)
-        self.assertIn("default-src 'none'", response.headers["content-security-policy"])
-        self.assertEqual(self.client.get(BASE + f"/reports/{second['evaluation_id']}?portfolio_run_id={run['portfolio_run_id']}").status_code, 409)
-        self.assertEqual(self.client.get(BASE + "/portfolios/" + run["portfolio_run_id"]).json()["data"], run)
+    def test_unknown_ids_invalid_dates_and_unsupported_controls_fail_explicitly(self):
+        self.assertEqual(self.client.get('/api/v1/projects/missing').status_code,404)
+        self.assertEqual(self.client.post(BASE+'/evaluate',json={'feature_snapshot_id':'old'}).status_code,409)
+        for assumptions in ({'demand_multiplier':-1}, {'opening_date':'2027-02-30'}, {'competition_multiplier':2}, {'site_overrides':{'site-01':{'gross_margin_fraction':.4}}}, {'site_overrides':{'missing':{'monthly_rent_inr':10}}}):
+            self.assertEqual(self.client.post(BASE+'/scenarios',json={'name':'Invalid','assumptions':assumptions}).status_code,422)
 
-    def test_rescue_is_a_saved_proposal_not_scenario_mutation(self):
-        evaluation = self.evaluate()
-        output = {"status": "SOLVED", "threshold": 100000, "verification_npv_inr": 0.5, "reasons": ["TEST ONLY"]}
-        with patch.object(gateway.pipeline, "run_rescue", return_value=output, create=True):
-            response = self.client.post(BASE + "/sites/site-01/rescue", json={"evaluation_id": evaluation["evaluation_id"]})
-            self.assertEqual(response.status_code, 200, response.text)
-            result = response.json()["data"]
-            self.assertEqual(result["upper_bound"], 800000)
-            self.assertEqual(self.client.get(BASE + "/rescues/" + result["rescue_id"]).json()["data"], result)
-            output["threshold"] = 900000
-            invalid = self.client.post(BASE + "/sites/site-01/rescue", json={"evaluation_id": evaluation["evaluation_id"], "upper_bound": 700000})
-            self.assertEqual(invalid.status_code, 502)
-        self.assertEqual(store.list_objects("scenario", "demo"), [])
-        self.assertEqual(self.client.get(BASE + "/evaluations/" + evaluation["evaluation_id"]).json()["data"], evaluation)
+    def test_portfolio_requires_explicit_risk_review_and_respects_budget(self):
+        evaluation=self.evaluate(); eid=evaluation['evaluation_id']
+        response=self.client.post(BASE+'/portfolios',json={'evaluation_id':eid})
+        self.assertEqual(response.status_code,200,response.text)
+        self.assertEqual(response.json()['data']['selected_site_ids'],[])
+        risks=[a['site_id'] for a in evaluation['site_analyses']]
+        response=self.client.post(BASE+'/portfolios',json={'evaluation_id':eid,'max_stores':2,'acknowledged_risk_site_ids':risks})
+        self.assertEqual(response.status_code,200,response.text)
+        plan=response.json()['data']
+        self.assertEqual(plan['selected_site_ids'],['site-05','site-10'])
+        self.assertEqual(plan['solver_status'],'OPTIMAL')
+        self.assertEqual(plan['budget_used_inr']+plan['budget_unused_inr'],20_000_000)
+        self.assertEqual(self.client.post(BASE+'/portfolios',json={'evaluation_id':eid,'acknowledged_risk_site_ids':[risks[0],risks[0]]}).status_code,422)
+        zero=self.scenario(budget_inr=0)
+        zero_eval=self.evaluate(zero['scenario_id'])
+        self.assertEqual(zero_eval['rankings'],[])
+        plan=self.client.post(BASE+'/portfolios',json={'evaluation_id':zero_eval['evaluation_id']}).json()['data']
+        self.assertEqual((plan['budget_used_inr'],plan['full_network_npv_inr']), (0,0))
 
-    def test_source_and_daypart_results_are_not_confused(self):
-        value = self.client.get(BASE + "/features").json()["data"]
-        self.assertFalse(value["prepared"])
-        self.assertEqual(len(value["cells"]), 100)
-        evaluation = self.evaluate()
-        url = BASE + "/dayparts?evaluation_id=" + evaluation["evaluation_id"]
-        self.assertEqual(self.client.get(url + "&time_bin=weekday_lunch").status_code, 503)
-        self.assertEqual(self.client.get(url + "&time_bin=imaginary").status_code, 422)
+    def test_rent_and_sales_rescue_apply_canonical_verified_overrides(self):
+        scenario=self.scenario(assumptions={'rent_multiplier':1.7,'site_overrides':{'site-01':{'sales_multiplier':.85}}})
+        evaluation=self.evaluate(scenario['scenario_id'])
+        for lever in ('rent','sales'):
+            response=self.client.post(BASE+'/sites/site-01/rescue',json={'evaluation_id':evaluation['evaluation_id'],'lever':lever})
+            self.assertEqual(response.status_code,200,response.text)
+            result=response.json()['data']
+            self.assertEqual(result['status'],'SOLVED')
+            assumptions=copy.deepcopy(scenario['assumptions'])
+            assumptions['site_overrides']['site-01'].update({k:v for k,v in result['actionable_site_override'].items() if v is not None})
+            changed=self.scenario(base_scenario_id=scenario['scenario_id'],assumptions=assumptions)
+            applied=next(a for a in self.evaluate(changed['scenario_id'])['site_analyses'] if a['site_id']=='site-01')
+            self.assertEqual(applied['npv_inr'], result['npv_at_threshold'])
+            self.assertEqual(self.client.get(BASE+'/scenarios/'+scenario['scenario_id']).json()['data'],scenario)
+        self.assertEqual(result['threshold_coordinates'],'CANONICAL_SITE_OVERRIDE')
 
-    def test_engine_change_blocks_recomputation_but_not_saved_reads(self):
-        evaluation = self.evaluate()
-        with patch.object(sources, "engine_identity", return_value="changed"):
-            response = self.client.post(BASE + "/portfolios", json={"evaluation_id": evaluation["evaluation_id"]})
-            self.assertEqual(response.status_code, 409)
-            self.assertEqual(self.client.get(BASE + "/evaluations/" + evaluation["evaluation_id"]).status_code, 200)
+    def test_viable_bound_is_not_mislabelled_break_even_and_zero_controls_are_blocked(self):
+        baseline=self.evaluate()
+        result=self.client.post(BASE+'/sites/site-01/rescue',json={'evaluation_id':baseline['evaluation_id'],'upper_bound':1}).json()['data']
+        self.assertEqual((result['threshold_kind'],result['threshold']),('VIABLE_BOUND',1.))
+        self.assertGreater(result['npv_at_threshold'],1.)
+        for assumptions,lever,blocked in [({'rent_multiplier':0},'rent','BLOCKED_ZERO_RENT_MULTIPLIER'),({'site_overrides':{'site-01':{'sales_multiplier':0}}},'sales','BLOCKED_ZERO_CURRENT_SALES_MULTIPLIER')]:
+            scenario=self.scenario(assumptions=assumptions); evaluation=self.evaluate(scenario['scenario_id'])
+            response=self.client.post(BASE+'/sites/site-01/rescue',json={'evaluation_id':evaluation['evaluation_id'],'lever':lever})
+            self.assertEqual(response.status_code,200,response.text)
+            self.assertEqual(response.json()['data']['application_status'],blocked)
+            self.assertIsNone(response.json()['data']['actionable_site_override'])
+        self.assertEqual(self.client.post(BASE+'/sites/site-01/rescue',json={'evaluation_id':baseline['evaluation_id'],'lower_bound':1,'upper_bound':2}).status_code,422)
 
-    def test_timeout_does_not_publish_late_result(self):
-        release = threading.Event()
-        def slow(project, scenario):
-            release.wait(2)
-            return test_engine(project, scenario)
-        self.engine_mock.side_effect = slow
+    def test_infrastructure_uses_source_geometry_and_timing_changes_results(self):
+        event=self.client.get(BASE+'/infrastructure').json()['data'][0]
+        self.assertEqual(event['infra_project_id'],'metro-blue-2a')
+        values=[]
+        for state in ('current','opens','delayed'):
+            scenario=self.scenario(assumptions={'infrastructure_state':state,'infrastructure_effect_fraction':event['assumed_effect_fraction']})
+            value=self.evaluate(scenario['scenario_id']);values.append(sum(a['npv_inr'] for a in value['site_analyses']))
+        self.assertGreater(values[1],values[2]);self.assertGreater(values[2],values[0])
+
+    def test_geography_and_daypart_outputs_have_matching_saved_identity(self):
+        evaluation=self.evaluate();eid=evaluation['evaluation_id']
+        for resource in ('features','dayparts','rankings'):
+            result=self.client.get(BASE+'/'+resource+'?evaluation_id='+eid)
+            self.assertEqual(result.status_code,200,result.text)
+            self.assertEqual(result.json()['data']['evaluation_id'],eid)
+        geo=self.client.get(BASE+'/features?evaluation_id='+eid).json()['data']
+        self.assertEqual(len(geo['cells']),100);self.assertGreater(len(geo['pois']),100)
+        self.assertTrue(all(p['source_status']=='REAL' for p in geo['pois']))
+
+    def test_workspace_is_persistent_and_refuses_cross_account_references(self):
+        scenario=self.scenario();evaluation=self.evaluate(scenario['scenario_id'])
+        plan=self.client.post(BASE+'/portfolios',json={'evaluation_id':evaluation['evaluation_id']}).json()['data']
+        state=dict(scenario_id=scenario['scenario_id'],evaluation_id=evaluation['evaluation_id'],portfolio_run_id=plan['portfolio_run_id'])
+        self.assertEqual(self.client.post(BASE+'/workspace',json=state).status_code,200)
+        self.assertEqual(self.client.post(BASE+'/workspace',json={'scenario_id':'baseline'}).status_code,200)
+        self.assertEqual(self.client.post(BASE+'/workspace',json=state).status_code,200)
+        self.assertEqual(len(store.list_objects('workspace','demo')),1)
+        with TestClient(app) as other:
+            other.post('/api/v1/auth/register',json=dict(name='Another account',email='another@example.test',password='another-test-passphrase'))
+            self.assertIsNone(other.get(BASE+'/workspace').json()['data']['evaluation_id'])
+            for path in ('scenarios/'+scenario['scenario_id'],'evaluations/'+evaluation['evaluation_id'],'portfolios/'+plan['portfolio_run_id'],'reports/'+evaluation['evaluation_id']+'?format=json'):
+                self.assertEqual(other.get(BASE+'/'+path).status_code,404)
+            self.assertEqual(other.post(BASE+'/workspace',json=state).status_code,404)
+        self.client.post('/api/v1/auth/logout')
+        self.assertEqual(self.client.post('/api/v1/auth/login',json=dict(email='contract@example.test',password='contract-passphrase-2026')).status_code,200)
+        restored=self.client.get(BASE+'/workspace').json()['data']
+        self.assertEqual({k:restored[k] for k in state},state)
+        self.assertTrue(restored['analysis_current'])
+        with patch.object(sources,'engine_identity',return_value='new-code'):
+            self.assertFalse(self.client.get(BASE+'/workspace').json()['data']['analysis_current'])
+
+    def test_reports_are_frozen_escaped_and_require_matching_portfolios(self):
+        scenario=self.scenario(name='<script>alert(1)</script>');evaluation=self.evaluate(scenario['scenario_id']);eid=evaluation['evaluation_id']
+        run=self.client.post(BASE+'/portfolios',json={'evaluation_id':eid}).json()['data']
+        report=self.client.get(BASE+'/reports/'+eid+'?portfolio_run_id='+run['portfolio_run_id'])
+        self.assertEqual(report.status_code,200)
+        self.assertNotIn('<script>alert(1)</script>',report.text);self.assertIn('&lt;script&gt;',report.text)
+        value=self.client.get(BASE+'/reports/'+eid+'?format=json').json()['data']
+        self.assertNotIn('inputs',value['project']);self.assertNotIn('prepared_network',value)
+        other=self.evaluate()
+        self.assertEqual(self.client.get(BASE+'/reports/'+other['evaluation_id']+'?portfolio_run_id='+run['portfolio_run_id']).status_code,409)
+
+    def test_invalid_domain_output_and_timeout_never_save_partial_results(self):
+        with patch.object(gateway.pipeline,'prepare_evaluation',return_value={'broken':True}):
+            self.assertEqual(self.client.post(BASE+'/evaluate',json={}).status_code,502)
+        self.assertEqual(store.list_objects('evaluation','demo'),[])
+        release=threading.Event()
+        def slow(*args):
+            release.wait(2);return prepare_evaluation(*args)
         try:
-            with patch.dict(os.environ, {"STORESCOUT_COMPUTE_TIMEOUT_SECONDS": "0.01"}):
-                response = self.client.post(BASE + "/evaluate", json={})
-            self.assertEqual(response.status_code, 503)
-            self.assertEqual(response.json()["error"]["code"], "ENGINE_TIMEOUT")
+            with patch.object(gateway.pipeline,'prepare_evaluation',side_effect=slow), patch.dict(os.environ,{'STORESCOUT_COMPUTE_TIMEOUT_SECONDS':'.01'}):
+                response=self.client.post(BASE+'/evaluate',json={})
+                self.assertEqual(response.status_code,503);self.assertEqual(response.json()['error']['code'],'ENGINE_TIMEOUT')
         finally:
             release.set()
-        self.assertEqual(store.list_objects("evaluation", "demo"), [])
+        self.assertEqual(store.list_objects('evaluation','demo'),[])
 
     def test_atomic_rollback_and_concurrent_cache_publication(self):
         with self.assertRaises(sqlite3.IntegrityError):
-            store.save_result("demo", "evaluation", "rollback", None, "r", "x", [("evaluation", "x", {"ok": 1}), ("evaluation", "x", {"bad": 1})])
-        self.assertIsNone(store.get("evaluation", "demo", "x"))
-        self.assertIsNone(store.cached_id("demo", "evaluation", "rollback", None, "r"))
-        barrier = threading.Barrier(2)
-        user_id = store.current_user.get()
+            store.save_result('demo','evaluation','rollback',None,'r','x',[('evaluation','x',{'ok':1}),('evaluation','x',{'bad':1})])
+        self.assertIsNone(store.get('evaluation','demo','x'))
+        barrier=threading.Barrier(2);user_id=store.current_user.get()
         def publish(identity):
-            context = store.current_user.set(user_id)
+            context=store.current_user.set(user_id)
             try:
                 barrier.wait()
-                return store.save_result("demo", "evaluation", "same", None, "r", identity, [("evaluation", identity, {"identity": identity})])
-            finally:
-                store.current_user.reset(context)
-        with ThreadPoolExecutor(max_workers=2) as pool:
-            results = list(pool.map(publish, ["a", "b"]))
-        self.assertEqual(results[0], results[1])
-        self.assertEqual(len(store.list_objects("evaluation", "demo")), 1)
+                return store.save_result('demo','evaluation','same',None,'r',identity,[('evaluation',identity,{'identity':identity})])
+            finally:store.current_user.reset(context)
+        with ThreadPoolExecutor(max_workers=2) as pool:results=list(pool.map(publish,['a','b']))
+        self.assertEqual(results[0],results[1]);self.assertEqual(len(store.list_objects('evaluation','demo')),1)
+
+    def test_missing_or_modified_artifact_fails_closed(self):
+        original_sha = sources.sha
+        with patch.object(sources,'sha',side_effect=lambda path: '0'*64 if path.name == 'catboost.joblib' else original_sha(path)):
+            self.assertEqual(self.client.get(BASE+'/model').status_code,503)
+        with patch.object(sources,'ROOT',Path(self.tmp.name)):
+            response=self.client.get(BASE+'/model')
+            self.assertEqual(response.status_code,503)
+            self.assertEqual(response.json()['error']['code'],'MODEL_UNAVAILABLE')
+
+    def test_public_preview_is_computed_and_does_not_expose_account_data(self):
+        with TestClient(app) as anonymous:
+            response=anonymous.get('/api/v1/showcase')
+        self.assertEqual(response.status_code,200,response.text)
+        data=response.json()['data']
+        self.assertEqual(data['model_artifact_id'],sources.model_bundle()['card']['model_artifact_id'])
+        self.assertEqual(len(data['dayparts']),6)
+        cases={s['state']:s for s in data['scenarios']}
+        self.assertEqual(set(cases),{'current','opens','delayed'})
+        for case in cases.values():
+            self.assertEqual(case['delta_npv_inr'],case['npv_inr']-cases['current']['npv_inr'])
+        self.assertGreater(cases['opens']['npv_inr'],cases['delayed']['npv_inr'])
+        self.assertNotIn('contract@example.test',response.text)
+        self.assertNotIn('password',response.text)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -7,7 +7,7 @@ import CashflowComparison from "./CashflowComparison";
 import StatusBadge from "@/components/StatusBadge";
 import { useWorkspace } from "@/lib/workspace";
 import { money, percent, years } from "@/lib/format";
-import { compactMoney, PERIODS } from "@/lib/presentation";
+import { compactMoney, reasonLabel, PERIODS } from "@/lib/presentation";
 import { Unavailable } from "@/components/Feedback";
 export { PERIODS } from "@/lib/presentation";
 
@@ -153,7 +153,7 @@ export default function Explore() {
         <div className="section-heading">
           <div>
             <h2 id="dayparts-heading">
-              DaypartDNA <span className="quiet-tag">POI opportunity</span>
+              DaypartDNA <span className="quiet-tag">Weekly opportunity</span>
             </h2>
             <p>When could these locations be busiest?</p>
           </div>
@@ -185,7 +185,7 @@ export default function Explore() {
                     <strong className="opportunity-score">
                       {profile?.opportunity_index == null
                         ? "Unknown"
-                        : profile.opportunity_index.toFixed(1) + " / 100"}
+                        : profile.opportunity_index.toFixed(1) + "%"}
                     </strong>
                   </div>
                   <div
@@ -385,7 +385,7 @@ export default function Explore() {
                 <StatusBadge status={a?.failfast.status} />
                 <ul>
                   {a?.failfast.reasons.length ? (
-                    a.failfast.reasons.map((r, i) => <li key={i}>{r}</li>)
+                    a.failfast.reasons.map((r, i) => <li key={i}>{reasonLabel(r)}</li>)
                   ) : (
                     <li>No rules failed in the evaluated cases.</li>
                   )}

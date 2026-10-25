@@ -1,0 +1,25 @@
+assumption_id,value,unit,source_status,source_id,notes,feature_snapshot_id
+catchment_radius_m,1500,m,ASSUMED,approved-weights,User-specified feature catchment,bengaluru-features-20261024-v1
+distance_decay_scale_m,750,m,ASSUMED,approved-weights,User-specified opportunity decay,bengaluru-features-20261024-v1
+delay_months,24,months,ASSUMED,assumptions,User-specified scenario delay,bengaluru-features-20261024-v1
+outside_attraction,1.0,relative attraction,ASSUMED,assumptions,"Approved future network default, no allocation performed",bengaluru-features-20261024-v1
+attraction_gamma,1.0,dimensionless,ASSUMED,assumptions,Approved future network default,bengaluru-features-20261024-v1
+attraction_tau_m,750,m,ASSUMED,assumptions,Approved future network default,bengaluru-features-20261024-v1
+grocery_monthly_per_capita_inr,2974.915,INR/person/month,DERIVED_WITH_ASSUMPTIONS,hces-2023-24;assumptions,HCES 1-13 + 0.5*14 +18+19; state urban mean transferred locally,bengaluru-features-20261024-v1
+population_reference_year,2020,year,REFERENCE_METADATA,assumptions,WorldPop estimate reference year; no population growth applied,bengaluru-features-20261024-v1
+wallet_price_year,2024,year,REFERENCE_METADATA,assumptions,2023-24 survey nominal prices represented by ending year,bengaluru-features-20261024-v1
+valuation_date,2026-10-24,date,REFERENCE_METADATA,assumptions,User fixed valuation date,bengaluru-features-20261024-v1
+financial_price_basis,2026-10-24,date,REFERENCE_METADATA,assumptions,"Demo rent, CAPEX and OPEX price basis",bengaluru-features-20261024-v1
+grocery_processed_share,0.5,fraction,ASSUMED,assumptions,Assumed grocery-eligible share of HCES beverages/processed foods including purchased meals,bengaluru-features-20261024-v1
+state_to_local_expenditure_multiplier,1.0,multiplier,ASSUMED,assumptions,"Assumed transfer of state urban mean to corridor, not a measured local estimate",bengaluru-features-20261024-v1
+unknown_hours_availability,0.5,fraction,ASSUMED,assumptions,Assumed where opening hours unavailable or parser unsupported,bengaluru-features-20261024-v1
+unknown_hours_evidence,0.5,fraction,ASSUMED,assumptions,"Assumed evidence weight, not confidence",bengaluru-features-20261024-v1
+recorded_hours_evidence,1.0,fraction,ASSUMED,assumptions,Engineering reference weight for parsed OSM schedule,bengaluru-features-20261024-v1
+competitor_unit_attraction,1.0,relative attraction,ASSUMED,assumptions,Equal competitor mass; actual sizes/turnover unavailable,bengaluru-features-20261024-v1
+monthly_rent_rate,700,INR/sqm/month,ASSUMED,assumptions,Demo engineering assumption; listings not comparable verified grocery leases,bengaluru-features-20261024-v1
+capex_rate,18000,INR/sqm upfront,ASSUMED,assumptions,"Demo engineering assumption, no benchmark claimed",bengaluru-features-20261024-v1
+opex_rate,7200,INR/sqm/year excluding rent and COGS,ASSUMED,assumptions,Demo engineering assumption,bengaluru-features-20261024-v1
+gross_margin_fraction,0.22,fraction,ASSUMED,assumptions,"Demo grocery assumption, not observed business margin",bengaluru-features-20261024-v1
+budget_inr,20000000,INR,EXISTING_FIXTURE_ASSUMED,assumptions,Existing approved project assumption,bengaluru-features-20261024-v1
+discount_rate_fraction,0.12,fraction,EXISTING_FIXTURE_ASSUMED,assumptions,Existing approved project assumption,bengaluru-features-20261024-v1
+projection_years,5,years,EXISTING_FIXTURE_ASSUMED,assumptions,Existing approved project assumption,bengaluru-features-20261024-v1

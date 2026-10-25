@@ -1,0 +1,201 @@
+{
+  "selected_model": "ridge",
+  "selected_parameters": {
+    "alpha": 20.0
+  },
+  "selection": "VALIDATION_WAPE_ONLY",
+  "search": [
+    {
+      "model": "median",
+      "parameters": {},
+      "status": "FITTED",
+      "validation": {
+        "n": 400,
+        "MAE_inr": 25729867.534584638,
+        "RMSE_inr": 36356935.51799562,
+        "WAPE": 0.6177719648394803,
+        "absolute_error_sum_inr": 10291947013.833855,
+        "absolute_actual_sum_inr": 16659783220.347462,
+        "WAPE_undefined_reason": null
+      },
+      "fit_seconds": 0.18097530002705753
+    },
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 1.0
+      },
+      "status": "FITTED",
+      "validation": {
+        "n": 400,
+        "MAE_inr": 8283739.9119928125,
+        "RMSE_inr": 12580370.569105323,
+        "WAPE": 0.19889190159150327,
+        "absolute_error_sum_inr": 3313495964.797125,
+        "absolute_actual_sum_inr": 16659783220.347462,
+        "WAPE_undefined_reason": null
+      },
+      "fit_seconds": 0.07899160007946193
+    },
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 20.0
+      },
+      "status": "FITTED",
+      "validation": {
+        "n": 400,
+        "MAE_inr": 8166756.999854064,
+        "RMSE_inr": 12491378.56778166,
+        "WAPE": 0.19608315166741372,
+        "absolute_error_sum_inr": 3266702799.9416256,
+        "absolute_actual_sum_inr": 16659783220.347462,
+        "WAPE_undefined_reason": null
+      },
+      "fit_seconds": 0.0184592999285087
+    },
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 100.0
+      },
+      "status": "FITTED",
+      "validation": {
+        "n": 400,
+        "MAE_inr": 8944260.990064066,
+        "RMSE_inr": 13570243.549858488,
+        "WAPE": 0.21475095736275784,
+        "absolute_error_sum_inr": 3577704396.025626,
+        "absolute_actual_sum_inr": 16659783220.347462,
+        "WAPE_undefined_reason": null
+      },
+      "fit_seconds": 0.01758049998898059
+    },
+    {
+      "model": "catboost",
+      "parameters": {
+        "iterations": 450,
+        "depth": 5,
+        "learning_rate": 0.06,
+        "l2_leaf_reg": 6
+      },
+      "status": "FITTED",
+      "validation": {
+        "n": 400,
+        "MAE_inr": 11069095.349095598,
+        "RMSE_inr": 16927461.55352477,
+        "WAPE": 0.2657680523856117,
+        "absolute_error_sum_inr": 4427638139.638239,
+        "absolute_actual_sum_inr": 16659783220.347462,
+        "WAPE_undefined_reason": null
+      },
+      "fit_seconds": 2.3936698000179604
+    },
+    {
+      "model": "catboost",
+      "parameters": {
+        "iterations": 650,
+        "depth": 6,
+        "learning_rate": 0.04,
+        "l2_leaf_reg": 10
+      },
+      "status": "FITTED",
+      "validation": {
+        "n": 400,
+        "MAE_inr": 11661627.64646278,
+        "RMSE_inr": 17923657.419039477,
+        "WAPE": 0.2799947032256656,
+        "absolute_error_sum_inr": 4664651058.585112,
+        "absolute_actual_sum_inr": 16659783220.347462,
+        "WAPE_undefined_reason": null
+      },
+      "fit_seconds": 5.108585699927062
+    }
+  ],
+  "train_markets": [
+    "sim-m0000",
+    "sim-m0001",
+    "sim-m0002",
+    "sim-m0003",
+    "sim-m0004",
+    "sim-m0006",
+    "sim-m0007",
+    "sim-m0010",
+    "sim-m0011",
+    "sim-m0014",
+    "sim-m0017",
+    "sim-m0019",
+    "sim-m0023",
+    "sim-m0024",
+    "sim-m0026",
+    "sim-m0027",
+    "sim-m0028",
+    "sim-m0030",
+    "sim-m0031",
+    "sim-m0034",
+    "sim-m0035",
+    "sim-m0036",
+    "sim-m0037",
+    "sim-m0038",
+    "sim-m0039",
+    "sim-m0040",
+    "sim-m0042",
+    "sim-m0044",
+    "sim-m0045",
+    "sim-m0048",
+    "sim-m0049",
+    "sim-m0050",
+    "sim-m0051",
+    "sim-m0052",
+    "sim-m0053",
+    "sim-m0054",
+    "sim-m0055",
+    "sim-m0056",
+    "sim-m0057",
+    "sim-m0060",
+    "sim-m0061",
+    "sim-m0062",
+    "sim-m0065",
+    "sim-m0066",
+    "sim-m0068",
+    "sim-m0071",
+    "sim-m0074",
+    "sim-m0075",
+    "sim-m0076",
+    "sim-m0078",
+    "sim-m0080",
+    "sim-m0081",
+    "sim-m0082",
+    "sim-m0086",
+    "sim-m0087",
+    "sim-m0089",
+    "sim-m0091",
+    "sim-m0094",
+    "sim-m0096",
+    "sim-m0098"
+  ],
+  "validation_markets": [
+    "sim-m0005",
+    "sim-m0008",
+    "sim-m0012",
+    "sim-m0015",
+    "sim-m0018",
+    "sim-m0020",
+    "sim-m0022",
+    "sim-m0025",
+    "sim-m0032",
+    "sim-m0046",
+    "sim-m0059",
+    "sim-m0067",
+    "sim-m0072",
+    "sim-m0079",
+    "sim-m0083",
+    "sim-m0084",
+    "sim-m0085",
+    "sim-m0090",
+    "sim-m0095",
+    "sim-m0097"
+  ],
+  "test_and_ood_used_for_selection": false,
+  "created_at_utc": "2026-10-24T17:30:27.284697+00:00"
+}

@@ -1,0 +1,37 @@
+{
+  "ml/training/data/reference_sales_v2/market_splits.csv": {
+    "rows": 120,
+    "columns": 2,
+    "nulls": 0
+  },
+  "ml/training/data/reference_sales_v2/synthetic_regular.csv": {
+    "rows": 2000,
+    "columns": 34,
+    "nulls": 437
+  },
+  "ml/training/data/reference_sales_v2/synthetic_shifted.csv": {
+    "rows": 400,
+    "columns": 34,
+    "nulls": 64
+  },
+  "ml/evaluation/reference_sales_v2/bengaluru_source_ranges.csv": {
+    "rows": 19,
+    "columns": 5,
+    "nulls": 0
+  },
+  "ml/evaluation/reference_sales_v2/predictions.csv": {
+    "rows": 3600,
+    "columns": 8,
+    "nulls": 0
+  },
+  "ml/evaluation/reference_sales_v2/segments.csv": {
+    "rows": 27,
+    "columns": 10,
+    "nulls": 27
+  },
+  "ml/evaluation/reference_sales_v2/v1_capacity_audit.csv": {
+    "rows": 2400,
+    "columns": 7,
+    "nulls": 0
+  }
+}

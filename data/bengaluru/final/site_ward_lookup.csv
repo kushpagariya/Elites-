@@ -1,0 +1,11 @@
+site_id,ward_2025_id,ward_2025_name,ward_2011_id,ward_2011_name,spatial_join_status,source_id,demographic_use
+site-01,ward_369_final.169,Kormangala West,173,Jakkasandra,MATCHED_BOTH,wards-2012;wards-2025,Historical context only; no ward totals copied into catchments
+site-02,ward_369_final.241,Bommanahalli,175,Bommanahalli,MATCHED_BOTH,wards-2012;wards-2025,Historical context only; no ward totals copied into catchments
+site-03,ward_369_final.208,Mangammana Palya,190,Mangammanapalya,MATCHED_BOTH,wards-2012;wards-2025,Historical context only; no ward totals copied into catchments
+site-04,ward_369_final.213,Hosapalya,190,Mangammanapalya,MATCHED_BOTH,wards-2012;wards-2025,Historical context only; no ward totals copied into catchments
+site-05,ward_369_final.144,Bandepalya,190,Mangammanapalya,MATCHED_BOTH,wards-2012;wards-2025,Historical context only; no ward totals copied into catchments
+site-06,ward_369_final.144,Bandepalya,191,Singasandra,MATCHED_BOTH,wards-2012;wards-2025,Historical context only; no ward totals copied into catchments
+site-07,ward_369_final.84,Chikkathoguru,191,Singasandra,MATCHED_BOTH,wards-2012;wards-2025,Historical context only; no ward totals copied into catchments
+site-08,ward_369_final.84,Chikkathoguru,192,Begur,MATCHED_BOTH,wards-2012;wards-2025,Historical context only; no ward totals copied into catchments
+site-09,,,,,OUTSIDE_OR_AMBIGUOUS_WARD_COVERAGE,wards-2012;wards-2025,Historical context only; no ward totals copied into catchments
+site-10,,,,,OUTSIDE_OR_AMBIGUOUS_WARD_COVERAGE,wards-2012;wards-2025,Historical context only; no ward totals copied into catchments

@@ -6,6 +6,7 @@ import {
   changePercent,
   changeMultiplier,
   compactMoney,
+  reasonLabel, riskSummary,
 } from "@/lib/presentation";
 import StatusBadge from "@/components/StatusBadge";
 import { ErrorNotice, Unavailable } from "@/components/Feedback";
@@ -65,7 +66,7 @@ export default function Scenarios() {
   const override = (
     key: keyof SiteOverride,
     value: string,
-    kind: "money" | "margin" | "change",
+    kind: "money" | "change",
   ) => {
     if (!draft || !site) return;
     const values = structuredClone(draft.assumptions.site_overrides);
@@ -73,9 +74,7 @@ export default function Scenarios() {
     if (value === "") delete next[key];
     else
       next[key] =
-        kind === "margin"
-          ? Number(value) / 100
-          : kind === "change"
+        kind === "change"
             ? changeMultiplier(Number(value))
             : Number(value);
     if (Object.keys(next).length) values[site.site_id] = next;
@@ -193,7 +192,7 @@ export default function Scenarios() {
                         draft.assumptions.infrastructure_state === state
                       }
                       onClick={() =>
-                        w.editAssumptions({ infrastructure_state: state })
+                        w.editAssumptions({ infrastructure_state: state, ...(state !== "current" && draft.assumptions.infrastructure_effect_fraction === 0 ? {infrastructure_effect_fraction: w.infrastructure[0]?.assumed_effect_fraction ?? 0} : {}) })
                       }
                     >
                       {eventLabels[state]}
@@ -217,76 +216,6 @@ export default function Scenarios() {
                       value={draft.name}
                       onChange={(e) => w.edit({ name: e.target.value })}
                     />
-                  </label>
-                  <label>
-                    Gross margin (%)
-                    <input
-                      type="number"
-                      min={0}
-                      max={100}
-                      step="0.1"
-                      value={fieldValue(
-                        draft.assumptions.gross_margin_fraction == null
-                          ? null
-                          : draft.assumptions.gross_margin_fraction * 100,
-                      )}
-                      placeholder="Keep location defaults"
-                      onChange={(e) =>
-                        w.editAssumptions({
-                          gross_margin_fraction:
-                            e.target.value === ""
-                              ? null
-                              : Number(e.target.value) / 100,
-                        })
-                      }
-                    />
-                  </label>
-                  <label>
-                    Operating cost change (%)
-                    <input
-                      type="number"
-                      required
-                      min={-100}
-                      max={200}
-                      step="0.1"
-                      value={fieldValue(
-                        changePercent(
-                          draft.assumptions.operating_cost_multiplier ?? 1,
-                        ),
-                      )}
-                      onChange={(e) =>
-                        w.editAssumptions({
-                          operating_cost_multiplier: changeMultiplier(
-                            number(e.target.value),
-                          ),
-                        })
-                      }
-                    />
-                  </label>
-                  <label>
-                    Competition adjustment (%)
-                    <input
-                      type="number"
-                      required
-                      min={-100}
-                      max={200}
-                      step="0.1"
-                      value={fieldValue(
-                        changePercent(
-                          draft.assumptions.competition_multiplier ?? 1,
-                        ),
-                      )}
-                      onChange={(e) =>
-                        w.editAssumptions({
-                          competition_multiplier: changeMultiplier(
-                            number(e.target.value),
-                          ),
-                        })
-                      }
-                    />
-                    <small>
-                      Assumed competitive pressure, not a measured count.
-                    </small>
                   </label>
                 </div>
                 <h3>Individual-location overrides</h3>
@@ -326,24 +255,6 @@ export default function Scenarios() {
                         "change",
                         200,
                       ],
-                      [
-                        "gross_margin_fraction",
-                        "Gross margin (%)",
-                        "margin",
-                        100,
-                      ],
-                      [
-                        "annual_opex_inr",
-                        "Annual operating cost (INR)",
-                        "money",
-                        undefined,
-                      ],
-                      [
-                        "competition_multiplier",
-                        "Local competition change (%)",
-                        "change",
-                        200,
-                      ],
                     ] as const
                   ).map(([key, label, kind, max]) => {
                     const value = site
@@ -360,9 +271,7 @@ export default function Scenarios() {
                           value={fieldValue(
                             value == null
                               ? null
-                              : kind === "margin"
-                                ? value * 100
-                                : kind === "change"
+                              : kind === "change"
                                   ? changePercent(value)
                                   : value,
                           )}
@@ -567,13 +476,13 @@ export default function Scenarios() {
               </div>
               {analysis ? (
                 <>
-                  <h3>Why?</h3>
+                  <p>{riskSummary(analysis.failfast.reasons)}</p>
                   {analysis.failfast.reasons.length ? (
-                    <ul>
+                    <details><summary>All checks and evidence</summary><ul>
                       {analysis.failfast.reasons.map((r, i) => (
-                        <li key={i}>{r}</li>
+                        <li key={i}>{reasonLabel(r)}</li>
                       ))}
-                    </ul>
+                    </ul></details>
                   ) : (
                     <p>No rules failed in the evaluated cases.</p>
                   )}
@@ -591,7 +500,7 @@ export default function Scenarios() {
                   if (site)
                     void w.rescue(site.site_id, {
                       lever,
-                      lower_bound: lower === "" ? null : Number(lower),
+                      lower_bound: lever === "rent" ? 0 : lower === "" ? null : Number(lower),
                       upper_bound: upper === "" ? null : Number(upper),
                     });
                 }}
@@ -622,9 +531,10 @@ export default function Scenarios() {
                       <input
                         type="number"
                         min={lever === "sales" ? 0.5 : 0}
+                        readOnly={lever === "rent"}
                         max={lever === "sales" ? 3 : undefined}
                         step="0.01"
-                        value={lower}
+                        value={lever === "rent" ? "0" : lower}
                         onChange={(e) => setLower(e.target.value)}
                       />
                     </label>
@@ -647,8 +557,7 @@ export default function Scenarios() {
                     </label>
                   </div>
                   <p className="helper">
-                    Rent: INR/month. Sales: a multiple of the reference level,
-                    bounded from 0.5 to 3. Blank uses the saved search policy.
+                    Rent is base INR/month, before the global rent change. Sales search uses 0.5–3× the current target; the applied result is an absolute reference-sales multiplier.
                   </p>
                 </details>
                 <button
@@ -665,12 +574,12 @@ export default function Scenarios() {
                 <div className="rescue-result">
                   <strong>
                     {proposal.status === "SOLVED"
-                      ? "A financial threshold was found"
+                      ? proposal.threshold_kind === "VIABLE_BOUND" ? "A viable setting was verified" : "Break-even setting verified"
                       : proposal.status === "NON_MONOTONIC"
                         ? "This relationship needs review"
                         : "No viable threshold in these bounds"}
                   </strong>
-                  <p>{proposal.reasons.join(" ")}</p>
+                  <p>{proposal.status === "SOLVED" ? proposal.threshold_kind === "VIABLE_BOUND" ? "This setting remains viable at the tested bound. It is not the zero-NPV break-even point." : "The engine verified this setting on a fresh copy of your scenario." : proposal.application_status === "BLOCKED_ZERO_RENT_MULTIPLIER" ? "Rent is already zero after the global adjustment. A finite base-rent threshold cannot be calculated." : proposal.application_status === "BLOCKED_ZERO_CURRENT_SALES_MULTIPLIER" ? "The current sales target is zero. Change that assumption before searching for a relative improvement." : "No setting within the checked range passed all required financial and eligibility checks."}</p>
                   {proposal.status === "SOLVED" &&
                     proposal.verified &&
                     proposal.threshold != null && (
@@ -679,7 +588,7 @@ export default function Scenarios() {
                           {lever === "rent"
                             ? money(proposal.threshold) + " / month"
                             : proposal.threshold.toFixed(3) +
-                              "× reference sales"}
+                              "× baseline reference sales"}
                         </p>
                         <button
                           type="button"
@@ -693,7 +602,7 @@ export default function Scenarios() {
                       </>
                     )}
                   <p className="helper">
-                    Checked range:{" "}
+                    Verified setting range:{" "}
                     {proposal.lower_bound.toLocaleString("en-IN")}–
                     {proposal.upper_bound.toLocaleString("en-IN")}.{" "}
                     {proposal.remaining_failed_rule_ids.length
@@ -723,11 +632,12 @@ export default function Scenarios() {
                     <h3>{event.name}</h3>
                     <p className="helper">
                       {event.type?.replaceAll("_", " ") ?? "Infrastructure"} ·{" "}
-                      {event.status} ·{" "}
+                      {event.status.replaceAll("_", " ")} ·{" "}
                       {event.hypothetical_demo
-                        ? "Hypothetical"
+                        ? "Assumed opening scenario"
                         : event.source_status}
                     </p>
+                    {event.geometry_note && <p className="helper">{event.geometry_note}</p>}
                     <dl>
                       <div>
                         <dt>Opening date</dt>

@@ -10,7 +10,7 @@ def project(project_id):
     if project_id != "demo":
         raise ServiceError(404, "NOT_FOUND", "Project not found")
     try:
-        return Project.model_validate(sources.read_json(sources.DATA_ROOT / "project.json"))
+        return Project.model_validate(sources.project_data())
     except (OSError, ValueError) as exc:
         raise ServiceError(503, "SOURCE_UNAVAILABLE", "Project fixture is missing or invalid.") from exc
 

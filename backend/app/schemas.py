@@ -77,16 +77,9 @@ class Project(StrictModel):
 class SiteOverride(StrictModel):
     monthly_rent_inr: FiniteFloat | None = Field(default=None, ge=0)
     sales_multiplier: FiniteFloat | None = Field(default=None, ge=0, le=3)
-    gross_margin_fraction: FiniteFloat | None = Field(default=None, ge=0, le=1)
-    annual_opex_inr: FiniteFloat | None = Field(default=None, ge=0)
-    competition_multiplier: FiniteFloat | None = Field(default=None, ge=0, le=3)
 
 
 class Assumptions(StrictModel):
-    gross_margin_fraction: FiniteFloat | None = Field(default=None, ge=0, le=1)
-    operating_cost_multiplier: FiniteFloat = Field(default=1, ge=0, le=3)
-    competition_multiplier: FiniteFloat = Field(default=1, ge=0, le=3)
-    valuation_date: str = "2026-10-24"
     demand_multiplier: FiniteFloat = Field(default=1, ge=0, le=3)
     rent_multiplier: FiniteFloat = Field(default=1, ge=0, le=3)
     site_overrides: dict[str, SiteOverride] = Field(default_factory=dict)
@@ -96,7 +89,7 @@ class Assumptions(StrictModel):
     delay_months: int = Field(default=24, ge=0, le=120)
 
 
-    @field_validator("opening_date", "valuation_date")
+    @field_validator("opening_date")
     @classmethod
     def iso_date(cls, value):
         if value is not None and date.fromisoformat(value).isoformat() != value:
@@ -122,7 +115,17 @@ class Scenario(StrictModel):
 
 class EvaluateRequest(StrictModel):
     scenario_id: str = "baseline"
-    feature_snapshot_id: str = "features-demo-1"
+    feature_snapshot_id: str = "bengaluru-features-20261024-v1"
+
+
+class WorkspaceState(StrictModel):
+    scenario_id: str = "baseline"
+    evaluation_id: str | None = None
+    portfolio_run_id: str | None = None
+
+
+class WorkspaceView(WorkspaceState):
+    analysis_current: bool
 
 
 class FailFastDiagnosis(StrictModel):
@@ -297,6 +300,14 @@ class RescueResult(StrictModel):
     verification_npv_inr: FiniteFloat | None = None
     reasons: list[str]
     remaining_failed_rule_ids: list[str] = Field(default_factory=list)
+    threshold_kind: Literal["BREAK_EVEN", "VIABLE_BOUND"] | None = None
+    threshold_coordinates: Literal["CANONICAL_SITE_OVERRIDE"] = "CANONICAL_SITE_OVERRIDE"
+    application_status: str
+    actionable_site_override: SiteOverride | None = None
+    requires_risk_acknowledgement: bool = False
+    search_lower_bound: FiniteFloat
+    search_upper_bound: FiniteFloat
+    diagnostics: dict = Field(default_factory=dict)
 
 
 class PoiRecord(StrictModel):

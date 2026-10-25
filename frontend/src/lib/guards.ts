@@ -81,15 +81,6 @@ export function isScenario(x: unknown): x is Scenario {
   )
     return false;
   const a = x.assumptions;
-  if (
-    !["operating_cost_multiplier", "competition_multiplier"].every(
-      (k) => a[k] === undefined || finite(a[k]),
-    ) ||
-    !(
-      a.gross_margin_fraction === undefined || nullable(a.gross_margin_fraction)
-    )
-  )
-    return false;
   return (
     [
       "demand_multiplier",
@@ -106,9 +97,6 @@ export function isScenario(x: unknown): x is Scenario {
         [
           "monthly_rent_inr",
           "sales_multiplier",
-          "gross_margin_fraction",
-          "annual_opex_inr",
-          "competition_multiplier",
         ].every((k) => v[k] === undefined || nullable(v[k])),
     )
   );
@@ -341,7 +329,12 @@ export function isRescue(x: unknown): x is RescueResult {
     ) &&
     finite(x.lower_bound) &&
     finite(x.upper_bound) &&
-    x.lower_bound < x.upper_bound &&
+    x.lower_bound <= x.upper_bound &&
+    text(x.application_status) &&
+    x.threshold_coordinates === "CANONICAL_SITE_OVERRIDE" &&
+    [null, "BREAK_EVEN", "VIABLE_BOUND"].includes(x.threshold_kind as string | null) &&
+    finite(x.search_lower_bound) && finite(x.search_upper_bound) &&
+    record(x.diagnostics) && typeof x.requires_risk_acknowledgement === "boolean" &&
     nullable(x.threshold) &&
     nullable(x.npv_at_threshold) &&
     typeof x.verified === "boolean" &&
@@ -353,7 +346,10 @@ export function isRescue(x: unknown): x is RescueResult {
         x.threshold <= x.upper_bound &&
         x.verified &&
         finite(x.npv_at_threshold) &&
-        x.npv_at_threshold >= -0.01))
+        x.npv_at_threshold >= 0 &&
+        x.application_status === "VERIFIED_FRESH_SCENARIO_COPY" &&
+        record(x.actionable_site_override) &&
+        x.actionable_site_override[x.lever === "rent" ? "monthly_rent_inr" : "sales_multiplier"] === x.threshold))
   );
 }
 export function isGeoContext(x: unknown): x is GeoContext {

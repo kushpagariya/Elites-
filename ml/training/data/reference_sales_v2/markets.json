@@ -1,0 +1,1288 @@
+{
+  "config": {
+    "generator_version": "source-grounded-reference-markets-v2",
+    "seed": 2026102502,
+    "split_seed": 56319,
+    "model_seed": 90217,
+    "ordinary_markets": 100,
+    "shifted_markets": 20,
+    "alternatives_per_market": 20,
+    "gamma": 1,
+    "tau_m": 750,
+    "outside": 1,
+    "capacity_cap": null,
+    "population_multiplier": [
+      0.65,
+      1.45
+    ],
+    "poi_intensity_multiplier": [
+      0.65,
+      1.45
+    ],
+    "geometry_scale": [
+      0.85,
+      1.15
+    ],
+    "source_position_jitter_m": 100,
+    "market_theta_sd": 0.1,
+    "bounded_individual_theta_noise": [
+      -0.12,
+      0.12
+    ],
+    "daypart_theta_strength": 0.5,
+    "daypart_scale": 60,
+    "format_area_ranges": {
+      "supermarket": [
+        250,
+        800
+      ],
+      "grocery": [
+        100,
+        450
+      ],
+      "convenience": [
+        60,
+        250
+      ]
+    },
+    "format_theta": {
+      "supermarket": 0,
+      "grocery": -0.2,
+      "convenience": 0.1
+    },
+    "shifted": {
+      "wallet_multiplier": 1.7,
+      "competitor_multiplier": 1.6,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "theta_offset": -0.4
+    },
+    "ridge_alphas": [
+      1,
+      20,
+      100
+    ],
+    "catboost_grid": [
+      {
+        "iterations": 450,
+        "depth": 5,
+        "learning_rate": 0.06,
+        "l2_leaf_reg": 6
+      },
+      {
+        "iterations": 650,
+        "depth": 6,
+        "learning_rate": 0.04,
+        "l2_leaf_reg": 10
+      }
+    ],
+    "selection": "minimum validation annual-INR WAPE among structurally wallet-homogeneous fitted models",
+    "support_rule": "per-format training leave-one-out nearest-neighbour distance 99th percentile in train-standardized capture-feature design",
+    "support_quantile": 0.99,
+    "source_policy": "POI category/geographic/schedule templates and population-cell spatial distributions only; no candidate feature row or outcome is copied",
+    "units": "annual INR, square metres, local metric synthetic geometry",
+    "all_parameters_status": "ASSUMED_SYNTHETIC_GENERATOR_NOT_EMPIRICAL_STORE_ECONOMICS"
+  },
+  "markets": [
+    {
+      "market_id": "v2-market-000",
+      "source_geometry_scale": 0.9680432328575985,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.19009522319582195,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-001",
+      "source_geometry_scale": 1.1294810756851825,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.09817582830211517,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-002",
+      "source_geometry_scale": 0.9180516921229525,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.18840287580185355,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-003",
+      "source_geometry_scale": 0.911171744593815,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.004495262753767381,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-004",
+      "source_geometry_scale": 0.895368846062178,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.2879902931626111,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-005",
+      "source_geometry_scale": 1.1225251028146102,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.15313535289818045,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-006",
+      "source_geometry_scale": 1.0183674262352094,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.11041156189294664,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-007",
+      "source_geometry_scale": 0.9200944083350624,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.07091115494211382,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-008",
+      "source_geometry_scale": 0.8711307121035481,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.07578932163706414,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-009",
+      "source_geometry_scale": 1.1221764473339124,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.18517700511049712,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-010",
+      "source_geometry_scale": 1.033381420731927,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.05158516559906519,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-011",
+      "source_geometry_scale": 0.9653285866003791,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.09011183017260745,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-012",
+      "source_geometry_scale": 1.1437784690591684,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.019826880362529227,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-013",
+      "source_geometry_scale": 0.850438687048846,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.046415941962826085,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-014",
+      "source_geometry_scale": 0.9831939360806947,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.05565285154840154,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-015",
+      "source_geometry_scale": 0.868640707594598,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.16993136021453287,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-016",
+      "source_geometry_scale": 0.991074723380347,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.1495817996959262,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-017",
+      "source_geometry_scale": 0.856557836840969,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.12010252583967514,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-018",
+      "source_geometry_scale": 0.886583469181275,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.14663191378411553,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-019",
+      "source_geometry_scale": 1.13472202180124,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.14462601535312317,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-020",
+      "source_geometry_scale": 1.0326286019221087,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.018724219383410106,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-021",
+      "source_geometry_scale": 0.9635314448366583,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.06467849113632156,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-022",
+      "source_geometry_scale": 0.9460574666730324,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.04678162463396985,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-023",
+      "source_geometry_scale": 0.922313838365163,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.08514575995461837,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-024",
+      "source_geometry_scale": 0.8664440350617562,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.15698717363283712,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-025",
+      "source_geometry_scale": 1.129265444307304,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.0647548892107997,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-026",
+      "source_geometry_scale": 0.9600767033199347,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.08072393612312528,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-027",
+      "source_geometry_scale": 0.8982494675081651,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.021527711587670816,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-028",
+      "source_geometry_scale": 0.8997550974054487,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.03702104283015501,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-029",
+      "source_geometry_scale": 0.9288631885664854,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.09643255925222592,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-030",
+      "source_geometry_scale": 0.9910332581994258,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.09100175054890691,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-031",
+      "source_geometry_scale": 1.138142657530559,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.019334007056392304,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-032",
+      "source_geometry_scale": 1.1125945045772827,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.09210508999251055,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-033",
+      "source_geometry_scale": 1.024186820887184,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.14210314133703822,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-034",
+      "source_geometry_scale": 0.8703289841226644,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.053635490477492546,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-035",
+      "source_geometry_scale": 0.9746233549608145,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.02529129301341501,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-036",
+      "source_geometry_scale": 0.9193413960602396,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.04381953129524498,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-037",
+      "source_geometry_scale": 0.9758524439450554,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.0857621582452745,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-038",
+      "source_geometry_scale": 0.9313194363939479,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.15052001652343538,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-039",
+      "source_geometry_scale": 0.9867861802673277,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.12413885482017764,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-040",
+      "source_geometry_scale": 1.0119154056685502,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.12480748243110851,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-041",
+      "source_geometry_scale": 1.0298191602573197,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.022064701295049047,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-042",
+      "source_geometry_scale": 0.9218250170574426,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.0014933891557665736,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-043",
+      "source_geometry_scale": 0.9572574480430031,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.014772805568131625,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-044",
+      "source_geometry_scale": 0.9104678005894259,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.026764697488591494,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-045",
+      "source_geometry_scale": 1.0926100670876324,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.07561650046523882,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-046",
+      "source_geometry_scale": 0.9118755891472269,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.0886322049456295,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-047",
+      "source_geometry_scale": 1.0860165776380653,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.07666540490800317,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-048",
+      "source_geometry_scale": 0.8565548550567507,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.0628248544031336,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-049",
+      "source_geometry_scale": 0.871828820702623,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.007708252181622148,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-050",
+      "source_geometry_scale": 0.9925187080814774,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.07082078951042217,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-051",
+      "source_geometry_scale": 0.8823095198028683,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.07306214590359554,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-052",
+      "source_geometry_scale": 0.935474754557429,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.07594073955486835,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-053",
+      "source_geometry_scale": 0.9370554777290946,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.004526984558135802,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-054",
+      "source_geometry_scale": 0.8698301609525467,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.04253606526418957,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-055",
+      "source_geometry_scale": 0.8976191325696193,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.09643581505426208,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-056",
+      "source_geometry_scale": 0.8825522834464875,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.1134903335227585,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-057",
+      "source_geometry_scale": 0.9398774133499002,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.10153546185172446,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-058",
+      "source_geometry_scale": 1.024304857270626,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.09172636112247788,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-059",
+      "source_geometry_scale": 1.112923931054997,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.03211808677523025,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-060",
+      "source_geometry_scale": 0.8957888877679816,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.011513981455335219,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-061",
+      "source_geometry_scale": 1.0932529748398783,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.06851714127440156,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-062",
+      "source_geometry_scale": 0.9736142409233711,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.05790462395017925,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-063",
+      "source_geometry_scale": 1.0720003465947587,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.08753271107156636,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-064",
+      "source_geometry_scale": 1.0205176163541696,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.026782280668824533,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-065",
+      "source_geometry_scale": 1.1049686383669612,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.01225519038212823,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-066",
+      "source_geometry_scale": 1.0394884203923493,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.08800283566916713,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-067",
+      "source_geometry_scale": 0.8791222980295825,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.08101074141817437,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-068",
+      "source_geometry_scale": 0.8567083841671492,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.08297229288105969,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-069",
+      "source_geometry_scale": 1.0185024317103215,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.1731979221161458,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-070",
+      "source_geometry_scale": 1.0697270233717717,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.05654816284489305,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-071",
+      "source_geometry_scale": 1.0750391193802251,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.0031593163242492773,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-072",
+      "source_geometry_scale": 0.9318158585773542,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.09679125365585814,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-073",
+      "source_geometry_scale": 0.9502240744580309,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.06414071315248039,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-074",
+      "source_geometry_scale": 1.0135157894148903,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.13612324071149634,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-075",
+      "source_geometry_scale": 1.0235818377133659,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.051756116783233164,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-076",
+      "source_geometry_scale": 0.940691396396848,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.08541286509809791,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-077",
+      "source_geometry_scale": 0.9391593622718962,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.016697824008258307,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-078",
+      "source_geometry_scale": 0.904421801041842,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.10896851095804275,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-079",
+      "source_geometry_scale": 0.9618873303277335,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.007384402801644741,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-080",
+      "source_geometry_scale": 0.9546578706247912,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.12197192454834396,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-081",
+      "source_geometry_scale": 0.9736009418909463,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.08004258992992686,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-082",
+      "source_geometry_scale": 1.0264839459849375,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.022714798409705098,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-083",
+      "source_geometry_scale": 0.950854277392214,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.07129101243623792,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-084",
+      "source_geometry_scale": 1.1084184737523055,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.04766824692852825,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-085",
+      "source_geometry_scale": 0.9284200953252812,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.04072780129840257,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-086",
+      "source_geometry_scale": 1.0406299723597086,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.017602535335086628,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-087",
+      "source_geometry_scale": 0.9171838173449329,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.18517336336901527,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-088",
+      "source_geometry_scale": 0.9402453282904556,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.18484754996637218,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-089",
+      "source_geometry_scale": 1.1391033518515508,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.03587356510629426,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-090",
+      "source_geometry_scale": 1.0573205512670931,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.10041489945449729,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-091",
+      "source_geometry_scale": 0.9172563960980382,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.017261981875505764,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-092",
+      "source_geometry_scale": 0.9567120527528662,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.12065194159302728,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-093",
+      "source_geometry_scale": 0.8739133036455918,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.04904602946208655,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-094",
+      "source_geometry_scale": 0.937392564928372,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.14703309444336596,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-095",
+      "source_geometry_scale": 1.0782867384462966,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.025669239425544985,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-096",
+      "source_geometry_scale": 0.9769631592652772,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.018394751442238136,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-097",
+      "source_geometry_scale": 0.9290729575121116,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.08045652848095639,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-098",
+      "source_geometry_scale": 0.8574843497935485,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": 0.09177851566435424,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-market-099",
+      "source_geometry_scale": 1.1371283624333883,
+      "tau_m": 750,
+      "outside": 1,
+      "market_theta": -0.030820339758728818,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-000",
+      "source_geometry_scale": 0.9782045021681286,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.44212164327498543,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-001",
+      "source_geometry_scale": 0.9863054668177943,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.4255686125823746,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-002",
+      "source_geometry_scale": 0.973085096339591,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.22816148407405318,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-003",
+      "source_geometry_scale": 0.8534569612860183,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.4063037670342853,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-004",
+      "source_geometry_scale": 1.1256104452610127,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.47725093149500053,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-005",
+      "source_geometry_scale": 0.9368131146852201,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.377005955539088,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-006",
+      "source_geometry_scale": 0.918707746985554,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.23954568171963417,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-007",
+      "source_geometry_scale": 0.945040077735293,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.39826127742310546,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-008",
+      "source_geometry_scale": 0.9956391627355728,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.29855875475902627,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-009",
+      "source_geometry_scale": 0.8779838929341246,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.3879957914256319,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-010",
+      "source_geometry_scale": 0.9758531457316055,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.19782711013413679,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-011",
+      "source_geometry_scale": 0.891323197650836,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.3551291150967715,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-012",
+      "source_geometry_scale": 1.0478395196238348,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.33534716660886627,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-013",
+      "source_geometry_scale": 0.8524729685787521,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.39334600174164425,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-014",
+      "source_geometry_scale": 0.9058703551252931,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.4410261917866155,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-015",
+      "source_geometry_scale": 1.1179940345777444,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.5745779233268922,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-016",
+      "source_geometry_scale": 1.0707427689809181,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.3560876772717366,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-017",
+      "source_geometry_scale": 1.0805699255937176,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.40392997850019274,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-018",
+      "source_geometry_scale": 0.9635185578981034,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.3998347376805691,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    },
+    {
+      "market_id": "v2-ood-019",
+      "source_geometry_scale": 0.8916651177011938,
+      "tau_m": 1100,
+      "outside": 1.5,
+      "market_theta": -0.4000830015710976,
+      "own_branches": 0,
+      "alternatives_simultaneously_open": false,
+      "cell_count": 1600
+    }
+  ]
+}

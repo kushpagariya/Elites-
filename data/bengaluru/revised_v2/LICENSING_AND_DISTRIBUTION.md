@@ -1,0 +1,11 @@
+# Distribution limitations
+
+This revision is a local integrity workspace, not a cleared public dataset release. No new ZIP or public redistribution package was created, and no original raw metro workbook was copied into this directory. The existing workspace-root `StoreScout_Bengaluru_Dataset.zip` is frozen and unchanged; its presence is not evidence of permission to publish it.
+
+The unresolved conflict is recorded in the frozen publisher snapshots `../raw/ridership_LICENSE.txt`, `../raw/ridership_README.md`, `../raw/ridership_DATA.md` and `../raw/opencity_metro_metadata.json`, and in the original presentation audit. The Vonter repository presents ODbL terms; OpenCity metadata labels the corresponding source `cc-nc`; BMRCL copyright in workbook contents is also identified. Repository access, a successful download, a checksum, an RTI origin description and this correction task do not establish a complete permission chain or resolve the conflict. The certified RTI delivery chain and original first-party workbook delivery URL remain unavailable.
+
+Restrict public/commercial redistribution until the relevant rights holders or a documented applicable licence clarify the relationship. This applies to source workbooks and potentially derived station rates, site-level inherited metro fields, evidence coverage and lineage carrying those values. `distribution_manifest.json` identifies key metro-bearing derived outputs and states that the list is not a grant of rights for other files. Do not assume removing the workbook alone clears a published enriched dataset.
+
+Other source terms remain as documented in the preserved source audit and snapshots: OSM ODbL attribution/share-alike; WorldPop CC BY 4.0; DataMeet CC BY SA 2.5 India; and relevant government/OpenCity publication/catalogue terms. Source terms can differ by component. Preserve attribution and verify applicable reuse requirements before any release. The two newly archived MoSPI/PIB publications are retained as release-date evidence with exact URLs, retrieval timestamps and SHA-256 checksums, not used to relicense any other source.
+
+Synthetic/assumed commercial values and analyst-selected candidate anchors are explicitly labelled; those labels address provenance and do not waive third-party rights in source-derived features. No legal-clearance assertion is made.

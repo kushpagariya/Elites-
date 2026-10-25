@@ -1,0 +1,86 @@
+{
+  "regular": {
+    "rows": 2000,
+    "raw_capacity_ratio": {
+      "count": 2000.0,
+      "mean": 14.80195585152426,
+      "std": 12.557068143505475,
+      "min": 0.8035564950860049,
+      "1%": 1.442062706548752,
+      "25%": 6.176326387519997,
+      "50%": 11.172129621527727,
+      "75%": 19.230598156314237,
+      "99%": 61.74172970079355,
+      "max": 113.20624173448023
+    },
+    "final_capacity_ratio": {
+      "count": 2000.0,
+      "mean": 0.9998118361060396,
+      "std": 0.005233061840571049,
+      "min": 0.8035564950860049,
+      "25%": 1.0,
+      "50%": 1.0,
+      "75%": 1.0000000000000002,
+      "max": 1.0000000000000007
+    },
+    "capped_rows": 1997,
+    "raw_exceeds_wallet": 0,
+    "near_zero": 0,
+    "mean_within_market_sales_std": 37101589.13593591,
+    "between_market_mean_sales_std": 11103559.862767583,
+    "target_spearman": {
+      "annual_wallet_inr": -0.000472776122980889,
+      "competitor_attraction_index": -0.061768357957010286,
+      "store_size_sqm": 0.9753073073268267,
+      "mean_wallet_weighted_distance_m": 0.0497296264324066,
+      "weekday_morning_raw": 0.021395603348900838,
+      "weekday_lunch_raw": 0.012920361230090308,
+      "weekday_evening_raw": 0.007725655931413982,
+      "weekday_night_raw": 0.0232025968006492,
+      "weekend_day_raw": 0.007244880311220077,
+      "weekend_evening_raw": 0.003843428460857115
+    }
+  },
+  "ood": {
+    "rows": 400,
+    "raw_capacity_ratio": {
+      "count": 400.0,
+      "mean": 20.74666346584694,
+      "std": 8.00866579506504,
+      "min": 6.640395137411948,
+      "1%": 7.464313801109697,
+      "25%": 14.892985932791358,
+      "50%": 19.55471518512638,
+      "75%": 25.253930758306396,
+      "99%": 42.331887249344916,
+      "max": 47.904277184286414
+    },
+    "final_capacity_ratio": {
+      "count": 400.0,
+      "mean": 1.0,
+      "std": 1.8840125711316126e-16,
+      "min": 0.9999999999999994,
+      "25%": 1.0,
+      "50%": 1.0,
+      "75%": 1.0000000000000002,
+      "max": 1.0000000000000007
+    },
+    "capped_rows": 400,
+    "raw_exceeds_wallet": 0,
+    "near_zero": 0,
+    "mean_within_market_sales_std": 24582974.194400005,
+    "between_market_mean_sales_std": 7214135.893936459,
+    "target_spearman": {
+      "annual_wallet_inr": 0.10854330848364573,
+      "competitor_attraction_index": -0.06647272795454971,
+      "store_size_sqm": 0.9864747904674404,
+      "mean_wallet_weighted_distance_m": 0.010592128700804379,
+      "weekday_morning_raw": 0.05814730092063075,
+      "weekday_lunch_raw": 0.03511709448184051,
+      "weekday_evening_raw": -0.007807923799523745,
+      "weekday_night_raw": -0.004886468040425251,
+      "weekend_day_raw": -0.04454990343689648,
+      "weekend_evening_raw": -0.046769167307295675
+    }
+  }
+}

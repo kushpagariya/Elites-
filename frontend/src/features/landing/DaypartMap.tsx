@@ -1,134 +1,85 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { apiRequest } from '@/lib/api';
+import { record, isEnvelope } from '@/lib/guards';
+import { PERIODS, compactMoney } from '@/lib/presentation';
+import { money } from '@/lib/format';
+import type { DaypartProfile, InfrastructureEvent } from '@/lib/types';
 
-type DaypartKey = 'morning' | 'lunch' | 'evening' | 'weekend';
-type InfraKey = 'today' | 'future' | 'delayed';
-
-const daypartConfig: Record<DaypartKey, {
-  label: string;
-  hours: string;
-  peakZone: string;
-  driver: string;
-  score: number;
-  highlightCategory: string;
-  poiHighlights: string[];
-}> = {
-  morning: {
-    label: 'Morning',
-    hours: '07:00 – 10:30',
-    peakZone: 'Transit Junction & Coffee Corridor',
-    driver: 'Commuters & college transit',
-    score: 82,
-    highlightCategory: 'Transit & Grab-and-Go',
-    poiHighlights: ['Metro Stn', 'Bus Terminal', 'Coffee Roasters', 'Corporate Gates'],
-  },
-  lunch: {
-    label: 'Lunch',
-    hours: '12:00 – 15:00',
-    peakZone: 'Commercial Tech Corridor',
-    driver: 'Office workers & business dining',
-    score: 94,
-    highlightCategory: 'Offices & Fast Casual',
-    poiHighlights: ['Tech Towers A-D', 'Coworking Hub', 'Food Court', 'Bank HQ'],
-  },
-  evening: {
-    label: 'Evening',
-    hours: '17:30 – 21:30',
-    peakZone: 'Central High Street',
-    driver: 'After-work leisure & social dining',
-    score: 88,
-    highlightCategory: 'Dining & High Street',
-    poiHighlights: ['Boutique Street', 'Bistro Row', 'Fitness Center', 'Supermarket'],
-  },
-  weekend: {
-    label: 'Weekend',
-    hours: '11:00 – 21:00',
-    peakZone: 'Shopping Mall & Lifestyle District',
-    driver: 'Families, shoppers & weekend destinations',
-    score: 91,
-    highlightCategory: 'Retail & Entertainment',
-    poiHighlights: ['Grand Mall', 'Cinema Complex', 'City Park', 'Lifestyle Stores'],
-  },
+type InfraState = 'current' | 'opens' | 'delayed';
+type Preview = {
+  city: string; site_name: string; dayparts: DaypartProfile[];
+  infrastructure: InfrastructureEvent; projection_years: number;
+  scenarios: {state: InfraState; npv_inr: number; delta_npv_inr: number; annual_revenue_inr: number}[];
 };
-
-const infraConfig: Record<InfraKey, {
-  label: string;
-  statusText: string;
-  badgeClass: string;
-  accessScore: number;
-  travelTime: string;
-  catchmentPop: string;
-  summary: string;
-}> = {
-  today: {
-    label: 'Today',
-    statusText: 'Current baseline network',
-    badgeClass: 'badge-today',
-    accessScore: 62,
-    travelTime: '34 min average transit time',
-    catchmentPop: '18,400 residents within 15 min',
-    summary: 'Existing bus and arterial road network. Candidate site relies on personal vehicles and local buses.',
-  },
-  future: {
-    label: 'Future Project Opens',
-    statusText: 'Illustrative metro line operational',
-    badgeClass: 'badge-future',
-    accessScore: 92,
-    travelTime: '13 min direct metro connection',
-    catchmentPop: '34,200 residents within 15 min (+86%)',
-    summary: 'New Station at 150m from Candidate Site 1. Direct connection to IT corridor unlocks major accessibility uplift.',
-  },
-  delayed: {
-    label: 'Project Delayed',
-    statusText: 'Commissioning deferred (+24 months)',
-    badgeClass: 'badge-delayed',
-    accessScore: 64,
-    travelTime: '32 min (construction detours active)',
-    catchmentPop: '19,100 residents within 15 min',
-    summary: 'Infrastructure completion pushed to late 2028. Footfall boost deferred; traffic diversion dampens immediate walkability.',
-  },
-};
+const labels: Record<InfraState, string> = {current: 'Current network', opens: 'Opening scenario', delayed: 'Delayed opening'};
+function isPreview(x: unknown): x is Preview {
+  return record(x) && typeof x.city === 'string' && typeof x.site_name === 'string' &&
+    typeof x.projection_years === 'number' && record(x.infrastructure) &&
+    typeof x.infrastructure.name === 'string' && Array.isArray(x.dayparts) && x.dayparts.length === 6 &&
+    x.dayparts.every(p => record(p) && PERIODS.some(([key]) => key === p.time_bin) &&
+      (p.opportunity_index === null || typeof p.opportunity_index === 'number' && Number.isFinite(p.opportunity_index) && p.opportunity_index >= 0 && p.opportunity_index <= 100) &&
+      typeof p.support_count === 'number') && Array.isArray(x.scenarios) && x.scenarios.length === 3 &&
+    x.scenarios.every(s => record(s) && ['current', 'opens', 'delayed'].includes(String(s.state)) &&
+      typeof s.npv_inr === 'number' && Number.isFinite(s.npv_inr) && typeof s.delta_npv_inr === 'number' && Number.isFinite(s.delta_npv_inr));
+}
 
 export default function DaypartMap() {
-  const [activeDaypart, setActiveDaypart] = useState<DaypartKey>('lunch');
-  const [activeInfra, setActiveInfra] = useState<InfraKey>('today');
-  const dp = daypartConfig[activeDaypart];
-  const inf = infraConfig[activeInfra];
-  return (
-    <div className="rhythm-demo">
-      <p className="rhythm-demo-notice">Illustrative opportunity scores using synthetic data. Figures do not represent measured footfall.</p>
+  const ref = useRef<HTMLDivElement>(null);
+  const [data, setData] = useState<Preview | null>(null);
+  const [error, setError] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const [period, setPeriod] = useState('weekday_lunch');
+  const [infra, setInfra] = useState<InfraState>('current');
+  useEffect(() => {
+    const controller = new AbortController();
+    let started = false;
+    async function load() {
+      if (started) return;
+      started = true; setError(false);
+      try {
+        const result = await apiRequest<unknown>('/showcase', {signal: controller.signal});
+        if (!isEnvelope(result, isPreview)) throw new Error('Invalid model preview');
+        if (!controller.signal.aborted) setData(result.data);
+      } catch { if (!controller.signal.aborted) setError(true); }
+    }
+    const observer = new IntersectionObserver(entries => {if (entries.some(e => e.isIntersecting)) {void load(); observer.disconnect();}}, {rootMargin: '400px'});
+    if (ref.current) observer.observe(ref.current);
+    return () => {controller.abort(); observer.disconnect();};
+  }, [attempt]);
+  const profile = data?.dayparts.find(p => p.time_bin === period);
+  const scenario = data?.scenarios.find(s => s.state === infra);
+  return <div className="rhythm-demo" ref={ref}>
+    <p className="rhythm-demo-notice">Live engine preview · synthetic-trained model · assumed business inputs. Account data stays private.</p>
+    {!data ? <div role="status"><h3>{error ? 'Preview unavailable' : 'Loading the model preview…'}</h3><p>{error ? 'The calculation service could not return a verified result.' : 'Connecting the Bengaluru source snapshot and fitted model.'}</p>{error && <button type="button" onClick={() => setAttempt(v => v + 1)}>Try again</button>}</div> : <>
       <div className="rhythm-grid">
         <div className="rhythm-chart">
           <h3>One place. Different peaks.</h3>
-          <p>Select a time to see what brings people nearby.</p>
+          <p>Share of weekly POI opportunity. Select a period.</p>
           <div className="rhythm-bars" role="group" aria-label="Daypart selection">
-            {(Object.keys(daypartConfig) as DaypartKey[]).map(key => (
-              <button type="button" className="rhythm-bar" key={key} aria-pressed={activeDaypart === key} onClick={() => setActiveDaypart(key)} aria-label={`${daypartConfig[key].label}: illustrative opportunity ${daypartConfig[key].score} out of 100`}>
-                <span>{daypartConfig[key].label}</span>
-                <span className="rhythm-track" aria-hidden="true"><span className="rhythm-fill" style={{width: `${daypartConfig[key].score}%`}}/></span>
-                <strong>{daypartConfig[key].score}</strong>
-              </button>
-            ))}
+            {PERIODS.map(([key, label]) => {
+              const value = data.dayparts.find(p => p.time_bin === key)?.opportunity_index;
+              return <button type="button" className="rhythm-bar" key={key} aria-pressed={period === key} onClick={() => setPeriod(key)} aria-label={`${label}: ${value == null ? 'unknown' : value.toFixed(1) + '% of weekly opportunity'}`}>
+                <span>{label.split(' · ')[0]}</span><span className="rhythm-track" aria-hidden="true"><span className="rhythm-fill" style={{width: value == null ? '0%' : `${value}%`}}/></span><strong>{value == null ? '—' : value.toFixed(1) + '%'}</strong>
+              </button>;
+            })}
           </div>
-          <div className="rhythm-scale" aria-hidden="true"><span>0</span><span>100</span></div>
+          <div className="rhythm-scale" aria-hidden="true"><span>0%</span><span>100%</span></div>
         </div>
         <div className="rhythm-detail" aria-live="polite">
-          <p className="rhythm-time">{dp.label} · {dp.hours}</p>
-          <h3 key={activeDaypart}>{dp.peakZone}</h3>
-          <p>{dp.driver}. Nearby destinations shape the opportunity for this period.</p>
-          <ul className="rhythm-place-list">{dp.poiHighlights.map(place => <li key={place}>{place}</li>)}</ul>
+          <p className="rhythm-time">{PERIODS.find(([key]) => key === period)?.[1]}</p>
+          <h3>{data.site_name}</h3><p>{data.city} · {profile?.support_count ?? 'Unknown'} mapped destinations within the model catchment.</p>
+          <p>Calculated from POI categories, distance and opening-hour evidence. It represents opportunity, not measured visits.</p>
         </div>
       </div>
       <div className="infra-demo">
         <h3>And when the neighbourhood changes?</h3>
-        <div className="story-tabs" role="group" aria-label="Infrastructure scenario">
-          {(Object.keys(infraConfig) as InfraKey[]).map(key => <button type="button" key={key} aria-pressed={activeInfra === key} onClick={() => setActiveInfra(key)}>{infraConfig[key].label}</button>)}
-        </div>
+        <div className="story-tabs" role="group" aria-label="Infrastructure scenario">{(['current', 'opens', 'delayed'] as const).map(key => <button type="button" key={key} aria-pressed={infra === key} onClick={() => setInfra(key)}>{labels[key]}</button>)}</div>
         <div className="infra-demo-result" aria-live="polite">
-          <div><div className="infra-demo-value">{inf.accessScore}<small> / 100</small></div><p>Illustrative access</p></div>
-          <div><strong key={activeInfra}>{inf.statusText}</strong><p>{inf.summary}</p><p>{inf.travelTime} · {inf.catchmentPop}</p></div>
+          <div><div className="infra-demo-value" title={money(scenario?.npv_inr)}>{compactMoney(scenario?.npv_inr)}</div><p>{data.projection_years}-year incremental NPV</p><p>Change vs current: {money(scenario?.delta_npv_inr)}</p></div>
+          <div><strong>{data.infrastructure.name}</strong><p>Opening dates and commercial effects are scenario assumptions. The engine applies exposure and timing before calculating network value.</p><p>Compare and change these inputs in your workspace.</p></div>
         </div>
       </div>
-    </div>
-  );
+    </>}
+  </div>;
 }
