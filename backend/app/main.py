@@ -21,10 +21,14 @@ from .services.errors import ServiceError
 @asynccontextmanager
 async def lifespan(app):
     # Load native model dependencies once, before users reach the website.
+    app.state.analytics_status = 'starting'
     try:
+        await run_in_threadpool(sources.restore_packaged_model)
         await run_in_threadpool(showcase.load)
-    except ServiceError:
-        logging.getLogger(__name__).warning("Model preview is unavailable; accounts and saved records remain accessible.")
+        app.state.analytics_status = 'ready'
+    except Exception:
+        app.state.analytics_status = 'unavailable'
+        logging.getLogger(__name__).exception("Analytics initialization failed; accounts and mapped evidence remain accessible. Check the build's model-bundle installation and runtime dependencies.")
     yield
 
 
@@ -121,9 +125,19 @@ def api_index():
 
 
 @app.get("/api/v1/health")
-def health():
+def health(request: Request):
     # Liveness is deliberately distinct from model/analytical readiness.
-    return envelope({"status": "ok", "implementation_status": "fitted_model_integration", "analytics_readiness": "Synthetic-trained CatBoost connected; dataset and model readiness are verified when analysis runs."})
+    status = getattr(request.app.state, 'analytics_status', 'starting')
+    return envelope({"status": "ok", "implementation_status": "fitted_model_integration",
+                     "analytics_status": status,
+                     "analytics_readiness": 'Synthetic-trained model ready.' if status == 'ready' else 'Location analysis is temporarily unavailable; saved work and mapped evidence remain accessible.'})
+
+
+@app.get('/api/v1/ready')
+def readiness(request: Request):
+    if getattr(request.app.state, 'analytics_status', 'starting') != 'ready':
+        return error(503, 'ANALYTICS_UNAVAILABLE', 'Location analysis is temporarily unavailable. Please retry shortly.')
+    return envelope({'status': 'ready', **sources.model_bundle()['card']})
 
 
 @app.get("/api/v1/showcase")
@@ -165,7 +179,7 @@ def create_scenario(project_id: str, body: ScenarioCreate, idempotency_key: Toke
 @app.get("/api/v1/projects/{project_id}/infrastructure")
 def infrastructure(project_id: str):
     catalogue.project(project_id)
-    return envelope(sources.installed_snapshot()["infrastructure"])
+    return envelope([sources.infrastructure_event()])
 
 
 @app.get("/api/v1/projects/{project_id}/features", response_model=Envelope[GeographicContext] | Envelope[dict])
@@ -175,7 +189,7 @@ def features(project_id: str, evaluation_id: str | None = None):
         analytics.saved(project_id, "evaluation", evaluation_id)
         context = analytics.saved(project_id, "evaluation_context", evaluation_id)
         return envelope(presentation.geographic(context, evaluation_id), evaluation_id=evaluation_id)
-    return envelope(presentation.geographic({'project': {**sources.project_data(), 'inputs': sources.installed_snapshot()}}, None))
+    return envelope(presentation.geographic({'project': {**sources.project_data(), 'inputs': sources.geographic_snapshot()}}, None))
 
 
 @app.get("/api/v1/projects/{project_id}/model")

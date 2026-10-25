@@ -3,6 +3,7 @@ import copy
 import csv
 import hashlib
 import json
+import logging
 from functools import lru_cache
 from pathlib import Path
 from ..repositories.store import fingerprint
@@ -52,7 +53,30 @@ def model_bundle():
         return dict(card=card, artifact_sha256=hashes[manifest['selected_file']],
                     card_sha256=fingerprint({'manifest': sha(manifest_path), 'files': hashes}))
     except (OSError, ValueError, KeyError, TypeError) as exc:
-        raise ServiceError(503, 'MODEL_UNAVAILABLE', 'The verified model is unavailable. Run python -m ml.decision_engine.package --install, then retry.') from exc
+        logging.getLogger(__name__).exception('Verified model artifact check failed')
+        raise ServiceError(503, 'MODEL_UNAVAILABLE', 'Location analysis is temporarily unavailable. Your saved work is still accessible. Please retry shortly.') from exc
+
+
+def restore_packaged_model():
+    """Restore only the approved bundle; never replace differing installed files."""
+    from ml.decision_engine.package import ALLOWED, ARTIFACTS, install_bundle
+    if any(not (ARTIFACTS / name).is_file() for name in ALLOWED):
+        logging.getLogger(__name__).info('Restoring the approved model from its verified deployment bundle')
+        install_bundle(destination=ARTIFACTS)
+    return model_bundle()
+
+
+def geographic_snapshot():
+    """Mapped evidence is available even if fitted-model inference is unavailable."""
+    try:
+        pois = [{**r, 'latitude': float(r['latitude']), 'longitude': float(r['longitude'])}
+                for r in csv_rows(DATA_ROOT / 'final/pois.csv')]
+        cells = [{**r, **{k: float(r[k]) for k in ('latitude', 'longitude', 'annual_wallet_inr')}}
+                 for r in csv_rows(DATA_ROOT / 'final/spending_cells.csv')]
+        return dict(pois=pois, cells=cells, weights=dict(catchment_radius_m=1500.))
+    except (OSError, ValueError, KeyError) as exc:
+        logging.getLogger(__name__).exception('Mapped source snapshot could not be loaded')
+        raise ServiceError(503, 'SOURCE_UNAVAILABLE', 'Neighbourhood data is temporarily unavailable. Please retry.') from exc
 
 
 def engine_identity():
@@ -123,6 +147,7 @@ def _snapshot(source_hash, model_hash, code_hash):
         inputs['source_manifest'] = dict(feature_snapshot_id=FEATURE_SNAPSHOT_ID, source_ids=inputs['source_ids'])
         return inputs
     except (OSError, ValueError, KeyError, ImportError) as exc:
+        logging.getLogger(__name__).exception('Fitted-model inference or source initialization failed')
         raise ServiceError(503, 'MODEL_UNAVAILABLE', 'The fitted model or its Bengaluru input snapshot could not be loaded.') from exc
 
 

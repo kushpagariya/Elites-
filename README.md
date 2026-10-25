@@ -1,5 +1,7 @@
 # StoreScout
 
+Deployment: see [Vercel + Render configuration and recovery checks](docs/DEPLOYMENT.md).
+
 Grocery-location planning in Bengaluru with a connected Next.js interface, FastAPI backend and the delivered CatBoost/decision engine. The prototype supports ten candidates, four fictional existing branches and 219 contextual mapped competitor shops. Integrated on `full-integration` from frontend/backend `ff6d2c3` and ML `d7373f8`.
 
 ## Run

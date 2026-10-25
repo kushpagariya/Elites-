@@ -1,0 +1,23 @@
+# Existing dashboard services must use these build/start settings too.
+# Keep the repository root: the API needs backend/, ml/ and data/ together.
+services:
+  - type: web
+    name: storescout-api
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r backend/requirements.txt && python scripts/prepare_deployment.py
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /api/v1/ready
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: STORESCOUT_SECURE_COOKIES
+        value: "1"
+      - key: STORESCOUT_DB_PATH
+        value: /var/data/storescout/storescout-bengaluru.sqlite3
+      - key: FRONTEND_ORIGIN
+        value: https://elites-ivory.vercel.app
+    disk:
+      name: storescout-data
+      mountPath: /var/data
+      sizeGB: 1

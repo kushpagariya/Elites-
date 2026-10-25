@@ -1,0 +1,2 @@
+# The approved artifact manifest hashes exact bytes on Windows and Linux.
+ml/artifacts/reference_sales_v2/* -text whitespace=cr-at-eol

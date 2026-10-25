@@ -132,7 +132,7 @@ export default function LocationMap({
                   points.reduce((s, p) => s + p.longitude, 0) / points.length,
                   points.reduce((s, p) => s + p.latitude, 0) / points.length,
                 ]
-              : [73.06, 19.03];
+              : [77.63, 12.91];
             const instance = new Map({
               container: host.current,
               style: BASEMAP_STYLE,
@@ -154,8 +154,10 @@ export default function LocationMap({
               }),
               "bottom-right",
             );
-            instance.on("error", () => {
+            instance.on("error", (event) => {
+              console.warn('StoreScout map resource failed', event.error?.message);
               if (!cancelled) {
+                clearTimeout(timer);
                 setLoading(false);
                 setError(
                   "Some map tiles could not load. Retry the map; location cards remain available.",
@@ -165,6 +167,13 @@ export default function LocationMap({
             instance.on("load", () => {
               if (cancelled) return;
               clearTimeout(timer);
+              setLoading(false);
+              setError(null);
+            });
+            // Install data layers as soon as the style is ready. Tile/font
+            // delays must not prevent the location sources from attaching.
+            instance.on("style.load", () => {
+              if (cancelled) return;
               instance.addSource("catchments", {
                 type: "geojson",
                 data: empty(),
@@ -377,7 +386,6 @@ export default function LocationMap({
                     .addTo(instance);
               });
               setReady(true);
-              setLoading(false);
               view();
             });
             observer = new ResizeObserver(() => instance.resize());
@@ -533,7 +541,7 @@ export default function LocationMap({
           </button>
         </div>
       </div>
-      <div className="city-map-stage">
+      <div className={'city-map-stage' + (error && !ready ? ' map-unavailable' : '')}>
         <div
           ref={host}
           className="location-map"
@@ -619,7 +627,7 @@ export default function LocationMap({
             POI categories
           </span>
         )}
-        <span><i className="legend-dot" style={{background: "#d29b38"}}/>{(geo?.pois ?? []).filter(p => p.category === 'competitor').length} mapped competitors {competitors ? '' : '(hidden)'}</span>
+        <span><i className="legend-dot" style={{background: "#d29b38"}}/>{geo ? `${geo.pois.filter(p => p.category === 'competitor').length} mapped competitors ${competitors ? '' : '(hidden)'}` : w.referenceGeoError ? 'Competitor data unavailable' : 'Loading competitor data…'}</span>
         {infrastructure && w.infrastructure.some(hasMapGeometry) && (
           <span>
             <i className="legend-dot amber" />
@@ -630,6 +638,7 @@ export default function LocationMap({
           Location inputs: {project?.source_status ?? "unknown"}
         </span>
       </div>
+      {w.referenceGeoError && !geo && <p className="helper map-data-warning" role="status">Neighbourhood layers are unavailable. <button className="secondary" onClick={() => void w.retryGeography()}>Retry neighbourhood data</button></p>}
       <details className="map-layers">
         <summary>Map layers &amp; data</summary>
         <div className="layer-options">
@@ -662,7 +671,7 @@ export default function LocationMap({
         <p className="helper">
           {geo
             ? "Catchments show assumed straight-line radii. DaypartDNA circles show within-location opportunity, not measured footfall or a cross-city score."
-            : "Evaluate a scenario to load its saved POI, catchment and opportunity layers."}{" "}
+            : "Mapped evidence is unavailable. Retry neighbourhood data; financial analysis is a separate step."}{" "}
           Streets come from the basemap; its labels are not analytical evidence.
           Proposed infrastructure is not treated as operating today. No offline
           map cache is bundled.

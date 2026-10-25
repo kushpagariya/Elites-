@@ -15,5 +15,12 @@ data/raw/*
 !data/raw/.gitkeep
 ml/artifacts/*
 !ml/artifacts/.gitkeep
+!ml/artifacts/reference_sales_v2/
+ml/artifacts/reference_sales_v2/*
+!ml/artifacts/reference_sales_v2/catboost.joblib
+!ml/artifacts/reference_sales_v2/feature_schema.json
+!ml/artifacts/reference_sales_v2/manifest.json
+!ml/artifacts/reference_sales_v2/MODEL_CARD.md
+!ml/artifacts/reference_sales_v2/support.json
 *.log
 

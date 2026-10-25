@@ -1,0 +1,30 @@
+{
+  "model_artifact_id": "reference-sales-sim-v2-438774e0a585",
+  "method_mode": "model_simulated",
+  "selected_family": "catboost",
+  "selected_parameters": {
+    "iterations": 450,
+    "depth": 5,
+    "learning_rate": 0.06,
+    "l2_leaf_reg": 6
+  },
+  "selected_file": "catboost.joblib",
+  "required_sha256": {
+    "catboost.joblib": "438774e0a585de6ae4ed8a80cd3b1cf396d698bb811f1079a37c68f627bf4998",
+    "feature_schema.json": "a4de657d927f22d9f44db34a829f7d9f6d7a02fa38937ba9125cf5946986059a",
+    "support.json": "12a404bafdf9c36b8f27af05b2cf1bf2661a05486a700e3fed2818bc79b5e11f"
+  },
+  "activation_relative_test_gain": 0.830379416486126,
+  "activation_passed": true,
+  "test_ood_ratio": 4.357049657305657,
+  "base_versions_preserved": true,
+  "model_prediction_policy": "raw sigmoid capture times wallet; no post-hoc clipping",
+  "versions": {
+    "numpy": "2.5.2",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.0",
+    "catboost": "1.2.10",
+    "joblib": "1.5.3"
+  }
+}

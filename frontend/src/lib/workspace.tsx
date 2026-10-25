@@ -10,6 +10,7 @@ import {
 } from "react";
 import {
   ApiError,
+  getHealth,
   loadProject,
   getScenarios,
   getInfrastructure,
@@ -112,6 +113,8 @@ function useWorkspaceState() {
   const [rescueResult, setRescueResult] = useState<RescueResult | null>(null);
   const [geoContext, setGeoContext] = useState<GeoContext | null>(null);
   const [referenceGeo, setReferenceGeo] = useState<GeoContext | null>(null);
+  const [referenceGeoError, setReferenceGeoError] = useState<Failure | null>(null);
+  const [analyticsStatus, setAnalyticsStatus] = useState<'starting' | 'ready' | 'unavailable' | null>(null);
   const [comparison, setComparison] = useState<{scenario: Scenario; evaluation: EvaluationData} | null>(null);
   const comparisonRef = useRef<WorkspaceState['comparison']>(null);
   const pendingBefore = useRef<{scenario: Scenario; evaluation: EvaluationData} | null>(null);
@@ -196,15 +199,18 @@ function useWorkspaceState() {
     setLoadError(null);
     invalidate();
     setEvaluation(null);
-    const [p, s, infra, preference, reference] = await Promise.allSettled([
+    const [p, s, infra, preference, reference, health] = await Promise.allSettled([
       loadProject(controller.signal),
       getScenarios(controller.signal),
       getInfrastructure(controller.signal),
       getWorkspace(controller.signal),
       getGeoContext(undefined, controller.signal),
+      getHealth(controller.signal),
     ]);
     if (controller.signal.aborted || !loadClock.current.accepts(token)) return;
-    if (reference.status === 'fulfilled') setReferenceGeo(reference.value.data);
+    if (reference.status === 'fulfilled') { setReferenceGeo(reference.value.data); setReferenceGeoError(null); }
+    else setReferenceGeoError(failure(reference.reason));
+    setAnalyticsStatus(health.status === 'fulfilled' ? health.value.data.analytics_status ?? null : 'unavailable');
     if (p.status === "fulfilled") {
       setProject(p.value);
       const siteIds = new Set(p.value.data.sites.map((site) => site.site_id));
@@ -428,7 +434,9 @@ function useWorkspaceState() {
         project?.meta.feature_snapshot_id,
       );
       await commitEvaluation(result, scenario, token);
+      if (clock.current.accepts(token)) setAnalyticsStatus('ready');
     } catch (e) {
+      if (clock.current.accepts(token) && e instanceof ApiError && (e.status === 503 || e.status === 0)) setAnalyticsStatus('unavailable');
       if (clock.current.accepts(token) && !controller.signal.aborted)
         setError(failure(e));
     } finally {
@@ -699,6 +707,12 @@ function useWorkspaceState() {
     rescueResult,
     geoContext,
     referenceGeo,
+    referenceGeoError,
+    analyticsStatus,
+    retryGeography: async () => {
+      try { const result = await getGeoContext(); setReferenceGeo(result.data); setReferenceGeoError(null); }
+      catch (e) { setReferenceGeoError(failure(e)); }
+    },
     comparison,
     chooseSites,
     resetEdits,

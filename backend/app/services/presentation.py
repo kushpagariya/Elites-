@@ -6,6 +6,16 @@ from . import sources
 def evaluation(prepared, project, scenario, source_hash):
     result = prepared['evaluation']
     diagnostics = prepared['diagnostics']
+    # Explain the delivered opportunity profile using the same domain function,
+    # restricted to one real POI category at a time. No financial revaluation.
+    from ..domain.geospatial.features import daypart_profiles
+    inputs = project['inputs']
+    contributions = {
+        category: daypart_profiles(project['sites'],
+            [p for p in inputs['pois'] if p['category'] == category], inputs['weights'],
+            availability=inputs['availability'], coverage_supported=inputs['poi_coverage_supported'])
+        for category in inputs['weights']['category_weights']
+    }
     for index, row in enumerate(result['site_analyses']):
         sid = row['site_id']
         detail = diagnostics['site_details'][sid]
@@ -25,7 +35,11 @@ def evaluation(prepared, project, scenario, source_hash):
                 npv_inr=case['npv_inr'], roi_fraction=case['roi_fraction'], payback_years=case['payback_years'])
         profile = diagnostics['dayparts'][sid]
         row['dayparts'] = [dict(time_bin=period, opportunity_index=share * 100 if share is not None else None,
-            raw_opportunity=profile['raw'][period], support_count=profile['support_count'], categories=[],
+            raw_opportunity=profile['raw'][period], support_count=profile['support_count'],
+            categories=[dict(category=category, count=values[sid]['support_count'],
+                            weighted_opportunity=values[sid]['raw'][period])
+                        for category, values in contributions.items()
+                        if values[sid]['raw'][period] is not None and values[sid]['support_count'] > 0],
             source_ids=profile['source_ids'], source_status='ASSUMED', reliability=profile['coverage_status'],
             observed_at=None, reason=profile['interpretation'] + '. ' + profile['coverage_caveat'])
             for period, share in profile['weekly_exposure_share'].items()]

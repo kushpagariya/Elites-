@@ -193,5 +193,8 @@
 .workspace .candidate-map-pin[aria-pressed=true], .workspace .candidate-map-pin[data-focused=true] { outline:3px solid #183e35; outline-offset:2px; }
 .workspace .comparison-pickers { margin-bottom:20px; }
 .workspace .comparison-pickers label { display:grid; gap:8px; }
+.workspace .city-map-stage.map-unavailable .location-map { height:240px; }
+.workspace .map-data-warning { padding:12px 18px; margin:0; }
+.workspace .opportunity-score { max-width:18ch; text-align:right; overflow-wrap:normal; }
 .workspace .map-site-card { max-height:calc(100% - 32px); overflow:auto; }
 @media(max-width:640px) { .workspace .map-site-card { max-height:none; } .workspace .comparison-pickers { grid-template-columns:1fr; } }

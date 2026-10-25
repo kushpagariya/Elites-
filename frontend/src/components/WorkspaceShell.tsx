@@ -67,13 +67,19 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
             </div>
             <div className="context-state" role="status">
               <span>
-                {w.dirty
+                {w.operation === 'evaluate'
+                  ? 'Running analysis'
+                  : w.dirty
                   ? "Unsaved assumptions"
                   : w.current
                     ? "Analysis up to date"
                     : w.evaluation
                       ? "Previous results · refresh needed"
-                      : "Ready to analyse"}
+                      : w.analyticsStatus === 'unavailable'
+                        ? 'Analysis unavailable · retry'
+                        : w.analyticsStatus === 'starting'
+                          ? 'Analysis service starting'
+                          : w.error ? 'Analysis failed · retry' : 'Ready to analyse'}
               </span>
               <button
                 disabled={

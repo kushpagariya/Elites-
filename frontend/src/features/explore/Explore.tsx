@@ -153,7 +153,7 @@ export default function Explore() {
         <div className="section-heading">
           <div>
             <h2 id="dayparts-heading">
-              DaypartDNA <span className="quiet-tag">Weekly opportunity</span>
+              DaypartDNA <span className="quiet-tag">Opportunity by time of day</span>
             </h2>
             <p>When could these locations be busiest?</p>
           </div>
@@ -184,11 +184,11 @@ export default function Explore() {
                     <h3>{site.name}</h3>
                     <strong className="opportunity-score">
                       {profile?.opportunity_index == null
-                        ? "Unknown"
+                        ? a ? 'Evidence unavailable' : w.operation === 'evaluate' ? 'Calculating…' : w.error || w.analyticsStatus === 'unavailable' ? 'Analysis unavailable' : 'Run analysis to view'
                         : profile.opportunity_index.toFixed(1) + "%"}
                     </strong>
                   </div>
-                  <div
+                  {a ? <div
                     className="daypart-bars"
                     role="group"
                     aria-label={site.name + " six-period opportunity"}
@@ -219,7 +219,7 @@ export default function Explore() {
                         </button>
                       );
                     })}
-                  </div>
+                  </div> : <p className="helper" role="status">{w.operation === 'evaluate' ? 'Calculating six time periods for this scenario…' : w.error || w.analyticsStatus === 'unavailable' ? 'The calculation service is unavailable. Retry analysis from the scenario bar.' : 'Run analysis above to view all six periods for this saved scenario.'}</p>}
                   {profile ? (
                     <>
                       <p className="profile-explanation">
@@ -257,12 +257,7 @@ export default function Explore() {
                         </p>
                       </details>
                     </>
-                  ) : (
-                    <p className="helper">
-                      Run analysis to load this location’s saved opportunity
-                      profile.
-                    </p>
-                  )}
+                  ) : a ? <p className="helper">The saved analysis has no supported opportunity evidence for this period. Missing evidence is not zero.</p> : null}
                 </article>
               );
             })}

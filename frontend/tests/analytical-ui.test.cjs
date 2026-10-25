@@ -154,8 +154,22 @@ test("comparison renders saved financials and six daypart controls; supported ze
   workspace.evaluation.data.site_analyses[0].dayparts[0].reason =
     "No supported evidence";
   html = renderToStaticMarkup(React.createElement(Explore));
-  assert.match(html, /Unknown/);
+  assert.match(html, /Evidence unavailable/);
   assert.match(html, /No supported evidence/);
+});
+
+test('DaypartDNA gives an action before analysis, progress while running, and a distinct service failure', () => {
+  setup(); workspace.evaluation = null; workspace.current = false;
+  let html = renderToStaticMarkup(React.createElement(Explore));
+  assert.match(html, /Run analysis to view/);
+  assert.doesNotMatch(html, /unknown-bar|Unknown|six-period opportunity/);
+  workspace.operation = 'evaluate';
+  html = renderToStaticMarkup(React.createElement(Explore));
+  assert.match(html, /Calculating six time periods/);
+  workspace.operation = null; workspace.analyticsStatus = 'unavailable';
+  html = renderToStaticMarkup(React.createElement(Explore));
+  assert.match(html, /Analysis unavailable/);
+  assert.match(html, /Retry analysis/);
 });
 test("advanced scenario fields are enabled with labelled ranges and immutable save action", () => {
   setup();

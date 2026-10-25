@@ -71,6 +71,7 @@ export type HealthResponse = ApiEnvelope<{
   status: "ok";
   implementation_status: "scaffold" | "integration" | "assumption_based_analytics" | "fitted_model_integration";
   analytics_readiness?: string;
+  analytics_status?: 'starting' | 'ready' | 'unavailable';
 }>;
 export type DemoProjectResponse = ApiEnvelope<DemoProject>;
 
