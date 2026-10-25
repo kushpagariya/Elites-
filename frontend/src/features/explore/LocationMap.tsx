@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState, useId } from "react";
 import type { GeoJSONSource, Map as LibreMap } from "maplibre-gl";
 import { useWorkspace } from "@/lib/workspace";
-import { money, percent } from "@/lib/format";
+import { money } from "@/lib/format";
 import { compactMoney } from "@/lib/presentation";
 import { hasMapGeometry } from "@/lib/map-data";
 import StatusBadge from "@/components/StatusBadge";
@@ -48,11 +48,11 @@ export default function LocationMap({
   const [attempt, setAttempt] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const [pois, setPois] = useState(true);
-  const [competitors, setCompetitors] = useState(true);
-  const [catchments, setCatchments] = useState(true);
-  const [opportunity, setOpportunity] = useState(false);
-  const [infrastructure, setInfrastructure] = useState(true);
+  const [pois] = useState(true);
+  const [competitors] = useState(true);
+  const [catchments] = useState(true);
+  const [opportunity] = useState(false);
+  const [infrastructure] = useState(true);
   const titleId = useId();
   const selected = selectedSiteIds ?? w.selection;
   const geo =
@@ -639,55 +639,6 @@ export default function LocationMap({
         </span>
       </div>
       {w.referenceGeoError && !geo && <p className="helper map-data-warning" role="status">Neighbourhood layers are unavailable. <button className="secondary" onClick={() => void w.retryGeography()}>Retry neighbourhood data</button></p>}
-      <details className="map-layers">
-        <summary>Map layers &amp; data</summary>
-        <div className="layer-options">
-          {[
-            ["Destinations", pois, setPois, !geo],
-            ["Mapped competitor POIs", competitors, setCompetitors, !geo],
-            ["Location catchments", catchments, setCatchments, !geo],
-            ["DaypartDNA opportunity", opportunity, setOpportunity, !w.current],
-            [
-              "Infrastructure",
-              infrastructure,
-              setInfrastructure,
-              !w.infrastructure.some(hasMapGeometry),
-            ],
-          ].map(([name, value, setter, disabled]) => (
-            <label className="check-label" key={String(name)}>
-              <input
-                type="checkbox"
-                checked={Boolean(value)}
-                disabled={Boolean(disabled)}
-                onChange={(e) =>
-                  (setter as (value: boolean) => void)(e.target.checked)
-                }
-              />
-              {String(name)}
-            </label>
-          ))}
-        </div>
-        <p className="helper">Competitor shops are contextual mapped evidence, available before analysis. Clusters expand as you zoom in. Only the {project?.sites.length ?? 0} candidates can enter comparison or portfolio; adding contextual map records does not raise this limit.</p>
-        <p className="helper">
-          {geo
-            ? "Catchments show assumed straight-line radii. DaypartDNA circles show within-location opportunity, not measured footfall or a cross-city score."
-            : "Mapped evidence is unavailable. Retry neighbourhood data; financial analysis is a separate step."}{" "}
-          Streets come from the basemap; its labels are not analytical evidence.
-          Proposed infrastructure is not treated as operating today. No offline
-          map cache is bundled.
-        </p>
-        <p className="helper">
-          Saved infrastructure state:{" "}
-          {w.scenario?.assumptions.infrastructure_state ?? "Today"}.{" "}
-          {analysis?.infrastructure_exposure
-            ?.map((e) =>
-              e.hypothetical
-                ? "Hypothetical effect " + percent(e.assumed_effect_fraction)
-                : "",
-            )
-            .join(" ")}
-        </p>
-      </details>
     </section>
   );
 }

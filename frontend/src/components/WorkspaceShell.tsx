@@ -100,7 +100,6 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
                     : methodLabel(w.evaluation.data.method_mode)
                   : "Select a location, then run your saved scenario."}
               </span>
-              <a href="#evidence-details">Technical Details</a>
             </div>
           )}
           {w.loading && (
@@ -130,66 +129,6 @@ export default function WorkspaceShell({ children }: { children: ReactNode }) {
             </p>
           )}
           {children}
-          <details className="identity-details" id="evidence-details">
-            <summary>Data and analysis details</summary>
-            <dl>
-              <div>
-                <dt>Project</dt>
-                <dd>{w.project?.data.project_id ?? "Unavailable"}</dd>
-              </div>
-              <div>
-                <dt>Scenario</dt>
-                <dd>{w.scenario?.scenario_id ?? "Unavailable"}</dd>
-              </div>
-              <div>
-                <dt>Displayed evaluation</dt>
-                <dd>{w.evaluation?.data.evaluation_id ?? "Not computed"}</dd>
-              </div>
-              <div>
-                <dt>Data version requested</dt>
-                <dd>{w.featureSnapshotId}</dd>
-              </div>
-              <div>
-                <dt>Fixture</dt>
-                <dd>
-                  {w.evaluation?.meta.fixture_id ??
-                    w.project?.meta.fixture_id ??
-                    "Unavailable"}
-                </dd>
-              </div>
-              <div>
-                <dt>Model reference</dt>
-                <dd>
-                  {w.evaluation?.data.model_artifact_id ??
-                    "No model artifact available"}
-                </dd>
-              </div>
-              <div>
-                <dt>Method</dt>
-                <dd>{w.evaluation?.data.method_mode ?? "No computation"}</dd>
-              </div>
-              <div>
-                <dt>Saved at (UTC)</dt>
-                <dd>{w.evaluation?.data.created_at_utc ?? "Not evaluated"}</dd>
-              </div>
-            </dl>
-            {w.evaluation?.data.evidence && (
-              <>
-                <h3>Evidence and methods</h3>
-                <p>
-                  Valuation date: {w.evaluation.data.evidence.valuation_date}
-                </p>
-                <ul>
-                  {w.evaluation.data.evidence.limitations.map((text, i) => (
-                    <li key={i}>{text}</li>
-                  ))}
-                </ul>
-                <pre className="report-preview">
-                  {JSON.stringify(w.evaluation.data.evidence, null, 2)}
-                </pre>
-              </>
-            )}
-          </details>
         </main>
       </div>
     </div>

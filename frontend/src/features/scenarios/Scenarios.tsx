@@ -171,7 +171,6 @@ export default function Scenarios() {
                   </div>
                 </div>
               ))}
-              <p className="helper">Area-wide demand scales the spending wallet and demand for every candidate. Rent change multiplies each location’s base monthly rent, including location overrides. Zero change preserves the saved baseline.</p>
               <fieldset className="infrastructure-choice">
                 <legend>Future infrastructure</legend>
                 <div
@@ -622,14 +621,8 @@ export default function Scenarios() {
                   >
                     <h3>{event.name}</h3>
                     <p className="helper">
-                      {event.type?.replaceAll("_", " ") ?? "Infrastructure"} ·{" "}
-                      {event.status.replaceAll("_", " ")} ·{" "}
-                      {event.hypothetical_demo
-                        ? "Assumed opening scenario"
-                        : event.source_status}
+                      {event.status.replaceAll("_", " ")} · Assumed scenario
                     </p>
-                    {event.geometry_note && <p className="helper">{event.geometry_note}</p>}
-                    {event.official_source_url && <p className="helper"><a href={event.official_source_url} target="_blank" rel="noopener noreferrer">Official project evidence</a>. The opening date, proximity geometry and commercial effect in this scenario are assumptions, not verified station timing or measured uplift.</p>}
                     <dl>
                       <div>
                         <dt>Opening date</dt>
@@ -644,20 +637,25 @@ export default function Scenarios() {
                         </dd>
                       </div>
                       <div>
-                        <dt>Effective opening date</dt>
-                        <dd>{draft.assumptions.infrastructure_state === 'current' ? 'Not activated in Current state' : delayedOpening(draft.assumptions.opening_date ?? event.expected_open_date ?? event.assumed_demo_open_date,
-                          draft.assumptions.infrastructure_state === 'delayed' ? draft.assumptions.delay_months : 0) ?? 'Unknown'} · assumed timing</dd>
+                        <dt>Scenario timing</dt>
+                        <dd>{draft.assumptions.infrastructure_state === 'current' ? 'Not active today' : delayedOpening(draft.assumptions.opening_date ?? event.expected_open_date ?? event.assumed_demo_open_date,
+                          draft.assumptions.infrastructure_state === 'delayed' ? draft.assumptions.delay_months : 0) ?? 'Unknown'}</dd>
                       </div>
                       <div>
-                        <dt>Commercial effect</dt>
+                        <dt>Assumed effect</dt>
                         <dd>
                           {percent(
                             draft.assumptions.infrastructure_effect_fraction,
-                          )}{" "}
-                          · assumed
+                          )}
                         </dd>
                       </div>
                     </dl>
+                    <details className="infrastructure-details">
+                      <summary>Sources & assumptions</summary>
+                      <p className="helper">Opening dates, proximity and commercial effects are scenario assumptions, not verified station timing or measured uplift.</p>
+                      {event.geometry_note && <p className="helper">{event.geometry_note}</p>}
+                      {event.official_source_url && <p className="helper"><a href={event.official_source_url} target="_blank" rel="noopener noreferrer">Official project evidence</a></p>}
+                    </details>
                   </div>
                 ))
               ) : (

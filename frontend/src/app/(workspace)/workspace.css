@@ -1215,6 +1215,20 @@
   }
   .infrastructure-event dd {
     font-size: 14px;
+    text-align: right;
+    overflow-wrap: anywhere;
+    min-width: 0;
+  }
+  .infrastructure-event dt {
+    flex-shrink: 0;
+  }
+  .infrastructure-details {
+    margin-top: 16px;
+  }
+  .infrastructure-details summary {
+    min-height: 44px;
+    align-content: center;
+    font-size: 14px;
   }
   .infrastructure-outlook > div > p {
     font-size: 14px;
