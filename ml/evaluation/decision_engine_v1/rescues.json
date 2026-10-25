@@ -1,0 +1,1036 @@
+{
+  "site-01": {
+    "rent": {
+      "status": "SOLVED",
+      "threshold": 1093001.0153217274,
+      "verified_npv_inr": 5.587935447692871e-09,
+      "bounds": [
+        0.0,
+        805000.0
+      ],
+      "algebraic_threshold": 1093001.0153217274,
+      "threshold_within_bounds": false,
+      "reason": "CURRENT_RENT_ALREADY_FINANCIALLY_VIABLE",
+      "below_npv_inr": 43.257314432412386,
+      "above_npv_inr": -43.25731442309916,
+      "site_id": "site-01",
+      "lever": "rent",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    },
+    "sales": {
+      "status": "SOLVED",
+      "threshold": 0.5888262130320072,
+      "verified_npv_inr": 0.8657879773527384,
+      "samples": [
+        [
+          0.5,
+          -6446049.783481881
+        ],
+        [
+          0.65625,
+          4894487.641341874
+        ],
+        [
+          0.8125,
+          16242341.900177456
+        ],
+        [
+          0.96875,
+          27597366.75394059
+        ],
+        [
+          1.125,
+          38959418.818063036
+        ],
+        [
+          1.28125,
+          50328357.46814014
+        ],
+        [
+          1.4375,
+          61704044.772025004
+        ],
+        [
+          1.59375,
+          73086345.42850867
+        ],
+        [
+          1.75,
+          84475126.72116211
+        ],
+        [
+          1.90625,
+          95870258.48259877
+        ],
+        [
+          2.0625,
+          107271613.0626669
+        ],
+        [
+          2.21875,
+          118679065.31699401
+        ],
+        [
+          2.375,
+          130092492.58311695
+        ],
+        [
+          2.53125,
+          141511774.67879963
+        ],
+        [
+          2.6875,
+          152936793.89473268
+        ],
+        [
+          2.84375,
+          164367434.99209064
+        ],
+        [
+          3.0,
+          175803585.1965999
+        ]
+      ],
+      "below_npv_inr": -0.48615624755620956,
+      "above_npv_inr": 2.2177321277558804,
+      "monotonicity": "GRID_CHECK_ONLY_NOT_GLOBAL_PROOF",
+      "site_id": "site-01",
+      "lever": "sales",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    }
+  },
+  "site-02": {
+    "rent": {
+      "status": "SOLVED",
+      "threshold": 658571.2546175312,
+      "verified_npv_inr": 4.32552769780159e-05,
+      "bounds": [
+        0.0,
+        560000.0
+      ],
+      "algebraic_threshold": 658571.2546185312,
+      "threshold_within_bounds": false,
+      "reason": "CURRENT_RENT_ALREADY_FINANCIALLY_VIABLE",
+      "below_npv_inr": 43.25735768303275,
+      "above_npv_inr": -43.257271172478795,
+      "site_id": "site-02",
+      "lever": "rent",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    },
+    "sales": {
+      "status": "SOLVED",
+      "threshold": 0.6473378948867321,
+      "verified_npv_inr": 0.4219373110681772,
+      "samples": [
+        [
+          0.5,
+          -6801220.815256106
+        ],
+        [
+          0.65625,
+          412168.59708637744
+        ],
+        [
+          0.8125,
+          7652633.755813612
+        ],
+        [
+          0.96875,
+          14919494.523520548
+        ],
+        [
+          1.125,
+          22212092.021773487
+        ],
+        [
+          1.28125,
+          29529788.208045013
+        ],
+        [
+          1.4375,
+          36871965.40288373
+        ],
+        [
+          1.59375,
+          44238025.77900517
+        ],
+        [
+          1.75,
+          51627390.79787272
+        ],
+        [
+          1.90625,
+          59039500.635013424
+        ],
+        [
+          2.0625,
+          66473813.573824376
+        ],
+        [
+          2.21875,
+          73929805.38609321
+        ],
+        [
+          2.375,
+          81406968.71774545
+        ],
+        [
+          2.53125,
+          88904812.45596348
+        ],
+        [
+          2.6875,
+          96422861.10842107
+        ],
+        [
+          2.84375,
+          103960654.19006163
+        ],
+        [
+          3.0,
+          111517745.61940485
+        ]
+      ],
+      "below_npv_inr": -0.4392117718234658,
+      "above_npv_inr": 1.283869355916977,
+      "monotonicity": "GRID_CHECK_ONLY_NOT_GLOBAL_PROOF",
+      "site_id": "site-02",
+      "lever": "sales",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    }
+  },
+  "site-03": {
+    "rent": {
+      "status": "SOLVED",
+      "threshold": 1189224.1398558086,
+      "verified_npv_inr": 3.725290298461914e-09,
+      "bounds": [
+        0.0,
+        875000.0
+      ],
+      "algebraic_threshold": 1189224.1398558086,
+      "threshold_within_bounds": false,
+      "reason": "CURRENT_RENT_ALREADY_FINANCIALLY_VIABLE",
+      "below_npv_inr": 43.25731443054974,
+      "above_npv_inr": -43.257314424961805,
+      "site_id": "site-03",
+      "lever": "rent",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    },
+    "sales": {
+      "status": "SOLVED",
+      "threshold": 0.5964350439608097,
+      "verified_npv_inr": 0.2805977165699005,
+      "samples": [
+        [
+          0.5,
+          -7640682.821105658
+        ],
+        [
+          0.65625,
+          4764985.826828793
+        ],
+        [
+          0.8125,
+          17303177.10385568
+        ],
+        [
+          0.96875,
+          29969368.569785826
+        ],
+        [
+          1.125,
+          42759021.37172124
+        ],
+        [
+          1.28125,
+          55667604.456587024
+        ],
+        [
+          1.4375,
+          68690617.06219915
+        ],
+        [
+          1.59375,
+          81823609.28504983
+        ],
+        [
+          1.75,
+          95062200.59918532
+        ],
+        [
+          1.90625,
+          108402096.25104773
+        ],
+        [
+          2.0625,
+          121839101.49968202
+        ],
+        [
+          2.21875,
+          135369133.71929044
+        ],
+        [
+          2.375,
+          148988232.4453251
+        ],
+        [
+          2.53125,
+          162692567.42510843
+        ],
+        [
+          2.6875,
+          176478444.8062854
+        ],
+        [
+          2.84375,
+          190342311.61038178
+        ],
+        [
+          3.0,
+          204280758.6080572
+        ]
+      ],
+      "below_npv_inr": -1.1999413780868053,
+      "above_npv_inr": 1.7611368522047997,
+      "monotonicity": "GRID_CHECK_ONLY_NOT_GLOBAL_PROOF",
+      "site_id": "site-03",
+      "lever": "sales",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    }
+  },
+  "site-04": {
+    "rent": {
+      "status": "SOLVED",
+      "threshold": 863960.548671948,
+      "verified_npv_inr": 4.325155168771744e-05,
+      "bounds": [
+        0.0,
+        525000.0
+      ],
+      "algebraic_threshold": 863960.548672948,
+      "threshold_within_bounds": false,
+      "reason": "CURRENT_RENT_ALREADY_FINANCIALLY_VIABLE",
+      "below_npv_inr": 43.25735767930746,
+      "above_npv_inr": -43.257271176204085,
+      "site_id": "site-04",
+      "lever": "rent",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    },
+    "sales": {
+      "status": "SOLVED",
+      "threshold": 0.5212639011442661,
+      "verified_npv_inr": 0.47699239291250706,
+      "samples": [
+        [
+          0.5,
+          -1146292.060549343
+        ],
+        [
+          0.65625,
+          7296182.022651507
+        ],
+        [
+          0.8125,
+          15781740.164997585
+        ],
+        [
+          0.96875,
+          24307734.64735245
+        ],
+        [
+          1.125,
+          32871732.42477513
+        ],
+        [
+          1.28125,
+          41471510.22510599
+        ],
+        [
+          1.4375,
+          50105047.47047868
+        ],
+        [
+          1.59375,
+          58770517.482760474
+        ],
+        [
+          1.75,
+          67466277.41015026
+        ],
+        [
+          1.90625,
+          76190857.25311413
+        ],
+        [
+          2.0625,
+          84942948.35198486
+        ],
+        [
+          2.21875,
+          93721391.59993532
+        ],
+        [
+          2.375,
+          102525165.65312922
+        ],
+        [
+          2.53125,
+          111353375.31106326
+        ],
+        [
+          2.6875,
+          120205240.23799518
+        ],
+        [
+          2.84375,
+          129080084.13453093
+        ],
+        [
+          3.0,
+          137977324.4439607
+        ]
+      ],
+      "below_npv_inr": -0.5277274940162897,
+      "above_npv_inr": 1.4809863911941648,
+      "monotonicity": "GRID_CHECK_ONLY_NOT_GLOBAL_PROOF",
+      "site_id": "site-04",
+      "lever": "sales",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    }
+  },
+  "site-05": {
+    "rent": {
+      "status": "SOLVED",
+      "threshold": 3022923.3433848275,
+      "verified_npv_inr": 4.3247826397418976e-05,
+      "bounds": [
+        0.0,
+        630000.0
+      ],
+      "algebraic_threshold": 3022923.3433858273,
+      "threshold_within_bounds": false,
+      "reason": "CURRENT_RENT_ALREADY_FINANCIALLY_VIABLE",
+      "below_npv_inr": 43.25735767558217,
+      "above_npv_inr": -43.257271179929376,
+      "site_id": "site-05",
+      "lever": "rent",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    },
+    "sales": {
+      "status": "SOLVED",
+      "threshold": 0.5,
+      "verified_npv_inr": 40552091.11953645,
+      "samples": [
+        [
+          0.5,
+          40552091.11953645
+        ],
+        [
+          0.65625,
+          64220600.04842214
+        ],
+        [
+          0.8125,
+          88133582.84102978
+        ],
+        [
+          0.96875,
+          112280767.92418523
+        ],
+        [
+          1.125,
+          136653114.6105251
+        ],
+        [
+          1.28125,
+          161242831.9470893
+        ],
+        [
+          1.4375,
+          186043325.8665799
+        ],
+        [
+          1.59375,
+          211049085.2470068
+        ],
+        [
+          1.75,
+          236255522.70914894
+        ],
+        [
+          1.90625,
+          261658788.9779321
+        ],
+        [
+          2.0625,
+          287255580.01579845
+        ],
+        [
+          2.21875,
+          313042954.1695228
+        ],
+        [
+          2.375,
+          339018172.70824254
+        ],
+        [
+          2.53125,
+          365178572.24096847
+        ],
+        [
+          2.6875,
+          391521472.3760923
+        ],
+        [
+          2.84375,
+          418044117.48479176
+        ],
+        [
+          3.0,
+          444743647.90346646
+        ]
+      ],
+      "reason": "ALREADY_VIABLE_AT_LOWER_BOUND",
+      "site_id": "site-05",
+      "lever": "sales",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    }
+  },
+  "site-06": {
+    "rent": {
+      "status": "SOLVED",
+      "threshold": 1836384.6216733977,
+      "verified_npv_inr": 4.325248301029205e-05,
+      "bounds": [
+        0.0,
+        840000.0
+      ],
+      "algebraic_threshold": 1836384.6216743977,
+      "threshold_within_bounds": false,
+      "reason": "CURRENT_RENT_ALREADY_FINANCIALLY_VIABLE",
+      "below_npv_inr": 43.25735767930746,
+      "above_npv_inr": -43.257271176204085,
+      "site_id": "site-06",
+      "lever": "rent",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    },
+    "sales": {
+      "status": "SOLVED",
+      "threshold": 0.5,
+      "verified_npv_inr": 7537672.350348234,
+      "samples": [
+        [
+          0.5,
+          7537672.350348234
+        ],
+        [
+          0.65625,
+          24157986.028776854
+        ],
+        [
+          0.8125,
+          40935211.427434735
+        ],
+        [
+          0.96875,
+          57865071.900353506
+        ],
+        [
+          1.125,
+          74943451.21232282
+        ],
+        [
+          1.28125,
+          92166412.53112794
+        ],
+        [
+          1.4375,
+          109530216.60954842
+        ],
+        [
+          1.59375,
+          127031338.9005763
+        ],
+        [
+          1.75,
+          144666484.9868602
+        ],
+        [
+          1.90625,
+          162432603.46284992
+        ],
+        [
+          2.0625,
+          180326895.23150063
+        ],
+        [
+          2.21875,
+          198346818.17368147
+        ],
+        [
+          2.375,
+          216490086.2924798
+        ],
+        [
+          2.53125,
+          234754662.73083693
+        ],
+        [
+          2.6875,
+          253138746.39045802
+        ],
+        [
+          2.84375,
+          271640752.34004664
+        ],
+        [
+          3.0,
+          290259286.5806581
+        ]
+      ],
+      "reason": "ALREADY_VIABLE_AT_LOWER_BOUND",
+      "site_id": "site-06",
+      "lever": "sales",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    }
+  },
+  "site-07": {
+    "rent": {
+      "status": "SOLVED",
+      "threshold": 590556.7773261643,
+      "verified_npv_inr": 4.325713962316513e-05,
+      "bounds": [
+        0.0,
+        490000.0
+      ],
+      "algebraic_threshold": 590556.7773271643,
+      "threshold_within_bounds": false,
+      "reason": "CURRENT_RENT_ALREADY_FINANCIALLY_VIABLE",
+      "below_npv_inr": 43.25735768582672,
+      "above_npv_inr": -43.25727117061615,
+      "site_id": "site-07",
+      "lever": "rent",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    },
+    "sales": {
+      "status": "SOLVED",
+      "threshold": 0.6504635624587536,
+      "verified_npv_inr": 0.730075528845191,
+      "samples": [
+        [
+          0.5,
+          -6233994.964071383
+        ],
+        [
+          0.65625,
+          242244.7359391451
+        ],
+        [
+          0.8125,
+          6851187.029127356
+        ],
+        [
+          0.96875,
+          13586256.268451165
+        ],
+        [
+          1.125,
+          20441324.12071343
+        ],
+        [
+          1.28125,
+          27410706.840036683
+        ],
+        [
+          1.4375,
+          34489151.129788846
+        ],
+        [
+          1.59375,
+          41671812.242437884
+        ],
+        [
+          1.75,
+          48954227.26939052
+        ],
+        [
+          1.90625,
+          56332285.889181234
+        ],
+        [
+          2.0625,
+          63802200.23474237
+        ],
+        [
+          2.21875,
+          71360475.0856595
+        ],
+        [
+          2.375,
+          79003879.18331438
+        ],
+        [
+          2.53125,
+          86729418.1918147
+        ],
+        [
+          2.6875,
+          94534309.5911029
+        ],
+        [
+          2.84375,
+          102415959.6468732
+        ],
+        [
+          3.0,
+          110371942.47439203
+        ]
+      ],
+      "below_npv_inr": -0.04968101438134909,
+      "above_npv_inr": 1.509159336797893,
+      "monotonicity": "GRID_CHECK_ONLY_NOT_GLOBAL_PROOF",
+      "site_id": "site-07",
+      "lever": "sales",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    }
+  },
+  "site-08": {
+    "rent": {
+      "status": "SOLVED",
+      "threshold": 601222.6897940205,
+      "verified_npv_inr": 1.862645149230957e-09,
+      "bounds": [
+        0.0,
+        595000.0
+      ],
+      "algebraic_threshold": 601222.6897940205,
+      "threshold_within_bounds": false,
+      "reason": "CURRENT_RENT_ALREADY_FINANCIALLY_VIABLE",
+      "below_npv_inr": 43.25731442961842,
+      "above_npv_inr": -43.25731442682445,
+      "site_id": "site-08",
+      "lever": "rent",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    },
+    "sales": {
+      "status": "SOLVED",
+      "threshold": 0.7179978974163532,
+      "verified_npv_inr": 0.30048328544944525,
+      "samples": [
+        [
+          0.5,
+          -9876346.227130681
+        ],
+        [
+          0.65625,
+          -2822817.8094152296
+        ],
+        [
+          0.8125,
+          4358202.032967942
+        ],
+        [
+          0.96875,
+          11662825.384999618
+        ],
+        [
+          1.125,
+          19086993.846767038
+        ],
+        [
+          1.28125,
+          26626518.304178074
+        ],
+        [
+          1.4375,
+          34277118.92805736
+        ],
+        [
+          1.59375,
+          42034464.448969595
+        ],
+        [
+          1.75,
+          49894209.83341295
+        ],
+        [
+          1.90625,
+          57852031.6180163
+        ],
+        [
+          2.0625,
+          65903660.27154291
+        ],
+        [
+          2.21875,
+          74044909.12847465
+        ],
+        [
+          2.375,
+          82271699.59161283
+        ],
+        [
+          2.53125,
+          90580082.42993042
+        ],
+        [
+          2.6875,
+          98966255.16401675
+        ],
+        [
+          2.84375,
+          107426575.63496067
+        ],
+        [
+          3.0,
+          115957571.93940689
+        ]
+      ],
+      "below_npv_inr": -0.553946029394865,
+      "above_npv_inr": 1.154912673868239,
+      "monotonicity": "GRID_CHECK_ONLY_NOT_GLOBAL_PROOF",
+      "site_id": "site-08",
+      "lever": "sales",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    }
+  },
+  "site-09": {
+    "rent": {
+      "status": "SOLVED",
+      "threshold": 875462.783403708,
+      "verified_npv_inr": 0.0,
+      "bounds": [
+        0.0,
+        770000.0
+      ],
+      "algebraic_threshold": 875462.783403708,
+      "threshold_within_bounds": false,
+      "reason": "CURRENT_RENT_ALREADY_FINANCIALLY_VIABLE",
+      "below_npv_inr": 43.25731442682445,
+      "above_npv_inr": -43.257314428687096,
+      "site_id": "site-09",
+      "lever": "rent",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    },
+    "sales": {
+      "status": "SOLVED",
+      "threshold": 0.6678134687244892,
+      "verified_npv_inr": 0.9861687105149031,
+      "samples": [
+        [
+          0.5,
+          -10498621.06427337
+        ],
+        [
+          0.65625,
+          -728290.0451715514
+        ],
+        [
+          0.8125,
+          9171899.841561738
+        ],
+        [
+          0.96875,
+          19196662.171579204
+        ],
+        [
+          1.125,
+          29340781.9257261
+        ],
+        [
+          1.28125,
+          39599142.6572464
+        ],
+        [
+          1.4375,
+          49966750.21929187
+        ],
+        [
+          1.59375,
+          60438752.91663292
+        ],
+        [
+          1.75,
+          71010458.09920275
+        ],
+        [
+          1.90625,
+          81677345.26859023
+        ],
+        [
+          2.0625,
+          92435075.8620631
+        ],
+        [
+          2.21875,
+          103279499.96742503
+        ],
+        [
+          2.375,
+          114206660.20603162
+        ],
+        [
+          2.53125,
+          125212793.11376846
+        ],
+        [
+          2.6875,
+          136294328.33314043
+        ],
+        [
+          2.84375,
+          147447885.91588217
+        ],
+        [
+          3.0,
+          158670272.07799497
+        ]
+      ],
+      "below_npv_inr": -0.18749625608325005,
+      "above_npv_inr": 2.1598334703594446,
+      "monotonicity": "GRID_CHECK_ONLY_NOT_GLOBAL_PROOF",
+      "site_id": "site-09",
+      "lever": "sales",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    }
+  },
+  "site-10": {
+    "rent": {
+      "status": "SOLVED",
+      "threshold": 3194369.1852297112,
+      "verified_npv_inr": 0.0,
+      "bounds": [
+        0.0,
+        910000.0
+      ],
+      "algebraic_threshold": 3194369.1852297112,
+      "threshold_within_bounds": false,
+      "reason": "CURRENT_RENT_ALREADY_FINANCIALLY_VIABLE",
+      "below_npv_inr": 43.257314428687096,
+      "above_npv_inr": -43.257314428687096,
+      "site_id": "site-10",
+      "lever": "rent",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    },
+    "sales": {
+      "status": "SOLVED",
+      "threshold": 0.5,
+      "verified_npv_inr": 33925829.262352906,
+      "samples": [
+        [
+          0.5,
+          33925829.262352906
+        ],
+        [
+          0.65625,
+          60158434.890691504
+        ],
+        [
+          0.8125,
+          86581059.88824426
+        ],
+        [
+          0.96875,
+          113164076.35367356
+        ],
+        [
+          1.125,
+          139883836.6302173
+        ],
+        [
+          1.28125,
+          166721505.73079085
+        ],
+        [
+          1.4375,
+          193662085.95535713
+        ],
+        [
+          1.59375,
+          220693621.2248146
+        ],
+        [
+          1.75,
+          247806558.3386959
+        ],
+        [
+          1.90625,
+          274993239.62616676
+        ],
+        [
+          2.0625,
+          302247502.6470371
+        ],
+        [
+          2.21875,
+          329564365.5508785
+        ],
+        [
+          2.375,
+          356939780.16650885
+        ],
+        [
+          2.53125,
+          384370438.20551556
+        ],
+        [
+          2.6875,
+          411853618.97057945
+        ],
+        [
+          2.84375,
+          439387069.3500327
+        ],
+        [
+          3.0,
+          466968908.97016144
+        ]
+      ],
+      "reason": "ALREADY_VIABLE_AT_LOWER_BOUND",
+      "site_id": "site-10",
+      "lever": "sales",
+      "scenario_id": "baseline-offline",
+      "context_sha256": "58cd1f24e3998f9cff10e51d99e63b57ef824e6c2c774b844a612c38565d5fa1",
+      "clears_unrelated_failures": false
+    }
+  }
+}

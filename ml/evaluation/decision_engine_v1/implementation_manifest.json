@@ -1,0 +1,33 @@
+{
+  "engine_version": "storescout-domain-1",
+  "base_commit": "adcabc63a1f15911d6f10afa3c1dc2a146c1468f",
+  "source_sha256": {
+    "backend/app/domain/__init__.py": "970748dd0986abfdc28ca1426f2b5b77dd21fe61d759fac1a95842333ce470a7",
+    "backend/app/domain/demand/__init__.py": "2ae3c248bcecd3f3ce6dfc5dab9b6b890fc162b4bf815d67ff04b0918c5ec0c3",
+    "backend/app/domain/engine.py": "b13379e08b5fca5fb30e6f9a4659696269318eb6dc602d9cf6be9aba576c778d",
+    "backend/app/domain/evidence/__init__.py": "27b71f25c2a8b90f7f09a33a6eefae3fdc68bb05685112aeb4208493cc938511",
+    "backend/app/domain/failfast/__init__.py": "9fc2c0ee4f1ae34a875339c3f5e03d50d66379ce7d91b10f14f31bc8aa14e4a6",
+    "backend/app/domain/failfast/rules.py": "15a48924b5161aa1eeead43e64d4b69c4ee364b73eff65900fd2056d6d18a607",
+    "backend/app/domain/finance/__init__.py": "164786168654c49d0fcd6de7708ed68e859ee94ad6ebee0daca5ddbe6fc6073f",
+    "backend/app/domain/finance/cashflows.py": "569d12ec149321174d270ce69a25c821d26d863201b83a08fcb832804202a383",
+    "backend/app/domain/geospatial/__init__.py": "7c33c976ffefc3350ec5271e2a8395ffd8bd8cbb1ef879266a6056655e3c40d2",
+    "backend/app/domain/geospatial/features.py": "058aa1e426a4089bd4f9093003db6e0a44c10ddb862806ece4f751993d41e871",
+    "backend/app/domain/network/__init__.py": "42a6a49d6268a51bd39652c71a0ccb3fbfdad959c10a94945139fa447b53db5b",
+    "backend/app/domain/network/allocation.py": "3ba0f4cb12e17ddba84e0307ee7ce8f254acfef39f09397a6e34b6464869c03f",
+    "backend/app/domain/pipeline.py": "7c0bd65c46005de25ae8bdeeb31442c347ff1e1f90400d52917d5725be5d9715",
+    "backend/app/domain/portfolio/__init__.py": "35c959e72ebb37202cf00915eb98448817a39ccae0e8d4961a899ca731c9dbce",
+    "backend/app/domain/portfolio/search.py": "e66c6b068aa8cc241577e07055be3843059b0eeeb409275d8ddcaded31a19b55",
+    "backend/app/domain/ranking/__init__.py": "596c333fe0c1b6703e36c8487301e9fcba44f682211ab131a090d4695b7e51e7",
+    "backend/app/domain/scenario/__init__.py": "8f010f445c0e9b5a457ba741227e042304ebe4f8d15afd1c53419c33e27a8dc4",
+    "backend/app/domain/scenario/timing.py": "484f487770517b74e6b6ae77abe3f822de37366bbe85d19410acf96e9c026f14",
+    "backend/app/domain/validation.py": "185da2527f922a6dbf82e2e721579e167dc4ca239056dda6ba1bc8c396ab263a",
+    "ml/decision_engine/package.py": "e8fb86688016c078d75c826720b4c352a8e109adc2ec6fa9a012d0934a5604c1",
+    "ml/decision_engine/README.md": "2c34323c26ff139a465467142f47892505a34bbea7dcaf3840cf388be28be81b",
+    "ml/decision_engine/report.py": "200407aff05dd813c647935cf591ecbb7444f9ad8896d81abba7947b78b4bb2a",
+    "ml/decision_engine/run.py": "3e94c6e6112cf709a5bd52c735ed0825a5b5343e36665a94d31ad881cd49ee27",
+    "ml/decision_engine/verify.py": "a4f05bd2b42d5fb76a1153bfc620af96fc9eeb2229d7569125e7dd7d7807ec19",
+    "PART_C_ONWARD_COMPLETION_REPORT.md": "8946e77269fb8e4b66a8d8e163e21bbd1e36211ffddd15d53bdd03c57f4d9f15",
+    "tests/unit/test_decision_engine.py": "bf49b0d2c5620e40766e2a6441fa181b4ed633067fa29d600a504cbc6d33f4f5"
+  },
+  "note": "Uncommitted implementation identified by exact file hashes; no new Git commit is claimed"
+}

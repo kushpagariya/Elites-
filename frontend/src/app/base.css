@@ -1,0 +1,13 @@
+:root { color-scheme: light; --paper: #f5f0e6; --ink: #203c32; --muted: #566359; --accent: #a83d24; --accent-hover: #84301c; --purple: var(--accent); --purple-hover: var(--accent-hover); --tint: #e7eade; --surface: #fffdf8; --white: #ffffff; --border: #d7d9cc; --ease-out: cubic-bezier(.23,1,.32,1); }
+* { box-sizing: border-box; }
+html { scroll-padding-top: 100px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Manrope Variable', sans-serif; }
+body { -webkit-font-smoothing: antialiased; }
+button, a, input, select, summary { touch-action: manipulation; }
+input, textarea { caret-color: var(--accent); }
+html { scrollbar-color: #708174 var(--paper); }
+::selection { background: var(--purple); color: var(--white); }
+:focus-visible { outline: 3px solid var(--purple); outline-offset: 4px; }
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; padding: 12px 20px; background: var(--paper); color: var(--ink); transform: translateY(-150%); }
+.skip-link:focus { transform: translateY(0); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

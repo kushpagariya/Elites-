@@ -4,9 +4,15 @@
 **Retail expansion decisions that explain where to open, where to wait, and what must change.**
 
 24 October 2026 | Team Elites | Round 1 submission  
-Scope: one city, 10 candidate sites, four fictional branches | Delivery: 36 hours including all rounds
+Scope: Bengaluru grocery, 10 candidate sites, four fictional branches, 219 mapped competitor shops | Delivery: 36 hours including all rounds
 
 **Evidence status.** This is a proposed product specification. Model results, latency targets and user tests remain unmeasured. Business records and any simulated geography are labelled SYNTHETIC; commercial assumptions are ASSUMED; verified source records are REAL. No interviews, retailer outcomes or live integrations are claimed. These labels persist in the interface and export. The exact event deadlines and named team assignments must be recorded at kickoff; relative checkpoints below are planning commitments.
+
+## Current prototype scope
+
+Implemented: Bengaluru grocery only; fixed ten candidates/four fictional branches; mapped competitors as context; area-wide demand/rent, per-location base rent/sales overrides, scenario budget and infrastructure timing/effect; immutable saved analyses and portfolios; persistent before/after references; stored PDF reports.
+
+Deferred: new projects and CSV import UI/API; user-adjustable horizon, valuation date, margin, OPEX, CAPEX and competition; other categories/cities; verified rental listings. Existing PRD requirements for these remain unmet rather than implied delivered. Public rollout also requires persistent hosting, backups, HTTPS and monitoring.
 
 ## 1. Executive Summary
 
@@ -56,7 +62,7 @@ Site A's extra sales do not cover its larger costs and branch displacement. Fail
 
 ### 3.1 The complete decision journey
 
-1. Open the labelled Navi Mumbai grocery demo or create a project with budget, valuation date, horizon and assumptions. Validate candidate/branch CSVs before import.
+1. Open the labelled Bengaluru grocery prototype and its fixed candidate dataset. Set budget and supported what-if assumptions. Project creation, CSV imports and additional financial controls remain deferred acceptance work, as listed in the implementation scope below.
 2. Inspect map and table evidence for demand, competition, access and existing coverage. Compare weekday-lunch and weekend-evening DaypartDNA profiles and their POI contributors.
 3. Compare two sites using modelled sales, displaced branch contribution, incremental NPV, sensitivity and FailFast diagnosis. Missing critical evidence yields REVIEW_REQUIRED.
 4. For a weak site, request the maximum viable rent or minimum sales multiplier. Apply a feasible change to a new immutable scenario; recheck all rules, ranking and eligibility.
@@ -131,7 +137,7 @@ Required support is limited to saved projects, validated imports, two-site compa
 | Demand | Offline CatBoost and regularised linear baseline; load the selected fitted artifact locally | More complex models without measured benefit |
 | Portfolio | Full-network enumeration of <=1,024 sets | CP-SAT at a separately approved scale trigger |
 
-The city is fixed to Navi Mumbai for P0. Use a bounded OSM extract and chosen population release where permitted. If source acquisition fails, retain the city and use an explicitly synthetic geographic fixture; do not claim real source coverage. Fictional financials and a hypothetical same-city event are allowed. No paid API, external LLM or online basemap is required in the judging path.
+The city is fixed to Bengaluru for P0. Use a bounded OSM extract and chosen population release where permitted. If source acquisition fails, retain the city and use an explicitly synthetic geographic fixture; do not claim real source coverage. Fictional financials and a hypothetical same-city event are allowed. No paid API, external LLM or online basemap is required in the judging path.
 
 ```text
 Offline: source validation -> feature snapshot -> training/evaluation -> model artifact
@@ -204,7 +210,7 @@ Responses identify project, scenario, evaluation, data and model versions plus c
 
 | Input | Fixed P0 method | Evidence retained |
 | --- | --- | --- |
-| Destinations, competitors and boundaries | Bounded OSM-derived extract or synthetic Navi Mumbai fixture | Origin, licence/permission, retrieved date, category mapping and coverage |
+| Destinations, competitors and boundaries | Bounded OSM-derived extract or synthetic Bengaluru fixture | Origin, licence/permission, retrieved date, category mapping and coverage |
 | Population/households | Selected WorldPop release where usable; otherwise synthetic grid | Release/resolution and household-size assumption; never current census by implication |
 | Category spending | Relevant HCES aggregate or ASSUMED parameter | Geography/vintage; broad spending proxy is not measured local purchasing power |
 | Rent, margin, CAPEX, store history | Four fictional branches and 10 sites | SYNTHETIC/ASSUMED labels, units, generator/fixture version |

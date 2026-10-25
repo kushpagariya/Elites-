@@ -1,0 +1,71 @@
+column,used,missing_count,reason
+site_id,False,0,"Excluded: identity/geographic label, not a model predictor"
+feature_snapshot_id,False,0,"Excluded: identity/geographic label, not a model predictor"
+snapshot_as_of_date,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+city,False,0,"Excluded: identity/geographic label, not a model predictor"
+locality,False,0,"Excluded: identity/geographic label, not a model predictor"
+latitude,False,0,"Excluded: identity/geographic label, not a model predictor"
+longitude,False,0,"Excluded: identity/geographic label, not a model predictor"
+store_format,True,0,Used: supported baseline catchment/store/POI descriptor
+source_manifest_id,False,0,"Excluded: identity/geographic label, not a model predictor"
+store_size_sqm,True,0,Used: supported baseline catchment/store/POI descriptor
+population_1500m_est,True,0,Used: supported baseline catchment/store/POI descriptor
+population_10min_est,False,10,Excluded: unsupported routing/household evidence; all ten remain null
+accessible_households_est,False,10,Excluded: unsupported routing/household evidence; all ten remain null
+annual_wallet_inr,True,0,Used: supported baseline catchment/store/POI descriptor
+wallet_price_year,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+mean_wallet_weighted_distance_m,True,0,Used: supported baseline catchment/store/POI descriptor
+travel_time_method,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+competitor_count_1500m,True,0,Used: supported baseline catchment/store/POI descriptor
+competitor_attraction_index,True,0,Used: supported baseline catchment/store/POI descriptor
+nearest_competitor_distance_m,True,0,Used: supported baseline catchment/store/POI descriptor
+office_poi_count_1500m,True,0,Used: supported baseline catchment/store/POI descriptor
+education_poi_count_1500m,True,0,Used: supported baseline catchment/store/POI descriptor
+healthcare_poi_count_1500m,True,0,Used: supported baseline catchment/store/POI descriptor
+transit_poi_count_1500m,True,0,Used: supported baseline catchment/store/POI descriptor
+shopping_poi_count_1500m,True,0,Used: supported baseline catchment/store/POI descriptor
+food_leisure_poi_count_1500m,True,0,Used: supported baseline catchment/store/POI descriptor
+weekday_morning_raw,True,0,Used: supported baseline catchment/store/POI descriptor
+weekday_lunch_raw,True,0,Used: supported baseline catchment/store/POI descriptor
+weekday_evening_raw,True,0,Used: supported baseline catchment/store/POI descriptor
+weekday_night_raw,True,0,Used: supported baseline catchment/store/POI descriptor
+weekend_day_raw,True,0,Used: supported baseline catchment/store/POI descriptor
+weekend_evening_raw,True,0,Used: supported baseline catchment/store/POI descriptor
+nearest_metro_station_id,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+nearest_metro_distance_m,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+metro_weekday_entries_per_hour,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+metro_weekday_exits_per_hour,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+metro_weekend_entries_per_hour,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+metro_weekend_exits_per_hour,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+metro_measurement_start_date,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+metro_measurement_end_date,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+daypart_data_status,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+poi_data_status,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+population_data_status,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+ridership_data_status,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+comp_data_status,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+monthly_rent_inr,False,0,"Excluded: downstream economics, not reference-sales evidence"
+capex_inr,False,0,"Excluded: downstream economics, not reference-sales evidence"
+annual_opex_excl_rent_inr,False,0,"Excluded: downstream economics, not reference-sales evidence"
+gross_margin_fraction,False,0,"Excluded: downstream economics, not reference-sales evidence"
+source_quality_score,False,0,"Excluded: uncalibrated constant 0.75, not confidence"
+weekday_morning_weekly_exposure_share,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+weekday_lunch_weekly_exposure_share,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+weekday_evening_weekly_exposure_share,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+weekday_night_weekly_exposure_share,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+weekend_day_weekly_exposure_share,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+weekend_evening_weekly_exposure_share,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+daypart_poi_support_count,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+daypart_recorded_hours_support_count,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+daypart_assumed_hours_support_count,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+daypart_recorded_hours_fraction,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+mapped_supermarket_count_1500m,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+mapped_convenience_count_1500m,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+mapped_grocery_count_1500m,False,0,"Excluded: metadata, redundant enrichment or unsupported model input"
+operational_metro_station_count_1500m,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+ward_2011_id,False,2,"Excluded: identity/geographic label, not a model predictor"
+ward_2025_id,False,2,"Excluded: identity/geographic label, not a model predictor"
+metro_sep2025_weekday_observation_hours,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+metro_sep2025_weekday_observed_days,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+metro_sep2025_weekend_observation_hours,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"
+metro_sep2025_weekend_observed_days,False,0,"Excluded: historical transit support/identity, separate measurement and unresolved rights; no store-footfall interpretation"

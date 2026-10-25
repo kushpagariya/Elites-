@@ -37,9 +37,11 @@ export interface Project {
 
 export interface ResponseMeta {
   contract_version: "1";
-  fixture_id: "demo-1";
+  fixture_id: string;
+  feature_snapshot_id?: string;
   scenario_id?: string;
   evaluation_id?: string;
+  schema_revision?: string;
 }
 
 export interface ApiEnvelope<T> {
@@ -47,19 +49,40 @@ export interface ApiEnvelope<T> {
   meta: ResponseMeta;
 }
 
-export type DemoProject = Project & { project_id: "demo"; source_status: "SYNTHETIC" };
+export interface ComparisonReference {
+  before_scenario_id: string;
+  before_evaluation_id: string;
+  after_scenario_id: string;
+  after_evaluation_id: string;
+}
+export interface WorkspaceState {
+  scenario_id: string;
+  evaluation_id: string | null;
+  portfolio_run_id: string | null;
+  selected_site_ids?: string[];
+  comparison?: ComparisonReference | null;
+}
+
+export type DemoProject = Project & {
+  project_id: "demo";
+  source_status: Provenance;
+};
 export type HealthResponse = ApiEnvelope<{
   status: "ok";
-  implementation_status: "scaffold" | "integration";
+  implementation_status: "scaffold" | "integration" | "assumption_based_analytics" | "fitted_model_integration";
   analytics_readiness?: string;
 }>;
 export type DemoProjectResponse = ApiEnvelope<DemoProject>;
 
 export interface ApiErrorResponse {
-  error: { code: string; message: string; details: { field: string; reason: string }[] };
+  error: {
+    code: string;
+    message: string;
+    details: { field: string; reason: string }[];
+  };
 }
 
-/** Planned analytical shapes mirror backend/app/schemas.py; 501 is still expected. */
+/** Canonical analytical shapes mirror backend/app/schemas.py; endpoint availability is separate. */
 export interface SiteOverride {
   monthly_rent_inr?: number | null;
   sales_multiplier?: number | null;
@@ -79,7 +102,7 @@ export interface ScenarioCreate {
   base_scenario_id?: string;
   name: string;
   budget_inr?: number | null;
-  assumptions: Partial<Assumptions>;
+  assumptions: Assumptions;
 }
 
 export interface Scenario {
@@ -97,7 +120,11 @@ export interface EvaluateRequest {
 }
 
 export type Diagnosis = "VIABLE" | "AT_RISK" | "REJECTED" | "REVIEW_REQUIRED";
-export type RescueStatus = "NOT_REQUESTED" | "SOLVED" | "NOT_RECOVERABLE_WITHIN_BOUNDS" | "NON_MONOTONIC";
+export type RescueStatus =
+  | "NOT_REQUESTED"
+  | "SOLVED"
+  | "NOT_RECOVERABLE_WITHIN_BOUNDS"
+  | "NON_MONOTONIC";
 
 export interface FailFastDiagnosis {
   status: Diagnosis;
@@ -119,17 +146,32 @@ export interface SiteAnalysis {
   failfast: FailFastDiagnosis;
   drivers: string[];
   source_ids: string[];
+  operating_profit_inr?: number | null;
+  sensitivity?: Record<string, FinanceSnapshot>;
+  branch_impacts?: BranchImpact[];
+  effective_inputs?: EffectiveInputs | null;
+  infrastructure_exposure?: InfrastructureExposure[];
+  calibration?: {
+    target_revenue_inr: number;
+    achieved_reference_revenue_inr: number;
+    within_tolerance: boolean;
+  } | null;
+  dayparts?: DaypartProfile[];
 }
 
 export interface EvaluationData {
   evaluation_id: string;
   project_id: string;
   scenario_id: string;
-  method_mode: "model_simulated" | "model_real_evaluated" | "scenario_assumptions";
+  method_mode:
+    | "model_simulated"
+    | "model_real_evaluated"
+    | "scenario_assumptions";
   site_analyses: SiteAnalysis[];
   rankings: string[];
   created_at_utc: string;
   model_artifact_id: string | null;
+  evidence?: Evidence | null;
 }
 
 export interface PortfolioRequest {
@@ -138,7 +180,10 @@ export interface PortfolioRequest {
   acknowledged_risk_site_ids?: string[];
 }
 
-export type PortfolioStatus = "FULL_NETWORK_EXACT" | "FEASIBLE_PARTIAL" | "UNKNOWN";
+export type PortfolioStatus =
+  | "FULL_NETWORK_EXACT"
+  | "FEASIBLE_PARTIAL"
+  | "UNKNOWN";
 
 export interface PortfolioResult {
   portfolio_run_id: string;
@@ -150,6 +195,20 @@ export interface PortfolioResult {
   status: PortfolioStatus;
   evaluated_subsets: number;
   total_subsets: number;
+  max_stores?: number;
+  acknowledged_risk_site_ids?: string[];
+  solver_status?:
+    | "OPTIMAL"
+    | "FEASIBLE"
+    | "PARTIAL"
+    | "UNAVAILABLE"
+    | "UNKNOWN";
+  solver_name?: string;
+  solver_version?: string | null;
+  exclusions?: { site_id: string; reason_codes: string[]; reasons: string[] }[];
+  objective_precision_inr?: number;
+  optimality_gap?: number | null;
+  limitations?: string[];
 }
 
 export interface RescueRequest {
@@ -159,29 +218,143 @@ export interface RescueRequest {
   upper_bound?: number | null;
 }
 
-export interface RescueResult {
-  rescue_id: string;
-  evaluation_id: string;
-  site_id: string;
-  lever: "rent" | "sales";
-  lower_bound: number;
-  upper_bound: number;
-  status: Exclude<RescueStatus, "NOT_REQUESTED">;
-  threshold: number | null;
-  verification_npv_inr: number | null;
-  reasons: string[];
-}
-
-export interface RankingData {
-  evaluation_id: string;
-  rankings: string[];
-  diagnoses: Record<string, FailFastDiagnosis>;
-}
-
 export type ScenarioResponse = ApiEnvelope<Scenario>;
 export type ScenarioListResponse = ApiEnvelope<Scenario[]>;
 export type EvaluationResponse = ApiEnvelope<EvaluationData>;
 export type PortfolioResponse = ApiEnvelope<PortfolioResult>;
-export type RescueResponse = ApiEnvelope<RescueResult>;
-export type SiteAnalysisResponse = ApiEnvelope<SiteAnalysis>;
-export type RankingResponse = ApiEnvelope<RankingData>;
+
+/** Existing infrastructure response inspected from the live endpoint. */
+export interface InfrastructureEvent {
+  type?: string;
+  geometry?: {
+    type: "Point" | "LineString" | "Polygon";
+    coordinates: number[] | number[][] | number[][][];
+  };
+  infra_project_id: string;
+  name: string;
+  status: string;
+  hypothetical_demo: boolean;
+  assumed_effect_fraction?: number;
+  geometry_note?: string;
+  official_source_url?: string;
+  source_status: Provenance;
+  source_id: string;
+  expected_open_date: string | null;
+  assumed_demo_open_date: string | null;
+}
+
+export interface FinanceSnapshot {
+  annual_revenue_inr: number;
+  operating_profit_inr: number;
+  lost_existing_contribution_inr: number;
+  npv_inr: number;
+  roi_fraction: number | null;
+  payback_years: number | null;
+}
+export interface BranchImpact {
+  store_id: string;
+  baseline_revenue_inr: number;
+  after_revenue_inr: number;
+  lost_contribution_inr: number;
+}
+export interface EffectiveInputs {
+  monthly_rent_inr: number;
+  annual_opex_inr: number;
+  gross_margin_fraction: number;
+  sales_multiplier: number;
+  competition_multiplier: number;
+}
+export interface InfrastructureExposure {
+  event_id: string;
+  distance_m: number | null;
+  exposure_fraction: number;
+  opening_date: string | null;
+  active_fractions: number[];
+  assumed_effect_fraction: number;
+  hypothetical: boolean;
+}
+export interface DaypartProfile {
+  time_bin:
+    | "weekday_morning"
+    | "weekday_lunch"
+    | "weekday_evening"
+    | "weekday_night"
+    | "weekend_day"
+    | "weekend_evening";
+  opportunity_index: number | null;
+  raw_opportunity: number | null;
+  support_count: number;
+  categories: {
+    category: string;
+    count: number;
+    weighted_opportunity: number;
+  }[];
+  source_ids: string[];
+  source_status: Provenance;
+  reliability: string;
+  observed_at: string | null;
+  reason: string | null;
+}
+export interface Evidence {
+  feature_snapshot_id: string;
+  source_snapshot_id: string;
+  finance_version: string;
+  rule_version: string;
+  weight_version: string;
+  estimator_version: string;
+  valuation_date: string;
+  limitations: string[];
+  assumed_parameters: Record<string, unknown>;
+}
+export interface RescueResult {
+  rescue_id?: string;
+  evaluation_id: string;
+  site_id: string;
+  lever: "rent" | "sales";
+  status: "SOLVED" | "NOT_RECOVERABLE_WITHIN_BOUNDS" | "NON_MONOTONIC";
+  lower_bound: number;
+  upper_bound: number;
+  threshold: number | null;
+  verified: boolean;
+  npv_at_threshold: number | null;
+  verification_npv_inr?: number | null;
+  reasons: string[];
+  remaining_failed_rule_ids: string[];
+  threshold_kind: "BREAK_EVEN" | "VIABLE_BOUND" | null;
+  threshold_coordinates: "CANONICAL_SITE_OVERRIDE";
+  application_status: string;
+  actionable_site_override: SiteOverride | null;
+  requires_risk_acknowledgement: boolean;
+  search_lower_bound: number;
+  search_upper_bound: number;
+  diagnostics: Record<string, unknown>;
+}
+export interface GeoContext {
+  evaluation_id: string | null;
+  catchment_radius_m: number;
+  pois: {
+    poi_id: string;
+    category: string;
+    name?: string | null;
+    latitude: number;
+    longitude: number;
+    source_id: string;
+    source_status: Provenance;
+    opening_hours: string | null;
+  }[];
+  cells: {
+    cell_id: string;
+    latitude: number;
+    longitude: number;
+    annual_wallet_inr: number;
+    source_id: string;
+    source_status: Provenance;
+  }[];
+  roads: unknown[];
+  competitors: unknown[];
+  limitations: string[];
+  catchments?: {
+    site_id: string;
+    geometry: { type: "Polygon"; coordinates: number[][][] };
+  }[];
+}

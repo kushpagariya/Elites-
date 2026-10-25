@@ -1,0 +1,38 @@
+{
+  "store_size_plus_25pct": {
+    "examples": 40,
+    "expected_direction": "increase",
+    "changed_examples": 40,
+    "expected_direction_examples": 40,
+    "opposite_direction_examples": 0,
+    "median_change_inr": 6091319.871695243,
+    "interpretation": "Controlled held-out synthetic feature perturbation, not a validated causal intervention"
+  },
+  "wallet_plus_25pct": {
+    "examples": 40,
+    "expected_direction": "increase",
+    "changed_examples": 40,
+    "expected_direction_examples": 30,
+    "opposite_direction_examples": 10,
+    "median_change_inr": 60225.89552534092,
+    "interpretation": "Controlled held-out synthetic feature perturbation, not a validated causal intervention"
+  },
+  "external_competition_added": {
+    "examples": 40,
+    "expected_direction": "decrease",
+    "changed_examples": 40,
+    "expected_direction_examples": 40,
+    "opposite_direction_examples": 0,
+    "median_change_inr": -349296.68494965136,
+    "interpretation": "Controlled held-out synthetic feature perturbation, not a validated causal intervention"
+  },
+  "daypart_plus_25pct": {
+    "examples": 40,
+    "expected_direction": "increase",
+    "changed_examples": 40,
+    "expected_direction_examples": 20,
+    "opposite_direction_examples": 20,
+    "median_change_inr": -2971.1096676578745,
+    "interpretation": "Controlled held-out synthetic feature perturbation, not a validated causal intervention"
+  }
+}

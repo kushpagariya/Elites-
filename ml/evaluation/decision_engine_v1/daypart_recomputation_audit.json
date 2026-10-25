@@ -1,0 +1,486 @@
+{
+  "records": [
+    {
+      "site_id": "site-01",
+      "time_bin": "weekday_morning",
+      "legacy_projected_raw": 87.87241767068096,
+      "recomputed_geodesic_raw": 87.50323793900851,
+      "absolute_difference": -0.3691797316724461,
+      "relative_difference": -0.0042013152870792655
+    },
+    {
+      "site_id": "site-01",
+      "time_bin": "weekday_lunch",
+      "legacy_projected_raw": 87.53734044553913,
+      "recomputed_geodesic_raw": 87.17047118814632,
+      "absolute_difference": -0.36686925739280696,
+      "relative_difference": -0.004191003011121324
+    },
+    {
+      "site_id": "site-01",
+      "time_bin": "weekday_evening",
+      "legacy_projected_raw": 118.52048273451908,
+      "recomputed_geodesic_raw": 118.03517527063264,
+      "absolute_difference": -0.48530746388644275,
+      "relative_difference": -0.004094713864552097
+    },
+    {
+      "site_id": "site-01",
+      "time_bin": "weekday_night",
+      "legacy_projected_raw": 30.332160784209435,
+      "recomputed_geodesic_raw": 30.210571375549588,
+      "absolute_difference": -0.12158940865984746,
+      "relative_difference": -0.004008596997914685
+    },
+    {
+      "site_id": "site-01",
+      "time_bin": "weekend_day",
+      "legacy_projected_raw": 80.901549245184,
+      "recomputed_geodesic_raw": 80.58300168282983,
+      "absolute_difference": -0.31854756235416914,
+      "relative_difference": -0.003937471721199851
+    },
+    {
+      "site_id": "site-01",
+      "time_bin": "weekend_evening",
+      "legacy_projected_raw": 86.44430609967297,
+      "recomputed_geodesic_raw": 86.09288593461369,
+      "absolute_difference": -0.351420165059281,
+      "relative_difference": -0.004065278338333616
+    },
+    {
+      "site_id": "site-02",
+      "time_bin": "weekday_morning",
+      "legacy_projected_raw": 63.75622531376768,
+      "recomputed_geodesic_raw": 63.58399675639533,
+      "absolute_difference": -0.17222855737234966,
+      "relative_difference": -0.0027013606361535676
+    },
+    {
+      "site_id": "site-02",
+      "time_bin": "weekday_lunch",
+      "legacy_projected_raw": 71.10992179038949,
+      "recomputed_geodesic_raw": 70.91201369588332,
+      "absolute_difference": -0.1979080945061753,
+      "relative_difference": -0.0027831291263341338
+    },
+    {
+      "site_id": "site-02",
+      "time_bin": "weekday_evening",
+      "legacy_projected_raw": 88.2162783779739,
+      "recomputed_geodesic_raw": 87.93404435942608,
+      "absolute_difference": -0.28223401854781116,
+      "relative_difference": -0.003199341705830567
+    },
+    {
+      "site_id": "site-02",
+      "time_bin": "weekday_night",
+      "legacy_projected_raw": 22.782497227672394,
+      "recomputed_geodesic_raw": 22.703603072655397,
+      "absolute_difference": -0.07889415501699659,
+      "relative_difference": -0.0034629283273288004
+    },
+    {
+      "site_id": "site-02",
+      "time_bin": "weekend_day",
+      "legacy_projected_raw": 61.77269514853139,
+      "recomputed_geodesic_raw": 61.56200536599733,
+      "absolute_difference": -0.210689782534061,
+      "relative_difference": -0.0034107267301104645
+    },
+    {
+      "site_id": "site-02",
+      "time_bin": "weekend_evening",
+      "legacy_projected_raw": 67.34758181904331,
+      "recomputed_geodesic_raw": 67.09843672368173,
+      "absolute_difference": -0.2491450953615839,
+      "relative_difference": -0.003699391850935548
+    },
+    {
+      "site_id": "site-03",
+      "time_bin": "weekday_morning",
+      "legacy_projected_raw": 51.44361611880286,
+      "recomputed_geodesic_raw": 51.09085600390979,
+      "absolute_difference": -0.3527601148930657,
+      "relative_difference": -0.006857218475435485
+    },
+    {
+      "site_id": "site-03",
+      "time_bin": "weekday_lunch",
+      "legacy_projected_raw": 61.156645987715926,
+      "recomputed_geodesic_raw": 60.63479491901949,
+      "absolute_difference": -0.521851068696435,
+      "relative_difference": -0.008533023030747228
+    },
+    {
+      "site_id": "site-03",
+      "time_bin": "weekday_evening",
+      "legacy_projected_raw": 82.93852165853677,
+      "recomputed_geodesic_raw": 82.18891547878088,
+      "absolute_difference": -0.7496061797558866,
+      "relative_difference": -0.009038094298835751
+    },
+    {
+      "site_id": "site-03",
+      "time_bin": "weekday_night",
+      "legacy_projected_raw": 21.162307292184263,
+      "recomputed_geodesic_raw": 20.942936086451404,
+      "absolute_difference": -0.21937120573285895,
+      "relative_difference": -0.010366128924603505
+    },
+    {
+      "site_id": "site-03",
+      "time_bin": "weekend_day",
+      "legacy_projected_raw": 62.68891901969555,
+      "recomputed_geodesic_raw": 62.05897303493934,
+      "absolute_difference": -0.6299459847562048,
+      "relative_difference": -0.010048761321889902
+    },
+    {
+      "site_id": "site-03",
+      "time_bin": "weekend_evening",
+      "legacy_projected_raw": 70.55364736731356,
+      "recomputed_geodesic_raw": 69.82770219288082,
+      "absolute_difference": -0.7259451744327379,
+      "relative_difference": -0.010289264999346544
+    },
+    {
+      "site_id": "site-04",
+      "time_bin": "weekday_morning",
+      "legacy_projected_raw": 28.968810790309888,
+      "recomputed_geodesic_raw": 28.667963107142658,
+      "absolute_difference": -0.30084768316723043,
+      "relative_difference": -0.010385227248191508
+    },
+    {
+      "site_id": "site-04",
+      "time_bin": "weekday_lunch",
+      "legacy_projected_raw": 36.282425098394285,
+      "recomputed_geodesic_raw": 35.924041220439584,
+      "absolute_difference": -0.35838387795470084,
+      "relative_difference": -0.00987761642125078
+    },
+    {
+      "site_id": "site-04",
+      "time_bin": "weekday_evening",
+      "legacy_projected_raw": 52.47813355993377,
+      "recomputed_geodesic_raw": 51.78529570731014,
+      "absolute_difference": -0.6928378526236258,
+      "relative_difference": -0.013202410330244609
+    },
+    {
+      "site_id": "site-04",
+      "time_bin": "weekday_night",
+      "legacy_projected_raw": 14.191568713509904,
+      "recomputed_geodesic_raw": 14.019460563087797,
+      "absolute_difference": -0.17210815042210648,
+      "relative_difference": -0.012127493013387957
+    },
+    {
+      "site_id": "site-04",
+      "time_bin": "weekend_day",
+      "legacy_projected_raw": 41.759717911264985,
+      "recomputed_geodesic_raw": 41.1797195484549,
+      "absolute_difference": -0.5799983628100875,
+      "relative_difference": -0.013888943503941362
+    },
+    {
+      "site_id": "site-04",
+      "time_bin": "weekend_evening",
+      "legacy_projected_raw": 47.58191653629762,
+      "recomputed_geodesic_raw": 46.910085201917894,
+      "absolute_difference": -0.6718313343797249,
+      "relative_difference": -0.01411946771558102
+    },
+    {
+      "site_id": "site-05",
+      "time_bin": "weekday_morning",
+      "legacy_projected_raw": 19.6646456941774,
+      "recomputed_geodesic_raw": 19.622469751308728,
+      "absolute_difference": -0.042175942868670546,
+      "relative_difference": -0.002144759866238456
+    },
+    {
+      "site_id": "site-05",
+      "time_bin": "weekday_lunch",
+      "legacy_projected_raw": 16.3803715857852,
+      "recomputed_geodesic_raw": 16.343466315705523,
+      "absolute_difference": -0.036905270079675034,
+      "relative_difference": -0.0022530178809680506
+    },
+    {
+      "site_id": "site-05",
+      "time_bin": "weekday_evening",
+      "legacy_projected_raw": 26.061123084401665,
+      "recomputed_geodesic_raw": 26.000713274915483,
+      "absolute_difference": -0.06040980948618113,
+      "relative_difference": -0.002318004841561803
+    },
+    {
+      "site_id": "site-05",
+      "time_bin": "weekday_night",
+      "legacy_projected_raw": 7.495557905188636,
+      "recomputed_geodesic_raw": 7.478447787205181,
+      "absolute_difference": -0.017110117983454742,
+      "relative_difference": -0.0022827010610658666
+    },
+    {
+      "site_id": "site-05",
+      "time_bin": "weekend_day",
+      "legacy_projected_raw": 19.83935154906341,
+      "recomputed_geodesic_raw": 19.790788035486536,
+      "absolute_difference": -0.04856351357687316,
+      "relative_difference": -0.0024478377459451685
+    },
+    {
+      "site_id": "site-05",
+      "time_bin": "weekend_evening",
+      "legacy_projected_raw": 22.30406984364384,
+      "recomputed_geodesic_raw": 22.251136993456473,
+      "absolute_difference": -0.05293285018736782,
+      "relative_difference": -0.0023732372862189763
+    },
+    {
+      "site_id": "site-06",
+      "time_bin": "weekday_morning",
+      "legacy_projected_raw": 21.147272888185324,
+      "recomputed_geodesic_raw": 21.094531038155562,
+      "absolute_difference": -0.052741850029761395,
+      "relative_difference": -0.002494026076488922
+    },
+    {
+      "site_id": "site-06",
+      "time_bin": "weekday_lunch",
+      "legacy_projected_raw": 18.925649469678746,
+      "recomputed_geodesic_raw": 18.85624437044658,
+      "absolute_difference": -0.06940509923216709,
+      "relative_difference": -0.003667250592554973
+    },
+    {
+      "site_id": "site-06",
+      "time_bin": "weekday_evening",
+      "legacy_projected_raw": 31.141926740102523,
+      "recomputed_geodesic_raw": 30.987808415852726,
+      "absolute_difference": -0.1541183242497972,
+      "relative_difference": -0.004948901380958352
+    },
+    {
+      "site_id": "site-06",
+      "time_bin": "weekday_night",
+      "legacy_projected_raw": 8.650434114633791,
+      "recomputed_geodesic_raw": 8.600034284976696,
+      "absolute_difference": -0.05039982965709555,
+      "relative_difference": -0.005826277501129686
+    },
+    {
+      "site_id": "site-06",
+      "time_bin": "weekend_day",
+      "legacy_projected_raw": 23.66414699858291,
+      "recomputed_geodesic_raw": 23.522356634953784,
+      "absolute_difference": -0.14179036362912711,
+      "relative_difference": -0.005991780039129152
+    },
+    {
+      "site_id": "site-06",
+      "time_bin": "weekend_evening",
+      "legacy_projected_raw": 24.016187925225136,
+      "recomputed_geodesic_raw": 23.839077945135323,
+      "absolute_difference": -0.1771099800898135,
+      "relative_difference": -0.007374608353384343
+    },
+    {
+      "site_id": "site-07",
+      "time_bin": "weekday_morning",
+      "legacy_projected_raw": 20.10175976621645,
+      "recomputed_geodesic_raw": 20.064073529825475,
+      "absolute_difference": -0.037686236390975125,
+      "relative_difference": -0.0018747729964573357
+    },
+    {
+      "site_id": "site-07",
+      "time_bin": "weekday_lunch",
+      "legacy_projected_raw": 17.38124902291162,
+      "recomputed_geodesic_raw": 17.341827820040216,
+      "absolute_difference": -0.039421202871405825,
+      "relative_difference": -0.002268030497661104
+    },
+    {
+      "site_id": "site-07",
+      "time_bin": "weekday_evening",
+      "legacy_projected_raw": 27.602286135901217,
+      "recomputed_geodesic_raw": 27.536219751627588,
+      "absolute_difference": -0.0660663842736291,
+      "relative_difference": -0.002393511318169372
+    },
+    {
+      "site_id": "site-07",
+      "time_bin": "weekday_night",
+      "legacy_projected_raw": 8.005810741612954,
+      "recomputed_geodesic_raw": 7.9879427395646,
+      "absolute_difference": -0.01786800204835437,
+      "relative_difference": -0.0022318791469150383
+    },
+    {
+      "site_id": "site-07",
+      "time_bin": "weekend_day",
+      "legacy_projected_raw": 21.358341184869438,
+      "recomputed_geodesic_raw": 21.30604221899797,
+      "absolute_difference": -0.05229896587146854,
+      "relative_difference": -0.0024486436197825086
+    },
+    {
+      "site_id": "site-07",
+      "time_bin": "weekend_evening",
+      "legacy_projected_raw": 23.63362060771062,
+      "recomputed_geodesic_raw": 23.572062531198842,
+      "absolute_difference": -0.06155807651177625,
+      "relative_difference": -0.002604682436667894
+    },
+    {
+      "site_id": "site-08",
+      "time_bin": "weekday_morning",
+      "legacy_projected_raw": 21.335756510217315,
+      "recomputed_geodesic_raw": 21.27458921017788,
+      "absolute_difference": -0.06116730003943616,
+      "relative_difference": -0.0028668915494111597
+    },
+    {
+      "site_id": "site-08",
+      "time_bin": "weekday_lunch",
+      "legacy_projected_raw": 19.42129414943561,
+      "recomputed_geodesic_raw": 19.342657423016462,
+      "absolute_difference": -0.07863672641914832,
+      "relative_difference": -0.004048995180963959
+    },
+    {
+      "site_id": "site-08",
+      "time_bin": "weekday_evening",
+      "legacy_projected_raw": 35.36383911051005,
+      "recomputed_geodesic_raw": 35.18534148442452,
+      "absolute_difference": -0.17849762608553021,
+      "relative_difference": -0.005047461773811802
+    },
+    {
+      "site_id": "site-08",
+      "time_bin": "weekday_night",
+      "legacy_projected_raw": 10.306722884817983,
+      "recomputed_geodesic_raw": 10.251849046150218,
+      "absolute_difference": -0.054873838667765185,
+      "relative_difference": -0.005324082085159725
+    },
+    {
+      "site_id": "site-08",
+      "time_bin": "weekend_day",
+      "legacy_projected_raw": 28.359704516731178,
+      "recomputed_geodesic_raw": 28.199256631027946,
+      "absolute_difference": -0.1604478857032312,
+      "relative_difference": -0.00565760075562751
+    },
+    {
+      "site_id": "site-08",
+      "time_bin": "weekend_evening",
+      "legacy_projected_raw": 33.03078834661277,
+      "recomputed_geodesic_raw": 32.83479338457011,
+      "absolute_difference": -0.1959949620426613,
+      "relative_difference": -0.0059337052445119776
+    },
+    {
+      "site_id": "site-09",
+      "time_bin": "weekday_morning",
+      "legacy_projected_raw": 35.94740051786178,
+      "recomputed_geodesic_raw": 35.863973035620944,
+      "absolute_difference": -0.08342748224083607,
+      "relative_difference": -0.002320821006219409
+    },
+    {
+      "site_id": "site-09",
+      "time_bin": "weekday_lunch",
+      "legacy_projected_raw": 37.14739006235671,
+      "recomputed_geodesic_raw": 37.054609171991714,
+      "absolute_difference": -0.09278089036499892,
+      "relative_difference": -0.0024976422356793888
+    },
+    {
+      "site_id": "site-09",
+      "time_bin": "weekday_evening",
+      "legacy_projected_raw": 64.84977695719337,
+      "recomputed_geodesic_raw": 64.70770951818054,
+      "absolute_difference": -0.14206743901283403,
+      "relative_difference": -0.002190715923458167
+    },
+    {
+      "site_id": "site-09",
+      "time_bin": "weekday_night",
+      "legacy_projected_raw": 17.579842614887678,
+      "recomputed_geodesic_raw": 17.54106743443077,
+      "absolute_difference": -0.0387751804569092,
+      "relative_difference": -0.0022056614104196824
+    },
+    {
+      "site_id": "site-09",
+      "time_bin": "weekend_day",
+      "legacy_projected_raw": 50.861012380769786,
+      "recomputed_geodesic_raw": 50.75542707259436,
+      "absolute_difference": -0.10558530817542788,
+      "relative_difference": -0.002075957658588585
+    },
+    {
+      "site_id": "site-09",
+      "time_bin": "weekend_evening",
+      "legacy_projected_raw": 56.103137634995484,
+      "recomputed_geodesic_raw": 55.974288750406146,
+      "absolute_difference": -0.1288488845893383,
+      "relative_difference": -0.002296643111613889
+    },
+    {
+      "site_id": "site-10",
+      "time_bin": "weekday_morning",
+      "legacy_projected_raw": 35.93674152990572,
+      "recomputed_geodesic_raw": 35.82545218571705,
+      "absolute_difference": -0.11128934418866976,
+      "relative_difference": -0.0030968123277414386
+    },
+    {
+      "site_id": "site-10",
+      "time_bin": "weekday_lunch",
+      "legacy_projected_raw": 36.894859241461084,
+      "recomputed_geodesic_raw": 36.785253363686635,
+      "absolute_difference": -0.10960587777444886,
+      "relative_difference": -0.002970762865827058
+    },
+    {
+      "site_id": "site-10",
+      "time_bin": "weekday_evening",
+      "legacy_projected_raw": 58.98439893094493,
+      "recomputed_geodesic_raw": 58.84399681036135,
+      "absolute_difference": -0.14040212058358037,
+      "relative_difference": -0.002380326376606024
+    },
+    {
+      "site_id": "site-10",
+      "time_bin": "weekday_night",
+      "legacy_projected_raw": 14.72451229571483,
+      "recomputed_geodesic_raw": 14.671997814873903,
+      "absolute_difference": -0.05251448084092658,
+      "relative_difference": -0.003566466568553819
+    },
+    {
+      "site_id": "site-10",
+      "time_bin": "weekend_day",
+      "legacy_projected_raw": 42.251075315679444,
+      "recomputed_geodesic_raw": 42.12626851864564,
+      "absolute_difference": -0.1248067970338056,
+      "relative_difference": -0.002953931849102302
+    },
+    {
+      "site_id": "site-10",
+      "time_bin": "weekend_evening",
+      "legacy_projected_raw": 47.45076694991851,
+      "recomputed_geodesic_raw": 47.358200312123905,
+      "absolute_difference": -0.09256663779460439,
+      "relative_difference": -0.0019507932904920804
+    }
+  ],
+  "note": "Geodesic recomputation is separate diagnostic evidence. Frozen inference uses original source features; no feedback uplift or master rewrite.",
+  "max_absolute_relative_difference": 0.01411946771558102
+}

@@ -2,26 +2,80 @@
 import logging
 import os
 import sqlite3
+from contextlib import asynccontextmanager
 from typing import Annotated, Literal
 
 from fastapi import FastAPI, Header, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, Response
 from starlette.exceptions import HTTPException
+from starlette.concurrency import run_in_threadpool
 
 from .repositories import store
-from .schemas import Project, Scenario, ScenarioCreate, EvaluateRequest, PortfolioRequest, RescueRequest, EvaluationData, PortfolioResult, RescueResult, SiteAnalysis, Envelope, ErrorEnvelope
-from .services import analytics, catalogue, reports, sources
+from . import auth
+from .schemas import Project, Scenario, ScenarioCreate, EvaluateRequest, PortfolioRequest, RescueRequest, EvaluationData, PortfolioResult, RescueResult, SiteAnalysis, Envelope, ErrorEnvelope, GeographicContext, DaypartsData, WorkspaceState, WorkspaceView
+from .services import analytics, catalogue, reports, sources, presentation, showcase, workspaces
 from .services.errors import ServiceError
 
-app = FastAPI(title="StoreScout API", version="1", responses={status: {"model": ErrorEnvelope} for status in (404, 409, 422, 500, 502, 503)})
-app.add_middleware(CORSMiddleware, allow_origins=list(dict.fromkeys([os.getenv("FRONTEND_ORIGIN", "http://localhost:3000"), "http://127.0.0.1:3000"])), allow_methods=["GET", "POST"], allow_headers=["Content-Type", "Idempotency-Key"], expose_headers=["Content-Disposition"])
+@asynccontextmanager
+async def lifespan(app):
+    # Load native model dependencies once, before users reach the website.
+    try:
+        await run_in_threadpool(showcase.load)
+    except ServiceError:
+        logging.getLogger(__name__).warning("Model preview is unavailable; accounts and saved records remain accessible.")
+    yield
+
+
+app = FastAPI(title="StoreScout API", version="1", lifespan=lifespan, responses={status: {"model": ErrorEnvelope} for status in (404, 409, 422, 500, 502, 503)})
+app.include_router(auth.router)
+
+
+@app.middleware("http")
+async def authenticated_workspace(request: Request, call_next):
+    path = request.url.path
+    if request.method == "OPTIONS" or not path.startswith("/api/v1/"):
+        return await call_next(request)
+    if request.method not in ("GET", "HEAD"):
+        origin = request.headers.get("origin")
+        allowed = {os.getenv("FRONTEND_ORIGIN", "http://localhost:3000"), "http://127.0.0.1:3000", "http://localhost:3001", "http://127.0.0.1:3001"}
+        if origin and origin not in allowed:
+            return error(403, "ORIGIN_NOT_ALLOWED", "This request came from an unapproved website.")
+        if request.headers.get("sec-fetch-site") == "cross-site":
+            return error(403, "ORIGIN_NOT_ALLOWED", "Please open StoreScout directly to continue.")
+    if not path.startswith("/api/v1/projects/"):
+        return await call_next(request)
+    user = await run_in_threadpool(auth.session_user, request.cookies.get(auth.COOKIE))
+    if not user:
+        return error(401, "SIGN_IN_REQUIRED", "Please sign in to continue.")
+    context = store.current_user.set(user["id"])
+    try:
+        response = await call_next(request)
+        response.headers["Cache-Control"] = "no-store"
+        return response
+    finally:
+        store.current_user.reset(context)
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=list(dict.fromkeys([
+        os.getenv("FRONTEND_ORIGIN", "http://localhost:3000"),
+        "http://127.0.0.1:3000",
+        "http://localhost:3001",
+        "http://127.0.0.1:3001",
+    ])),
+    allow_methods=["GET", "POST"],
+    allow_credentials=True,
+    allow_headers=["Content-Type", "Idempotency-Key"],
+    expose_headers=["Content-Disposition", "X-Evaluation-ID", "X-Portfolio-Run-ID", "X-Report-SHA256"],
+)
 Token = Annotated[str | None, Header(alias="Idempotency-Key", min_length=1, max_length=128)]
 
 
 def envelope(data, **meta):
-    return {"data": data, "meta": {"contract_version": "1", "fixture_id": "demo-1", **meta}}
+    return {"data": data, "meta": {"contract_version": "1", "schema_revision": "bengaluru-1", "fixture_id": "bengaluru-20261024", "feature_snapshot_id": sources.FEATURE_SNAPSHOT_ID, **meta}}
 
 
 def error(status, code, message, details=None):
@@ -69,7 +123,12 @@ def api_index():
 @app.get("/api/v1/health")
 def health():
     # Liveness is deliberately distinct from model/analytical readiness.
-    return envelope({"status": "ok", "implementation_status": "integration", "analytics_readiness": "Check model endpoint and evaluate; health does not certify analytics."})
+    return envelope({"status": "ok", "implementation_status": "fitted_model_integration", "analytics_readiness": "Synthetic-trained CatBoost connected; dataset and model readiness are verified when analysis runs."})
+
+
+@app.get("/api/v1/showcase")
+def product_showcase():
+    return envelope(showcase.load())
 
 
 @app.get("/api/v1/projects/{project_id}", response_model=Envelope[Project])
@@ -80,6 +139,16 @@ def read_project(project_id: str):
 @app.get("/api/v1/projects/{project_id}/scenarios", response_model=Envelope[list[Scenario]])
 def read_scenarios(project_id: str):
     return envelope([catalogue.scenario(project_id, "baseline"), *store.list_objects("scenario", project_id)])
+
+
+@app.get("/api/v1/projects/{project_id}/workspace", response_model=Envelope[WorkspaceView])
+def read_workspace(project_id: str, scenario_id: str | None = None):
+    return envelope(workspaces.view(project_id, scenario_id))
+
+
+@app.post("/api/v1/projects/{project_id}/workspace", response_model=Envelope[WorkspaceState])
+def save_workspace(project_id: str, body: WorkspaceState):
+    return envelope(workspaces.save(project_id, body))
 
 
 @app.get("/api/v1/projects/{project_id}/scenarios/{scenario_id}", response_model=Envelope[Scenario])
@@ -99,20 +168,20 @@ def infrastructure(project_id: str):
     return envelope(sources.installed_snapshot()["infrastructure"])
 
 
-@app.get("/api/v1/projects/{project_id}/features")
-def features(project_id: str):
+@app.get("/api/v1/projects/{project_id}/features", response_model=Envelope[GeographicContext] | Envelope[dict])
+def features(project_id: str, evaluation_id: str | None = None):
     catalogue.project(project_id)
-    snapshot = sources.installed_snapshot()
-    return envelope({**snapshot, "prepared": False, "note": "Frozen source inputs; derived spatial features require the ML implementation."})
+    if evaluation_id is not None:
+        analytics.saved(project_id, "evaluation", evaluation_id)
+        context = analytics.saved(project_id, "evaluation_context", evaluation_id)
+        return envelope(presentation.geographic(context, evaluation_id), evaluation_id=evaluation_id)
+    return envelope(presentation.geographic({'project': {**sources.project_data(), 'inputs': sources.installed_snapshot()}}, None))
 
 
 @app.get("/api/v1/projects/{project_id}/model")
 def model_card(project_id: str):
     catalogue.project(project_id)
-    bundle = sources.model_bundle()
-    if bundle is None:
-        raise ServiceError(503, "MODEL_UNAVAILABLE", "No fitted model bundle is installed; no model metrics are claimed.")
-    return envelope({key: value for key, value in bundle.items() if key != "artifact_path"})
+    return envelope(sources.model_bundle()["card"])
 
 
 @app.post("/api/v1/projects/{project_id}/evaluate", response_model=Envelope[EvaluationData])
@@ -127,6 +196,12 @@ def read_evaluation(project_id: str, evaluation_id: str):
     return envelope(value, scenario_id=value["scenario_id"], evaluation_id=evaluation_id)
 
 
+@app.get("/api/v1/projects/{project_id}/evaluations", response_model=Envelope[list[EvaluationData]])
+def list_evaluations(project_id: str):
+    catalogue.project(project_id)
+    return envelope(store.list_objects("evaluation", project_id))
+
+
 @app.get("/api/v1/projects/{project_id}/sites/{site_id}/analysis", response_model=Envelope[SiteAnalysis])
 def read_analysis(project_id: str, site_id: str, evaluation_id: str):
     value = analytics.saved(project_id, "evaluation", evaluation_id)
@@ -139,16 +214,19 @@ def read_analysis(project_id: str, site_id: str, evaluation_id: str):
 @app.get("/api/v1/projects/{project_id}/rankings")
 def rankings(project_id: str, evaluation_id: str):
     value = analytics.saved(project_id, "evaluation", evaluation_id)
-    return envelope({"evaluation_id": evaluation_id, "rankings": value["rankings"], "diagnoses": {row["site_id"]: row["failfast"] for row in value["site_analyses"]}}, scenario_id=value["scenario_id"], evaluation_id=evaluation_id)
+    return envelope({"evaluation_id": evaluation_id, "rankings": value["rankings"], "diagnoses": {row["site_id"]: row["failfast"] for row in value["site_analyses"]}, "exclusions": [row for row in value["site_analyses"] if row["failfast"]["status"] in {"REJECTED", "REVIEW_REQUIRED"}]}, scenario_id=value["scenario_id"], evaluation_id=evaluation_id)
 
 
 @app.get("/api/v1/projects/{project_id}/dayparts")
 def dayparts(project_id: str, evaluation_id: str, time_bin: str | None = None):
-    analytics.saved(project_id, "evaluation", evaluation_id)
+    evaluation = analytics.saved(project_id, "evaluation", evaluation_id)
     context = analytics.saved(project_id, "evaluation_context", evaluation_id)
     if time_bin is not None and time_bin not in context["project"]["inputs"]["weights"]["time_bins"]:
         raise ServiceError(422, "INVALID_INPUT", "Unknown DaypartDNA time bin")
-    raise ServiceError(503, "DAYPARTS_UNAVAILABLE", "Detailed computed DaypartDNA response is awaiting the agreed ML schema; raw weights are not opportunity results.")
+    if not all(row.get("dayparts") for row in evaluation["site_analyses"]):
+        raise ServiceError(503, "DAYPARTS_UNAVAILABLE", "No computed DaypartDNA profiles were saved with this evaluation.")
+    value = DaypartsData(evaluation_id=evaluation_id, sites=[{"site_id": row["site_id"], "profiles": [profile for profile in row["dayparts"] if time_bin is None or profile["time_bin"] == time_bin]} for row in evaluation["site_analyses"]])
+    return envelope(value.model_dump(mode="json"), evaluation_id=evaluation_id, scenario_id=evaluation["scenario_id"])
 
 
 @app.post("/api/v1/projects/{project_id}/portfolios", response_model=Envelope[PortfolioResult])
@@ -175,10 +253,19 @@ def read_rescue(project_id: str, rescue_id: str):
     return envelope(value, evaluation_id=value["evaluation_id"])
 
 
-@app.get("/api/v1/projects/{project_id}/reports/{evaluation_id}", response_class=HTMLResponse)
-def report(project_id: str, evaluation_id: str, portfolio_run_id: str | None = None, format: Literal["html", "json"] = "html"):
+@app.get("/api/v1/projects/{project_id}/reports/{evaluation_id}", response_class=Response,
+         responses={200: {'description': 'Frozen PDF by default; diagnostic HTML/JSON only when explicitly requested.',
+                          'content': {'application/pdf': {'schema': {'type': 'string', 'format': 'binary'}},
+                                      'text/html': {'schema': {'type': 'string'}}, 'application/json': {'schema': {'type': 'object'}}}}})
+def report(project_id: str, evaluation_id: str, portfolio_run_id: str | None = None, format: Literal["pdf", "html", "json"] = "pdf"):
     value = reports.report_data(project_id, evaluation_id, portfolio_run_id)
     headers = {"Cache-Control": "no-store", "X-Content-Type-Options": "nosniff"}
+    if format == "pdf":
+        document = reports.pdf_document(project_id, evaluation_id, portfolio_run_id)
+        headers.update({'Content-Disposition': f'attachment; filename="{document["filename"]}"',
+                        'X-Evaluation-ID': evaluation_id, 'X-Portfolio-Run-ID': portfolio_run_id or '',
+                        'X-Report-SHA256': document['sha256']})
+        return Response(reports.pdf_bytes(document), media_type='application/pdf', headers=headers)
     if format == "json":
         return JSONResponse(envelope(value, evaluation_id=evaluation_id), headers=headers)
     headers["Content-Security-Policy"] = "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'"

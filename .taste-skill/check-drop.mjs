@@ -1,0 +1,2 @@
+import {Browser} from 'file:///C:/Users/ashut_2urnib0/.agents/skills/design-taste-frontend/scripts/lib/cdp.mjs';
+const b=await Browser.launch();try{const p=await b.newPage({width:1440,height:900});await p.goto('http://127.0.0.1:3000',{settleMs:100});for(const t of [1,3,6]){await new Promise(r=>setTimeout(r,t*1000));await p.screenshot({path:'frontend/docs/retail-review-v3/drop-'+t+'.jpg'});}console.log(p.consoleErrors);}finally{await b.close();}

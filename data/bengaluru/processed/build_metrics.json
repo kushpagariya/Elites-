@@ -1,0 +1,29 @@
+{
+  "grocery_monthly_per_capita_inr": 2974.915,
+  "population_total": 277898.3791938347,
+  "cell_population_total": 277898.379188,
+  "annual_network_wallet_inr": 9920688680.87,
+  "population_raster_pixels": 256,
+  "osm_raw_elements": 5285,
+  "poi_rows": 4995,
+  "poi_duplicates_removed": 264,
+  "poi_excluded_centres": 16,
+  "metro_corridor_stations": 13,
+  "metro_all_network_stations": 83,
+  "metro_raw_null_values_preserved": 0,
+  "metro_all_network_hourly_rows": 92280,
+  "metro_corridor_hourly_rows": 11976,
+  "metro_duplicates_removed": 0,
+  "august_exits": "MUST_REMAIN_UNKNOWN: processed destination counts do not establish exit-clock observations",
+  "daypart_opening_hours_parsed_pois": 204,
+  "ward_geometry_repairs": 8,
+  "historical_aoi_wards": 24,
+  "new_aoi_wards": 50,
+  "transport_line_records": 27764,
+  "blue_osm_segments": 4,
+  "master_value_origins": {
+    "DERIVED": 400,
+    "SYNTHETIC_ASSUMED": 80,
+    "UNRESOLVED_MISSING": 20
+  }
+}

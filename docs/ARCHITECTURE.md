@@ -1,6 +1,6 @@
 # StoreScout architecture
 
-One local operator, one Navi Mumbai grocery demonstration, 10 candidates/four fictional branches. The complete PRD remains authoritative. Backend integration provides orchestration, atomic persistence and saved-result endpoints; the numerical pipeline and connected UI still require teammate delivery.
+An authenticated local Bengaluru grocery prototype: 10 candidates, four fictional branches and 219 contextual mapped competitors. The frontend connects to saved evaluations and exact network portfolios. The active fitted B.2 CatBoost uses synthetic labels; support does not establish real-sales accuracy. Accounts have separate SQLite files. No public-hosting readiness is claimed.
 
 ```mermaid
 flowchart TD
@@ -48,7 +48,7 @@ The public `EvaluationData` intentionally excludes internal attraction matrices.
 - **100 synthetic cells initially:** correct bounded allocation before raising the cap toward 2,000. A resolution change produces a new snapshot ID.
 - **Fitted linear baseline before CatBoost if needed:** same feature/target contract and held-out report. By H4 a real fitted artifact must drive results; formula-only mode remains visibly incomplete.
 - **Exact enumeration:** at most 10 sites; avoids a second solver and pairwise approximation. A five-second deadline returns a valid incumbent with an unknown gap if incomplete.
-- **MapLibre over local synthetic GeoJSON:** no online tile dependency; table remains fully usable.
+- **MapLibre with OpenFreeMap streets:** online basemap dependency; source-labelled map records and candidate cards remain distinct. Competitors cluster and never count as candidates. The table remains usable when streets fail.
 - **Three UI screens:** Explore & Compare, Scenario & Rescue, Portfolio & Report. Start with a table, then add map layers.
 
 ## Failure and safety behaviour

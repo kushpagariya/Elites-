@@ -1,0 +1,1256 @@
+{
+  "status": "DATA_INTEGRITY_READY_WITH_LIMITATIONS",
+  "validation_started_at_utc": "2026-10-24T17:15:37.170813+00:00",
+  "validation_completed_at_utc": "2026-10-24T17:15:41.505132+00:00",
+  "elapsed_seconds": 4.335,
+  "validation_command": "python data/bengaluru/revised_v2/scripts/validate_revised.py",
+  "environment": {
+    "python": "3.12.10",
+    "packages": {
+      "pyproj": "3.8.0",
+      "shapely": "2.2.0",
+      "pypdf": "6.17.0"
+    }
+  },
+  "tests_run": 27,
+  "tests_passed": 27,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "test_results": [
+    {
+      "test": "test_integrity.Integrity.test_01_frozen_files_and_git_identity",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_02_exact_order_shape_and_string_preservation",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_03_null_preservation_no_unsupported_imputation",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_04_provenance_foreign_keys_all_tables",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_05_locality_and_existing_assumption_records",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_06_all_master_cells_have_unique_typed_lineage",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_07_logical_types_all_v2_fields",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_08_semantic_units_currency_and_metadata",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_09_origin_categories_and_synthetic_financials",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_10_temporal_and_nominal_price_basis",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_11_release_evidence_verifies_date_and_retrieval_integrity",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_12_original_source_acquisition_ledger_preserved",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_13_hces_multiline_parser_and_unchanged_grocery",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_14_infrastructure_known_facts_and_assumed_future",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_15_overnight_and_exact_bin_boundaries",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_16_metro_valid_interval_population_and_clock_consistency",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_17_metro_bad_intervals_rejected_or_excluded_without_zero_fill",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_18_metro_coverage_and_month_edges",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_19_metro_rates_independent_calendar_denominators",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_20_poi_support_counts_and_parsed_vs_recorded",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_21_weekly_opportunity_formula_shares_and_no_transit_mixture",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_22_geographic_poi_and_station_joins",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_23_ward_geometries_left_join_and_nulls",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_24_site_joins_have_expected_cardinality_and_coverage",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_25_actual_coverage_not_legacy_confidence",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_26_no_sales_targets_predictions_training_or_ranks",
+      "status": "PASS"
+    },
+    {
+      "test": "test_integrity.Integrity.test_27_distribution_restrictions_and_no_raw_metro_copy",
+      "status": "PASS"
+    }
+  ],
+  "test_output": "test_01_frozen_files_and_git_identity (test_integrity.Integrity.test_01_frozen_files_and_git_identity) ... ok\ntest_02_exact_order_shape_and_string_preservation (test_integrity.Integrity.test_02_exact_order_shape_and_string_preservation) ... ok\ntest_03_null_preservation_no_unsupported_imputation (test_integrity.Integrity.test_03_null_preservation_no_unsupported_imputation) ... ok\ntest_04_provenance_foreign_keys_all_tables (test_integrity.Integrity.test_04_provenance_foreign_keys_all_tables) ... ok\ntest_05_locality_and_existing_assumption_records (test_integrity.Integrity.test_05_locality_and_existing_assumption_records) ... ok\ntest_06_all_master_cells_have_unique_typed_lineage (test_integrity.Integrity.test_06_all_master_cells_have_unique_typed_lineage) ... ok\ntest_07_logical_types_all_v2_fields (test_integrity.Integrity.test_07_logical_types_all_v2_fields) ... ok\ntest_08_semantic_units_currency_and_metadata (test_integrity.Integrity.test_08_semantic_units_currency_and_metadata) ... ok\ntest_09_origin_categories_and_synthetic_financials (test_integrity.Integrity.test_09_origin_categories_and_synthetic_financials) ... ok\ntest_10_temporal_and_nominal_price_basis (test_integrity.Integrity.test_10_temporal_and_nominal_price_basis) ... ok\ntest_11_release_evidence_verifies_date_and_retrieval_integrity (test_integrity.Integrity.test_11_release_evidence_verifies_date_and_retrieval_integrity) ... ok\ntest_12_original_source_acquisition_ledger_preserved (test_integrity.Integrity.test_12_original_source_acquisition_ledger_preserved) ... ok\ntest_13_hces_multiline_parser_and_unchanged_grocery (test_integrity.Integrity.test_13_hces_multiline_parser_and_unchanged_grocery) ... ok\ntest_14_infrastructure_known_facts_and_assumed_future (test_integrity.Integrity.test_14_infrastructure_known_facts_and_assumed_future) ... ok\ntest_15_overnight_and_exact_bin_boundaries (test_integrity.Integrity.test_15_overnight_and_exact_bin_boundaries) ... ok\ntest_16_metro_valid_interval_population_and_clock_consistency (test_integrity.Integrity.test_16_metro_valid_interval_population_and_clock_consistency) ... ok\ntest_17_metro_bad_intervals_rejected_or_excluded_without_zero_fill (test_integrity.Integrity.test_17_metro_bad_intervals_rejected_or_excluded_without_zero_fill) ... ok\ntest_18_metro_coverage_and_month_edges (test_integrity.Integrity.test_18_metro_coverage_and_month_edges) ... ok\ntest_19_metro_rates_independent_calendar_denominators (test_integrity.Integrity.test_19_metro_rates_independent_calendar_denominators) ... ok\ntest_20_poi_support_counts_and_parsed_vs_recorded (test_integrity.Integrity.test_20_poi_support_counts_and_parsed_vs_recorded) ... ok\ntest_21_weekly_opportunity_formula_shares_and_no_transit_mixture (test_integrity.Integrity.test_21_weekly_opportunity_formula_shares_and_no_transit_mixture) ... ok\ntest_22_geographic_poi_and_station_joins (test_integrity.Integrity.test_22_geographic_poi_and_station_joins) ... ok\ntest_23_ward_geometries_left_join_and_nulls (test_integrity.Integrity.test_23_ward_geometries_left_join_and_nulls) ... ok\ntest_24_site_joins_have_expected_cardinality_and_coverage (test_integrity.Integrity.test_24_site_joins_have_expected_cardinality_and_coverage) ... ok\ntest_25_actual_coverage_not_legacy_confidence (test_integrity.Integrity.test_25_actual_coverage_not_legacy_confidence) ... ok\ntest_26_no_sales_targets_predictions_training_or_ranks (test_integrity.Integrity.test_26_no_sales_targets_predictions_training_or_ranks) ... ok\ntest_27_distribution_restrictions_and_no_raw_metro_copy (test_integrity.Integrity.test_27_distribution_restrictions_and_no_raw_metro_copy) ... ok\n\n----------------------------------------------------------------------\nRan 27 tests in 3.131s\n\nOK\n",
+  "original_baseline_files_checked": 199,
+  "original_baseline_files_unchanged": 199,
+  "original_dataset_files_unchanged": true,
+  "original_csv_count": 27,
+  "original_master_shape": [
+    10,
+    50
+  ],
+  "original_master_nulls": 20,
+  "original_master_sha256": "766ba60f599277b70a810993088a27317154b5b10b561b7516d0cff602584868",
+  "git_branch": "ML",
+  "git_head": "569f4f52f459ed09129c04a17ac97485601d7bb7",
+  "original_git_branch": "ML",
+  "original_git_head": "569f4f52f459ed09129c04a17ac97485601d7bb7",
+  "commit_created": false,
+  "push_performed": false,
+  "branch_switched": false,
+  "model_training_performed": false,
+  "csv_null_definition": "An empty CSV field. Zero, False, UNKNOWN and explicit status strings are not null; no missing numeric value is zero-filled.",
+  "tables": {
+    "assumption_registry.csv": {
+      "rows": 48,
+      "columns": 7,
+      "ordered_columns": [
+        "assumption_id",
+        "source_ids",
+        "origin_statuses",
+        "referenced_value_records",
+        "description",
+        "provenance_revision_id",
+        "scope"
+      ],
+      "total_nulls": 0,
+      "nulls_by_column": {
+        "assumption_id": 0,
+        "source_ids": 0,
+        "origin_statuses": 0,
+        "referenced_value_records": 0,
+        "description": 0,
+        "provenance_revision_id": 0,
+        "scope": 0
+      },
+      "sha256": "8804631bcc83fd866636cc78491943a8a58ef2092b1ed76655a10cea30295e49",
+      "key_columns": [
+        "assumption_id"
+      ],
+      "unique_keys": 48,
+      "duplicate_key_count": 0
+    },
+    "daypart_opportunity_shares.csv": {
+      "rows": 60,
+      "columns": 21,
+      "ordered_columns": [
+        "site_id",
+        "time_bin",
+        "raw_opportunity_index",
+        "duration_hours",
+        "starting_days_per_week",
+        "weekly_opportunity_exposure",
+        "weekly_exposure_share",
+        "poi_support_count",
+        "recorded_hours_support_count",
+        "assumed_hours_support_count",
+        "source_id",
+        "source_status",
+        "feature_snapshot_id",
+        "metro_counts_included",
+        "timezone",
+        "recorded_hours_support_fraction",
+        "coverage_status",
+        "has_assumed_hours",
+        "period_basis",
+        "observed_service_period_complete",
+        "provenance_revision_id"
+      ],
+      "total_nulls": 60,
+      "nulls_by_column": {
+        "site_id": 0,
+        "time_bin": 0,
+        "raw_opportunity_index": 0,
+        "duration_hours": 0,
+        "starting_days_per_week": 0,
+        "weekly_opportunity_exposure": 0,
+        "weekly_exposure_share": 0,
+        "poi_support_count": 0,
+        "recorded_hours_support_count": 0,
+        "assumed_hours_support_count": 0,
+        "source_id": 0,
+        "source_status": 0,
+        "feature_snapshot_id": 0,
+        "metro_counts_included": 0,
+        "timezone": 0,
+        "recorded_hours_support_fraction": 0,
+        "coverage_status": 0,
+        "has_assumed_hours": 0,
+        "period_basis": 0,
+        "observed_service_period_complete": 60,
+        "provenance_revision_id": 0
+      },
+      "sha256": "0510bb4fda081b43ac555fd8a92d75c7da2033df1e70aff2a070d2a03562b456",
+      "key_columns": [
+        "site_id",
+        "time_bin"
+      ],
+      "unique_keys": 60,
+      "duplicate_key_count": 0
+    },
+    "daypart_site_support.csv": {
+      "rows": 10,
+      "columns": 14,
+      "ordered_columns": [
+        "site_id",
+        "poi_support_count",
+        "recorded_hours_support_count",
+        "assumed_hours_support_count",
+        "recorded_hours_support_fraction",
+        "opening_hours_recorded_count",
+        "opening_hours_unsupported_count",
+        "opening_hours_missing_count",
+        "opening_hours_recorded_fraction",
+        "coverage_status",
+        "has_assumed_hours",
+        "source_id",
+        "source_snapshot_date",
+        "data_role"
+      ],
+      "total_nulls": 0,
+      "nulls_by_column": {
+        "site_id": 0,
+        "poi_support_count": 0,
+        "recorded_hours_support_count": 0,
+        "assumed_hours_support_count": 0,
+        "recorded_hours_support_fraction": 0,
+        "opening_hours_recorded_count": 0,
+        "opening_hours_unsupported_count": 0,
+        "opening_hours_missing_count": 0,
+        "opening_hours_recorded_fraction": 0,
+        "coverage_status": 0,
+        "has_assumed_hours": 0,
+        "source_id": 0,
+        "source_snapshot_date": 0,
+        "data_role": 0
+      },
+      "sha256": "300d8bcffcf4d704c7dae5dae7c316c2e76e35246cbf7cc5f13fc74b2971d978",
+      "key_columns": [
+        "site_id"
+      ],
+      "unique_keys": 10,
+      "duplicate_key_count": 0
+    },
+    "expenditure_inputs.csv": {
+      "rows": 32,
+      "columns": 13,
+      "ordered_columns": [
+        "item_id",
+        "item_category",
+        "monthly_per_capita_inr",
+        "sector",
+        "geographic_level",
+        "reference_start_date",
+        "reference_end_date",
+        "price_year",
+        "price_period",
+        "imputation",
+        "source_id",
+        "source_status",
+        "source_locator"
+      ],
+      "total_nulls": 0,
+      "nulls_by_column": {
+        "item_id": 0,
+        "item_category": 0,
+        "monthly_per_capita_inr": 0,
+        "sector": 0,
+        "geographic_level": 0,
+        "reference_start_date": 0,
+        "reference_end_date": 0,
+        "price_year": 0,
+        "price_period": 0,
+        "imputation": 0,
+        "source_id": 0,
+        "source_status": 0,
+        "source_locator": 0
+      },
+      "sha256": "b62b10e6dfe76d5e3b4685467153d1d71572728e9f64e1fb1c933a2594f43179",
+      "key_columns": [
+        "item_id"
+      ],
+      "unique_keys": 32,
+      "duplicate_key_count": 0
+    },
+    "field_lineage.csv": {
+      "rows": 1649,
+      "columns": 19,
+      "ordered_columns": [
+        "table",
+        "record_id",
+        "field_name",
+        "origin",
+        "unit",
+        "logical_type",
+        "nullable",
+        "source_ids",
+        "assumption_ids",
+        "formula_or_method",
+        "source_locator",
+        "observation_reference_period",
+        "valuation_date",
+        "price_basis",
+        "currency",
+        "provenance_revision_id",
+        "legacy_origin",
+        "legacy_unit",
+        "limitations"
+      ],
+      "total_nulls": 5449,
+      "nulls_by_column": {
+        "table": 0,
+        "record_id": 0,
+        "field_name": 0,
+        "origin": 0,
+        "unit": 0,
+        "logical_type": 0,
+        "nullable": 0,
+        "source_ids": 0,
+        "assumption_ids": 1187,
+        "formula_or_method": 0,
+        "source_locator": 0,
+        "observation_reference_period": 449,
+        "valuation_date": 0,
+        "price_basis": 1542,
+        "currency": 1563,
+        "provenance_revision_id": 0,
+        "legacy_origin": 354,
+        "legacy_unit": 354,
+        "limitations": 0
+      },
+      "sha256": "5200f6ed1f8b5ddbcc62eca247c8ff1f013faea71d6809dc86eb75e1aa7a71ee",
+      "key_columns": [
+        "table",
+        "record_id",
+        "field_name"
+      ],
+      "unique_keys": 1649,
+      "duplicate_key_count": 0
+    },
+    "infrastructure.csv": {
+      "rows": 2,
+      "columns": 27,
+      "ordered_columns": [
+        "infra_project_id",
+        "name",
+        "status",
+        "status_reference_date",
+        "status_verification_date",
+        "verified_opening_date",
+        "verified_inauguration_date",
+        "official_published_completion_target",
+        "source_id",
+        "official_source_url",
+        "geometry_reference",
+        "geometry_status",
+        "included_current_baseline",
+        "hypothetical_open_date",
+        "delayed_open_date",
+        "delay_months",
+        "assumed_demand_effect_fraction",
+        "source_status",
+        "legacy_status_reference_date",
+        "legacy_status_verification_date",
+        "official_status_date_verification",
+        "local_metadata_review_date",
+        "baseline_valuation_date",
+        "official_opening_date_status",
+        "scenario_date_status",
+        "status_evidence_basis",
+        "provenance_revision_id"
+      ],
+      "total_nulls": 10,
+      "nulls_by_column": {
+        "infra_project_id": 0,
+        "name": 0,
+        "status": 0,
+        "status_reference_date": 2,
+        "status_verification_date": 2,
+        "verified_opening_date": 2,
+        "verified_inauguration_date": 1,
+        "official_published_completion_target": 1,
+        "source_id": 0,
+        "official_source_url": 0,
+        "geometry_reference": 0,
+        "geometry_status": 0,
+        "included_current_baseline": 0,
+        "hypothetical_open_date": 1,
+        "delayed_open_date": 1,
+        "delay_months": 0,
+        "assumed_demand_effect_fraction": 0,
+        "source_status": 0,
+        "legacy_status_reference_date": 0,
+        "legacy_status_verification_date": 0,
+        "official_status_date_verification": 0,
+        "local_metadata_review_date": 0,
+        "baseline_valuation_date": 0,
+        "official_opening_date_status": 0,
+        "scenario_date_status": 0,
+        "status_evidence_basis": 0,
+        "provenance_revision_id": 0
+      },
+      "sha256": "ac5c13c401683191a7b22067fba456821c5b71d6f903a0de3cec457fb63df6d0",
+      "key_columns": [
+        "infra_project_id"
+      ],
+      "unique_keys": 2,
+      "duplicate_key_count": 0
+    },
+    "infrastructure_scenarios.csv": {
+      "rows": 3,
+      "columns": 10,
+      "ordered_columns": [
+        "scenario_id",
+        "infrastructure_state",
+        "feature_snapshot_id",
+        "blue_line_active",
+        "blue_scenario_open_date",
+        "delay_months",
+        "scenario_source_status",
+        "baseline_contains_operational_yellow",
+        "future_geometry_in_baseline_features",
+        "source_id"
+      ],
+      "total_nulls": 3,
+      "nulls_by_column": {
+        "scenario_id": 0,
+        "infrastructure_state": 0,
+        "feature_snapshot_id": 0,
+        "blue_line_active": 2,
+        "blue_scenario_open_date": 1,
+        "delay_months": 0,
+        "scenario_source_status": 0,
+        "baseline_contains_operational_yellow": 0,
+        "future_geometry_in_baseline_features": 0,
+        "source_id": 0
+      },
+      "sha256": "4dd3f8cdfb383868dc4766906e0ee49ac9f292930574a347f4068252a29270a0",
+      "key_columns": [
+        "scenario_id"
+      ],
+      "unique_keys": 3,
+      "duplicate_key_count": 0
+    },
+    "metro_daypart_coverage.csv": {
+      "rows": 2756,
+      "columns": 18,
+      "ordered_columns": [
+        "station_id",
+        "starting_local_date",
+        "time_bin",
+        "direction",
+        "observed_count",
+        "observed_hours",
+        "expected_bin_hours",
+        "rate_per_observed_clock_hour",
+        "is_complete_period",
+        "incomplete_period_indicator",
+        "september_starting_date_eligible",
+        "included_in_aggregate",
+        "coverage_status",
+        "source_period_start",
+        "source_period_end",
+        "timezone",
+        "source_id",
+        "traffic_measure"
+      ],
+      "total_nulls": 52,
+      "nulls_by_column": {
+        "station_id": 0,
+        "starting_local_date": 0,
+        "time_bin": 0,
+        "direction": 0,
+        "observed_count": 26,
+        "observed_hours": 0,
+        "expected_bin_hours": 0,
+        "rate_per_observed_clock_hour": 26,
+        "is_complete_period": 0,
+        "incomplete_period_indicator": 0,
+        "september_starting_date_eligible": 0,
+        "included_in_aggregate": 0,
+        "coverage_status": 0,
+        "source_period_start": 0,
+        "source_period_end": 0,
+        "timezone": 0,
+        "source_id": 0,
+        "traffic_measure": 0
+      },
+      "sha256": "de050532ab80620b19b6e566ff307afb5a505f99aa10fd526dc03b97c5e484bb",
+      "key_columns": [
+        "station_id",
+        "starting_local_date",
+        "time_bin",
+        "direction"
+      ],
+      "unique_keys": 2756,
+      "duplicate_key_count": 0
+    },
+    "metro_daypart_rates.csv": {
+      "rows": 156,
+      "columns": 19,
+      "ordered_columns": [
+        "station_id",
+        "time_bin",
+        "direction",
+        "observed_count",
+        "observed_hours",
+        "complete_starting_days",
+        "eligible_starting_days",
+        "incomplete_starting_days",
+        "expected_bin_hours",
+        "complete_bin_fraction",
+        "rate_per_observed_clock_hour",
+        "measurement_start_date",
+        "measurement_end_date",
+        "paired_directions_only",
+        "aggregate_policy",
+        "timezone",
+        "source_id",
+        "origin",
+        "traffic_measure"
+      ],
+      "total_nulls": 0,
+      "nulls_by_column": {
+        "station_id": 0,
+        "time_bin": 0,
+        "direction": 0,
+        "observed_count": 0,
+        "observed_hours": 0,
+        "complete_starting_days": 0,
+        "eligible_starting_days": 0,
+        "incomplete_starting_days": 0,
+        "expected_bin_hours": 0,
+        "complete_bin_fraction": 0,
+        "rate_per_observed_clock_hour": 0,
+        "measurement_start_date": 0,
+        "measurement_end_date": 0,
+        "paired_directions_only": 0,
+        "aggregate_policy": 0,
+        "timezone": 0,
+        "source_id": 0,
+        "origin": 0,
+        "traffic_measure": 0
+      },
+      "sha256": "e832cdcc1aea5799d5972eee7b6da04d454396ff0b50cbee1d03ca2e4d8ab464",
+      "key_columns": [
+        "station_id",
+        "time_bin",
+        "direction"
+      ],
+      "unique_keys": 156,
+      "duplicate_key_count": 0
+    },
+    "project_assumptions.csv": {
+      "rows": 24,
+      "columns": 7,
+      "ordered_columns": [
+        "assumption_id",
+        "value",
+        "unit",
+        "source_status",
+        "source_id",
+        "notes",
+        "feature_snapshot_id"
+      ],
+      "total_nulls": 0,
+      "nulls_by_column": {
+        "assumption_id": 0,
+        "value": 0,
+        "unit": 0,
+        "source_status": 0,
+        "source_id": 0,
+        "notes": 0,
+        "feature_snapshot_id": 0
+      },
+      "sha256": "19190651841e53a89cf2bc5ddda44f0a2b248c3f8e28f3e82242d5d2e8449573",
+      "key_columns": [
+        "assumption_id"
+      ],
+      "unique_keys": 24,
+      "duplicate_key_count": 0
+    },
+    "site_evidence_coverage.csv": {
+      "rows": 10,
+      "columns": 24,
+      "ordered_columns": [
+        "site_id",
+        "daypart_poi_support_count",
+        "opening_hours_recorded_count",
+        "opening_hours_parsed_count",
+        "opening_hours_assumed_count",
+        "parsed_hours_support_fraction",
+        "original_hours_recorded_fraction",
+        "nearest_metro_station_id",
+        "metro_september_paired_intervals",
+        "metro_september_expected_clock_intervals",
+        "metro_clock_interval_coverage_fraction",
+        "metro_eligible_daypart_bins",
+        "metro_complete_daypart_bins",
+        "metro_complete_daypart_bin_fraction",
+        "metro_incomplete_daypart_bins",
+        "population_reference_year",
+        "nominal_population_resolution",
+        "population_origin",
+        "household_denominator_available",
+        "validated_routing_available",
+        "financial_inputs_origin",
+        "osm_universe_completeness",
+        "evidence_interpretation",
+        "source_id"
+      ],
+      "total_nulls": 0,
+      "nulls_by_column": {
+        "site_id": 0,
+        "daypart_poi_support_count": 0,
+        "opening_hours_recorded_count": 0,
+        "opening_hours_parsed_count": 0,
+        "opening_hours_assumed_count": 0,
+        "parsed_hours_support_fraction": 0,
+        "original_hours_recorded_fraction": 0,
+        "nearest_metro_station_id": 0,
+        "metro_september_paired_intervals": 0,
+        "metro_september_expected_clock_intervals": 0,
+        "metro_clock_interval_coverage_fraction": 0,
+        "metro_eligible_daypart_bins": 0,
+        "metro_complete_daypart_bins": 0,
+        "metro_complete_daypart_bin_fraction": 0,
+        "metro_incomplete_daypart_bins": 0,
+        "population_reference_year": 0,
+        "nominal_population_resolution": 0,
+        "population_origin": 0,
+        "household_denominator_available": 0,
+        "validated_routing_available": 0,
+        "financial_inputs_origin": 0,
+        "osm_universe_completeness": 0,
+        "evidence_interpretation": 0,
+        "source_id": 0
+      },
+      "sha256": "878a98c5650eefa24e61bc16a40ab6429128c23ab6a39edca4d113d3612747e1",
+      "key_columns": [
+        "site_id"
+      ],
+      "unique_keys": 10,
+      "duplicate_key_count": 0
+    },
+    "site_feature_schema.csv": {
+      "rows": 70,
+      "columns": 8,
+      "ordered_columns": [
+        "column_order",
+        "field_name",
+        "unit",
+        "logical_type",
+        "origin",
+        "nullable",
+        "meaning",
+        "provenance_revision_id"
+      ],
+      "total_nulls": 0,
+      "nulls_by_column": {
+        "column_order": 0,
+        "field_name": 0,
+        "unit": 0,
+        "logical_type": 0,
+        "origin": 0,
+        "nullable": 0,
+        "meaning": 0,
+        "provenance_revision_id": 0
+      },
+      "sha256": "9a3b3afe4b3b0f8566da08f4af721148b0672a811687847c4963a2b86a144316",
+      "key_columns": [
+        "field_name"
+      ],
+      "unique_keys": 70,
+      "duplicate_key_count": 0
+    },
+    "site_features_enriched.csv": {
+      "rows": 10,
+      "columns": 70,
+      "ordered_columns": [
+        "site_id",
+        "feature_snapshot_id",
+        "snapshot_as_of_date",
+        "city",
+        "locality",
+        "latitude",
+        "longitude",
+        "store_format",
+        "source_manifest_id",
+        "store_size_sqm",
+        "population_1500m_est",
+        "population_10min_est",
+        "accessible_households_est",
+        "annual_wallet_inr",
+        "wallet_price_year",
+        "mean_wallet_weighted_distance_m",
+        "travel_time_method",
+        "competitor_count_1500m",
+        "competitor_attraction_index",
+        "nearest_competitor_distance_m",
+        "office_poi_count_1500m",
+        "education_poi_count_1500m",
+        "healthcare_poi_count_1500m",
+        "transit_poi_count_1500m",
+        "shopping_poi_count_1500m",
+        "food_leisure_poi_count_1500m",
+        "weekday_morning_raw",
+        "weekday_lunch_raw",
+        "weekday_evening_raw",
+        "weekday_night_raw",
+        "weekend_day_raw",
+        "weekend_evening_raw",
+        "nearest_metro_station_id",
+        "nearest_metro_distance_m",
+        "metro_weekday_entries_per_hour",
+        "metro_weekday_exits_per_hour",
+        "metro_weekend_entries_per_hour",
+        "metro_weekend_exits_per_hour",
+        "metro_measurement_start_date",
+        "metro_measurement_end_date",
+        "daypart_data_status",
+        "poi_data_status",
+        "population_data_status",
+        "ridership_data_status",
+        "comp_data_status",
+        "monthly_rent_inr",
+        "capex_inr",
+        "annual_opex_excl_rent_inr",
+        "gross_margin_fraction",
+        "source_quality_score",
+        "weekday_morning_weekly_exposure_share",
+        "weekday_lunch_weekly_exposure_share",
+        "weekday_evening_weekly_exposure_share",
+        "weekday_night_weekly_exposure_share",
+        "weekend_day_weekly_exposure_share",
+        "weekend_evening_weekly_exposure_share",
+        "daypart_poi_support_count",
+        "daypart_recorded_hours_support_count",
+        "daypart_assumed_hours_support_count",
+        "daypart_recorded_hours_fraction",
+        "mapped_supermarket_count_1500m",
+        "mapped_convenience_count_1500m",
+        "mapped_grocery_count_1500m",
+        "operational_metro_station_count_1500m",
+        "ward_2011_id",
+        "ward_2025_id",
+        "metro_sep2025_weekday_observation_hours",
+        "metro_sep2025_weekday_observed_days",
+        "metro_sep2025_weekend_observation_hours",
+        "metro_sep2025_weekend_observed_days"
+      ],
+      "total_nulls": 24,
+      "nulls_by_column": {
+        "site_id": 0,
+        "feature_snapshot_id": 0,
+        "snapshot_as_of_date": 0,
+        "city": 0,
+        "locality": 0,
+        "latitude": 0,
+        "longitude": 0,
+        "store_format": 0,
+        "source_manifest_id": 0,
+        "store_size_sqm": 0,
+        "population_1500m_est": 0,
+        "population_10min_est": 10,
+        "accessible_households_est": 10,
+        "annual_wallet_inr": 0,
+        "wallet_price_year": 0,
+        "mean_wallet_weighted_distance_m": 0,
+        "travel_time_method": 0,
+        "competitor_count_1500m": 0,
+        "competitor_attraction_index": 0,
+        "nearest_competitor_distance_m": 0,
+        "office_poi_count_1500m": 0,
+        "education_poi_count_1500m": 0,
+        "healthcare_poi_count_1500m": 0,
+        "transit_poi_count_1500m": 0,
+        "shopping_poi_count_1500m": 0,
+        "food_leisure_poi_count_1500m": 0,
+        "weekday_morning_raw": 0,
+        "weekday_lunch_raw": 0,
+        "weekday_evening_raw": 0,
+        "weekday_night_raw": 0,
+        "weekend_day_raw": 0,
+        "weekend_evening_raw": 0,
+        "nearest_metro_station_id": 0,
+        "nearest_metro_distance_m": 0,
+        "metro_weekday_entries_per_hour": 0,
+        "metro_weekday_exits_per_hour": 0,
+        "metro_weekend_entries_per_hour": 0,
+        "metro_weekend_exits_per_hour": 0,
+        "metro_measurement_start_date": 0,
+        "metro_measurement_end_date": 0,
+        "daypart_data_status": 0,
+        "poi_data_status": 0,
+        "population_data_status": 0,
+        "ridership_data_status": 0,
+        "comp_data_status": 0,
+        "monthly_rent_inr": 0,
+        "capex_inr": 0,
+        "annual_opex_excl_rent_inr": 0,
+        "gross_margin_fraction": 0,
+        "source_quality_score": 0,
+        "weekday_morning_weekly_exposure_share": 0,
+        "weekday_lunch_weekly_exposure_share": 0,
+        "weekday_evening_weekly_exposure_share": 0,
+        "weekday_night_weekly_exposure_share": 0,
+        "weekend_day_weekly_exposure_share": 0,
+        "weekend_evening_weekly_exposure_share": 0,
+        "daypart_poi_support_count": 0,
+        "daypart_recorded_hours_support_count": 0,
+        "daypart_assumed_hours_support_count": 0,
+        "daypart_recorded_hours_fraction": 0,
+        "mapped_supermarket_count_1500m": 0,
+        "mapped_convenience_count_1500m": 0,
+        "mapped_grocery_count_1500m": 0,
+        "operational_metro_station_count_1500m": 0,
+        "ward_2011_id": 2,
+        "ward_2025_id": 2,
+        "metro_sep2025_weekday_observation_hours": 0,
+        "metro_sep2025_weekday_observed_days": 0,
+        "metro_sep2025_weekend_observation_hours": 0,
+        "metro_sep2025_weekend_observed_days": 0
+      },
+      "sha256": "49f3325b8cc89f56779c47080db72ecdbc7ce6a066e49081e6dbdb5209f8b17b",
+      "key_columns": [
+        "site_id"
+      ],
+      "unique_keys": 10,
+      "duplicate_key_count": 0
+    },
+    "site_metro_daypart_rates.csv": {
+      "rows": 120,
+      "columns": 20,
+      "ordered_columns": [
+        "site_id",
+        "station_id",
+        "time_bin",
+        "direction",
+        "observed_count",
+        "observed_hours",
+        "complete_starting_days",
+        "eligible_starting_days",
+        "incomplete_starting_days",
+        "expected_bin_hours",
+        "complete_bin_fraction",
+        "rate_per_observed_clock_hour",
+        "measurement_start_date",
+        "measurement_end_date",
+        "paired_directions_only",
+        "aggregate_policy",
+        "timezone",
+        "source_id",
+        "origin",
+        "traffic_measure"
+      ],
+      "total_nulls": 0,
+      "nulls_by_column": {
+        "site_id": 0,
+        "station_id": 0,
+        "time_bin": 0,
+        "direction": 0,
+        "observed_count": 0,
+        "observed_hours": 0,
+        "complete_starting_days": 0,
+        "eligible_starting_days": 0,
+        "incomplete_starting_days": 0,
+        "expected_bin_hours": 0,
+        "complete_bin_fraction": 0,
+        "rate_per_observed_clock_hour": 0,
+        "measurement_start_date": 0,
+        "measurement_end_date": 0,
+        "paired_directions_only": 0,
+        "aggregate_policy": 0,
+        "timezone": 0,
+        "source_id": 0,
+        "origin": 0,
+        "traffic_measure": 0
+      },
+      "sha256": "21ed6ae7c025e6185ac779d8919a4f486a395e8fe18ef024bd06f1e38b144e63",
+      "key_columns": [
+        "site_id",
+        "time_bin",
+        "direction"
+      ],
+      "unique_keys": 120,
+      "duplicate_key_count": 0
+    },
+    "source_acquisitions.csv": {
+      "rows": 59,
+      "columns": 13,
+      "ordered_columns": [
+        "url",
+        "path",
+        "status",
+        "bytes",
+        "sha256",
+        "retrieved_at_utc",
+        "content_type",
+        "last_modified",
+        "error",
+        "request_started_at_utc",
+        "response_completed_at_utc",
+        "timestamp_semantics",
+        "file_scope"
+      ],
+      "total_nulls": 175,
+      "nulls_by_column": {
+        "url": 0,
+        "path": 0,
+        "status": 0,
+        "bytes": 10,
+        "sha256": 10,
+        "retrieved_at_utc": 0,
+        "content_type": 10,
+        "last_modified": 42,
+        "error": 46,
+        "request_started_at_utc": 0,
+        "response_completed_at_utc": 57,
+        "timestamp_semantics": 0,
+        "file_scope": 0
+      },
+      "sha256": "7f410d1dc9a298fc16dc8b142a07e13d73674959a2ef67b420fd142fa7bddec8"
+    },
+    "source_manifest.csv": {
+      "rows": 17,
+      "columns": 23,
+      "ordered_columns": [
+        "source_id",
+        "source_manifest_id",
+        "title",
+        "source_url",
+        "licence",
+        "observation_start_date",
+        "observation_end_date",
+        "release_date",
+        "retrieval_date",
+        "timezone",
+        "geographic_scope",
+        "source_status",
+        "notes",
+        "baseline_source_manifest_id",
+        "provenance_revision_id",
+        "legacy_release_date",
+        "release_date_status",
+        "release_evidence_source_ids",
+        "reference_year",
+        "boundary_vintage",
+        "reference_period_kind",
+        "original_acquisition_record",
+        "metadata_correction"
+      ],
+      "total_nulls": 98,
+      "nulls_by_column": {
+        "source_id": 0,
+        "source_manifest_id": 0,
+        "title": 0,
+        "source_url": 0,
+        "licence": 0,
+        "observation_start_date": 9,
+        "observation_end_date": 9,
+        "release_date": 13,
+        "retrieval_date": 1,
+        "timezone": 0,
+        "geographic_scope": 0,
+        "source_status": 0,
+        "notes": 0,
+        "baseline_source_manifest_id": 3,
+        "provenance_revision_id": 0,
+        "legacy_release_date": 13,
+        "release_date_status": 1,
+        "release_evidence_source_ids": 16,
+        "reference_year": 13,
+        "boundary_vintage": 15,
+        "reference_period_kind": 0,
+        "original_acquisition_record": 0,
+        "metadata_correction": 5
+      },
+      "sha256": "6472385d2471d7af3b617cdba21e5e95d8dfd55f63a85b6a76e6d75c47bdb0a6",
+      "key_columns": [
+        "source_id"
+      ],
+      "unique_keys": 17,
+      "duplicate_key_count": 0
+    },
+    "synthetic_assumptions.csv": {
+      "rows": 56256,
+      "columns": 15,
+      "ordered_columns": [
+        "table",
+        "record_id",
+        "field_name",
+        "generated_value",
+        "unit",
+        "source_status",
+        "assumption_id",
+        "low",
+        "base",
+        "high",
+        "reason",
+        "method_version",
+        "source_id",
+        "benchmark_url",
+        "price_basis"
+      ],
+      "total_nulls": 112709,
+      "nulls_by_column": {
+        "table": 0,
+        "record_id": 0,
+        "field_name": 0,
+        "generated_value": 0,
+        "unit": 0,
+        "source_status": 0,
+        "assumption_id": 0,
+        "low": 115,
+        "base": 0,
+        "high": 115,
+        "reason": 0,
+        "method_version": 0,
+        "source_id": 0,
+        "benchmark_url": 56256,
+        "price_basis": 56223
+      },
+      "sha256": "91da19f2a0a89fbdc3d7f07696c5143ee21885fd9829b8095f07621546d9dfec"
+    }
+  },
+  "join_coverage": {
+    "candidate_sites": 10,
+    "poi_and_profiles_matched": 10,
+    "nearest_station_matched": 10,
+    "metro_daytype_coverage_matched": 10,
+    "historical_ward_matched": 8,
+    "ward_2025_matched": 8,
+    "site_row_multiplier": 1
+  },
+  "unresolved_limitations": [
+    "BMRCL content copyright / GitHub ODbL / OpenCity cc-nc conflict is unresolved. Public and commercial redistribution is not cleared, including inherited metro-derived outputs. No new public package or workbook copies created.",
+    "Original 10 candidates, 4 existing branches, premises economics and financial inputs remain synthetic or assumed; no verified premises, realised sales targets, trained predictions or calibrated rankings exist.",
+    "WorldPop is a 2020 modelled 1 km population proxy; within-pixel density is assumed uniform. Exact product publication day is unknown. No current population projection applied.",
+    "HCES is nominal August 2023-July 2024 Karnataka urban spending; local transfer/category choices are assumptions. Synthetic costs use 24 October 2026 nominal demo prices. No inflation adjustment or price-basis harmonisation applied.",
+    "OSM is a partial mapped inventory with unknown completeness. Most opening schedules are absent or unsupported. Parsed and merely recorded counts differ; proxies are not measured store footfall.",
+    "Metro is historical September 2025 station traffic. September-start complete-bin rates exclude the incomplete final overnight bin and prior-month starting-day boundary; they differ in window/denominator from preserved master day-type means.",
+    "site-09 and site-10 have no matches in either municipal ward vintage. Four ward IDs, ten household estimates and ten network-time population estimates remain null. No validated routing or household denominator exists.",
+    "A new official current infrastructure status observation and exact first-commercial-opening dates are not established. Blue dates and uplift remain hypothetical and excluded from operational baseline.",
+    "Original 57 acquisition records preserve legacy request-start timestamps; response-completion timestamps cannot be reconstructed. Failed endpoints and unverified original RTI delivery chain remain documented in the frozen audit."
+  ],
+  "created_files": [
+    {
+      "path": "assumption_registry.csv",
+      "sha256": "8804631bcc83fd866636cc78491943a8a58ef2092b1ed76655a10cea30295e49",
+      "checksum_note": null
+    },
+    {
+      "path": "baseline_hashes.json",
+      "sha256": "e3ba001a631068a147f93b1b045f077da5d518f85cef109994b42f949e1ecb11",
+      "checksum_note": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "b453cefa3af539044a793d0eb66712e62de661542644350de33303488e7825df",
+      "checksum_note": null
+    },
+    {
+      "path": "completion_report.md",
+      "sha256": null,
+      "checksum_note": "Generated report; excluded from self-referential checksum inventory"
+    },
+    {
+      "path": "dataset_metadata.json",
+      "sha256": "01f9e1542446babce776f59a469eea08a0cd19f8851515199c621da803d4caa5",
+      "checksum_note": null
+    },
+    {
+      "path": "daypart_opportunity_shares.csv",
+      "sha256": "0510bb4fda081b43ac555fd8a92d75c7da2033df1e70aff2a070d2a03562b456",
+      "checksum_note": null
+    },
+    {
+      "path": "daypart_site_support.csv",
+      "sha256": "300d8bcffcf4d704c7dae5dae7c316c2e76e35246cbf7cc5f13fc74b2971d978",
+      "checksum_note": null
+    },
+    {
+      "path": "distribution_manifest.json",
+      "sha256": "46533b8d0173495307d64876856191c7e1e34a52b26a8945ef51911dd91db3dc",
+      "checksum_note": null
+    },
+    {
+      "path": "expenditure_inputs.csv",
+      "sha256": "b62b10e6dfe76d5e3b4685467153d1d71572728e9f64e1fb1c933a2594f43179",
+      "checksum_note": null
+    },
+    {
+      "path": "expenditure_processing.json",
+      "sha256": "836272b525c3049b1775aed163bbff16f929143314fb9e0f18cde96490ca4329",
+      "checksum_note": null
+    },
+    {
+      "path": "field_lineage.csv",
+      "sha256": "5200f6ed1f8b5ddbcc62eca247c8ff1f013faea71d6809dc86eb75e1aa7a71ee",
+      "checksum_note": null
+    },
+    {
+      "path": "infrastructure.csv",
+      "sha256": "ac5c13c401683191a7b22067fba456821c5b71d6f903a0de3cec457fb63df6d0",
+      "checksum_note": null
+    },
+    {
+      "path": "infrastructure_scenarios.csv",
+      "sha256": "4dd3f8cdfb383868dc4766906e0ee49ac9f292930574a347f4068252a29270a0",
+      "checksum_note": null
+    },
+    {
+      "path": "LICENSING_AND_DISTRIBUTION.md",
+      "sha256": "55b3bcc8bb106d841be09220d9b44fd5390a581f08e1d9416572e629821308ff",
+      "checksum_note": null
+    },
+    {
+      "path": "metro_aggregation_metadata.json",
+      "sha256": "9f294af9f5232e048b67bf37b625228c01daaed4c41bdecd7d41c13ca3699755",
+      "checksum_note": null
+    },
+    {
+      "path": "metro_daypart_coverage.csv",
+      "sha256": "de050532ab80620b19b6e566ff307afb5a505f99aa10fd526dc03b97c5e484bb",
+      "checksum_note": null
+    },
+    {
+      "path": "metro_daypart_rates.csv",
+      "sha256": "e832cdcc1aea5799d5972eee7b6da04d454396ff0b50cbee1d03ca2e4d8ab464",
+      "checksum_note": null
+    },
+    {
+      "path": "project_assumptions.csv",
+      "sha256": "19190651841e53a89cf2bc5ddda44f0a2b248c3f8e28f3e82242d5d2e8449573",
+      "checksum_note": null
+    },
+    {
+      "path": "README.md",
+      "sha256": "ce1b6a73624a31d018ebcc24fe74e6a3d525e34a320047bc9a7992e1088cf597",
+      "checksum_note": null
+    },
+    {
+      "path": "scripts/build_revised.py",
+      "sha256": "49f6eebb621e0e2661efc594b02f5a1458d66c2411230f3600bdf9eb132ba495",
+      "checksum_note": null
+    },
+    {
+      "path": "scripts/validate_revised.py",
+      "sha256": "1c4eb40862f11dd4e174879d59f0fb0041a634feea6016ac4d0623be18c09a4e",
+      "checksum_note": null
+    },
+    {
+      "path": "scripts/verify_hces_release.py",
+      "sha256": "74e12c73d224ee1f6e44552cca058e98313c71d5edf9fe6741454dbdbf13bee2",
+      "checksum_note": null
+    },
+    {
+      "path": "site_evidence_coverage.csv",
+      "sha256": "878a98c5650eefa24e61bc16a40ab6429128c23ab6a39edca4d113d3612747e1",
+      "checksum_note": null
+    },
+    {
+      "path": "site_feature_schema.csv",
+      "sha256": "9a3b3afe4b3b0f8566da08f4af721148b0672a811687847c4963a2b86a144316",
+      "checksum_note": null
+    },
+    {
+      "path": "site_features_enriched.csv",
+      "sha256": "49f3325b8cc89f56779c47080db72ecdbc7ce6a066e49081e6dbdb5209f8b17b",
+      "checksum_note": null
+    },
+    {
+      "path": "site_metro_daypart_rates.csv",
+      "sha256": "21ed6ae7c025e6185ac779d8919a4f486a395e8fe18ef024bd06f1e38b144e63",
+      "checksum_note": null
+    },
+    {
+      "path": "source_acquisitions.csv",
+      "sha256": "7f410d1dc9a298fc16dc8b142a07e13d73674959a2ef67b420fd142fa7bddec8",
+      "checksum_note": null
+    },
+    {
+      "path": "source_manifest.csv",
+      "sha256": "6472385d2471d7af3b617cdba21e5e95d8dfd55f63a85b6a76e6d75c47bdb0a6",
+      "checksum_note": null
+    },
+    {
+      "path": "source_verification/hces_release_note.pdf",
+      "sha256": "34e7e8bf64c8e78094dc338064f3c68e848021209f4bee8bc9849b329d3d74ca",
+      "checksum_note": null
+    },
+    {
+      "path": "source_verification/hces_release_pib.html",
+      "sha256": "d748747d46d418b68d28e548bda3591159795acad4d14a0821d689e17689e356",
+      "checksum_note": null
+    },
+    {
+      "path": "source_verification/verification_log.json",
+      "sha256": "349cb2a84a5a2f7c4b98e02afc015760b29cc04f963e71215ea661c1449838c0",
+      "checksum_note": null
+    },
+    {
+      "path": "synthetic_assumptions.csv",
+      "sha256": "91da19f2a0a89fbdc3d7f07696c5143ee21885fd9829b8095f07621546d9dfec",
+      "checksum_note": null
+    },
+    {
+      "path": "tests/test_integrity.py",
+      "sha256": "d6839df7334792fb7d8d6c98471fe8b270fd3b39a13aee27267bdc502c2cea77",
+      "checksum_note": null
+    },
+    {
+      "path": "validation_report.json",
+      "sha256": null,
+      "checksum_note": "Generated report; excluded from self-referential checksum inventory"
+    }
+  ],
+  "file_count": 34
+}

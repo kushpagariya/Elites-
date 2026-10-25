@@ -1,0 +1,74 @@
+{
+  "base_model_artifact_id": "reference-sales-sim-v1-3f162d1da91a",
+  "hardening_policy": {
+    "hardening_policy_id": "reference-sales-safety-b1-e467e77925ab",
+    "support_policy_sha256": "e467e77925ab4ce64996af437b2e0343f5b2c1bd7570e4b03fd15ec0d95ba7f5",
+    "base_model_sha256": "3f162d1da91a45b206af4b4d1ab3377b493371a087cb06abed0cad9c3990a3e9",
+    "base_model_artifact_id": "reference-sales-sim-v1-3f162d1da91a",
+    "action": "Evidence/feasibility guards only; no new weights, clipping, hyperparameters or selected-model changes"
+  },
+  "selection_confirmed": "VALIDATION_ONLY_RIDGE_ALPHA_20_NO_POST_TEST_TUNING",
+  "selection_lock_sha256": "e1af2997926fd05316a95886daae4dc348651f251a6e186f9e79d8f564e2e7d2",
+  "no_new_model_fit": true,
+  "no_prediction_adjustments": true,
+  "perturbation_count": 7388,
+  "questionable_perturbations": 271,
+  "bengaluru_count": 10,
+  "bengaluru_outside_joint_support": 10,
+  "bengaluru_negative_wallet_elasticity": 0,
+  "preservation": {
+    "existing_files_checked": 273,
+    "all_original_bytes_preserved": true,
+    "source_revised_with_original_backup": "ml/inference/reference_sales.py",
+    "head": "adcabc63a1f15911d6f10afa3c1dc2a146c1468f"
+  },
+  "recomputed_test_ood": {
+    "ridge": {
+      "test": {
+        "n": 400,
+        "MAE_inr": 8229053.743790081,
+        "RMSE_inr": 12754632.551342197,
+        "WAPE": 0.17613212849768764,
+        "absolute_error_sum_inr": 3291621497.516032,
+        "absolute_actual_sum_inr": 18688364954.150013,
+        "WAPE_undefined_reason": null
+      },
+      "ood": {
+        "n": 400,
+        "MAE_inr": 17005124.274507876,
+        "RMSE_inr": 22945245.542531583,
+        "WAPE": 0.5393977477421259,
+        "absolute_error_sum_inr": 6802049709.803151,
+        "absolute_actual_sum_inr": 12610452561.724564,
+        "WAPE_undefined_reason": null
+      }
+    },
+    "catboost": {
+      "test": {
+        "n": 400,
+        "MAE_inr": 7752451.688836448,
+        "RMSE_inr": 12306383.911126781,
+        "WAPE": 0.16593108509719912,
+        "absolute_error_sum_inr": 3100980675.5345793,
+        "absolute_actual_sum_inr": 18688364954.150013,
+        "WAPE_undefined_reason": null
+      },
+      "ood": {
+        "n": 400,
+        "MAE_inr": 57831672.79175943,
+        "RMSE_inr": 82164896.92243321,
+        "WAPE": 1.834404356503144,
+        "absolute_error_sum_inr": 23132669116.703773,
+        "absolute_actual_sum_inr": 12610452561.724564,
+        "WAPE_undefined_reason": null
+      }
+    }
+  },
+  "behavior_gates": {
+    "wallet_monotonicity": "FAIL",
+    "nondegenerate_training_allocation_target": "FAIL",
+    "bengaluru_joint_support": "FAIL",
+    "finite_theta_reference_feasibility": "NOT_CERTIFIED"
+  },
+  "final_status": "PART_B_INTEGRATION_BLOCKED"
+}

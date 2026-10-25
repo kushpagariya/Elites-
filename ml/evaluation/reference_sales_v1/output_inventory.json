@@ -1,0 +1,60 @@
+{
+  "csv_profiles": {
+    "ml/evaluation/reference_sales_v1/bengaluru_inference_examples.csv": {
+      "rows": 10,
+      "columns": 11,
+      "null_count": 10,
+      "nulls_by_column": {
+        "assumption_capture_fraction": 10
+      }
+    },
+    "ml/evaluation/reference_sales_v1/feature_compatibility.csv": {
+      "rows": 70,
+      "columns": 4,
+      "null_count": 0,
+      "nulls_by_column": {}
+    },
+    "ml/evaluation/reference_sales_v1/heldout_perturbations.csv": {
+      "rows": 160,
+      "columns": 8,
+      "null_count": 0,
+      "nulls_by_column": {}
+    },
+    "ml/evaluation/reference_sales_v1/heldout_predictions.csv": {
+      "rows": 4800,
+      "columns": 8,
+      "null_count": 0,
+      "nulls_by_column": {}
+    },
+    "ml/evaluation/reference_sales_v1/segment_metrics.csv": {
+      "rows": 304,
+      "columns": 12,
+      "null_count": 304,
+      "nulls_by_column": {
+        "WAPE_undefined_reason": 304
+      }
+    },
+    "ml/training/data/reference_sales_v1/market_splits.csv": {
+      "rows": 120,
+      "columns": 2,
+      "null_count": 0,
+      "nulls_by_column": {}
+    },
+    "ml/training/data/reference_sales_v1/synthetic_regular.csv": {
+      "rows": 2000,
+      "columns": 33,
+      "null_count": 58,
+      "nulls_by_column": {
+        "nearest_competitor_distance_m": 58
+      }
+    },
+    "ml/training/data/reference_sales_v1/synthetic_shifted.csv": {
+      "rows": 400,
+      "columns": 33,
+      "null_count": 0,
+      "nulls_by_column": {}
+    }
+  },
+  "status": "PART_B_READY_WITH_LIMITATIONS",
+  "method_mode": "model_simulated"
+}

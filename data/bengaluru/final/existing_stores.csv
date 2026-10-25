@@ -1,0 +1,5 @@
+store_id,name,latitude,longitude,store_size_sqm,theta,variable_contribution_margin,source_status,source_id,feature_snapshot_id
+store-01,Fictional branch 1,12.914,77.639,500,0.2,0.18,SYNTHETIC_DEMO,assumptions,bengaluru-features-20261024-v1
+store-02,Fictional branch 2,12.896,77.632,500,0.2,0.18,SYNTHETIC_DEMO,assumptions,bengaluru-features-20261024-v1
+store-03,Fictional branch 3,12.877,77.661,500,0.2,0.18,SYNTHETIC_DEMO,assumptions,bengaluru-features-20261024-v1
+store-04,Fictional branch 4,12.847,77.655,500,0.2,0.18,SYNTHETIC_DEMO,assumptions,bengaluru-features-20261024-v1

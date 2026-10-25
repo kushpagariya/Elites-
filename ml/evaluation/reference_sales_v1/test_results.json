@@ -1,0 +1,171 @@
+{
+  "command": "python -m ml.training.reference_sales.report",
+  "equivalent_test_command": "python -m unittest discover -s tests/unit -v",
+  "started_at_utc": "2026-10-24T17:36:59.555077+00:00",
+  "completed_at_utc": "2026-10-24T17:37:05.171745+00:00",
+  "elapsed_seconds": 5.616710799979046,
+  "tests_run": 33,
+  "passed": 33,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "test_results": [
+    {
+      "test": "test_finance.FinanceOracleTests.test_invalid_values_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_finance.FinanceOracleTests.test_prd_cashflow_oracle",
+      "status": "PASS"
+    },
+    {
+      "test": "test_finance.FinanceOracleTests.test_worked_sites_reverse_sales_order",
+      "status": "PASS"
+    },
+    {
+      "test": "test_finance.FinanceOracleTests.test_zero_capex_and_no_recovery",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_01_regular_and_shifted_counts",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_02_grouped_splits_disjoint_and_proportional",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_03_no_showcase_or_own_branch_leakage",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_04_targets_nonnegative_and_wallet_bounded",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_05_spending_conservation_for_every_alternative",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_06_hand_checked_allocator_and_capacity_outside_option",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_07_full_generation_reproducible_with_fixed_seed",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_08_category_mapping_and_supported_daypart_matrix",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_09_training_and_inference_schema_exact_match",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_10_all_models_finite_nonnegative_bounded_predictions",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_11_preprocessing_fitted_only_on_training_markets",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_12_selected_ridge_fitted_reproducibly",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_13_metrics_recomputed_from_saved_predictions",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_14_wape_formula_and_zero_denominator",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_15_validation_only_model_selection_not_test_choice",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_16_actual_activation_gate_and_ood_warning",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_17_daypart_ablation_same_protocol_actual_metrics",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_18_known_heldout_area_and_competition_perturbations",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_19_invalid_or_missing_features_never_imputed_as_measurements",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_20_declared_zero_competitor_null_distance_is_supported",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_21_ignored_canonical_metadata_and_costs_cannot_drive_model",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_22_all_ten_candidate_examples_are_honestly_labelled",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_23_explicit_fallback_and_missing_artifact_error",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_24_local_artifact_checksums_and_corruption_detection",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_25_adapter_offline_and_no_backend_public_api_dependency",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_26_fresh_python_process_reloads_without_notebook",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_27_original_data_audits_contracts_and_git_unchanged",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_28_segment_metrics_are_executed_group_errors",
+      "status": "PASS"
+    },
+    {
+      "test": "test_reference_sales.ReferenceSalesTests.test_29_latency_is_measured_with_protocol",
+      "status": "PASS"
+    }
+  ],
+  "test_output": "test_invalid_values_rejected (test_finance.FinanceOracleTests.test_invalid_values_rejected) ... ok\ntest_prd_cashflow_oracle (test_finance.FinanceOracleTests.test_prd_cashflow_oracle) ... ok\ntest_worked_sites_reverse_sales_order (test_finance.FinanceOracleTests.test_worked_sites_reverse_sales_order) ... ok\ntest_zero_capex_and_no_recovery (test_finance.FinanceOracleTests.test_zero_capex_and_no_recovery) ... ok\ntest_01_regular_and_shifted_counts (test_reference_sales.ReferenceSalesTests.test_01_regular_and_shifted_counts) ... ok\ntest_02_grouped_splits_disjoint_and_proportional (test_reference_sales.ReferenceSalesTests.test_02_grouped_splits_disjoint_and_proportional) ... ok\ntest_03_no_showcase_or_own_branch_leakage (test_reference_sales.ReferenceSalesTests.test_03_no_showcase_or_own_branch_leakage) ... ok\ntest_04_targets_nonnegative_and_wallet_bounded (test_reference_sales.ReferenceSalesTests.test_04_targets_nonnegative_and_wallet_bounded) ... ok\ntest_05_spending_conservation_for_every_alternative (test_reference_sales.ReferenceSalesTests.test_05_spending_conservation_for_every_alternative) ... ok\ntest_06_hand_checked_allocator_and_capacity_outside_option (test_reference_sales.ReferenceSalesTests.test_06_hand_checked_allocator_and_capacity_outside_option) ... ok\ntest_07_full_generation_reproducible_with_fixed_seed (test_reference_sales.ReferenceSalesTests.test_07_full_generation_reproducible_with_fixed_seed) ... ok\ntest_08_category_mapping_and_supported_daypart_matrix (test_reference_sales.ReferenceSalesTests.test_08_category_mapping_and_supported_daypart_matrix) ... ok\ntest_09_training_and_inference_schema_exact_match (test_reference_sales.ReferenceSalesTests.test_09_training_and_inference_schema_exact_match) ... ok\ntest_10_all_models_finite_nonnegative_bounded_predictions (test_reference_sales.ReferenceSalesTests.test_10_all_models_finite_nonnegative_bounded_predictions) ... ok\ntest_11_preprocessing_fitted_only_on_training_markets (test_reference_sales.ReferenceSalesTests.test_11_preprocessing_fitted_only_on_training_markets) ... ok\ntest_12_selected_ridge_fitted_reproducibly (test_reference_sales.ReferenceSalesTests.test_12_selected_ridge_fitted_reproducibly) ... ok\ntest_13_metrics_recomputed_from_saved_predictions (test_reference_sales.ReferenceSalesTests.test_13_metrics_recomputed_from_saved_predictions) ... ok\ntest_14_wape_formula_and_zero_denominator (test_reference_sales.ReferenceSalesTests.test_14_wape_formula_and_zero_denominator) ... ok\ntest_15_validation_only_model_selection_not_test_choice (test_reference_sales.ReferenceSalesTests.test_15_validation_only_model_selection_not_test_choice) ... ok\ntest_16_actual_activation_gate_and_ood_warning (test_reference_sales.ReferenceSalesTests.test_16_actual_activation_gate_and_ood_warning) ... ok\ntest_17_daypart_ablation_same_protocol_actual_metrics (test_reference_sales.ReferenceSalesTests.test_17_daypart_ablation_same_protocol_actual_metrics) ... ok\ntest_18_known_heldout_area_and_competition_perturbations (test_reference_sales.ReferenceSalesTests.test_18_known_heldout_area_and_competition_perturbations) ... ok\ntest_19_invalid_or_missing_features_never_imputed_as_measurements (test_reference_sales.ReferenceSalesTests.test_19_invalid_or_missing_features_never_imputed_as_measurements) ... ok\ntest_20_declared_zero_competitor_null_distance_is_supported (test_reference_sales.ReferenceSalesTests.test_20_declared_zero_competitor_null_distance_is_supported) ... ok\ntest_21_ignored_canonical_metadata_and_costs_cannot_drive_model (test_reference_sales.ReferenceSalesTests.test_21_ignored_canonical_metadata_and_costs_cannot_drive_model) ... ok\ntest_22_all_ten_candidate_examples_are_honestly_labelled (test_reference_sales.ReferenceSalesTests.test_22_all_ten_candidate_examples_are_honestly_labelled) ... ok\ntest_23_explicit_fallback_and_missing_artifact_error (test_reference_sales.ReferenceSalesTests.test_23_explicit_fallback_and_missing_artifact_error) ... ok\ntest_24_local_artifact_checksums_and_corruption_detection (test_reference_sales.ReferenceSalesTests.test_24_local_artifact_checksums_and_corruption_detection) ... ok\ntest_25_adapter_offline_and_no_backend_public_api_dependency (test_reference_sales.ReferenceSalesTests.test_25_adapter_offline_and_no_backend_public_api_dependency) ... ok\ntest_26_fresh_python_process_reloads_without_notebook (test_reference_sales.ReferenceSalesTests.test_26_fresh_python_process_reloads_without_notebook) ... ok\ntest_27_original_data_audits_contracts_and_git_unchanged (test_reference_sales.ReferenceSalesTests.test_27_original_data_audits_contracts_and_git_unchanged) ... ok\ntest_28_segment_metrics_are_executed_group_errors (test_reference_sales.ReferenceSalesTests.test_28_segment_metrics_are_executed_group_errors) ... ok\ntest_29_latency_is_measured_with_protocol (test_reference_sales.ReferenceSalesTests.test_29_latency_is_measured_with_protocol) ... ok\n\n----------------------------------------------------------------------\nRan 33 tests in 5.597s\n\nOK\n",
+  "warnings": [
+    {
+      "category": "DeprecationWarning",
+      "message": "Setting the shape on a NumPy array has been deprecated in NumPy 2.5.\nAs an alternative, you can create a new view using np.reshape (with copy=False if needed)."
+    }
+  ],
+  "earlier_run_note": "Initial run had two sandbox TEMP-directory permission errors in test cleanup/copy. Tests now use verified workspace-local temporary directories; both cases are rerun below.",
+  "preservation_before": {
+    "files_checked": 233,
+    "files_unchanged": 233,
+    "branch": "ML",
+    "head": "569f4f52f459ed09129c04a17ac97485601d7bb7"
+  },
+  "preservation_after": {
+    "files_checked": 233,
+    "files_unchanged": 233,
+    "branch": "ML",
+    "head": "569f4f52f459ed09129c04a17ac97485601d7bb7"
+  },
+  "runtime": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel"
+  }
+}

@@ -4,9 +4,15 @@ import os
 import sqlite3
 import hashlib
 from contextlib import contextmanager
+from contextvars import ContextVar
 from pathlib import Path
 
-DEFAULT_DB = Path(__file__).resolve().parents[3] / ".runtime" / "storescout.sqlite3"
+DEFAULT_DB = Path(__file__).resolve().parents[3] / ".runtime" / "storescout-bengaluru.sqlite3"
+current_user: ContextVar[str | None] = ContextVar("storescout_user", default=None)
+
+
+def base_path():
+    return Path(os.getenv("STORESCOUT_DB_PATH", str(DEFAULT_DB)))
 
 
 class IdempotencyConflict(Exception):
@@ -23,7 +29,10 @@ def fingerprint(value):
 
 @contextmanager
 def connection():
-    path = Path(os.getenv("STORESCOUT_DB_PATH", str(DEFAULT_DB)))
+    path = base_path()
+    user_id = current_user.get()
+    if user_id:
+        path = path.with_name(f"{path.stem}-{user_id}{path.suffix}")
     path.parent.mkdir(parents=True, exist_ok=True)
     db = sqlite3.connect(path, timeout=10)
     try:
@@ -39,6 +48,17 @@ def connection():
 def save(kind: str, project_id: str, object_id: str, body: dict):
     with connection() as db:
         db.execute("INSERT INTO objects VALUES (?, ?, ?, ?)", (kind, project_id, object_id, canonical_json(body)))
+
+
+def save_workspace(project_id: str, body: dict):
+    """Only view preferences are mutable; analytical records stay immutable."""
+    with connection() as db:
+        db.execute("INSERT INTO objects VALUES ('workspace', ?, 'current', ?) "
+                   "ON CONFLICT(kind, project_id, object_id) DO UPDATE SET body=excluded.body",
+                   (project_id, canonical_json(body)))
+        db.execute("INSERT INTO objects VALUES ('workspace_scenario', ?, ?, ?) "
+                   "ON CONFLICT(kind, project_id, object_id) DO UPDATE SET body=excluded.body",
+                   (project_id, body['scenario_id'], canonical_json(body)))
 
 
 def get(kind: str, project_id: str, object_id: str):

@@ -43,3 +43,7 @@ Keep one active context containing project/scenario/evaluation, source snapshot 
 - **3–4 hours:** Connect portfolio/report, verify empty budget and risk acknowledgement, exercise rapid scenario switching, restart/reopen, keyboard flow and one backend failure. Rehearse the complete three-screen journey with the team. Cut animation, optional map layers and extra page layouts before cutting required outcomes.
 
 Use restrained light styling, visible focus, labelled units, readable text and responsive layouts. INR belongs in labels; fractions become percentages only at presentation. Null means unknown/not applicable with its reason; null is never zero. Do not claim calibrated prediction intervals, real footfall, user validation or measured speed without evidence. Finish with the changed files, exact commands run, remaining acceptance gaps and one known-good commit for the integrator.
+
+## Implementation handoff
+
+The browser workspace now has /app, /app/scenarios and /app/portfolio with shared scenario/evaluation context, real demo/scenario requests and explicit unavailable computation. See ../../frontend/docs/FRONTEND_HANDOFF.md for the changed-file map, exact checks, PDF source identity, real API verification and remaining backend/contract dependencies. The authoritative user-supplied PDF confirms the three-screen investment flow; wire fields continue to follow backend schemas. The complete H4 analytical journey remains blocked by the unconnected computation and report endpoints.

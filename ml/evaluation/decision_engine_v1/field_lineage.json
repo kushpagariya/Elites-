@@ -1,0 +1,32 @@
+[
+  {
+    "output": "reference_targets",
+    "source": "revised_v2/site_features_enriched.csv + reference_sales_v2 saved artifact",
+    "transformation": "Exact 20-feature allowlist, saved preprocessing and fitted capture times wallet; no own-branch features",
+    "kind": "SYNTHETIC_MODEL_INFERENCE"
+  },
+  {
+    "output": "daypart_profiles",
+    "source": "final/pois.csv + poi_daypart_availability.csv + daypart_weights.csv",
+    "transformation": "Geodesic 1500m selection, 750m decay, availability*evidence*category weight; weekly shares multiply [25,20,25,50,24,24] hours",
+    "kind": "DERIVED_PROXY_WITH_ASSUMPTIONS"
+  },
+  {
+    "output": "network_revenues",
+    "source": "final/spending_cells.csv + pois.csv(category=competitor) + existing_stores.csv",
+    "transformation": "100 source cell centroids; equal external mass area100/theta0; bounded calibration [-30,30]; full-set shares; no sales labels",
+    "kind": "DERIVED_WITH_SYNTHETIC_BRANCHES_AND_ASSUMPTIONS"
+  },
+  {
+    "output": "finance_rescue_rank_portfolio",
+    "source": "revised_v2/site_features_enriched.csv + project_assumptions.csv + network revenues",
+    "transformation": "OPEX renamed from annual_opex_excl_rent_inr; displacement contribution once; end-year discounting; inverse same-engine rescue; exact budget/count enumeration in paise",
+    "kind": "DERIVED_FROM_SYNTHETIC_COSTS"
+  },
+  {
+    "output": "hypothetical_scenarios",
+    "source": "Explicit offline event point 12.8808,77.6472 / 2028-04-01 / +15% effect",
+    "transformation": "ASSUMED distance exposure*dated active fraction on target once per year, delayed24months; no model feature reinference",
+    "kind": "HYPOTHETICAL_NOT_OBSERVED"
+  }
+]

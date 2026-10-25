@@ -12,7 +12,7 @@ _slots = BoundedSemaphore(2)
 logger = logging.getLogger(__name__)
 
 
-def invoke(name, *args):
+def invoke(name, *args, **kwargs):
     function = getattr(pipeline, name, None)
     if not callable(function):
         raise ServiceError(503, "ENGINE_UNAVAILABLE", f"{name} is not connected to the analytical engine.")
@@ -25,7 +25,7 @@ def invoke(name, *args):
     if not _slots.acquire(blocking=False):
         raise ServiceError(503, "ENGINE_BUSY", "Analytical workers are busy; retry after the active calculation finishes.")
     try:
-        future = _pool.submit(function, *args)
+        future = _pool.submit(function, *args, **kwargs)
     except Exception:
         _slots.release()
         raise

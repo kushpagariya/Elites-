@@ -1,0 +1,78 @@
+/* An additive motion layer. Layout, typography, palette and content stay in landing.css. */
+.landing {
+  .hero-title { animation: none; }
+  .hero-line { display: block; overflow: clip; padding-bottom: .1em; margin-bottom: -.1em; perspective: 900px; }
+  .hero-title em.hero-line { display: block; }
+  .hero-line > span { display: block; transform-origin: 50% 100%; animation: expansion-headline 1000ms var(--ease-out) both; }
+  .hero-line:nth-child(2) > span { animation-delay: 110ms; }
+  .hero-lede { animation-duration: 850ms; animation-delay: 220ms; }
+  .hero-actions { animation-duration: 850ms; animation-delay: 300ms; }
+
+  .expansion-stage { position: relative; width: 100%; height: 100%; isolation: isolate; }
+  .expansion-pass { position: absolute; inset: 0; transform-origin: 50% 10%; }
+  .expansion-field { position: absolute; inset: 0; pointer-events: none; transform-origin: 50% 60%; }
+  .expansion-cartography { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .expansion-streets { stroke: #203c321c; stroke-width: 1.3; animation: expansion-unfold 1400ms 180ms var(--ease-out) both; }
+  .expansion-route { stroke: #a83d2459; stroke-width: 1.5; }
+  .expansion-pin { fill: var(--purple); transform-box: fill-box; transform-origin: center; animation: expansion-pin-arrive 850ms var(--ease-out) both; }
+  .expansion-pin-a { animation-delay: 480ms; }
+  .expansion-pin-b { animation-delay: 680ms; }
+  .expansion-pin-c { animation-delay: 880ms; }
+  .expansion-pin-d { animation-delay: 1080ms; }
+  .expansion-radius { fill: none; stroke: #a83d2466; stroke-width: 1; transform-box: fill-box; transform-origin: center; animation: expansion-catchment 4s 1500ms linear infinite; }
+  .expansion-pin-b .expansion-radius { animation-delay: 2500ms; }
+  .expansion-pin-c .expansion-radius { animation-delay: 3500ms; }
+  .expansion-pin-d .expansion-radius { animation-delay: 4500ms; }
+  .expansion-signal { fill: var(--purple); stroke: var(--paper); stroke-width: 3; opacity: 0; animation: expansion-route-travel 10s 1500ms linear infinite; }
+  .editorial-visual { overflow: clip; }
+  .button { position: relative; overflow: hidden; isolation: isolate; }
+  .button::after { content: ''; position: absolute; pointer-events: none; top: -50%; left: -35%; width: 16%; height: 200%; background: #ffffff26; transform: translateX(0) rotate(-20deg); transition: transform 650ms var(--ease-out); }
+  .button svg, .text-link svg, .button-secondary svg { transition: transform 200ms var(--ease-out); }
+
+  [data-motion-paused=true] .hero-line > span { animation: none; }
+  [data-motion-paused=true] .button::after { display: none; }
+  [data-motion-paused=true] :is(.button,.text-link,.button-secondary) svg { transition: none; transform: none; }
+  [data-field-paused=true] .expansion-streets,
+  [data-field-paused=true] .expansion-pin { animation: none; }
+  [data-field-paused=true] .expansion-radius,
+  [data-field-paused=true] .expansion-signal { animation-play-state: paused; }
+  @media (hover:hover) and (pointer:fine) {
+    .button:hover::after { transform: translateX(1100%) rotate(-20deg); }
+    .button:hover svg, .text-link:hover svg { transform: translateX(4px); }
+  }
+  @media (max-width:800px) {
+    .expansion-field { opacity: .65; inset: -6% 0; }
+    .expansion-signal { animation-duration: 12s; }
+  }
+}
+@keyframes expansion-headline {
+  from { transform: translate3d(0,65%,0) rotateX(-16deg); opacity: .7; }
+  to { transform: translate3d(0,0,0) rotateX(0); opacity: 1; }
+}
+@keyframes expansion-unfold {
+  from { clip-path: inset(0 100% 0 0); opacity: .4; }
+  to { clip-path: inset(0 0% 0 0); opacity: 1; }
+}
+@keyframes expansion-pin-arrive {
+  from { opacity: 0; transform: translateY(12px) scale(.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes expansion-catchment {
+  0% { transform: scale(.65); opacity: 0; }
+  15% { opacity: .6; }
+  85%,100% { transform: scale(1.8); opacity: 0; }
+}
+@keyframes expansion-route-travel {
+  0% { transform: translate(90px,440px); opacity: 0; }
+  8% { opacity: 1; }
+  20% { transform: translate(210px,440px); }
+  48% { transform: translate(210px,230px); }
+  80% { transform: translate(460px,230px); }
+  90% { transform: translate(460px,165px); opacity: 1; }
+  100% { transform: translate(540px,165px); opacity: 0; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .landing .expansion-field { display: none; }
+  .landing .expansion-pass { transform: none !important; }
+  .landing .hero-line > span { animation: none; }
+}

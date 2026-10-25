@@ -1,0 +1,46 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.725,
+              12.815
+            ],
+            [
+              77.725,
+              12.94
+            ],
+            [
+              77.6,
+              12.94
+            ],
+            [
+              77.6,
+              12.815
+            ],
+            [
+              77.725,
+              12.815
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "boundary_id": "bengaluru-corridor-aoi-v1",
+        "source_id": "package-config",
+        "source_status": "ANALYST_SELECTED",
+        "crs": "EPSG:4326",
+        "bbox_west": 77.6,
+        "bbox_south": 12.815,
+        "bbox_east": 77.725,
+        "bbox_north": 12.94,
+        "area_sqm": 187854340.6244694
+      }
+    }
+  ]
+}
