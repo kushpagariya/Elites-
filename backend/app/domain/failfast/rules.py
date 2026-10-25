@@ -1,5 +1,6 @@
 """Explicit rule precedence and inverse economics on the same numerical engine."""
 import numpy as np
+from ..validation import number
 
 
 def diagnose(npv, downside_npv, *, hard_reasons=(), review_reasons=(), warnings=()):
@@ -46,62 +47,93 @@ def rent_rescue(evaluate_at_rent, discount_rate, years, current_rent, upper_boun
 
 
 def sales_rescue(evaluate_at_multiplier, lower=.5, upper=3.):
-    """Sample monotonicity then bisect; report infeasibility, never clip a target."""
-    if not np.isfinite([lower, upper]).all() or not 0.5 <= lower <= upper <= 3.:
+    """Find a feasible interval before sampled-monotonic root search.
+
+    An unattainable reference point is not a numerical error and does not prove
+    the remaining interval infeasible. The caller can first intersect these
+    bounds with its analytically attainable reference interval. At most 17 grid
+    points, 120 frontier refinements and 100 root iterations are evaluated.
+    """
+    lower = number(lower, 'sales rescue lower bound', minimum=.5, maximum=3.)
+    upper = number(upper, 'sales rescue upper bound', minimum=.5, maximum=3.)
+    if lower > upper:
         raise ValueError('Sales rescue must stay within 0.5..3.0')
-    samples = []
-    for x in np.linspace(lower, upper, 17):
+    values, infeasible = {}, {}
+
+    def evaluate(x):
+        if x in values:
+            return values[x]
         try:
-            value = float(evaluate_at_multiplier(float(x)))
-        except UnattainableRescue:
-            # A root can lie between the last grid point and the physical
-            # feasibility frontier. Locate that frontier before ruling out a
-            # rescue; never silently clip the requested reference target.
-            if samples:
-                feasible_x, feasible_value = samples[-1]
-                infeasible_x = float(x)
-                for _ in range(60):
-                    middle = (feasible_x + infeasible_x) / 2
-                    if middle in (feasible_x, infeasible_x):
-                        break
-                    try:
-                        candidate_value = float(evaluate_at_multiplier(middle))
-                        if not np.isfinite(candidate_value):
-                            raise ValueError('Nonfinite rescue cash flow')
-                        feasible_x, feasible_value = middle, candidate_value
-                    except UnattainableRescue:
-                        infeasible_x = middle
-                if feasible_x > samples[-1][0]:
-                    samples.append([feasible_x, feasible_value])
-            break
-        if not np.isfinite(value):
-            raise ValueError('Nonfinite rescue cash flow')
-        samples.append([float(x), value])
-    # Compare with every previous maximum: a slow cumulative decline must not
-    # evade detection merely because each grid step is smaller than INR 1.
-    if any(value < max(v for _, v in samples[:i]) - 1 for i, (_, value) in enumerate(samples) if i):
-        return dict(status='NON_MONOTONIC', threshold=None, samples=samples)
-    if not samples or samples[-1][1] < 0:
-        return dict(status='NOT_RECOVERABLE_WITHIN_BOUNDS', threshold=None, samples=samples,
-                    reason='NO_VERIFIED_RECOVERY_IN_ATTAINABLE_TESTED_BOUNDS')
-    if samples[0][1] >= 0:
-        return dict(status='SOLVED', threshold=lower, verified_npv_inr=samples[0][1], samples=samples,
-                    reason='ALREADY_VIABLE_AT_LOWER_BOUND')
-    low = samples[0][0]
-    high = next(x for x, value in samples if value >= 0)
-    for _ in range(100):
-        middle = (low + high) / 2
-        value = float(evaluate_at_multiplier(middle))
-        if 0 <= value <= 1:
-            return dict(status='SOLVED', threshold=middle, verified_npv_inr=value, samples=samples,
-                        below_npv_inr=evaluate_at_multiplier(low), above_npv_inr=evaluate_at_multiplier(high),
-                        monotonicity='GRID_CHECK_ONLY_NOT_GLOBAL_PROOF')
-        if value < 0:
-            low = middle
-        else:
-            high = middle
-    return dict(status='NOT_RECOVERABLE_WITHIN_BOUNDS', threshold=None, samples=samples,
-                reason='RESIDUAL_EXCEEDS_INR_1')
+            value = number(evaluate_at_multiplier(x), 'rescue objective NPV')
+        except UnattainableRescue as exc:
+            infeasible[x] = str(exc)
+            value = None
+        values[x] = value
+        return value
+
+    def result(status, reason, **extra):
+        samples = [[x, v] for x, v in sorted(values.items()) if v is not None]
+        return dict(status=status, reason=reason, threshold=None, samples=samples,
+                    bounds=[lower, upper],
+                    feasible_bounds=[samples[0][0], samples[-1][0]] if samples else None,
+                    infeasible_samples=[[x, why] for x, why in sorted(infeasible.items())],
+                    monotonicity='GRID_CHECK_ONLY_NOT_GLOBAL_PROOF', **extra)
+
+    try:
+        for x in np.linspace(lower, upper, 17):
+            evaluate(float(x))
+        feasible = sorted(x for x, v in values.items() if v is not None)
+        if not feasible:
+            return result('NOT_RECOVERABLE_WITHIN_BOUNDS', 'NO_VERIFIED_FEASIBLE_POINT')
+        first, last = feasible[0], feasible[-1]
+        if any(first < x < last for x in infeasible):
+            return result('NOT_RECOVERABLE_WITHIN_BOUNDS', 'DISCONNECTED_FEASIBILITY_INTERVAL')
+        # Refine both physical frontiers, including a lower endpoint that the
+        # old implementation treated as proof of no recovery.
+        for left_side in (True, False):
+            failures = [x for x in infeasible if x < first] if left_side else [x for x in infeasible if x > last]
+            if not failures:
+                continue
+            bad = max(failures) if left_side else min(failures)
+            good = first if left_side else last
+            for _ in range(60):
+                middle = (bad + good) / 2
+                if middle in (bad, good):
+                    break
+                if evaluate(middle) is None:
+                    bad = middle
+                else:
+                    good = middle
+        samples = [[x, v] for x, v in sorted(values.items()) if v is not None]
+        if any(value < max(v for _, v in samples[:i]) - 1 for i, (_, value) in enumerate(samples) if i):
+            return result('NON_MONOTONIC', 'SAMPLED_NPV_DECREASE')
+        if samples[-1][1] < 0:
+            return result('NOT_RECOVERABLE_WITHIN_BOUNDS', 'NO_RECOVERY_IN_VERIFIED_FEASIBLE_INTERVAL')
+        if samples[0][1] >= 0:
+            answer = result('SOLVED', 'ALREADY_VIABLE_AT_FEASIBLE_LOWER_BOUND',
+                            verified_npv_inr=samples[0][1])
+            answer['threshold'] = samples[0][0]
+            return answer
+        high = next(x for x, value in samples if value >= 0)
+        low = max(x for x, value in samples if x < high and value < 0)
+        for _ in range(100):
+            middle = (low + high) / 2
+            value = evaluate(middle)
+            if value is None:
+                return result('NOT_RECOVERABLE_WITHIN_BOUNDS', 'INFEASIBLE_POINT_INSIDE_ROOT_BRACKET')
+            if 0 <= value <= 1:
+                answer = result('SOLVED', 'VERIFIED_ZERO_NPV_THRESHOLD', verified_npv_inr=value,
+                                below_npv_inr=evaluate(low), above_npv_inr=evaluate(high))
+                answer['threshold'] = middle
+                return answer
+            if value < 0:
+                low = middle
+            else:
+                high = middle
+        return result('NOT_RECOVERABLE_WITHIN_BOUNDS', 'RESIDUAL_EXCEEDS_INR_1')
+    except (ValueError, ArithmeticError) as exc:
+        return result('NOT_RECOVERABLE_WITHIN_BOUNDS', 'NUMERICAL_EVALUATION_FAILURE',
+                      numerical_error=f'{type(exc).__name__}: {exc}')
 
 
 class UnattainableRescue(ValueError):

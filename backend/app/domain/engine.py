@@ -203,33 +203,152 @@ def run_portfolio(project, evaluation, max_stores, acknowledged_risk_site_ids):
 
 
 def calculate_rescue(project, context, site_id, lever='rent', *, lower_bound=None, upper_bound=None):
-    """Numerical rescue evidence; backend owns the agreed wire response."""
+    """Return canonical SiteOverride coordinates, verified on a fresh copy.
+
+    Rent bounds are base INR/month, before the global rent multiplier. Sales
+    search bounds retain their original *relative-to-current-target* meaning;
+    the returned threshold/override is an absolute baseline sales multiplier.
+    No identity is allocated and no scenario, model or frozen context is edited.
+    """
     check_context(project, context)
     index = {s['site_id']: i for i, s in enumerate(project['sites'])}
     if site_id not in index:
         raise ValueError('Unknown rescue site')
     frozen, rents = context['frozen_network'], context['rents']
+    scenario = context['scenario']
+    assumptions = scenario['assumptions']
+    current_override = assumptions.get('site_overrides', {}).get(site_id, {})
+    source_analysis = next(a for a in context['evaluation']['site_analyses'] if a['site_id'] == site_id)
+    hard_block = any(r.startswith('HARD:') for r in source_analysis['failfast']['failed_rule_ids'])
+    canonical_value = None
     if lever == 'rent':
         if lower_bound not in (None, 0):
             raise ValueError('Rent rescue lower bound is zero')
+        multiplier = number(assumptions.get('rent_multiplier', 1.), 'global rent multiplier', minimum=0, maximum=3)
+        base_rent = current_override.get('monthly_rent_inr')
+        if base_rent is None:
+            base_rent = project['sites'][index[site_id]]['monthly_rent_inr']
+        upper = 2 * base_rent if upper_bound is None else number(upper_bound, 'base rent upper bound', minimum=0)
         result = rent_rescue(lambda r: value(project, frozen, dict(rents, **{site_id: r}), [site_id])['npv_inr'],
-                             project['discount_rate_fraction'], project['projection_years'], rents[site_id], upper_bound)
+                             project['discount_rate_fraction'], project['projection_years'], rents[site_id], upper * multiplier)
+        effective_threshold = result['threshold']
+        base_threshold = effective_threshold / multiplier if multiplier and effective_threshold is not None else None
+        result.update(current_base_monthly_rent_inr=base_rent, current_effective_monthly_rent_inr=rents[site_id],
+                      global_rent_multiplier=multiplier,
+                      max_viable_effective_monthly_rent_inr=effective_threshold,
+                      max_viable_base_monthly_rent_inr=base_threshold,
+                      solver_effective_threshold_inr=effective_threshold,
+                      configured_base_rent_bounds_inr=[0., upper],
+                      solver_status=result['status'],
+                      financial_status='SOLVED' if effective_threshold is not None else result['status'])
+        result['threshold'] = None
+        if multiplier == 0:
+            result.update(status='NOT_RECOVERABLE_WITHIN_BOUNDS',
+                          reason='ZERO_GLOBAL_RENT_MULTIPLIER_NO_FINITE_BASE_RENT_INVERSE',
+                          application_status='BLOCKED_ZERO_RENT_MULTIPLIER')
+        elif base_threshold is not None:
+            # If the requested upper bound is below the economic cap, that
+            # bound is the largest permitted viable rent, not a zero-NPV root.
+            canonical_value = min(base_threshold, upper)
+            result['bound_limits_affordability_threshold'] = base_threshold > upper
+            if base_threshold > upper:
+                result['reason'] = 'VIABLE_AT_CONFIGURED_UPPER_RENT_BOUND'
     elif lever == 'sales':
         i = index[site_id]
-        def at_multiplier(multiplier):
-            adjusted = deepcopy(frozen)
-            matrices = np.asarray(frozen['candidate_attraction_by_year'], float).copy()
+        current_absolute = current_override.get('sales_multiplier')
+        current_absolute = 1. if current_absolute is None else current_absolute
+        lower = .5 if lower_bound is None else number(lower_bound, 'relative sales lower bound', minimum=.5, maximum=3)
+        upper = 3. if upper_bound is None else number(upper_bound, 'relative sales upper bound', minimum=.5, maximum=3)
+        if lower > upper:
+            raise ValueError('Sales rescue lower bound exceeds upper bound')
+        result = dict(status='NOT_RECOVERABLE_WITHIN_BOUNDS', threshold=None,
+                      current_absolute_sales_multiplier=current_absolute,
+                      configured_relative_sales_bounds=[lower, upper],
+                      relative_rescue_multiplier=None, new_absolute_sales_multiplier=None)
+        if current_absolute == 0:
+            result.update(reason='ZERO_CURRENT_SALES_MULTIPLIER_RELATIVE_SEARCH_HAS_NO_EFFECT',
+                          application_status='BLOCKED_ZERO_CURRENT_SALES_MULTIPLIER')
+        else:
+            # Intersect the configured relative range with canonical abs<=3
+            # and each year's attainable [-30,30] reference interval. This
+            # also detects a narrow feasible interior between coarse probes.
+            feasible_lower, feasible_upper = lower, min(upper, 3. / current_absolute)
             for y, wallet in enumerate(frozen['wallet_by_year']):
-                calibration = calibrate(wallet, frozen['external_attraction'], np.asarray(frozen['candidate_unit_attraction'])[:, i],
-                                        frozen['target_by_year_inr'][y][i] * multiplier, frozen['outside'], tolerance=.001)
-                if 'REVIEW_REQUIRED' in calibration['status']:
-                    raise UnattainableRescue('Sales rescue outside attainable reference')
-                matrices[y, :, i] = calibration['attraction']
-            adjusted['candidate_attraction_by_year'] = matrices.tolist()
-            return value(project, adjusted, rents, [site_id])['npv_inr']
-        result = sales_rescue(at_multiplier, .5 if lower_bound is None else lower_bound, 3. if upper_bound is None else upper_bound)
+                target = frozen['target_by_year_inr'][y][i]
+                if target > 0:
+                    endpoints = calibrate(wallet, frozen['external_attraction'],
+                                          np.asarray(frozen['candidate_unit_attraction'])[:, i], 0., frozen['outside'])
+                    lo, hi = endpoints['endpoint_bounds_inr']
+                    feasible_lower = max(feasible_lower, lo / target)
+                    feasible_upper = min(feasible_upper, hi / target)
+            result['effective_relative_sales_bounds'] = [feasible_lower, feasible_upper] if feasible_lower <= feasible_upper else None
+            result['effective_absolute_sales_bounds'] = [feasible_lower * current_absolute, feasible_upper * current_absolute] if feasible_lower <= feasible_upper else None
+            if feasible_lower > feasible_upper:
+                result.update(reason='NO_ATTAINABLE_TARGET_WITHIN_CONFIGURED_AND_CANONICAL_BOUNDS',
+                              application_status='BLOCKED_REFERENCE_OR_CANONICAL_BOUNDS')
+            else:
+                infra, _ = infrastructure_multipliers(project['sites'], project['inputs'].get('infrastructure', []),
+                                                      assumptions, project['inputs']['valuation_date'], project['projection_years'])
+                predicted_target = project['inputs']['reference_predictions'][site_id]['reference_annual_sales_inr']
+
+                def at_multiplier(relative):
+                    adjusted = deepcopy(frozen)
+                    matrices = np.asarray(frozen['candidate_attraction_by_year'], float).copy()
+                    absolute = current_absolute * relative
+                    for y, wallet in enumerate(frozen['wallet_by_year']):
+                        # Same multiplication order and calibration tolerance
+                        # as freeze() when the absolute override is applied.
+                        target = predicted_target * assumptions.get('demand_multiplier', 1.) * absolute * infra[y, i]
+                        calibration = calibrate(wallet, frozen['external_attraction'], np.asarray(frozen['candidate_unit_attraction'])[:, i],
+                                                target, frozen['outside'], tolerance=.01)
+                        if calibration['status'] == 'UNATTAINABLE_REVIEW_REQUIRED':
+                            raise UnattainableRescue('Target outside attainable reference endpoints')
+                        if calibration['status'] == 'ITERATION_LIMIT_REVIEW_REQUIRED':
+                            raise ArithmeticError('Reference calibration iteration limit')
+                        matrices[y, :, i] = calibration['attraction']
+                    adjusted['candidate_attraction_by_year'] = matrices.tolist()
+                    return value(project, adjusted, rents, [site_id])['npv_inr']
+
+                solved = sales_rescue(at_multiplier, feasible_lower, feasible_upper)
+                relative = solved['threshold']
+                result.update(solved, financial_status=solved['status'], solver_relative_threshold=relative,
+                              relative_rescue_multiplier=relative,
+                              new_absolute_sales_multiplier=current_absolute * relative if relative is not None else None)
+                result['threshold'] = None
+                if relative is not None:
+                    canonical_value = current_absolute * relative
     else:
         raise ValueError('Unknown rescue lever')
     result.update(site_id=site_id, lever=lever, scenario_id=context['scenario']['scenario_id'],
-                  context_sha256=context['integrity_sha256'], clears_unrelated_failures=False)
+                  context_sha256=context['integrity_sha256'], clears_unrelated_failures=False,
+                  rescue_contract_version='canonical-site-override-1',
+                  threshold_coordinates='CANONICAL_SITE_OVERRIDE', actionable_site_override=None,
+                  applied_verification=None)
+    if hard_block:
+        result.update(status='NOT_RECOVERABLE_WITHIN_BOUNDS', reason='HARD_ELIGIBILITY_FAILURE_REMAINS',
+                      application_status='BLOCKED_HARD_ELIGIBILITY', threshold=None)
+    elif canonical_value is not None:
+        key = 'monthly_rent_inr' if lever == 'rent' else 'sales_multiplier'
+        changed = deepcopy(scenario)
+        changed['assumptions'].setdefault('site_overrides', {}).setdefault(site_id, {})[key] = canonical_value
+        verified = prepare_evaluation(project, changed)
+        analysis = next(a for a in verified['evaluation']['site_analyses'] if a['site_id'] == site_id)
+        result['solver_verified_npv_inr'] = result.get('verified_npv_inr')
+        result['verified_npv_inr'] = analysis['npv_inr']
+        result['applied_verification'] = dict(scenario_input_sha256=digest(changed), persisted=False,
+            source_scenario_id=scenario['scenario_id'], new_scenario_id_required_from_backend=True,
+            npv_inr=analysis['npv_inr'], failfast=analysis['failfast'],
+            annual_revenue_inr=analysis['annual_revenue_inr'],
+            lost_existing_contribution_inr=analysis['lost_existing_contribution_inr'],
+            annual_cashflows_inr=analysis['annual_cashflows_inr'], method_mode=verified['evaluation']['method_mode'],
+            model_artifact_id=verified['evaluation']['model_artifact_id'])
+        if analysis['failfast']['status'] in ('REJECTED', 'REVIEW_REQUIRED') or analysis['npv_inr'] < 0:
+            result.update(status='NOT_RECOVERABLE_WITHIN_BOUNDS', reason='APPLIED_SCENARIO_NOT_ELIGIBLE_OR_NOT_FINANCIALLY_VIABLE',
+                          application_status='BLOCKED_APPLIED_VERIFICATION')
+        else:
+            result.update(status='SOLVED', threshold=canonical_value, actionable_site_override={key: canonical_value},
+                          application_status='VERIFIED_FRESH_SCENARIO_COPY',
+                          requires_risk_acknowledgement=analysis['failfast']['status'] == 'AT_RISK')
+    else:
+        result.setdefault('application_status', 'BLOCKED_NO_VERIFIED_FINANCIAL_SOLUTION')
     return result
