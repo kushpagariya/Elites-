@@ -1,0 +1,80 @@
+{
+  "ordinary": {
+    "rows": 2000,
+    "markets": 100,
+    "no_capacity_cap": true,
+    "target_distribution": {
+      "count": 2000.0,
+      "mean": 104782500.70218287,
+      "std": 91914968.6371972,
+      "min": 5850100.372535283,
+      "1%": 11827964.209102245,
+      "25%": 41782601.701865494,
+      "50%": 76175128.43817785,
+      "75%": 141747030.77597368,
+      "99%": 432214794.47878027,
+      "max": 996921718.2636274
+    },
+    "capture_distribution": {
+      "count": 2000.0,
+      "mean": 0.2922741349782858,
+      "std": 0.15444759391885807,
+      "min": 0.023032587087296982,
+      "25%": 0.16422135548412473,
+      "50%": 0.26778619385795044,
+      "75%": 0.4024233518234669,
+      "max": 0.7168183542725868
+    },
+    "nonpositive": 0,
+    "near_zero_under_1_inr": 0,
+    "within_market_mean_std": 81072259.94792421,
+    "between_market_means_std": 34594627.000044,
+    "target_spearman": {
+      "annual_wallet_inr": 0.7017472664368166,
+      "competitor_attraction_index": -0.17933509090910169,
+      "store_size_sqm": 0.47369905942476487,
+      "mean_wallet_weighted_distance_m": -0.24056603114150776,
+      "weekday_morning_raw": -0.1659418944854736,
+      "weekend_evening_raw": -0.25677340619335154
+    }
+  },
+  "ood": {
+    "rows": 400,
+    "markets": 20,
+    "no_capacity_cap": true,
+    "target_distribution": {
+      "count": 400.0,
+      "mean": 112816644.39045797,
+      "std": 97062796.27039833,
+      "min": 4463014.537359014,
+      "1%": 10630123.766836375,
+      "25%": 46432521.415998146,
+      "50%": 76490229.18223126,
+      "75%": 153029772.05951563,
+      "99%": 421423258.4069682,
+      "max": 682650880.3694899
+    },
+    "capture_distribution": {
+      "count": 400.0,
+      "mean": 0.20631794706577117,
+      "std": 0.13687682764674083,
+      "min": 0.0173062672017311,
+      "25%": 0.09502735248137856,
+      "50%": 0.1791274303573997,
+      "75%": 0.27986556164190945,
+      "max": 0.5831991296562388
+    },
+    "nonpositive": 0,
+    "near_zero_under_1_inr": 0,
+    "within_market_mean_std": 89211559.8410842,
+    "between_market_means_std": 32439361.81781218,
+    "target_spearman": {
+      "annual_wallet_inr": 0.5580616128850805,
+      "competitor_attraction_index": -0.34368183971280886,
+      "store_size_sqm": 0.4476116100725629,
+      "mean_wallet_weighted_distance_m": -0.2837333358333489,
+      "weekday_morning_raw": -0.3268166051037819,
+      "weekend_evening_raw": -0.3756615978849867
+    }
+  }
+}

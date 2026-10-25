@@ -1,0 +1,74 @@
+{
+  "removed": [
+    "weekday_morning_raw",
+    "weekday_lunch_raw",
+    "weekday_evening_raw",
+    "weekday_night_raw",
+    "weekend_day_raw",
+    "weekend_evening_raw"
+  ],
+  "same_training_groups_and_selected_parameters": true,
+  "not_a_retroactive_selection_candidate": true,
+  "metrics": {
+    "validation": {
+      "full": {
+        "n": 400,
+        "MAE_inr": 7402550.325800133,
+        "RMSE_inr": 10759234.068116363,
+        "WAPE": 0.06401993902498088,
+        "absolute_error_sum_inr": 2961020130.320053,
+        "absolute_actual_sum_inr": 46251529998.56262,
+        "WAPE_undefined_reason": null
+      },
+      "without_dayparts": {
+        "n": 400,
+        "MAE_inr": 7249716.612390144,
+        "RMSE_inr": 10606373.126933236,
+        "WAPE": 0.06269817766128338,
+        "absolute_error_sum_inr": 2899886644.9560575,
+        "absolute_actual_sum_inr": 46251529998.56262,
+        "WAPE_undefined_reason": null
+      }
+    },
+    "test": {
+      "full": {
+        "n": 400,
+        "MAE_inr": 8824469.498931406,
+        "RMSE_inr": 15816629.101557441,
+        "WAPE": 0.07628144502397914,
+        "absolute_error_sum_inr": 3529787799.572562,
+        "absolute_actual_sum_inr": 46273216225.29529,
+        "WAPE_undefined_reason": null
+      },
+      "without_dayparts": {
+        "n": 400,
+        "MAE_inr": 8778007.897534823,
+        "RMSE_inr": 15224651.438675022,
+        "WAPE": 0.07587981656426396,
+        "absolute_error_sum_inr": 3511203159.0139294,
+        "absolute_actual_sum_inr": 46273216225.29529,
+        "WAPE_undefined_reason": null
+      }
+    },
+    "ood": {
+      "full": {
+        "n": 400,
+        "MAE_inr": 37495970.515609466,
+        "RMSE_inr": 50525227.73533489,
+        "WAPE": 0.33236204390050866,
+        "absolute_error_sum_inr": 14998388206.243786,
+        "absolute_actual_sum_inr": 45126657756.18319,
+        "WAPE_undefined_reason": null
+      },
+      "without_dayparts": {
+        "n": 400,
+        "MAE_inr": 36869174.66786154,
+        "RMSE_inr": 49434520.97879054,
+        "WAPE": 0.326806162929802,
+        "absolute_error_sum_inr": 14747669867.144617,
+        "absolute_actual_sum_inr": 45126657756.18319,
+        "WAPE_undefined_reason": null
+      }
+    }
+  }
+}

@@ -1,0 +1,1323 @@
+[
+  {
+    "site_id": "site-01",
+    "change": "wallet_x0.5",
+    "changed_fields": {
+      "annual_wallet_inr": 209318621.425
+    },
+    "base_raw": 101985994.35152905,
+    "modified_raw": 50992997.17576452,
+    "usable": 50992997.17576452,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-01",
+    "change": "wallet_x1.25",
+    "changed_fields": {
+      "annual_wallet_inr": 523296553.5625
+    },
+    "base_raw": 101985994.35152905,
+    "modified_raw": 127482492.9394113,
+    "usable": 127482492.9394113,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-01",
+    "change": "area_x1.25",
+    "changed_fields": {
+      "store_size_sqm": 718.75
+    },
+    "base_raw": 101985994.35152905,
+    "modified_raw": 115966293.13856621,
+    "usable": 115966293.13856621,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-01",
+    "change": "competition_plus5",
+    "changed_fields": {
+      "competitor_count_1500m": 35,
+      "competitor_attraction_index": 10.245201371568731,
+      "nearest_competitor_distance_m": 310.16296157830726
+    },
+    "base_raw": 101985994.35152905,
+    "modified_raw": 90467537.01555525,
+    "usable": 90467537.01555525,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-01",
+    "change": "weekday_morning_raw_x1.25",
+    "changed_fields": {
+      "weekday_morning_raw": 109.84052208835121
+    },
+    "base_raw": 101985994.35152905,
+    "modified_raw": 101281396.70167325,
+    "usable": 101281396.70167325,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-01",
+    "change": "weekday_lunch_raw_x1.25",
+    "changed_fields": {
+      "weekday_lunch_raw": 109.42167555692392
+    },
+    "base_raw": 101985994.35152905,
+    "modified_raw": 102465734.3445822,
+    "usable": 102465734.3445822,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-01",
+    "change": "weekday_evening_raw_x1.25",
+    "changed_fields": {
+      "weekday_evening_raw": 148.15060341814885
+    },
+    "base_raw": 101985994.35152905,
+    "modified_raw": 102264846.61481687,
+    "usable": 102264846.61481687,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-01",
+    "change": "weekday_night_raw_x1.25",
+    "changed_fields": {
+      "weekday_night_raw": 37.915200980261794
+    },
+    "base_raw": 101985994.35152905,
+    "modified_raw": 101745353.74847154,
+    "usable": 101745353.74847154,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-01",
+    "change": "weekend_day_raw_x1.25",
+    "changed_fields": {
+      "weekend_day_raw": 101.12693655648
+    },
+    "base_raw": 101985994.35152905,
+    "modified_raw": 102041865.62360008,
+    "usable": 102041865.62360008,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-01",
+    "change": "weekend_evening_raw_x1.25",
+    "changed_fields": {
+      "weekend_evening_raw": 108.05538262459122
+    },
+    "base_raw": 101985994.35152905,
+    "modified_raw": 102601662.32454363,
+    "usable": 102601662.32454363,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-02",
+    "change": "wallet_x0.5",
+    "changed_fields": {
+      "annual_wallet_inr": 179818218.17
+    },
+    "base_raw": 73864281.26793757,
+    "modified_raw": 36932140.633968785,
+    "usable": 36932140.633968785,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-02",
+    "change": "wallet_x1.25",
+    "changed_fields": {
+      "annual_wallet_inr": 449545545.42499995
+    },
+    "base_raw": 73864281.26793757,
+    "modified_raw": 92330351.58492197,
+    "usable": 92330351.58492197,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-02",
+    "change": "area_x1.25",
+    "changed_fields": {
+      "store_size_sqm": 500.0
+    },
+    "base_raw": 73864281.26793757,
+    "modified_raw": 91742710.83798964,
+    "usable": 91742710.83798964,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-02",
+    "change": "competition_plus5",
+    "changed_fields": {
+      "competitor_count_1500m": 32,
+      "competitor_attraction_index": 8.94405193711166,
+      "nearest_competitor_distance_m": 313.23837568164544
+    },
+    "base_raw": 73864281.26793757,
+    "modified_raw": 63398254.89153045,
+    "usable": 63398254.89153045,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-02",
+    "change": "weekday_morning_raw_x1.25",
+    "changed_fields": {
+      "weekday_morning_raw": 79.6952816422096
+    },
+    "base_raw": 73864281.26793757,
+    "modified_raw": 73864281.26793757,
+    "usable": 73864281.26793757,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-02",
+    "change": "weekday_lunch_raw_x1.25",
+    "changed_fields": {
+      "weekday_lunch_raw": 88.88740223798686
+    },
+    "base_raw": 73864281.26793757,
+    "modified_raw": 73544593.75291747,
+    "usable": 73544593.75291747,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-02",
+    "change": "weekday_evening_raw_x1.25",
+    "changed_fields": {
+      "weekday_evening_raw": 110.27034797246736
+    },
+    "base_raw": 73864281.26793757,
+    "modified_raw": 73864281.26793757,
+    "usable": 73864281.26793757,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-02",
+    "change": "weekday_night_raw_x1.25",
+    "changed_fields": {
+      "weekday_night_raw": 28.478121534590496
+    },
+    "base_raw": 73864281.26793757,
+    "modified_raw": 73864281.26793757,
+    "usable": 73864281.26793757,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-02",
+    "change": "weekend_day_raw_x1.25",
+    "changed_fields": {
+      "weekend_day_raw": 77.21586893566423
+    },
+    "base_raw": 73864281.26793757,
+    "modified_raw": 73864281.26793757,
+    "usable": 73864281.26793757,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-02",
+    "change": "weekend_evening_raw_x1.25",
+    "changed_fields": {
+      "weekend_evening_raw": 84.18447727380413
+    },
+    "base_raw": 73864281.26793757,
+    "modified_raw": 74362809.4250282,
+    "usable": 74362809.4250282,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-03",
+    "change": "wallet_x0.5",
+    "changed_fields": {
+      "annual_wallet_inr": 199908103.42
+    },
+    "base_raw": 140228096.56588915,
+    "modified_raw": 70114048.28294457,
+    "usable": 70114048.28294457,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-03",
+    "change": "wallet_x1.25",
+    "changed_fields": {
+      "annual_wallet_inr": 499770258.54999995
+    },
+    "base_raw": 140228096.56588915,
+    "modified_raw": 175285120.70736146,
+    "usable": 175285120.70736146,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-03",
+    "change": "area_x1.25",
+    "changed_fields": {
+      "store_size_sqm": 781.25
+    },
+    "base_raw": 140228096.56588915,
+    "modified_raw": 154073862.97973242,
+    "usable": 154073862.97973242,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-03",
+    "change": "competition_plus5",
+    "changed_fields": {
+      "competitor_count_1500m": 25,
+      "competitor_attraction_index": 6.513237602955312,
+      "nearest_competitor_distance_m": 378.2589538370174
+    },
+    "base_raw": 140228096.56588915,
+    "modified_raw": 124077901.29077423,
+    "usable": 124077901.29077423,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-03",
+    "change": "weekday_morning_raw_x1.25",
+    "changed_fields": {
+      "weekday_morning_raw": 64.30452014850357
+    },
+    "base_raw": 140228096.56588915,
+    "modified_raw": 143236537.5901679,
+    "usable": 143236537.5901679,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-03",
+    "change": "weekday_lunch_raw_x1.25",
+    "changed_fields": {
+      "weekday_lunch_raw": 76.4458074846449
+    },
+    "base_raw": 140228096.56588915,
+    "modified_raw": 137999812.6171909,
+    "usable": 137999812.6171909,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-03",
+    "change": "weekday_evening_raw_x1.25",
+    "changed_fields": {
+      "weekday_evening_raw": 103.67315207317097
+    },
+    "base_raw": 140228096.56588915,
+    "modified_raw": 140228096.56588915,
+    "usable": 140228096.56588915,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-03",
+    "change": "weekday_night_raw_x1.25",
+    "changed_fields": {
+      "weekday_night_raw": 26.45288411523033
+    },
+    "base_raw": 140228096.56588915,
+    "modified_raw": 141041623.62573448,
+    "usable": 141041623.62573448,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-03",
+    "change": "weekend_day_raw_x1.25",
+    "changed_fields": {
+      "weekend_day_raw": 78.36114877461944
+    },
+    "base_raw": 140228096.56588915,
+    "modified_raw": 140228096.56588915,
+    "usable": 140228096.56588915,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-03",
+    "change": "weekend_evening_raw_x1.25",
+    "changed_fields": {
+      "weekend_evening_raw": 88.19205920914195
+    },
+    "base_raw": 140228096.56588915,
+    "modified_raw": 140294402.51095328,
+    "usable": 140294402.51095328,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-04",
+    "change": "wallet_x0.5",
+    "changed_fields": {
+      "annual_wallet_inr": 236328759.32
+    },
+    "base_raw": 94750639.83801524,
+    "modified_raw": 47375319.91900762,
+    "usable": 47375319.91900762,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-04",
+    "change": "wallet_x1.25",
+    "changed_fields": {
+      "annual_wallet_inr": 590821898.3
+    },
+    "base_raw": 94750639.83801524,
+    "modified_raw": 118438299.79751904,
+    "usable": 118438299.79751904,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-04",
+    "change": "area_x1.25",
+    "changed_fields": {
+      "store_size_sqm": 468.75
+    },
+    "base_raw": 94750639.83801524,
+    "modified_raw": 114899382.68602188,
+    "usable": 114899382.68602188,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-04",
+    "change": "competition_plus5",
+    "changed_fields": {
+      "competitor_count_1500m": 27,
+      "competitor_attraction_index": 7.26025213648557,
+      "nearest_competitor_distance_m": 607.2083244679347
+    },
+    "base_raw": 94750639.83801524,
+    "modified_raw": 84002348.94688153,
+    "usable": 84002348.94688153,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-04",
+    "change": "weekday_morning_raw_x1.25",
+    "changed_fields": {
+      "weekday_morning_raw": 36.21101348788736
+    },
+    "base_raw": 94750639.83801524,
+    "modified_raw": 94915215.73450083,
+    "usable": 94915215.73450083,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-04",
+    "change": "weekday_lunch_raw_x1.25",
+    "changed_fields": {
+      "weekday_lunch_raw": 45.35303137299286
+    },
+    "base_raw": 94750639.83801524,
+    "modified_raw": 94750639.83801524,
+    "usable": 94750639.83801524,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-04",
+    "change": "weekday_evening_raw_x1.25",
+    "changed_fields": {
+      "weekday_evening_raw": 65.59766694991721
+    },
+    "base_raw": 94750639.83801524,
+    "modified_raw": 96558679.8573976,
+    "usable": 96558679.8573976,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-04",
+    "change": "weekday_night_raw_x1.25",
+    "changed_fields": {
+      "weekday_night_raw": 17.73946089188738
+    },
+    "base_raw": 94750639.83801524,
+    "modified_raw": 96421408.3022191,
+    "usable": 96421408.3022191,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-04",
+    "change": "weekend_day_raw_x1.25",
+    "changed_fields": {
+      "weekend_day_raw": 52.199647389081235
+    },
+    "base_raw": 94750639.83801524,
+    "modified_raw": 95581039.94512981,
+    "usable": 95581039.94512981,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-04",
+    "change": "weekend_evening_raw_x1.25",
+    "changed_fields": {
+      "weekend_evening_raw": 59.477395670372026
+    },
+    "base_raw": 94750639.83801524,
+    "modified_raw": 96441101.74255371,
+    "usable": 96441101.74255371,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-05",
+    "change": "wallet_x0.5",
+    "changed_fields": {
+      "annual_wallet_inr": 298809193.815
+    },
+    "base_raw": 267957144.9471217,
+    "modified_raw": 133978572.47356085,
+    "usable": 133978572.47356085,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-05",
+    "change": "wallet_x1.25",
+    "changed_fields": {
+      "annual_wallet_inr": 747022984.5375
+    },
+    "base_raw": 267957144.9471217,
+    "modified_raw": 334946431.18390214,
+    "usable": 334946431.18390214,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-05",
+    "change": "area_x1.25",
+    "changed_fields": {
+      "store_size_sqm": 562.5
+    },
+    "base_raw": 267957144.9471217,
+    "modified_raw": 309662489.04548347,
+    "usable": 309662489.04548347,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-05",
+    "change": "competition_plus5",
+    "changed_fields": {
+      "competitor_count_1500m": 10,
+      "competitor_attraction_index": 2.9638067801502013,
+      "nearest_competitor_distance_m": 750
+    },
+    "base_raw": 267957144.9471217,
+    "modified_raw": 207440540.08686978,
+    "usable": 207440540.08686978,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-05",
+    "change": "weekday_morning_raw_x1.25",
+    "changed_fields": {
+      "weekday_morning_raw": 24.580807117721747
+    },
+    "base_raw": 267957144.9471217,
+    "modified_raw": 269145091.7244526,
+    "usable": 269145091.7244526,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-05",
+    "change": "weekday_lunch_raw_x1.25",
+    "changed_fields": {
+      "weekday_lunch_raw": 20.475464482231498
+    },
+    "base_raw": 267957144.9471217,
+    "modified_raw": 265668490.25416926,
+    "usable": 265668490.25416926,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-05",
+    "change": "weekday_evening_raw_x1.25",
+    "changed_fields": {
+      "weekday_evening_raw": 32.57640385550208
+    },
+    "base_raw": 267957144.9471217,
+    "modified_raw": 268669355.22229314,
+    "usable": 268669355.22229314,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-05",
+    "change": "weekday_night_raw_x1.25",
+    "changed_fields": {
+      "weekday_night_raw": 9.369447381485795
+    },
+    "base_raw": 267957144.9471217,
+    "modified_raw": 267928342.880859,
+    "usable": 267928342.880859,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-05",
+    "change": "weekend_day_raw_x1.25",
+    "changed_fields": {
+      "weekend_day_raw": 24.79918943632926
+    },
+    "base_raw": 267957144.9471217,
+    "modified_raw": 269266692.0612911,
+    "usable": 269266692.0612911,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-05",
+    "change": "weekend_evening_raw_x1.25",
+    "changed_fields": {
+      "weekend_evening_raw": 27.880087304554802
+    },
+    "base_raw": 267957144.9471217,
+    "modified_raw": 268660222.24649835,
+    "usable": 268660222.24649835,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-06",
+    "change": "wallet_x0.5",
+    "changed_fields": {
+      "annual_wallet_inr": 270312245.445
+    },
+    "base_raw": 197107450.4955111,
+    "modified_raw": 98553725.24775556,
+    "usable": 98553725.24775556,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-06",
+    "change": "wallet_x1.25",
+    "changed_fields": {
+      "annual_wallet_inr": 675780613.6125
+    },
+    "base_raw": 197107450.4955111,
+    "modified_raw": 246384313.11938888,
+    "usable": 246384313.11938888,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-06",
+    "change": "area_x1.25",
+    "changed_fields": {
+      "store_size_sqm": 750.0
+    },
+    "base_raw": 197107450.4955111,
+    "modified_raw": 215286203.1110012,
+    "usable": 215286203.1110012,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-06",
+    "change": "competition_plus5",
+    "changed_fields": {
+      "competitor_count_1500m": 18,
+      "competitor_attraction_index": 6.41735474314018,
+      "nearest_competitor_distance_m": 114.00139154352132
+    },
+    "base_raw": 197107450.4955111,
+    "modified_raw": 170285282.75819513,
+    "usable": 170285282.75819513,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-06",
+    "change": "weekday_morning_raw_x1.25",
+    "changed_fields": {
+      "weekday_morning_raw": 26.434091110231655
+    },
+    "base_raw": 197107450.4955111,
+    "modified_raw": 197740861.88293216,
+    "usable": 197740861.88293216,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-06",
+    "change": "weekday_lunch_raw_x1.25",
+    "changed_fields": {
+      "weekday_lunch_raw": 23.657061837098432
+    },
+    "base_raw": 197107450.4955111,
+    "modified_raw": 199793465.5573633,
+    "usable": 199793465.5573633,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-06",
+    "change": "weekday_evening_raw_x1.25",
+    "changed_fields": {
+      "weekday_evening_raw": 38.92740842512816
+    },
+    "base_raw": 197107450.4955111,
+    "modified_raw": 197107450.4955111,
+    "usable": 197107450.4955111,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-06",
+    "change": "weekday_night_raw_x1.25",
+    "changed_fields": {
+      "weekday_night_raw": 10.813042643292238
+    },
+    "base_raw": 197107450.4955111,
+    "modified_raw": 197980463.56962085,
+    "usable": 197980463.56962085,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-06",
+    "change": "weekend_day_raw_x1.25",
+    "changed_fields": {
+      "weekend_day_raw": 29.580183748228638
+    },
+    "base_raw": 197107450.4955111,
+    "modified_raw": 197200712.20590296,
+    "usable": 197200712.20590296,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-06",
+    "change": "weekend_evening_raw_x1.25",
+    "changed_fields": {
+      "weekend_evening_raw": 30.02023490653142
+    },
+    "base_raw": 197107450.4955111,
+    "modified_raw": 197313767.61908793,
+    "usable": 197313767.61908793,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-07",
+    "change": "wallet_x0.5",
+    "changed_fields": {
+      "annual_wallet_inr": 136230083.665
+    },
+    "base_raw": 93059667.12087192,
+    "modified_raw": 46529833.56043596,
+    "usable": 46529833.56043596,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-07",
+    "change": "wallet_x1.25",
+    "changed_fields": {
+      "annual_wallet_inr": 340575209.16249996
+    },
+    "base_raw": 93059667.12087192,
+    "modified_raw": 116324583.90108989,
+    "usable": 116324583.90108989,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-07",
+    "change": "area_x1.25",
+    "changed_fields": {
+      "store_size_sqm": 437.5
+    },
+    "base_raw": 93059667.12087192,
+    "modified_raw": 104847813.21835588,
+    "usable": 104847813.21835588,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-07",
+    "change": "competition_plus5",
+    "changed_fields": {
+      "competitor_count_1500m": 11,
+      "competitor_attraction_index": 2.9927574750611754,
+      "nearest_competitor_distance_m": 750
+    },
+    "base_raw": 93059667.12087192,
+    "modified_raw": 64885921.789628945,
+    "usable": 64885921.789628945,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-07",
+    "change": "weekday_morning_raw_x1.25",
+    "changed_fields": {
+      "weekday_morning_raw": 25.12719970777056
+    },
+    "base_raw": 93059667.12087192,
+    "modified_raw": 93729500.99674854,
+    "usable": 93729500.99674854,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-07",
+    "change": "weekday_lunch_raw_x1.25",
+    "changed_fields": {
+      "weekday_lunch_raw": 21.726561278639526
+    },
+    "base_raw": 93059667.12087192,
+    "modified_raw": 91963532.92109413,
+    "usable": 91963532.92109413,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-07",
+    "change": "weekday_evening_raw_x1.25",
+    "changed_fields": {
+      "weekday_evening_raw": 34.50285766987652
+    },
+    "base_raw": 93059667.12087192,
+    "modified_raw": 93355063.1613976,
+    "usable": 93355063.1613976,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-07",
+    "change": "weekday_night_raw_x1.25",
+    "changed_fields": {
+      "weekday_night_raw": 10.007263427016193
+    },
+    "base_raw": 93059667.12087192,
+    "modified_raw": 93512045.45229724,
+    "usable": 93512045.45229724,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-07",
+    "change": "weekend_day_raw_x1.25",
+    "changed_fields": {
+      "weekend_day_raw": 26.697926481086803
+    },
+    "base_raw": 93059667.12087192,
+    "modified_raw": 93371026.62138768,
+    "usable": 93371026.62138768,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-07",
+    "change": "weekend_evening_raw_x1.25",
+    "changed_fields": {
+      "weekend_evening_raw": 29.54202575963827
+    },
+    "base_raw": 93059667.12087192,
+    "modified_raw": 93220979.03563271,
+    "usable": 93220979.03563271,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-08",
+    "change": "wallet_x0.5",
+    "changed_fields": {
+      "annual_wallet_inr": 95110359.925
+    },
+    "base_raw": 96069934.62183166,
+    "modified_raw": 48034967.31091583,
+    "usable": 48034967.31091583,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-08",
+    "change": "wallet_x1.25",
+    "changed_fields": {
+      "annual_wallet_inr": 237775899.8125
+    },
+    "base_raw": 96069934.62183166,
+    "modified_raw": 120087418.27728957,
+    "usable": 120087418.27728957,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-08",
+    "change": "area_x1.25",
+    "changed_fields": {
+      "store_size_sqm": 531.25
+    },
+    "base_raw": 96069934.62183166,
+    "modified_raw": 107099644.4189595,
+    "usable": 107099644.4189595,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-08",
+    "change": "competition_plus5",
+    "changed_fields": {
+      "competitor_count_1500m": 6,
+      "competitor_attraction_index": 2.162628370287765,
+      "nearest_competitor_distance_m": 750
+    },
+    "base_raw": 96069934.62183166,
+    "modified_raw": 67948269.52283902,
+    "usable": 67948269.52283902,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-08",
+    "change": "weekday_morning_raw_x1.25",
+    "changed_fields": {
+      "weekday_morning_raw": 26.669695637771646
+    },
+    "base_raw": 96069934.62183166,
+    "modified_raw": 96713839.2643211,
+    "usable": 96713839.2643211,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-08",
+    "change": "weekday_lunch_raw_x1.25",
+    "changed_fields": {
+      "weekday_lunch_raw": 24.276617686794513
+    },
+    "base_raw": 96069934.62183166,
+    "modified_raw": 95924766.05492789,
+    "usable": 95924766.05492789,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-08",
+    "change": "weekday_evening_raw_x1.25",
+    "changed_fields": {
+      "weekday_evening_raw": 44.20479888813756
+    },
+    "base_raw": 96069934.62183166,
+    "modified_raw": 96176725.28753734,
+    "usable": 96176725.28753734,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-08",
+    "change": "weekday_night_raw_x1.25",
+    "changed_fields": {
+      "weekday_night_raw": 12.883403606022481
+    },
+    "base_raw": 96069934.62183166,
+    "modified_raw": 96169918.02856286,
+    "usable": 96169918.02856286,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-08",
+    "change": "weekend_day_raw_x1.25",
+    "changed_fields": {
+      "weekend_day_raw": 35.44963064591397
+    },
+    "base_raw": 96069934.62183166,
+    "modified_raw": 96069934.62183166,
+    "usable": 96069934.62183166,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-08",
+    "change": "weekend_evening_raw_x1.25",
+    "changed_fields": {
+      "weekend_evening_raw": 41.28848543326597
+    },
+    "base_raw": 96069934.62183166,
+    "modified_raw": 96069934.62183166,
+    "usable": 96069934.62183166,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-09",
+    "change": "wallet_x0.5",
+    "changed_fields": {
+      "annual_wallet_inr": 109998503.675
+    },
+    "base_raw": 115178485.29129618,
+    "modified_raw": 57589242.64564809,
+    "usable": 57589242.64564809,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-09",
+    "change": "wallet_x1.25",
+    "changed_fields": {
+      "annual_wallet_inr": 274996259.1875
+    },
+    "base_raw": 115178485.29129618,
+    "modified_raw": 143973106.61412024,
+    "usable": 143973106.61412024,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-09",
+    "change": "area_x1.25",
+    "changed_fields": {
+      "store_size_sqm": 687.5
+    },
+    "base_raw": 115178485.29129618,
+    "modified_raw": 124479679.02642074,
+    "usable": 124479679.02642074,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-09",
+    "change": "competition_plus5",
+    "changed_fields": {
+      "competitor_count_1500m": 9,
+      "competitor_attraction_index": 2.923697631715047,
+      "nearest_competitor_distance_m": 750
+    },
+    "base_raw": 115178485.29129618,
+    "modified_raw": 91159131.03928241,
+    "usable": 91159131.03928241,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-09",
+    "change": "weekday_morning_raw_x1.25",
+    "changed_fields": {
+      "weekday_morning_raw": 44.934250647327225
+    },
+    "base_raw": 115178485.29129618,
+    "modified_raw": 115511746.71467899,
+    "usable": 115511746.71467899,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-09",
+    "change": "weekday_lunch_raw_x1.25",
+    "changed_fields": {
+      "weekday_lunch_raw": 46.43423757794589
+    },
+    "base_raw": 115178485.29129618,
+    "modified_raw": 115374551.90542075,
+    "usable": 115374551.90542075,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-09",
+    "change": "weekday_evening_raw_x1.25",
+    "changed_fields": {
+      "weekday_evening_raw": 81.06222119649172
+    },
+    "base_raw": 115178485.29129618,
+    "modified_raw": 115474571.55287303,
+    "usable": 115474571.55287303,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-09",
+    "change": "weekday_night_raw_x1.25",
+    "changed_fields": {
+      "weekday_night_raw": 21.974803268609598
+    },
+    "base_raw": 115178485.29129618,
+    "modified_raw": 115077528.80619092,
+    "usable": 115077528.80619092,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-09",
+    "change": "weekend_day_raw_x1.25",
+    "changed_fields": {
+      "weekend_day_raw": 63.57626547596223
+    },
+    "base_raw": 115178485.29129618,
+    "modified_raw": 115543323.56835207,
+    "usable": 115543323.56835207,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-09",
+    "change": "weekend_evening_raw_x1.25",
+    "changed_fields": {
+      "weekend_evening_raw": 70.12892204374437
+    },
+    "base_raw": 115178485.29129618,
+    "modified_raw": 115054408.75951102,
+    "usable": 115054408.75951102,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-10",
+    "change": "wallet_x0.5",
+    "changed_fields": {
+      "annual_wallet_inr": 252219504.87
+    },
+    "base_raw": 249386682.63668767,
+    "modified_raw": 124693341.31834383,
+    "usable": 124693341.31834383,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-10",
+    "change": "wallet_x1.25",
+    "changed_fields": {
+      "annual_wallet_inr": 630548762.175
+    },
+    "base_raw": 249386682.63668767,
+    "modified_raw": 311733353.2958596,
+    "usable": 311733353.2958596,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-10",
+    "change": "area_x1.25",
+    "changed_fields": {
+      "store_size_sqm": 812.5
+    },
+    "base_raw": 249386682.63668767,
+    "modified_raw": 267149393.84694892,
+    "usable": 267149393.84694892,
+    "warnings": [
+      "MARGINAL_RANGE:store_size_sqm",
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-10",
+    "change": "competition_plus5",
+    "changed_fields": {
+      "competitor_count_1500m": 11,
+      "competitor_attraction_index": 3.7233267363396063,
+      "nearest_competitor_distance_m": 376.4447939880474
+    },
+    "base_raw": 249386682.63668767,
+    "modified_raw": 193672059.9268929,
+    "usable": 193672059.9268929,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-10",
+    "change": "weekday_morning_raw_x1.25",
+    "changed_fields": {
+      "weekday_morning_raw": 44.92092691238214
+    },
+    "base_raw": 249386682.63668767,
+    "modified_raw": 250152567.03889078,
+    "usable": 250152567.03889078,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-10",
+    "change": "weekday_lunch_raw_x1.25",
+    "changed_fields": {
+      "weekday_lunch_raw": 46.118574051826364
+    },
+    "base_raw": 249386682.63668767,
+    "modified_raw": 249837240.07361373,
+    "usable": 249837240.07361373,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-10",
+    "change": "weekday_evening_raw_x1.25",
+    "changed_fields": {
+      "weekday_evening_raw": 73.73049866368116
+    },
+    "base_raw": 249386682.63668767,
+    "modified_raw": 249588451.5846874,
+    "usable": 249588451.5846874,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-10",
+    "change": "weekday_night_raw_x1.25",
+    "changed_fields": {
+      "weekday_night_raw": 18.405640369643535
+    },
+    "base_raw": 249386682.63668767,
+    "modified_raw": 251422171.6921312,
+    "usable": 251422171.6921312,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-10",
+    "change": "weekend_day_raw_x1.25",
+    "changed_fields": {
+      "weekend_day_raw": 52.813844144599294
+    },
+    "base_raw": 249386682.63668767,
+    "modified_raw": 249684362.97915447,
+    "usable": 249684362.97915447,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  },
+  {
+    "site_id": "site-10",
+    "change": "weekend_evening_raw_x1.25",
+    "changed_fields": {
+      "weekend_evening_raw": 59.31345868739814
+    },
+    "base_raw": 249386682.63668767,
+    "modified_raw": 251152638.45445356,
+    "usable": 251152638.45445356,
+    "warnings": [
+      "SHIFTED_MARKET_DEGRADATION_REVIEW"
+    ]
+  }
+]

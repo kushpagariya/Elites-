@@ -1,0 +1,8 @@
+{
+  "configuration_sha256": "ecd0f9d67c498716571092f0f24446b38051c31af7654ba45d420c4257a6d8f0",
+  "splits_sha256": "13577bb2eb23fe2269d3a2e4acc1bfab21a3fc574e88eb29ba1a2afeeb917190",
+  "selection": "VALIDATION_ONLY",
+  "support_quantile": 0.99,
+  "preprocessing": "train-only; wallet never a capture predictor",
+  "final_test_ood_used_for_tuning": false
+}

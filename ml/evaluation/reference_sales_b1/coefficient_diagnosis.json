@@ -1,0 +1,86 @@
+{
+  "wallet_effective_log_coefficient": -1.0095084863700632,
+  "exact_elasticity_formula": "1 + beta*(1-sigmoid(z))*W/(1+W)",
+  "finite_difference_explanation": "Negative elasticity means wallet alone increases while predicted store sales falls. Scaling is analytically inverted; this is a fitted capture-head coefficient/relationship problem, not arithmetic clipping.",
+  "top_absolute_correlations": [
+    {
+      "a": "weekend_day_raw",
+      "b": "weekend_evening_raw",
+      "correlation": 0.9822634462899896
+    },
+    {
+      "a": "competitor_count_1500m",
+      "b": "competitor_attraction_index",
+      "correlation": 0.9772762303155424
+    },
+    {
+      "a": "weekday_evening_raw",
+      "b": "weekend_day_raw",
+      "correlation": 0.9746017075541042
+    },
+    {
+      "a": "weekday_evening_raw",
+      "b": "weekend_evening_raw",
+      "correlation": 0.9510404696166792
+    },
+    {
+      "a": "weekday_morning_raw",
+      "b": "weekday_lunch_raw",
+      "correlation": 0.9363910154950938
+    },
+    {
+      "a": "weekday_lunch_raw",
+      "b": "weekday_evening_raw",
+      "correlation": 0.922348622985689
+    },
+    {
+      "a": "weekday_evening_raw",
+      "b": "weekday_night_raw",
+      "correlation": 0.9115844947235436
+    },
+    {
+      "a": "weekday_morning_raw",
+      "b": "weekday_evening_raw",
+      "correlation": 0.8931277481069988
+    },
+    {
+      "a": "weekday_lunch_raw",
+      "b": "weekend_day_raw",
+      "correlation": 0.8792017054578749
+    },
+    {
+      "a": "weekday_night_raw",
+      "b": "weekend_day_raw",
+      "correlation": 0.8771022628496964
+    },
+    {
+      "a": "weekday_morning_raw",
+      "b": "weekday_night_raw",
+      "correlation": 0.8487458621523489
+    },
+    {
+      "a": "weekday_lunch_raw",
+      "b": "weekday_night_raw",
+      "correlation": 0.841411235542181
+    },
+    {
+      "a": "weekday_night_raw",
+      "b": "weekend_evening_raw",
+      "correlation": 0.8261698529441913
+    },
+    {
+      "a": "weekday_lunch_raw",
+      "b": "weekend_evening_raw",
+      "correlation": 0.8246979836146626
+    },
+    {
+      "a": "annual_wallet_inr",
+      "b": "population_1500m_est",
+      "correlation": 0.8123215606078059
+    }
+  ],
+  "wallet_population_correlation": 0.8123215606078059,
+  "positive_subspace_condition_number": 7615494.000166242,
+  "training_capacity_binding_fraction": 1.0,
+  "no_retraining": true
+}

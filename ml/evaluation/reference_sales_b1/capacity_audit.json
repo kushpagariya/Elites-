@@ -1,0 +1,22 @@
+{
+  "train": {
+    "rows": 1200,
+    "capped_rows": 1200,
+    "uncapped_rows": 0
+  },
+  "validation": {
+    "rows": 400,
+    "capped_rows": 397,
+    "uncapped_rows": 3
+  },
+  "test": {
+    "rows": 400,
+    "capped_rows": 400,
+    "uncapped_rows": 0
+  },
+  "ood": {
+    "rows": 400,
+    "capped_rows": 400,
+    "uncapped_rows": 0
+  }
+}

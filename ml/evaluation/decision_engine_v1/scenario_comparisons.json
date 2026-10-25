@@ -1,0 +1,1146 @@
+{
+  "rent_plus_20pct": {
+    "method_mode": "model_simulated",
+    "model_artifact_id": "reference-sales-sim-v2-438774e0a585",
+    "site_analyses": [
+      {
+        "site_id": "site-01",
+        "annual_revenue_inr": 95898836.3710107,
+        "lost_existing_contribution_inr": 970541.0921717719,
+        "annual_cashflows_inr": [
+          10191202.909450585,
+          10191202.909450585,
+          10191202.909450585,
+          10191202.909450585,
+          10191202.909450585
+        ],
+        "npv_inr": 26387005.721256636,
+        "roi_fraction": 3.923286429686273,
+        "payback_years": 1.0155817808712413,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 1093001.0153217274,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 95898836.37; standalone target INR 101985994.35",
+          "Year-1 lost existing variable contribution INR 970541.09, deducted once",
+          "Annual rent INR 5796000.00, other OPEX INR 4140000.00, CAPEX INR 10350000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 9786865.02/26387005.72/40897818.13"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-02",
+        "annual_revenue_inr": 64363933.138089456,
+        "lost_existing_contribution_inr": 1379860.164981755,
+        "annual_cashflows_inr": [
+          5868205.125397926,
+          5868205.125397926,
+          5868205.125397926,
+          5868205.125397926,
+          5868205.125397926
+        ],
+        "npv_inr": 13953566.186513424,
+        "roi_fraction": 3.0751424481930045,
+        "payback_years": 1.226950974981769,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 658571.2546175312,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 64363933.14; standalone target INR 73864281.27",
+          "Year-1 lost existing variable contribution INR 1379860.16, deducted once",
+          "Annual rent INR 4032000.00, other OPEX INR 2880000.00, CAPEX INR 7200000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 3286164.56/13953566.19/23167522.05"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-03",
+        "annual_revenue_inr": 116036540.7467256,
+        "lost_existing_contribution_inr": 3636489.8016731287,
+        "annual_cashflows_inr": [
+          11091549.162606504,
+          11091549.162606504,
+          11091549.162606504,
+          11091549.162606504,
+          11091549.162606504
+        ],
+        "npv_inr": 28732552.468503587,
+        "roi_fraction": 3.929577405602891,
+        "payback_years": 1.0142857264635035,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 1189224.1398558086,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 116036540.75; standalone target INR 140228096.57",
+          "Year-1 lost existing variable contribution INR 3636489.80, deducted once",
+          "Annual rent INR 6300000.00, other OPEX INR 4500000.00, CAPEX INR 11250000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 10678716.37/28732552.47/44515379.56"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-04",
+        "annual_revenue_inr": 78797348.39189728,
+        "lost_existing_contribution_inr": 2395374.371539946,
+        "annual_cashflows_inr": [
+          8460042.274677455,
+          8460042.274677455,
+          8460042.274677455,
+          8460042.274677455,
+          8460042.274677455
+        ],
+        "npv_inr": 23746559.062589988,
+        "roi_fraction": 5.26669798124256,
+        "payback_years": 0.797868353471951,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 863960.548671948,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 78797348.39; standalone target INR 94750639.84",
+          "Year-1 lost existing variable contribution INR 2395374.37, deducted once",
+          "Annual rent INR 3780000.00, other OPEX INR 2700000.00, CAPEX INR 6750000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 11612851.89/23746559.06/34517660.83"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-05",
+        "annual_revenue_inr": 224165824.6244493,
+        "lost_existing_contribution_inr": 7554382.46802643,
+        "annual_cashflows_inr": [
+          33986098.94935242,
+          33986098.94935242,
+          33986098.94935242,
+          33986098.94935242,
+          33986098.94935242
+        ],
+        "npv_inr": 114412280.70316815,
+        "roi_fraction": 19.979073425526185,
+        "payback_years": 0.23833273751338677,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 3022923.3433848275,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 224165824.62; standalone target INR 267957144.95",
+          "Year-1 lost existing variable contribution INR 7554382.47, deducted once",
+          "Annual rent INR 4536000.00, other OPEX INR 3240000.00, CAPEX INR 8100000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 82668550.13/114412280.70/144520884.79"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-06",
+        "annual_revenue_inr": 160266490.14606643,
+        "lost_existing_contribution_inr": 5905987.267078512,
+        "annual_cashflows_inr": [
+          18984640.5650561,
+          18984640.5650561,
+          18984640.5650561,
+          18984640.5650561,
+          18984640.5650561
+        ],
+        "npv_inr": 57635380.51898785,
+        "roi_fraction": 7.789185446785232,
+        "payback_years": 0.5688809310342655,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 1836384.6216733977,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 160266490.15; standalone target INR 197107450.50",
+          "Year-1 lost existing variable contribution INR 5905987.27, deducted once",
+          "Annual rent INR 6048000.00, other OPEX INR 4320000.00, CAPEX INR 10800000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 34293271.83/57635380.52/78797320.56"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-07",
+        "annual_revenue_inr": 67593510.778136,
+        "lost_existing_contribution_inr": 3516209.7320353403,
+        "annual_cashflows_inr": [
+          5306362.6391545795,
+          5306362.6391545795,
+          5306362.6391545795,
+          5306362.6391545795,
+          5306362.6391545795
+        ],
+        "npv_inr": 12828249.76263706,
+        "roi_fraction": 3.211398919963952,
+        "payback_years": 1.1872539493463132,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 590556.7773261643,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 67593510.78; standalone target INR 93059667.12",
+          "Year-1 lost existing variable contribution INR 3516209.73, deducted once",
+          "Annual rent INR 3528000.00, other OPEX INR 2520000.00, CAPEX INR 6300000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 3370497.47/12828249.76/21014237.01"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-08",
+        "annual_revenue_inr": 71546104.22755599,
+        "lost_existing_contribution_inr": 3343286.2031850484,
+        "annual_cashflows_inr": [
+          5052856.72687727,
+          5052856.72687727,
+          5052856.72687727,
+          5052856.72687727,
+          5052856.72687727
+        ],
+        "npv_inr": 10564417.682906054,
+        "roi_fraction": 2.302520736521092,
+        "payback_years": 1.5139950355821383,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 601222.6897940205,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 71546104.23; standalone target INR 96069934.62",
+          "Year-1 lost existing variable contribution INR 3343286.20, deducted once",
+          "Annual rent INR 4284000.00, other OPEX INR 3060000.00, CAPEX INR 7650000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 82552.74/10564417.68/19501996.51"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-09",
+        "annual_revenue_inr": 92496496.10227302,
+        "lost_existing_contribution_inr": 3137319.395439185,
+        "annual_cashflows_inr": [
+          7707909.74706088,
+          7707909.74706088,
+          7707909.74706088,
+          7707909.74706088,
+          7707909.74706088
+        ],
+        "npv_inr": 17885289.62602816,
+        "roi_fraction": 2.892883710636808,
+        "payback_years": 1.2843949040496991,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 875462.783403708,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 92496496.10; standalone target INR 115178485.29",
+          "Year-1 lost existing variable contribution INR 3137319.40, deducted once",
+          "Annual rent INR 5544000.00, other OPEX INR 3960000.00, CAPEX INR 9900000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 3477785.17/17885289.63/30294306.16"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-10",
+        "annual_revenue_inr": 227679913.59426615,
+        "lost_existing_contribution_inr": 3831456.9042717484,
+        "annual_cashflows_inr": [
+          35026124.086466804,
+          35026124.086466804,
+          35026124.086466804,
+          35026124.086466804,
+          35026124.086466804
+        ],
+        "npv_inr": 114561338.56727868,
+        "roi_fraction": 13.968429096780683,
+        "payback_years": 0.3340363886999584,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 3194369.1852297112,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 227679913.59; standalone target INR 249386682.64",
+          "Year-1 lost existing variable contribution INR 3831456.90, deducted once",
+          "Annual rent INR 6552000.00, other OPEX INR 4680000.00, CAPEX INR 11700000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 78849452.23/114561338.57/147911375.54"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      }
+    ],
+    "rankings": [
+      "site-10",
+      "site-05",
+      "site-06",
+      "site-03",
+      "site-01",
+      "site-04",
+      "site-09",
+      "site-02",
+      "site-07",
+      "site-08"
+    ]
+  },
+  "demand_minus_20pct": {
+    "method_mode": "model_simulated",
+    "model_artifact_id": "reference-sales-sim-v2-438774e0a585",
+    "site_analyses": [
+      {
+        "site_id": "site-01",
+        "annual_revenue_inr": 76719069.09680855,
+        "lost_existing_contribution_inr": 776432.8737374577,
+        "annual_cashflows_inr": [
+          7131762.327560425,
+          7131762.327560425,
+          7131762.327560425,
+          7131762.327560425,
+          7131762.327560425
+        ],
+        "npv_inr": 15358407.119170435,
+        "roi_fraction": 2.445295810415664,
+        "payback_years": 1.4512541956148508,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 757547.6334975474,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 76719069.10; standalone target INR 81588795.48",
+          "Year-1 lost existing variable contribution INR 776432.87, deducted once",
+          "Annual rent INR 4830000.00, other OPEX INR 4140000.00, CAPEX INR 10350000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 2008650.28/15358407.12/26967057.05"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-02",
+        "annual_revenue_inr": 51491146.51047156,
+        "lost_existing_contribution_inr": 1103888.1319853996,
+        "annual_cashflows_inr": [
+          3984164.1003183443,
+          3984164.1003183443,
+          3984164.1003183443,
+          3984164.1003183443,
+          3984164.1003183443
+        ],
+        "npv_inr": 7162019.935064862,
+        "roi_fraction": 1.7667806252210723,
+        "payback_years": 1.8071544792607068,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION",
+            "DOWNSIDE_NPV"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION",
+            "Downside incremental NPV INR -1420349.56"
+          ],
+          "max_viable_monthly_rent_inr": 445567.83586189937,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 51491146.51; standalone target INR 59091425.01",
+          "Year-1 lost existing variable contribution INR 1103888.13, deducted once",
+          "Annual rent INR 3360000.00, other OPEX INR 2880000.00, CAPEX INR 7200000.00",
+          "Nonprobabilistic downside/base/upside NPV INR -1420349.56/7162019.94/14533184.62"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-03",
+        "annual_revenue_inr": 92829232.5973805,
+        "lost_existing_contribution_inr": 2909191.8413385283,
+        "annual_cashflows_inr": [
+          7763239.330085183,
+          7763239.330085183,
+          7763239.330085183,
+          7763239.330085183,
+          7763239.330085183
+        ],
+        "npv_inr": 16734740.39019984,
+        "roi_fraction": 2.45032859114897,
+        "payback_years": 1.4491373409553971,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 824364.9871456985,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 92829232.60; standalone target INR 112182477.25",
+          "Year-1 lost existing variable contribution INR 2909191.84, deducted once",
+          "Annual rent INR 5250000.00, other OPEX INR 4500000.00, CAPEX INR 11250000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 2215971.21/16734740.39/29361002.06"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-04",
+        "annual_revenue_inr": 63037878.70087048,
+        "lost_existing_contribution_inr": 1916299.4968491842,
+        "annual_cashflows_inr": [
+          6102033.817342321,
+          6102033.817342321,
+          6102033.817342321,
+          6102033.817342321,
+          6102033.817342321
+        ],
+        "npv_inr": 15246466.290660042,
+        "roi_fraction": 3.520025049883201,
+        "payback_years": 1.106188559757916,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 614959.8438940201,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 63037878.70; standalone target INR 75800511.87",
+          "Year-1 lost existing variable contribution INR 1916299.50, deducted once",
+          "Annual rent INR 3150000.00, other OPEX INR 2700000.00, CAPEX INR 6750000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 5494080.37/15246466.29/23863347.71"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-05",
+        "annual_revenue_inr": 179332659.69955948,
+        "lost_existing_contribution_inr": 6043505.974421138,
+        "annual_cashflows_inr": [
+          26389679.15948195,
+          26389679.15948195,
+          26389679.15948195,
+          26389679.15948195,
+          26389679.15948195
+        ],
+        "npv_inr": 87028887.42162044,
+        "roi_fraction": 15.289925407087622,
+        "payback_years": 0.306938176513966,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 2326888.3608956216,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 179332659.70; standalone target INR 214365715.96",
+          "Year-1 lost existing variable contribution INR 6043505.97, deducted once",
+          "Annual rent INR 3780000.00, other OPEX INR 3240000.00, CAPEX INR 8100000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 61579398.74/87028887.42/111115770.69"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-06",
+        "annual_revenue_inr": 128213192.11685322,
+        "lost_existing_contribution_inr": 4724789.813662819,
+        "annual_cashflows_inr": [
+          14122112.45204489,
+          14122112.45204489,
+          14122112.45204489,
+          14122112.45204489,
+          14122112.45204489
+        ],
+        "npv_inr": 40107054.89397147,
+        "roi_fraction": 5.5380150240948565,
+        "payback_years": 0.7647581080149347,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 1347173.94559013,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 128213192.12; standalone target INR 157685960.40",
+          "Year-1 lost existing variable contribution INR 4724789.81, deducted once",
+          "Annual rent INR 5040000.00, other OPEX INR 4320000.00, CAPEX INR 10800000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 21360695.66/40107054.89/57036606.92"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-07",
+        "annual_revenue_inr": 54074808.62250884,
+        "lost_existing_contribution_inr": 2812967.7856283067,
+        "annual_cashflows_inr": [
+          3623490.111323639,
+          3623490.111323639,
+          3623490.111323639,
+          3623490.111323639,
+          3623490.111323639
+        ],
+        "npv_inr": 6761870.922731902,
+        "roi_fraction": 1.8757858026378087,
+        "payback_years": 1.7386552209186652,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION",
+            "DOWNSIDE_NPV"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION",
+            "Downside incremental NPV INR -846723.08"
+          ],
+          "max_viable_monthly_rent_inr": 401317.4000069192,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 54074808.62; standalone target INR 74447733.70",
+          "Year-1 lost existing variable contribution INR 2812967.79, deducted once",
+          "Annual rent INR 2940000.00, other OPEX INR 2520000.00, CAPEX INR 6300000.00",
+          "Nonprobabilistic downside/base/upside NPV INR -846723.08/6761870.92/13310660.72"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-08",
+        "annual_revenue_inr": 57236883.38204481,
+        "lost_existing_contribution_inr": 2674628.9625480715,
+        "annual_cashflows_inr": [
+          3287485.3815017864,
+          3287485.3815017864,
+          3287485.3815017864,
+          3287485.3815017864,
+          3287485.3815017864
+        ],
+        "npv_inr": 4200649.068794727,
+        "roi_fraction": 1.1486832558835205,
+        "payback_years": 2.3270065451987905,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION",
+            "DOWNSIDE_NPV"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION",
+            "Downside incremental NPV INR -4236319.09"
+          ],
+          "max_viable_monthly_rent_inr": 394608.41101273015,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 57236883.38; standalone target INR 76855947.70",
+          "Year-1 lost existing variable contribution INR 2674628.96, deducted once",
+          "Annual rent INR 3570000.00, other OPEX INR 3060000.00, CAPEX INR 7650000.00",
+          "Nonprobabilistic downside/base/upside NPV INR -4236319.09/4200649.07/11350712.13"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-09",
+        "annual_revenue_inr": 73997196.8818185,
+        "lost_existing_contribution_inr": 2509855.5163513585,
+        "annual_cashflows_inr": [
+          5189527.797648711,
+          5189527.797648711,
+          5189527.797648711,
+          5189527.797648711,
+          5189527.797648711
+        ],
+        "npv_inr": 8807086.306371953,
+        "roi_fraction": 1.6209736351761168,
+        "payback_years": 1.9076880182596816,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION",
+            "DOWNSIDE_NPV"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION",
+            "Downside incremental NPV INR -2785533.52"
+          ],
+          "max_viable_monthly_rent_inr": 588597.620951694,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 73997196.88; standalone target INR 92142788.23",
+          "Year-1 lost existing variable contribution INR 2509855.52, deducted once",
+          "Annual rent INR 4620000.00, other OPEX INR 3960000.00, CAPEX INR 9900000.00",
+          "Nonprobabilistic downside/base/upside NPV INR -2785533.52/8807086.31/18734299.53"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      },
+      {
+        "site_id": "site-10",
+        "annual_revenue_inr": 182143930.87541303,
+        "lost_existing_contribution_inr": 3065165.52341742,
+        "annual_cashflows_inr": [
+          26866499.269173443,
+          26866499.269173443,
+          26866499.269173443,
+          26866499.269173443,
+          26866499.269173443
+        ],
+        "npv_inr": 85147717.20583588,
+        "roi_fraction": 10.481409944091215,
+        "payback_years": 0.4354865843435193,
+        "failfast": {
+          "status": "AT_RISK",
+          "failed_rule_ids": [
+            "EVIDENCE:100_CELL_CENTROID_APPROXIMATION",
+            "EVIDENCE:ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "EVIDENCE:HCES_STATE_URBAN_SPENDING_2023_24",
+            "EVIDENCE:HISTORICAL_MODELLED_POPULATION_2020",
+            "EVIDENCE:NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "EVIDENCE:OSM_PARTIAL_COVERAGE",
+            "EVIDENCE:SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "EVIDENCE:SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "reasons": [
+            "100_CELL_CENTROID_APPROXIMATION",
+            "ASSUMED_EQUAL_COMPETITOR_ATTRACTION",
+            "HCES_STATE_URBAN_SPENDING_2023_24",
+            "HISTORICAL_MODELLED_POPULATION_2020",
+            "NOMINAL_WALLET_2024_VS_SYNTHETIC_COSTS_2026",
+            "OSM_PARTIAL_COVERAGE",
+            "SHIFTED_MARKET_DEGRADATION_REVIEW",
+            "SYNTHETIC_MODEL_NO_REAL_OUTCOME_VALIDATION"
+          ],
+          "max_viable_monthly_rent_inr": 2423400.4504542644,
+          "required_sales_multiplier": null,
+          "rescue_status": "NOT_REQUESTED"
+        },
+        "drivers": [
+          "Year-1 allocated sales INR 182143930.88; standalone target INR 199509346.11",
+          "Year-1 lost existing variable contribution INR 3065165.52, deducted once",
+          "Annual rent INR 5460000.00, other OPEX INR 4680000.00, CAPEX INR 11700000.00",
+          "Nonprobabilistic downside/base/upside NPV INR 56499479.82/85147717.21/111827746.79"
+        ],
+        "source_ids": [
+          "approved-weights",
+          "assumptions",
+          "hces-2023-24",
+          "osm-pois",
+          "package-config",
+          "worldpop-2020"
+        ]
+      }
+    ],
+    "rankings": [
+      "site-05",
+      "site-10",
+      "site-06",
+      "site-03",
+      "site-01",
+      "site-04",
+      "site-09",
+      "site-02",
+      "site-07",
+      "site-08"
+    ]
+  }
+}
